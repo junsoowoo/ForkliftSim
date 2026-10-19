@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "source": "Engineering assumptions for a stationary lift bench; not manufacturer-validated",
+  "carriage_mass_kg": 100.0,
+  "pallet_mass_kg": 25.0,
+  "payload_mass_kg": 250.0,
+  "max_lift_force_n": 6000.0,
+  "max_lift_speed_mps": 0.25,
+  "max_lift_acceleration_mps2": 0.5,
+  "lift_target_m": 0.65,
+  "lift_travel_m": 1.0,
+  "guide_coulomb_friction_n": 80.0,
+  "guide_viscous_damping_ns_per_m": 150.0,
+  "contact_friction": 0.6,
+  "velocity_kp_ns_per_m": 1000.0,
+  "velocity_ki_n_per_m": 1200.0,
+  "sensor_rate_hz": 20.0,
+  "sensor_resolution_m": 0.001,
+  "sensor_delay_s": 0.05,
+  "sensor_timeout_s": 0.3,
+  "planned_phase2_not_used": {
+    "wheel_radius_m": 0.2,
+    "wheelbase_m": 1.5,
+    "track_width_m": 1.0,
+    "max_wheel_torque_nm": 300.0,
+    "max_brake_torque_nm": 450.0,
+    "chassis_mass_kg": 2200.0
+  }
+}
