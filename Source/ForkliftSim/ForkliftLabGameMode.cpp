@@ -1,5 +1,9 @@
 #include "ForkliftLabGameMode.h"
 #include "LiftBench.h"
+#include "WheelLab.h"
+#include "StabilityLab.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 #include "Camera/CameraActor.h"
 #include "Camera/CameraComponent.h"
 #include "Components/DirectionalLightComponent.h"
@@ -11,6 +15,7 @@
 #include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
+#include "DrawDebugHelpers.h"
 #include "InputCoreTypes.h"
 #include "Materials/MaterialInstanceDynamic.h"
 
@@ -28,6 +33,16 @@ AForkliftLabGameMode::AForkliftLabGameMode()
     PlayerControllerClass = AForkliftLabController::StaticClass();
     HUDClass = AForkliftLabHUD::StaticClass();
     DefaultPawnClass = nullptr;
+    if (FParse::Param(FCommandLine::Get(), TEXT("DriveLab")))
+    {
+        PlayerControllerClass = AWheelLabController::StaticClass();
+        HUDClass = AWheelLabHUD::StaticClass();
+    }
+    if (FParse::Param(FCommandLine::Get(), TEXT("StabilityLab")))
+    {
+        PlayerControllerClass = AStabilityController::StaticClass();
+        HUDClass = AStabilityHUD::StaticClass();
+    }
 }
 
 void AForkliftLabGameMode::BeginPlay()
@@ -35,8 +50,22 @@ void AForkliftLabGameMode::BeginPlay()
     Super::BeginPlay();
     auto* Floor = GetWorld()->SpawnActor<AStaticMeshActor>(FVector(0, 0, -10), FRotator::ZeroRotator);
     Floor->GetStaticMeshComponent()->SetStaticMesh(LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/BasicShapes/Cube.Cube")));
-    Floor->GetStaticMeshComponent()->SetWorldScale3D(FVector(12, 12, 0.2));
+    const bool DriveLab = FParse::Param(FCommandLine::Get(), TEXT("DriveLab"));
+    const bool StabilityLab = FParse::Param(FCommandLine::Get(), TEXT("StabilityLab"));
+    Floor->Tags.Add(TEXT("StabilityRoad"));
+    Floor->GetStaticMeshComponent()->SetWorldScale3D((DriveLab || StabilityLab) ? FVector(200, 200, .2) : FVector(12, 12, .2));
     Floor->GetStaticMeshComponent()->SetCollisionProfileName(TEXT("BlockAll"));
+    if (StabilityLab)
+    {
+        // Non-colliding 2 m reference grid makes actual travel and sideways motion visible.
+        for(int I=-25;I<=25;++I)
+        {
+            const float P=I*200.f;
+            const FColor Color=I==0?FColor(85,130,145):FColor(45,65,85);
+            DrawDebugLine(GetWorld(),FVector(P,-5000,1),FVector(P,5000,1),Color,true,-1,0,1);
+            DrawDebugLine(GetWorld(),FVector(-5000,P,1),FVector(5000,P,1),Color,true,-1,0,1);
+        }
+    }
     if (auto* Material = LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Materials/M_Lab.M_Lab")))
     {
         auto* Instance = UMaterialInstanceDynamic::Create(Material, Floor);
@@ -50,7 +79,12 @@ void AForkliftLabGameMode::BeginPlay()
     auto* Fill = GetWorld()->SpawnActor<ADirectionalLight>(FVector(0, 0, 300), FRotator(-30, 145, 0));
     Fill->GetLightComponent()->SetMobility(EComponentMobility::Movable);
     Fill->GetLightComponent()->SetIntensity(1.5f);
-    GetWorld()->SpawnActor<ALiftBench>();
+    // Low-memory rendering has no indirect illumination. A shadowless fill
+    // keeps the under-deck wheels visible while the key light retains shadows.
+    if (StabilityLab) Fill->GetLightComponent()->SetCastShadows(false);
+    if (StabilityLab) GetWorld()->SpawnActor<AStabilityLab>();
+    else if (DriveLab) GetWorld()->SpawnActor<AWheelLab>();
+    else GetWorld()->SpawnActor<ALiftBench>();
 }
 
 void AForkliftLabController::BeginPlay()

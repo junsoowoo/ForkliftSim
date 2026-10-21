@@ -4,7 +4,9 @@ $projectRoot = Split-Path -Parent $PSScriptRoot
 # MSVC response-file paths can fail under a non-ASCII parent directory.
 # Use an ASCII junction to the same files; never copy or relocate the user's project.
 $pathBytes = [System.Text.Encoding]::UTF8.GetBytes($projectRoot)
-$pathHash = [Convert]::ToHexString([System.Security.Cryptography.SHA256]::HashData($pathBytes)).Substring(0, 12)
+$sha = [System.Security.Cryptography.SHA256]::Create()
+try { $pathHash = [BitConverter]::ToString($sha.ComputeHash($pathBytes)).Replace('-', '').Substring(0, 12) }
+finally { $sha.Dispose() }
 $buildRoot = Join-Path $env:TEMP "ForkliftSim-$pathHash"
 if (Test-Path -LiteralPath $buildRoot) {
     $junction = Get-Item -LiteralPath $buildRoot

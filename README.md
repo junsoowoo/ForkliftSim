@@ -3,9 +3,38 @@
 Unreal Engine 5.6.1 기반 **물리·센서·제어를 검증하는 무인 지게차 프로젝트**입니다.
 최종 목표는 센서로 팔레트를 찾아 정렬하고, 들어 올려 운반·하역하는 지게차 한 대입니다.
 
-현재 버전 `0.1.0`은 첫 단계인 **정지식 포크 승강 시험장**입니다. 주행, 팔레트 인식,
-자동 삽입·운반은 아직 구현되지 않았습니다. SPACE로 실행하는 승강 사이클은 장비 시험 자동화이며
-완성된 자율 작업 시스템이 아닙니다.
+현재 버전 `0.4.0`은 **4륜 독립 조향·구동 무인 지게차**입니다.
+전후·좌우 이동, 제자리 회전과 이동 중 회전을 바퀴별 각도·속도 제어로 수행합니다.
+네 바퀴 각각의 구동 토크를 450 Nm로 제한합니다. 차체 아래 조향 공간을 확보하고 차체–타이어 충돌을 활성화했습니다.
+차체, 바퀴 4개, 포크가 각각 독립 액터이며 Chaos 강체와 관절로 연결됩니다.
+4륜 독립 조향·구동, 타이어/노면 마찰 독립 조절, 실제 기울어짐·바퀴 들림,
+수동 포크 승강과 물리 상태 기록을 구현했습니다. 질량·토크·승강력·조향 속도는 설정 파일에서 변경합니다.
+이전 정지식 승강 시험장의 센서·PI 제어기는 아직 주행 차체에 이식하지 않았습니다.
+팔레트 인식, 자동 삽입·운반은 구현하지 않았습니다. 테스트 입력은 자율주행 기능이 아닙니다.
+
+**현재 0.4:** [구조·조작법·설정·시험](Docs/SwerveDrive.md), [검증 결과](Docs/SwerveValidation.md).
+이전 0.3 기록: [물리 모델](Docs/StabilityPhysics.md), [조향 정지 수정 검증](Docs/DriveFixValidation.md).
+`Start-StabilityLab.bat`를 더블클릭합니다. W/S 전후, A/D 회전, Z/C 좌우, Space 제동, V 시점 전환입니다.
+1/2는 타이어 마찰, 3/4는 노면 마찰, Q/E는 포크 하강/상승입니다.
+윗줄 숫자와 숫자패드를 모두 지원하며, 변경한 값과 실제 접촉 마찰을 화면에 표시합니다.
+F는 노면 마찰 0.8 / 0.08 비교 전환입니다. 마찰은 접지 한계이며 일정한 주행 저항값이 아닙니다.
+G는 높은 무게중심·빠른 조향의 시험 설정으로 전환합니다. 실제 지게차의 안전 한계를 보증하는 모델은 아닙니다.
+
+`Start-RolloverDemo.bat`는 이전 0.3 뒷바퀴 조향 장비로 2초 정지 후 8 m/s 초기 속도·고중심·고마찰 조건에서 급조향을 재생합니다.
+총 12초 시험 후 자동으로 종료됩니다. 자동화 기능이 아닌 재현용 시험 입력입니다.
+
+![0.4 독립 조향·구동 지게차의 횡이동 화면](Docs/SwerveDrive.png)
+
+V를 누르면 데크 외형만 숨겨 네 바퀴의 실제 조향을 확인할 수 있습니다. 물리 충돌과 질량은 유지됩니다.
+
+![0.4 제자리 회전 상부 검사 화면](Docs/SwerveTopView.png)
+
+기존 `Start-DriveLab.bat`는 0.2 평면 바퀴 모델을 비교용으로 실행합니다.
+[평면 모델 설명](Docs/WheelPhysics.md), [평면 검증 기록](Docs/WheelValidation.md).
+
+![수동 바퀴 주행 시험장 실제 실행 화면](Docs/WheelLab.png)
+
+기존 승강 시험장:
 
 ![포크 승강 시험장 실제 실행 화면](Docs/LiftLab.png)
 
@@ -13,14 +42,23 @@ Unreal Engine 5.6.1 기반 **물리·센서·제어를 검증하는 무인 지�
 
 ## 실행
 
-필요 환경: Unreal Engine 5.6.1, Visual Studio 2022 C++ 도구, Windows SDK, PowerShell 7.
+실행 환경: Unreal Engine 5.6.1과 빌드된 프로젝트. 실행 파일은 Windows 기본 PowerShell을 사용하며,
+PowerShell 7 설치나 `pwsh` PATH 설정이 필요하지 않습니다.
+소스 빌드에는 추가로 Visual Studio 2022 C++ 도구와 Windows SDK가 필요합니다.
+빌드·시험 스크립트도 Windows 기본 PowerShell 5.1과 호환됩니다.
 
 현재 PC에서는 빌드가 되어 있으므로 `Start-Lab.bat`를 더블클릭하면 시험장이 열립니다.
 GitHub에서 새로 내려받은 경우에는 아래 Build를 먼저 실행합니다.
 
 ```powershell
-pwsh -File .\Scripts\Build.ps1
-pwsh -File .\Scripts\Run.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Scripts\Build.ps1
+.\Start-Lab.bat
+# 바퀴 시험장:
+.\Start-DriveLab.bat
+# 새 3D 접촉·전복 시험장:
+.\Start-StabilityLab.bat
+# 에디터에서 새 시험장 열기 (열린 뒤 Play):
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Scripts\Run.ps1 -Editor -Stability
 ```
 
 `ForkliftSim.uproject`를 Unreal Editor로 열고 Play를 눌러도 됩니다. 시작 맵은 엔진 내장
@@ -31,7 +69,7 @@ pwsh -File .\Scripts\Run.ps1
 사용자의 TEMP에 영문 디렉터리 junction을 만듭니다. 원본 프로젝트는 이동·복제되지 않습니다.
 생성된 Binaries, Intermediate, Saved, 빌드 캐시는 Git에 올리지 않습니다.
 
-## 현재 구현
+## 승강 시험장 구현 (기존 0.1)
 
 - 고정된 마스트와 실제 질량을 가진 승강 캐리지·포크, 1축 물리 가이드
 - 포크와 별개로 시뮬레이션되는 팔레트·화물 강체와 삽입구가 있는 충돌 형상
@@ -65,7 +103,7 @@ pwsh -File .\Scripts\Run.ps1
 ## 시험과 기록
 
 ```powershell
-pwsh -File .\Scripts\Test.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Scripts\Test.ps1
 # 또는 -Mode Model / -Mode Physics
 ```
 
@@ -84,7 +122,7 @@ pwsh -File .\Scripts\Test.ps1
 ## 모델의 범위
 
 수치는 학습용 설계 가정이며 특정 제조사 장비의 검증된 파라미터가 아닙니다.
-차체는 고정되어 있고 유압은 직접 수직 힘을 내는 액추에이터로 단순화했습니다.
+승강 시험장에서는 차체가 고정되어 있고 유압은 직접 수직 힘을 내는 액추에이터로 단순화했습니다.
 마스트 롤러·체인·유압 회로·프레임 변형·전복 안정성은 아직 재현하지 않습니다.
 팔레트와 화물은 하나의 용접 강체로 모델링하며, 포크에는 용접하지 않습니다.
 캐리지 조립체 질량을 캐리지 60%·포크 각 20%로, 팔레트 질량을 상판 40%·세 받침 각 15%·
@@ -96,10 +134,9 @@ GPU 메모리 4 GB 노트북에서 작은 장면을 개발하도록 DX11, Lumen/
 
 ## 다음 단계
 
-1. 캐리지·팔레트의 질량 분포와 기울임 시험, 하중 감지 모델 개선
-2. 바퀴 토크·제동·조향·접지 마찰을 포함한 한 대의 주행 시험
-3. 전방 거리 센서와 포크 근처 거리 배열, 팔레트 면·삽입구 추정
-4. 자동 정렬·삽입·인양·하역 상태기계와 실패 복구
-5. 알려진 짧은 경로의 운반과 장애물 정지, 조건별 반복 시험
+1. 바퀴 물리 시험의 조건 확장과 모델 한계 검토
+2. 승강·주행의 통합, 적재 중 주행과 동적 하중·기울임·접촉 검증
+3. 물리 범위 확인 후 거리 센서와 팔레트 면·삽입구 추정
+4. 이후 자동 정렬·삽입·인양·하역, 짧은 경로 운반과 실패 복구
 
 상세 설계: `Docs/Design.md`. 물리와 센서의 측정값·오차를 먼저 검증한 뒤 자율 작업을 연결합니다.

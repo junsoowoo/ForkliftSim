@@ -17,13 +17,5 @@
   "sensor_rate_hz": 20.0,
   "sensor_resolution_m": 0.001,
   "sensor_delay_s": 0.05,
-  "sensor_timeout_s": 0.3,
-  "planned_phase2_not_used": {
-    "wheel_radius_m": 0.2,
-    "wheelbase_m": 1.5,
-    "track_width_m": 1.0,
-    "max_wheel_torque_nm": 300.0,
-    "max_brake_torque_nm": 450.0,
-    "chassis_mass_kg": 2200.0
-  }
+  "sensor_timeout_s": 0.3
 }
