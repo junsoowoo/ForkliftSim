@@ -1,0 +1,290 @@
+{
+  "schema": 1,
+  "created_at": "2026-10-26T20:11:48.885789+00:00",
+  "scope": "Batch 3+4 numerical corrections, partial energy observation and real-data calibration workflow; incomplete dynamic/material qualification.",
+  "complete_qualification": false,
+  "full_closure": false,
+  "final_dll": {
+    "path": "Binaries/Win64/UnrealEditor-ForkliftSim.dll",
+    "sha256": "dcddc78dbe0297a495073b01df00260a667ee24fc4919919e0c99c53f8c36605"
+  },
+  "checks": {
+    "native_build": true,
+    "unit_pass": 28,
+    "unit_fail": 0,
+    "fixed_hub_960_four_conditions": true,
+    "fixed_hub_resolution_comparison": true,
+    "default_material_regressions": true,
+    "final_default_lift": true,
+    "actual_web_frames": 392,
+    "actual_web_observer": true,
+    "short_moving_partial_energy_bound": true,
+    "full_loaded_step_energy_after_observer_change": false
+  },
+  "unresolved": {
+    "strict_constitutive_960_torque_relative_error": 0.0217501,
+    "loaded_halfstep_peak_compression_mm": 25.476,
+    "loaded_halfstep_limit_mm": 24.5,
+    "full_energy_closure": false,
+    "actual_wheel_material_calibration": "awaiting_wheel_measurements"
+  },
+  "observer_revision": {
+    "source_changes_since_loaded_halfstep": [
+      "ContactLoadSampler.cpp"
+    ],
+    "physics_result_reused": "Physical model unchanged; only loss observation changed after the loaded halfstep. Historical energy numbers are not current observer results.",
+    "short_moving_scope": "7 simulated seconds, unloaded straight driving; capture auto-exit, not a complete scenario behaviour test.",
+    "historical_report": "NumericalCalibrationValidation-20261027.json predates axis/SI corrections; not current qualification."
+  },
+  "energy": {
+    "lift": {
+      "schema": 1,
+      "full_closure": false,
+      "pass_bound_and_observer": true,
+      "reports": [
+        {
+          "csv": "Saved\\Telemetry\\Stability-swerve_components_lift-20261027-050555-E7925047.csv",
+          "sha256": "311e4b918492f3a4fcfb519a74ae6c596132aab84b318831aba403153988aaf3",
+          "samples": 620,
+          "observed_s": 30.95,
+          "full_closure": false,
+          "scope": "Observed work plus constitutive loss estimates; contact, brake, bearing, structure/body losses and numerical error remain in signed residual.",
+          "algebra_error_j": 1.0000423600331487e-08,
+          "positive_unresolved_j": 19.02221525,
+          "positive_bound_j": 182.51025263300002,
+          "one_sided_bound_pass": true,
+          "observer_pass": true,
+          "late_window_residual_change_j": -0.05957592000000034,
+          "final": {
+            "energy_stored_delta_j": 2547.05726742,
+            "energy_drive_work_j": 0.0,
+            "energy_steering_joint_work_j": -0.08877391,
+            "energy_rolling_work_j": -0.01107071,
+            "energy_hydraulic_dc_j": 3250.29336227,
+            "energy_hydraulic_heat_j": 718.44364137,
+            "energy_tyre_damping_j": 3.49931702,
+            "energy_known_input_j": 3250.20458837,
+            "energy_known_loss_j": 721.95402909,
+            "energy_unresolved_j": 18.80670814,
+            "energy_positive_peak_j": 19.02221525,
+            "time_s": 31.9667
+          }
+        }
+      ]
+    },
+    "short_moving": {
+      "schema": 1,
+      "full_closure": false,
+      "pass_bound_and_observer": true,
+      "reports": [
+        {
+          "csv": "Saved\\Telemetry\\Stability-swerve_straight-20261027-050541-D1FC10E8.csv",
+          "sha256": "fdfbc8a0e34acba1327155f4c119241874ed6ce102487819aaf44570b6da88af",
+          "samples": 120,
+          "observed_s": 5.95,
+          "full_closure": false,
+          "scope": "Observed work plus constitutive loss estimates; contact, brake, bearing, structure/body losses and numerical error remain in signed residual.",
+          "algebra_error_j": 1.0001258488046005e-08,
+          "positive_unresolved_j": 615.33909875,
+          "positive_bound_j": 770.6828567010001,
+          "one_sided_bound_pass": true,
+          "observer_pass": true,
+          "late_window_residual_change_j": null,
+          "final": {
+            "energy_stored_delta_j": 8143.97195552,
+            "energy_drive_work_j": 15013.99407809,
+            "energy_steering_joint_work_j": -0.33694408,
+            "energy_rolling_work_j": -1616.98184436,
+            "energy_hydraulic_dc_j": 0.0,
+            "energy_hydraulic_heat_j": 0.73643117,
+            "energy_tyre_damping_j": 4014.10820517,
+            "energy_known_input_j": 15013.65713402,
+            "energy_known_loss_j": 5631.8264807,
+            "energy_unresolved_j": -1237.85869779,
+            "energy_positive_peak_j": 615.33909875,
+            "time_s": 6.9667
+          }
+        }
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "path": "Saved/Validation/Calibration34-LossFrameBuild.log",
+      "sha256": "655ea11874854be2b7801295ad9cda8c23111eb4613e9cb87ef6251d4a5953da"
+    },
+    {
+      "path": "Saved/Validation/Calibration34-LossFrameUnits.log",
+      "sha256": "c268a36bb63fc523ec24ac864e7185ee4823966409682178cfceb9232dad3e5c"
+    },
+    {
+      "path": "Saved/Validation/CoupledTread-20261027-042626-496/results.json",
+      "sha256": "4d0a49edd430b393ecfc5c1d52c9adf7279e4a4df9aa264d8e5b977bfa6186a0"
+    },
+    {
+      "path": "Saved/Validation/CoupledTread-20261027-042626-496/manifest.json",
+      "sha256": "564f5641746716258e6779b2d33e92e67bd092dd1c62f16fcb08cfd25c3944b2"
+    },
+    {
+      "path": "Saved/Validation/CoupledTread-20261027-042626-496/resolution.json",
+      "sha256": "b4d1919ffb9270b63a6753723ab0dc5c8ec60e1c2ea56432ee1e136bc94bc5ce"
+    },
+    {
+      "path": "Saved/Validation/Components-20261027-042626-200/results.json",
+      "sha256": "cdf67becb3bac00a23181a9e66c32594591d8be373dd8980f184fe5ee59ebbcf"
+    },
+    {
+      "path": "Saved/Validation/Components-20261027-042626-200/manifest.json",
+      "sha256": "9b7317fc7664669693a2be5531083ceb097198e45f42ab96c5aa956dff7b69bf"
+    },
+    {
+      "path": "Saved/Validation/Components-20261027-041840-521/results.json",
+      "sha256": "8833e349ebe1a242c89e3a3339b0de8121a018b0715d5f86901e4cfd67cf712b"
+    },
+    {
+      "path": "Saved/Validation/Components-20261027-043316-920/results.json",
+      "sha256": "d22f488ef564e76f7d04da24675c3a54e19618c81618fc686831dbaac5525fc0"
+    },
+    {
+      "path": "Saved/Validation/Components-20261027-043401-322/results.json",
+      "sha256": "90e8afb1424c15316a833fe156880ee12fa24641990b797c73c06b7cd9106864"
+    },
+    {
+      "path": "Saved/Validation/Constitutive-20261027-043434-861/results.json",
+      "sha256": "8720c104cc83c8c66ebcec91e2240f1470eedcbeca97b8f10b13013382f05798"
+    },
+    {
+      "path": "Saved/Validation/Constitutive-20261027-044835-996/results.json",
+      "sha256": "b2eb7e2b3ac215468ba642f08f654905e4b9b82f6a22eb2770f7d581721b7cd5"
+    },
+    {
+      "path": "Saved/Validation/Components-20261027-050545-181/results.json",
+      "sha256": "4ec446de67a3fa616fd01a6f952777e677b39731fb237b2ad33976d317a9fd9f"
+    },
+    {
+      "path": "Saved/Validation/Calibration34-FinalLiftEnergy.json",
+      "sha256": "f7ab4e04341491f449d539be243f9028b943591252cbe38e62f724a0b4c2b528"
+    },
+    {
+      "path": "Saved/Validation/Calibration34-FinalMovingEnergy.json",
+      "sha256": "0e34d7ad86708292ce68d5cf4e5ae3756bdd083d2cae0634ee2d8efe7a963d42"
+    },
+    {
+      "path": "Saved/Validation/Calibration34-FinalMaterialStatus.json",
+      "sha256": "29d546f4aa6117f52131e64340d4b1c58919bc19fc8766f3a27381c2cd2b85d6"
+    },
+    {
+      "path": "Saved/Validation/Calibration34-FinalWeb.txt",
+      "sha256": "347daf500cd71fdc66ef385f83af3813c26fce46ce0c282732f5d7cd8b0fa4a6"
+    },
+    {
+      "path": "Saved/Validation/Calibration34-FinalComponentsWeb.txt",
+      "sha256": "43aa4be15ec5296c3db3f497919b26bd58d5e6996ddf262068fc98dfb02874da"
+    },
+    {
+      "path": "Saved/Validation/Calibration34-FinalNodeTests.txt",
+      "sha256": "5a230fd5fb93ba68c9a9fb643d941bbecccfc82967acfb508e52ff76e5b00183"
+    },
+    {
+      "path": "Docs/References/EngineConversions-UE5.6.json",
+      "sha256": "0ae7b130c871b98adde29c904af0b9d51687c6479be9269e838396b621fb11a6"
+    },
+    {
+      "path": "Docs/References/Calibration34Sources.json",
+      "sha256": "0dfb829a1ee34a035248a21405c0d724901e001c32e435c7648098046011f8d8"
+    },
+    {
+      "path": "Docs/EnergyAuditWeb.png",
+      "sha256": "66ee1ee54a8994ce96943dbbf94541bb716b87e4133c2ff3eb1c2526134803ce"
+    }
+  ],
+  "config_sha256": {
+    "Drivetrain.json": "ea1ff21e8f3fdc305aa68e5eb6302fd9fd4b830c17356fed3c1d1c0d6aeae907",
+    "ForkliftLab.json": "ee9979a6bc61948737215223b98756588f58b559c2d5124b38631e4b8a0ee837",
+    "ForkStructure.json": "7b348a4629fc4f591304ddff5464cda9060324686688a0c94ebf53c5af033601",
+    "Hydraulics.json": "95ca490d12d7fec3a32000dca4e3f7fe4d71a76ae76bea5fefe3b2ca184b7a31",
+    "Payload.json": "5e0596cd9c28a6b0f9d548ed47069d070ebac0c47842de646d665cf94647618b",
+    "PhysicsReference.json": "b8cb64d93a61986eb862a69c452f4baf964540804f2a3c0ac05a6a07a0eae7ac",
+    "RealComponents.json": "5a488ddfad2d52051bd5f74e405089381c148ab3dea66eab14ea2afae8055aae",
+    "Tyres.json": "9291028b1b4d1334d6ee0ec3af7c8cc9cae637a572367047b77d536cb16e5524",
+    "Vehicle3D.json": "bb376391ec3868c70ad9cbd8822a87acb33428b7cc7ca49a71b1bfb540eba61a",
+    "WheelLab.json": "679be15650b66154a087f53ca228cbcc5512a95802dcb43928d601af4f6a599e"
+  },
+  "source_sha256": {
+    "CargoContactData.h": "1234dd0c6055e57cee262e519acd4026f60ae334e70de2541932293936e60f6a",
+    "CargoGeometry.h": "6bf5f2ebc97a269ac789bd7d112ba89f6edadebcac48bb70ea116e9cffc03eb2",
+    "CargoLab.cpp": "658677667c87caccde2dddf3d34e13261bbbf747865710c3244be164136843a4",
+    "ChassisActor.cpp": "c0ddada45454c63510558a2aec4a3ebd4a80ef38211b1c64042f69c920cd2b1c",
+    "ChassisActor.h": "95bc6527bb6d197b0bf184708d2b67d324dd354483b4fd532d717a8964210c5a",
+    "ComponentDetail.cpp": "06da55fe00820615d0ece52a6482779b634ebc20111af0479431f7bfa06f6527",
+    "ComponentDetail.h": "d330e7cfd6805501dd946ad68023c421d9a1b22f19f7398e106b368853295643",
+    "ComponentLab.cpp": "99df544bde16a1f35f8b0720bcd4e0161b5be4cf03eb9d247765563c7d45114f",
+    "ComponentTests.cpp": "fdf40c3f39e8dbdc2abfb492aac423603c65626beeed607198010e723bdfef3a",
+    "ContactLoadSampler.cpp": "2a2eeed06f6f885d6ff72f3b98dc3f6d327d2efbf284037c7432e2aea724b1ac",
+    "ContactLoadSampler.h": "b7083fe23688bd1e7492669d68a13034ae345a3488731d52a8463312f4c6aa56",
+    "DrivetrainLab.cpp": "ff1c8dd69b6ebe6de2497473168e6bd218606f82388ccdc4b759d4c783a30690",
+    "DrivetrainModel.h": "79ab032e14e561818f4ce4e30e79b8f631025e444490fe8e729d394631e7b6f0",
+    "DrivetrainSettings.cpp": "f01c6c259e0630fa33645394ad6e59a91c1274b4a127fba4161c677d642a13f4",
+    "DrivetrainTests.cpp": "862fbb6b80c33165e31c246378ddc205539efebb043874e8ba45ec38e93dd3ef",
+    "EnergyAudit.cpp": "c62df48d85181eefeb7eef36638a415cb7c4f8790b84075f4afa480ba0ec3885",
+    "ForkActor.cpp": "47f3eb635ebff378d77460e10b4a3f10f11d47e7d84098c98e295aeeead24937",
+    "ForkActor.h": "362b8e9851565ff49edf2d9ac81d44b133d01ec8463ef0819d1d8ce218857105",
+    "ForkliftLabGameMode.cpp": "10463faee3cba12bd4e3524f16ecc70c2dd04a02bc905fc9adbc6d96c89ed960",
+    "ForkliftLabGameMode.h": "3a98dda45350e45a2a3ea401d385602b30679cede755d5fb7b2e5869f65c0b6b",
+    "ForkliftSim.Build.cs": "9106a98dabfdccb639c109c82c8c1fb31dfcadd0cead1fb481bf18ea8ec3fb0f",
+    "ForkliftSim.cpp": "d5c403c86ef482ea16887978c7df9f08d5e572c9174ef47ab6221fe068ff76f5",
+    "HydraulicCallback.cpp": "2ffd940c1a64920677b6ce3fcca65cf04b03aaba1f4535496e1b660c87c6b182",
+    "HydraulicCallback.h": "1a11fd7101fdfb49789729448c95b5783ceedbfe7c97eb9144b76e6f37971d36",
+    "HydraulicDetail.cpp": "a84c255c0d9ab09ab9223f3d14f9c8410d80704da008e90b488c597bfb08eb31",
+    "HydraulicLab.cpp": "d4d51d741566ed491942e4a9dc16849bbd6fb1aedf09ee54743cb7ee0b064211",
+    "HydraulicLift.cpp": "6a61633615f1d304d87df743b5aff8d28c5a79ea11531359de94501576dab64d",
+    "HydraulicLift.h": "c40eb63f5c0de0dc7484b8faedc88c8afcb293f3af1173288ede11f71fa30f7d",
+    "HydraulicTests.cpp": "bb3a6a68657831f69907f53198f53a430f709189ae1417432d7c17e3b8b85bd9",
+    "LiftBench.cpp": "a9c6d92f185281e08fbb321e3dabb696852d9c72dcbce3909dcdb4efbd0fcbdd",
+    "LiftBench.h": "0173bd86c2f1cbdc9fbb55c98d316c2d3ba36ba6e8df67528e9529384c0ecc31",
+    "LiftModel.cpp": "99cb22fd7ef0f66e646760af00e79669ceea041b6e1f820c15999750f3930537",
+    "LiftModel.h": "1a59b2412f34ee445f1a03d1ab10cb525e1ab8df45c4bfef7141deb56e228a76",
+    "LiftModelTests.cpp": "7066b6aa29d79e2e673ddd15e55e01b7445dae963b9b60913edc4e7f11bbeb42",
+    "PalletLoadActor.cpp": "d1232480294ed7a40981c41d5a72f13634f40b96a404fdc4509d63d61a4c176f",
+    "PalletLoadActor.h": "04accca15dd7e0ee84e48f31e53c9409b6d82685a76be20d7fa792ef22ad8fe3",
+    "PayloadLab.cpp": "2eaa7be8f5569235eb727dc669476c078eb14ebe02e2f2a4fe020c0d577ab304",
+    "PayloadTests.cpp": "89aa46e875c80c01c00af2f8b9b7130e5ee7f4270d719bfdc4f0c82b81ace342",
+    "PhysicsReferenceTests.cpp": "4729ad8737bddd7397bfb188d63df51da919f944b31b337440998ef72dfa864a",
+    "RollingReference.cpp": "cf6b83c9203ca3f1d840243547f5285d035176aa8098a1c9b899a995f0001c79",
+    "RollingReference.h": "635b24c94e0412d79962174adc79b220a95acfef7342a765797a6f2cb6db5794",
+    "StabilityLab.cpp": "e2fde3224fe2f69f77a62c6a69a03ff6fb60ae718aa8f5cf2a2f54ceb14a2487",
+    "StabilityLab.h": "99beb5f89754e46c7ad758cf6c34cc7ddd882a83bfeb933e3a7438ff9b0bc4b3",
+    "SwerveKinematics.h": "55b59c6b0bc0e1ec939479b4cc4ac8164c16bc0db850c1be31b586770cc228f3",
+    "SwerveTests.cpp": "08afd51376197abb3b1e3f3e100b6e0e8fc2593b56622968610a2c773e266a77",
+    "TerrainCourse.cpp": "682dab2e34df2bf3381172d2bf5aad4506a13a219ee9be1932bf377e7d4e3357",
+    "TerrainCourse.h": "d99064b37818a474f62be375bb7e31b866e93975a3680d729a863173fcd37ebb",
+    "TreadModel.cpp": "808087ba0c6055c50ad0fe882fd87105fccfa1a285d843481451aa4c81f5f092",
+    "TreadModel.h": "e93c8c21a6fdee0fc9e282e403dcc751be839cc34e1a190f6038c2896fe428a9",
+    "TreadReference.cpp": "7baf50066304276325c8df5053210b77f091718784c42eadecea1982c18fc40e",
+    "TreadReference.h": "c8b2ec4041fc771673b537b35895ac42de56976e309571d72b98eb7eae662ba4",
+    "TreadTests.cpp": "be162d014b2b9c08810fc09b3337b482cf251aeb9c7ea899f742d256726ed8fb",
+    "TyreCompliance.h": "c08a41ecc3bc315ef508db3e46193accb1f32db4fa37cdebca21e81154822152",
+    "TyreLab.cpp": "8be3daf8423fb7034487c5b1308cd5904a72eb6c3a4d5a5db1224850c79328a8",
+    "TyreSettings.cpp": "7b8efe9d562ee4acb7bb22c9444f04e42f5143f5a215f3b481d80daa04a61271",
+    "TyreTests.cpp": "b8af96433d7fd9bcb406dcca07cf6a40b7e38ec691d9eefbc85ef8049c35a1a0",
+    "ValidationLab.cpp": "b1b265b45c0e71f81562a87b9bb29c9cd3a506c54e0fb2e60cd2aa72349e0ed5",
+    "ValidationMath.h": "7a21953419de3f40d9d9c5d49bd2800d56a229b23b44ee2ad72986ad15fdb648",
+    "Vehicle3DHelpers.h": "195d84905d50d0275e44b2362b2b3abdc06f48ddc0318d543a41f3a6f022010a",
+    "Vehicle3DSettings.cpp": "73dbe76d7bb34e19659206b609b4d59a85cd8052bfe9ca21df2ed832a7a294c3",
+    "Vehicle3DSettings.h": "0008e5a261eb83fe3888c119e81c48f2f0dd67da85f56b70e22c5841c49d54d1",
+    "WebTelemetry.cpp": "c186edc0019aaac576cede1bf58275fdeb1d23365c20052794413fcc6753b0ef",
+    "WebTelemetry.h": "3e3f57b424919c43e2a62fb66c59ea2ce1814e86f6abfe014b15293588551faf",
+    "WheelActor.cpp": "ce6131ace908fc776af036c4cfab3f1c9662fa1175ae79eb155c3658b6501702",
+    "WheelActor.h": "499fe20b6d919047c404162dbc0579216663b15d65571a7bf40b2a7d4ae2e82b",
+    "WheelContactData.h": "f24c699b4cc1bd22de360e3bbb8c7354041ca5956818ec45ba94ae7fb036d5ea",
+    "WheelContactGeometry.h": "541bd00d2e9320aa04372a879f404f63428b606d1537ad552d49103c0783efd0",
+    "WheelContactTests.cpp": "00bc990656f1cceb3732e3d979de766a698a317fd1eff1f9c1240264d79ff1d0",
+    "WheelLab.cpp": "ec907f4a80a81afb5c1f830943654a650c5092ca250e9241f70870cd3fc85efc",
+    "WheelLab.h": "ce77b85bd904f62221c16f526ded18dcfc0b2b86702074fef0b2907a871cb441",
+    "WheelModel.cpp": "532827e09e1d7c4d12d3e8810bf71d409cbd59b7aef9597c32e438743dbafa3e",
+    "WheelModel.h": "19cf875d993fca07b8e5ba6d483db8d284e2825b3157175ff36886da9f5547ca",
+    "WheelModelTests.cpp": "a5abdbe83c842c2ef85e4fb8db782d20dbf4ca41c07e85345137c662326ff0c0",
+    "WheelResistance.h": "ee9e4aa9043c047020e720505018c8c696da07944ed8ec85b8625f417d5f23be",
+    "WheelResistanceTests.cpp": "96cf4e736c5ba2cbd2bc17eb94d4744d3ca1505146fa0d44f4766fd4e0256be1"
+  }
+}

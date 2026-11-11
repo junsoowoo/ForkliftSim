@@ -1,0 +1,11 @@
+{
+ "id":"mission-fixture-v1",
+ "source":"Independently authored room inner surfaces; native fixture boxes use these surveyed dimensions. Initial pose includes a bounded deployment error. No live actor truth input.",
+ "initial_pose_m_rad":[0.15,-0.12,0.035],
+ "segments":[
+  {"a":[-4,-6],"b":[14,-6]},
+  {"a":[14,-6],"b":[14,6]},
+  {"a":[14,6],"b":[-4,6]},
+  {"a":[-4,6],"b":[-4,-6]}
+ ]
+}

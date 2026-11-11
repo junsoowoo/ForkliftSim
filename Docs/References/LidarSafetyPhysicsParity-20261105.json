@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "comparisons": [
+    {
+      "case": "carry",
+      "pass": true,
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-150413-0FCA9CF1.csv",
+      "current_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-160658-2633D82A.csv",
+      "baseline_csv_sha256": "d93914c5d8cd78c0ecb00d994ce20b6da8472d1852e503877abe98d1ff380aa1",
+      "current_csv_sha256": "b2b71c5e1eca5d31767e6cc6f1731964c307d6380022af888979c83fb8c40dc3",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      }
+    },
+    {
+      "case": "ramp_brake",
+      "pass": true,
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261105-150448-B23FADCD.csv",
+      "current_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261105-160734-7B75C36E.csv",
+      "baseline_csv_sha256": "a5873d9bfbc2842801d7e033d24e1cf9b251695ddc1ab588eadabfb13c206888",
+      "current_csv_sha256": "8ee87c99562b3f2e1572ecb4835a4af5f23d2f46aa3594218c32617d9afcc59d",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      }
+    }
+  ],
+  "scope": "Historical GT physics fixtures have guard disabled for regression comparison; not the behavior of the new protected manual driving mode."
+}

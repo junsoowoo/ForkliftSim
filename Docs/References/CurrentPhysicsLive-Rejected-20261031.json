@@ -1,0 +1,68 @@
+{
+  "complete": true,
+  "samples": 6445,
+  "groups": {
+    "mecanum_coast": {
+      "samples": 101,
+      "peak_frame_n": 10102.558439576798,
+      "peak_inner_n": 17707.273054575227
+    },
+    "mecanum_carry": {
+      "samples": 479,
+      "peak_frame_n": 16060.551592594058,
+      "peak_inner_n": 22252.933720135083
+    },
+    "mecanum_eccentric_lift": {
+      "samples": 497,
+      "peak_frame_n": 12502.628748489971,
+      "peak_inner_n": 12535.866632171823
+    },
+    "mecanum_shallow_lift": {
+      "samples": 444,
+      "peak_frame_n": 13087.585828763573,
+      "peak_inner_n": 13096.650977636538
+    },
+    "mecanum_high_carry": {
+      "samples": 574,
+      "peak_frame_n": 17742.617388601295,
+      "peak_inner_n": 22542.19655753679
+    },
+    "mecanum_step": {
+      "samples": 416,
+      "peak_frame_n": 37186.90628414358,
+      "peak_inner_n": 313397.8991156186
+    },
+    "mecanum_halfstep": {
+      "samples": 528,
+      "peak_frame_n": 654353.1061206425,
+      "peak_inner_n": 2867015.93810173
+    },
+    "mecanum_split_carry": {
+      "samples": 578,
+      "peak_frame_n": 16571.72081885502,
+      "peak_inner_n": 23157.53705644192
+    },
+    "mecanum_ramp_brake": {
+      "samples": 1023,
+      "peak_frame_n": 16170.057888739811,
+      "peak_inner_n": 22994.317486997043
+    },
+    "mecanum_cargo_slide": {
+      "samples": 570,
+      "peak_frame_n": 14852.814068829819,
+      "peak_inner_n": 37109.13223786695
+    },
+    "mecanum_cargo_drop": {
+      "samples": 503,
+      "peak_frame_n": 14621.684187308108,
+      "peak_inner_n": 26589.83389799858
+    },
+    "mecanum_lower": {
+      "samples": 528,
+      "peak_frame_n": 13061.237003338692,
+      "peak_inner_n": 13086.376290008593
+    }
+  },
+  "sha256": "928314b5e68f38429a1514b4199b81b48fe2cc283c0bba32a2a92248db80269a",
+  "scope": "Actual received frames. Internal peaks cover received intervals only, not a proof of every simulated peak."
+}

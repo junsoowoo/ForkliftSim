@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-06",
+  "pass": true,
+  "comparisons": [
+    {
+      "case": "drive_sensor_straight",
+      "pass": true,
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_drive_sensor_straight-20261105-190035-4BEF63F6.csv",
+      "current_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_drive_sensor_straight-20261106-141653-3C6C4B26.csv",
+      "baseline_csv_sha256": "69723492b2f2a1b72a659d87a98c130a6d22ed63d0ecab0f573f9dabd83f0ca7",
+      "current_csv_sha256": "810e019b84e47141c06911c5e949413083e9012de5f5143acda8f7197505657a",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      }
+    },
+    {
+      "case": "carry",
+      "pass": true,
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-190717-4AB60149.csv",
+      "current_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261106-141733-D6D0DE09.csv",
+      "baseline_csv_sha256": "f0c095f05b1efa7933c1cda60dd791db9bc3fe8731f919c21c460973e6027fe6",
+      "current_csv_sha256": "ea7f35e965ebbc7a007082cb7798c78913395dd4f887eac53a1ae0bc61c1a67e",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      }
+    },
+    {
+      "case": "ramp_brake",
+      "pass": true,
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261105-190802-96139A69.csv",
+      "current_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261106-141817-4142F647.csv",
+      "baseline_csv_sha256": "accc2fb88c947ee440c981ee5489a11093811c02554cce29f41eefdfc033c06b",
+      "current_csv_sha256": "e01144869c4547bc9c1ca4a663ab2eaa044efaea7a48d49700bebff7ef2fdbca",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      }
+    }
+  ],
+  "scope": "Sensor driving straight and historical carry/ramp physics regression. Does not compare perception predictions to old GT control as equivalent."
+}

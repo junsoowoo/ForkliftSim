@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "actual_frames": 384,
+  "ready_frames": 379,
+  "localized_frames": 374,
+  "calibrating_frames": 5,
+  "moving_frames": 201,
+  "csv_columns": 26,
+  "csv_rows": 384,
+  "csv_sha256": "ec6dc2f9f8cc42b490fbbe30bf90dbc192009be0084daffb9c0a06c902866911",
+  "stream_sha256": "aad9bacd2d58a71b90c9c54b617e0ae238e821cf9877dc73a2c7a77b3af0ddd3",
+  "scope": "Actual Unreal received sensor-derived velocity/odometry/map localization/control torque and CSV. No DOM clicks, browser physics, GT fallback or FPS qualification."
+}

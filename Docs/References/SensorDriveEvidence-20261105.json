@@ -1,0 +1,179 @@
+{
+  "date": "2026-11-05",
+  "dll_sha256": "0e11985e443390eadfbf724fa6e0b634956464a2f65b90d2c70407931f716f5f",
+  "unit_tests": {
+    "passed": 67,
+    "failed": 0,
+    "pending": 0
+  },
+  "sensor_drive_conditions": 9,
+  "legacy_physics_conditions": 2,
+  "native_manifest_paths": [
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-190026-265-d56c858e\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-190224-437-fd367879\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-190342-683-28cf968a\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-190547-528-54516c3f\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-190625-270-719e1d9b\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-190707-337-cf642a48\\manifest.json"
+  ],
+  "web_actual_frames": 384,
+  "web_csv_columns": 26,
+  "camera_gpu_regression_pass": true,
+  "protocol_checks": 29,
+  "javascript_regression_pass": [
+    "live-state",
+    "joint-sensors",
+    "dynamics-sensors",
+    "proximity-sensors",
+    "lift-control",
+    "lidar-safety",
+    "drive-estimator"
+  ],
+  "scope": "Measured encoder/IMU drive torque and planar odometry + fixed surveyed map LiDAR registration. Known starting bay; no mapping, global localization, navigation or certified stop guarantee. GT used only in validation. No new FPS qualification. Low-friction acceleration shows control torque saturation/oscillation; no all-surface robust-stability or traction-control qualification. No batch 3-5 implementation.",
+  "files": [
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\SensorDrive-Unit\\index.json",
+      "sha256": "5095ad596206cff357c2dfc8ed467eca88ae979d5b893e2c2fa6d50552863bd5"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Performance\\SensorDrive-Build3.txt",
+      "sha256": "7a3db0d6a7480f3f9872d3fbeeb6172ee38a5d8d0b54948b66c4c1c5acf7f6aa"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Performance\\SensorDrive-JSBridge.txt",
+      "sha256": "b788f19eec884aadcdf6afab20fc04cfa089a3f9fd6256f6eec98d96466285b6"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Cameras-20261105-190913\\cameras.json",
+      "sha256": "fb15dd3aba838f506ff149bd491159c3a046d40d62328fbae70c43574f294e77"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Cameras-20261105-190913\\CameraValidation.log",
+      "sha256": "c7a91d7be66484545b223e4b13d6730225f4d3dbdf7c617cd9ac5b7a5ba1e382"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\SensorDriveValidation-20261105.json",
+      "sha256": "e48a6741042c7a7eddd1a4a5218010c38610a795974c5ac27804cc64d52d2664"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\SensorDriveWeb-20261105.json",
+      "sha256": "bd6ee0e0ffaafff0b97a4ceaf73992a14ab50fede54d3d089216254593a1e3be"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\SensorDrivePhysicsParity-20261105.json",
+      "sha256": "a8f866b9e9636a239689680850b9f117c2e9cce18dd1cca4ed46cbcba33ae5dd"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\SensorDrive-Live.jsonl",
+      "sha256": "aad9bacd2d58a71b90c9c54b617e0ae238e821cf9877dc73a2c7a77b3af0ddd3"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\SensorDrive-WebExport.csv",
+      "sha256": "ec6dc2f9f8cc42b490fbbe30bf90dbc192009be0084daffb9c0a06c902866911"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\validate_sensor_drive.py",
+      "sha256": "d30e074c7aad49c241bfe3edf11802a83bbe4053bd62f4ac157c50563cb5ff55"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\Test-SensorDrive.ps1",
+      "sha256": "51c279a68311a707986f3dc3b00d61a0fed6087860e0face52f3514f73ac9be0"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\Test-Mecanum.ps1",
+      "sha256": "49378b357469010a05086122359f2869f6959f8ffd9d15433b2facabeb74a1cb"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\ExportNavigationMap.py",
+      "sha256": "f8dd022af04599f9199436fa7e936f235309da7f733efa696a5b4f8be7d7bc42"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\plot_sensor_drive.py",
+      "sha256": "24d29f966003aad3e7d064a01c1392a8eb8b21aec0946ba43679ca1c26ccd61f"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\SensorDrive.md",
+      "sha256": "eefc824107f57546e8377acafed5e541fc41cd71f8cf36df8b1abd08e5fb3f1a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\AutomationBatches.md",
+      "sha256": "dbdcd57b1aaf189bfa682381eebaa8c73448e092cd4cc3bbbf20cab55eb08010"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\Images\\SensorDrive-20261105.png",
+      "sha256": "5db637250a9c5eab2e2ce2bc49339ddb319ffb3fe6ea480b43a8000fb5192b9f"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\SensorDrive.json",
+      "sha256": "845b7de4aa101109e75847f00a4d5b9594b1b60948b3637228e689f2d547a373"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\NavigationMap.json",
+      "sha256": "f525e6555adf930ef6c8459c0c4e8ff7c1fa2bd8fb1ff6f184f24592b2ad65bc"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\NavigationTestMap.json",
+      "sha256": "29cd193fb7877850accfdd416afdaa467da4f145b9663dd0a19263c293f3dfb4"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SensorDrive.h",
+      "sha256": "3b5826677dc25d4af001c5ac85436861cc3af91549262f6e7c446344a1af0e60"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SensorDriveIntegration.cpp",
+      "sha256": "55d78b5dee877730dd66a431e6b54e4378fa55a3d34b2c8056f2b11a1e614d86"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SensorDriveLab.cpp",
+      "sha256": "e6f18ba084d78e9510b377e29025418ba94bb782ad293564a8db7130fd8a215d"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SensorDriveModel.cpp",
+      "sha256": "3043c03ec990f3910a2c05f6fa138cff8165070b7a849e7644782fce3e74de69"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SensorDriveTests.cpp",
+      "sha256": "a33a936705f5eaddba600ec3986e04cffe981155ecc9bd19cf3eeedc717061ad"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PlanarLocalization.cpp",
+      "sha256": "205354b675904bba866213fa60ef7dc7f67010ed436f7553a5bcacb3001edacf"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\data.mjs",
+      "sha256": "d638554dd24fccb6a4da957b7857b72ae833c2ad470dda274d8ea067a4e4d853"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\live.mjs",
+      "sha256": "c87cd1118d0e8b92cff66aa38233eb2d7b498c041812bf5461de6f293a0c717a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\live.html",
+      "sha256": "e47942bfb8f491fbff03a425ee16cba2e3f9f39f28c4e12823a435a57d279b54"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\drive-estimator.mjs",
+      "sha256": "19078b425cb71c1964bd457a8e402451a0069d78a53dbd2f9cf5a481f703fc39"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\bridge.mjs",
+      "sha256": "4077c9d89eaef9fdfafb68c58119371f735171d968514a372f32ce7fb1a191ae"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\build.mjs",
+      "sha256": "69b1b151c30d9041bce4ae2467fe5cb066c7beba6f0e4c5bea59408f6b19dacf"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\bridge-test.mjs",
+      "sha256": "7dafc72eeb194cc9b1f08019955f51da9d20b148f1504eb4be4e96ec53b71e2a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\drive-estimator-test.mjs",
+      "sha256": "49185dc6d4a091cce2cf1224a287ad39be5927e23fbd51cd02b968d233758d96"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\verify-sensor-drive-live.mjs",
+      "sha256": "665816cd5d7336c60e8c923c71267f966203513cbfaa1fbd032e68f834b53ac1"
+    }
+  ]
+}

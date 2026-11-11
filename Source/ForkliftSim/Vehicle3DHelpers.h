@@ -3,9 +3,20 @@
 #include "Materials/MaterialInstanceDynamic.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
 #include "PhysicsEngine/PhysicsConstraintComponent.h"
+#include "Chaos/ChaosConstraintSettings.h"
 
 namespace Vehicle3D
 {
+    // UE's constraint adapter applies additional conversion factors (1.5 for
+    // angular K/C in UE 5.6). Compensate only physical SI springs; controller
+    // gains tuned in engine units are intentionally separate.
+    inline void AngularSpring(UPhysicsConstraintComponent* J,double KNmPerRad,double CNmsPerRad,double CapNm=0)
+    {
+        const double KS=Chaos::ConstraintSettings::AngularDriveStiffnessScale();
+        const double CS=Chaos::ConstraintSettings::AngularDriveDampingScale();
+        checkf(KS>0 && CS>0,TEXT("Physical angular springs require positive Chaos conversion factors"));
+        J->SetAngularDriveParams(KNmPerRad*10000/KS,CNmsPerRad*10000/CS,CapNm*10000);
+    }
     inline void Color(UStaticMeshComponent* M, FLinearColor Tint)
     {
         if (auto* Base=LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/Materials/M_Lab.M_Lab")))
@@ -40,12 +51,12 @@ namespace Vehicle3D
         J->SetAngularTwistLimit(ACM_Locked,0); J->SetAngularSwing1Limit(ACM_Locked,0); J->SetAngularSwing2Limit(ACM_Locked,0);
         J->SetDisableCollision(true);
     }
-    inline UStaticMeshComponent* Box(AActor* Owner, USceneComponent* Parent, FVector WorldPosCm, FVector SizeM, double MassKg, FLinearColor Tint)
+    inline UStaticMeshComponent* Box(AActor* Owner, USceneComponent* Parent, FVector WorldPosCm, FVector SizeM, double MassKg, FLinearColor Tint,FQuat Orientation=FQuat::Identity)
     {
         auto* M=NewObject<UStaticMeshComponent>(Owner);
         M->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));
         M->SetMobility(EComponentMobility::Movable);
-        M->SetCollisionProfileName(TEXT("PhysicsActor")); M->SetWorldLocation(WorldPosCm); M->SetWorldScale3D(SizeM);
+        M->SetCollisionProfileName(TEXT("PhysicsActor")); M->SetWorldLocation(WorldPosCm);if(!Orientation.IsIdentity())M->SetWorldRotation(Orientation); M->SetWorldScale3D(SizeM);
         M->BodyInstance.SetMassOverride(MassKg,true); M->RegisterComponent();
         if (Parent) M->AttachToComponent(Parent,FAttachmentTransformRules(EAttachmentRule::KeepWorld,true));
         Color(M,Tint); return M;

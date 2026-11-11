@@ -1,0 +1,11 @@
+{
+ "id":"localization-fixture-v1",
+ "source":"Independently authored rectangular fixture surveyed map. Physical boxes are created by SensorDriveLab.cpp; no dynamic actor pose is supplied to localization.",
+ "initial_pose_m_rad":[0.15,-0.12,0.035],
+ "segments":[
+  {"a":[-4,-6],"b":[14,-6]},
+  {"a":[14,-6],"b":[14,6]},
+  {"a":[14,6],"b":[-4,6]},
+  {"a":[-4,6],"b":[-4,-6]}
+ ]
+}

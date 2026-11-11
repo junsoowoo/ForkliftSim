@@ -2,6 +2,8 @@
 #include "LiftBench.h"
 #include "WheelLab.h"
 #include "StabilityLab.h"
+#include "RollingReference.h"
+#include "TreadReference.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "Camera/CameraActor.h"
@@ -45,17 +47,27 @@ AForkliftLabGameMode::AForkliftLabGameMode()
     }
 }
 
+void AForkliftLabGameMode::InitGame(const FString& MapName,const FString& Options,FString& ErrorMessage)
+{
+    if(MapName.Contains(TEXT("WarehouseLab")))
+    {PlayerControllerClass=AStabilityController::StaticClass();HUDClass=AStabilityHUD::StaticClass();}
+    Super::InitGame(MapName,Options,ErrorMessage);
+}
 void AForkliftLabGameMode::BeginPlay()
 {
     Super::BeginPlay();
-    auto* Floor = GetWorld()->SpawnActor<AStaticMeshActor>(FVector(0, 0, -10), FRotator::ZeroRotator);
-    Floor->GetStaticMeshComponent()->SetStaticMesh(LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/BasicShapes/Cube.Cube")));
+    AStaticMeshActor* Floor=nullptr;
+    for(TActorIterator<AStaticMeshActor> It(GetWorld());It;++It) if(It->ActorHasTag(TEXT("StabilityRoad"))) {Floor=*It;break;}
+    const bool ExistingFloor=Floor!=nullptr;
+    if(!Floor) Floor=GetWorld()->SpawnActor<AStaticMeshActor>(FVector(0,0,-10),FRotator::ZeroRotator);
+    if(!ExistingFloor) Floor->GetStaticMeshComponent()->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));
     const bool DriveLab = FParse::Param(FCommandLine::Get(), TEXT("DriveLab"));
-    const bool StabilityLab = FParse::Param(FCommandLine::Get(), TEXT("StabilityLab"));
+    const bool StabilityLab = FParse::Param(FCommandLine::Get(), TEXT("StabilityLab")) || GetWorld()->GetMapName().Contains(TEXT("WarehouseLab"));
+    const bool RollingReference = FParse::Param(FCommandLine::Get(), TEXT("RollingReference"));
     Floor->Tags.Add(TEXT("StabilityRoad"));
-    Floor->GetStaticMeshComponent()->SetWorldScale3D((DriveLab || StabilityLab) ? FVector(200, 200, .2) : FVector(12, 12, .2));
+    if(!ExistingFloor) Floor->GetStaticMeshComponent()->SetWorldScale3D((DriveLab || StabilityLab || RollingReference) ? FVector(200, 200, .2) : FVector(12, 12, .2));
     Floor->GetStaticMeshComponent()->SetCollisionProfileName(TEXT("BlockAll"));
-    if (StabilityLab)
+    if (StabilityLab && !ExistingFloor)
     {
         // Non-colliding 2 m reference grid makes actual travel and sideways motion visible.
         for(int I=-25;I<=25;++I)
@@ -66,12 +78,14 @@ void AForkliftLabGameMode::BeginPlay()
             DrawDebugLine(GetWorld(),FVector(-5000,P,1),FVector(5000,P,1),Color,true,-1,0,1);
         }
     }
-    if (auto* Material = LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Materials/M_Lab.M_Lab")))
+    if (auto* Material = !ExistingFloor?LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Materials/M_Lab.M_Lab")):nullptr)
     {
         auto* Instance = UMaterialInstanceDynamic::Create(Material, Floor);
         Instance->SetVectorParameterValue(TEXT("Tint"), FLinearColor(0.14f, 0.18f, 0.24f));
         Floor->GetStaticMeshComponent()->SetMaterial(0, Instance);
     }
+    if(!ExistingFloor)
+    {
     auto* Light = GetWorld()->SpawnActor<ADirectionalLight>(FVector(0, 0, 400), FRotator(-55, -35, 0));
     Light->GetLightComponent()->SetMobility(EComponentMobility::Movable);
     Cast<UDirectionalLightComponent>(Light->GetLightComponent())->SetForwardShadingPriority(1);
@@ -82,7 +96,10 @@ void AForkliftLabGameMode::BeginPlay()
     // Low-memory rendering has no indirect illumination. A shadowless fill
     // keeps the under-deck wheels visible while the key light retains shadows.
     if (StabilityLab) Fill->GetLightComponent()->SetCastShadows(false);
-    if (StabilityLab) GetWorld()->SpawnActor<AStabilityLab>();
+    }
+    if(FParse::Param(FCommandLine::Get(),TEXT("TreadReference"))) GetWorld()->SpawnActor<ATreadReference>();
+    else if (RollingReference) GetWorld()->SpawnActor<ARollingReference>();
+    else if (StabilityLab) GetWorld()->SpawnActor<AStabilityLab>();
     else if (DriveLab) GetWorld()->SpawnActor<AWheelLab>();
     else GetWorld()->SpawnActor<ALiftBench>();
 }

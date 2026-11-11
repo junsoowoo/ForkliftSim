@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-05",
+  "comparisons": [
+    {
+      "case": "carry",
+      "pass": true,
+      "baseline_dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "sensor_lift_dll_sha256": "7FD4F255EEAB2ACAC227549D19B76152DFDFA7E647BD5246C5F6F00E55B08631",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-003455-67E0C758.csv",
+      "current_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-150413-0FCA9CF1.csv",
+      "baseline_csv_sha256": "b681c9afa4276e93902f31a514c46bd1856a3028a5aa612d9edc434e8131ca34",
+      "current_csv_sha256": "d93914c5d8cd78c0ecb00d994ce20b6da8472d1852e503877abe98d1ff380aa1"
+    },
+    {
+      "case": "ramp_brake",
+      "pass": true,
+      "baseline_dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "sensor_lift_dll_sha256": "7FD4F255EEAB2ACAC227549D19B76152DFDFA7E647BD5246C5F6F00E55B08631",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261105-003815-9172AE4D.csv",
+      "current_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261105-150448-B23FADCD.csv",
+      "baseline_csv_sha256": "0313143128221d0530188e922f11c704d6326a1a5ac9d5789125e0a3e13a6be5",
+      "current_csv_sha256": "a5873d9bfbc2842801d7e033d24e1cf9b251695ddc1ab588eadabfb13c206888"
+    }
+  ],
+  "scope": "Legacy physical test mode equality at CSV precision. These are not sensor-controlled driving trials."
+}

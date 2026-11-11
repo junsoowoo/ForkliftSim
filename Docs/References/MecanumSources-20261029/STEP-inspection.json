@@ -1,0 +1,23 @@
+{
+  "file": "Docs\\References\\MecanumSources-20261029\\HIT305AHD-dcp_3d8.step",
+  "format": "STEP AP203",
+  "property_tokens": {
+    "MASS_MEASURE": 0,
+    "MASS_UNIT": 0,
+    "MATERIAL_DESIGNATION": 0,
+    "DENSITY": 0,
+    "MASS_DENSITY_MEASURE": 0,
+    "MOMENT_OF_INERTIA": 0
+  },
+  "product_names": [
+    "12\ufffdT\ufffdb\ufffd\ufffd",
+    "\ufffd\ufffd\ufffd\ufffd",
+    "NM305AL-M0.3-2-______^HIT305BNX(2)_HIT305BNX.STEP",
+    "HIT305BNX(2)^HIT305BNX.STEP",
+    "HIT305AHD-A",
+    "PU",
+    "12\ufffdT\ufffdb\ufffd\ufffd.STEP",
+    "12\ufffdT\ufffd~\ufffd\ufffdA"
+  ],
+  "note": "A token scan is not a CAD topology/mass-property computation. It does not establish the actual material density or inertia."
+}

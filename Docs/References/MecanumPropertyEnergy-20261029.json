@@ -1,0 +1,778 @@
+{
+  "date": "2026-10-29",
+  "run": "Saved/Validation/Mecanum-20261029-094734-233",
+  "dll_sha256": "42DA21700B9F657F7E7A01A3E554F9D69557DAA73CF7B43529EC7F4094A37288",
+  "full_energy_closure": false,
+  "measured_calibration_complete": false,
+  "cases": [
+    {
+      "case": "coast",
+      "pass_": true,
+      "csv": "Saved\\Telemetry\\Stability-mecanum_coast-20261029-094808-32BDA11D.csv",
+      "csv_sha256": "8bb857583854abf85056ec5609d677256dea8579a182ec2e41198f1a23877427",
+      "log": "Saved\\Validation\\Mecanum-20261029-094734-233\\coast.log",
+      "log_sha256": "02ad825a252181995f2633a2067d941cca10bf76216d0183a866d7bc278414a1",
+      "rows": 240,
+      "columns": 502,
+      "energy": {
+        "energy_reference_valid": 1.0,
+        "energy_stored_delta_j": 4.83708457,
+        "energy_drive_work_j": 3373.4389766,
+        "energy_steering_joint_work_j": 0.0,
+        "energy_rolling_work_j": -2847.92197587,
+        "energy_hydraulic_dc_j": 0.0,
+        "energy_hydraulic_heat_j": 9.04075369,
+        "energy_tyre_damping_j": 0.0,
+        "energy_known_input_j": 3373.4389766,
+        "energy_known_loss_j": 3076.19843181,
+        "energy_unresolved_j": -292.40346022,
+        "energy_positive_peak_j": 0.00542165,
+        "energy_full_closure": 0.0,
+        "energy_roller_bearing_loss_j": 1.59072828,
+        "energy_shaft_joint_work_j": -207.65718973,
+        "energy_brake_elastic_delta_j": -0.00081991,
+        "energy_shaft_loss_j": 207.65800964,
+        "energy_bearing_transport_work_j": 0.00284655,
+        "energy_chain_damping_j": 9.98696433
+      },
+      "check": [
+        "[2026.10.29-00.49.29:871][720]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.000520833",
+        "[2026.10.29-00.49.29:871][720]LogTemp: Display: MECANUM_COAST start_mps=1.017903 end_mps=0.062182 delta_energy_j=-1667.523688 peak_gain_j=0.000000 initial_translational_j=1626.718177",
+        "[2026.10.29-00.49.29:871][720]LogTemp: Display: MECANUM_CHECK mecanum_coast delta_m=6.1346/0.0039 speed_mps=0.0622/-0.0007 yaw_deg_s=-0.0009 roller_peak_rad_s=0.1360 contacts=8 closure_n=0.000000000 normal_n=30728.341 fork_m=0.00326 cargo_fell=0 reaction_pitch_deg=0.000000 reaction_delta_l_nms=0.000000 reaction_impulse_nms=0.000000 stop_distance_m=0.000000 hold_drift_m=0.000000 PASS",
+        "[2026.10.29-00.49.29:871][720]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.000520833 smallest_selected_s=0.000520833 smallest_observed_s=0.000520833 inner_clock_error_s=0.000000000000",
+        "[2026.10.29-00.49.29:871][720]LogTemp: Display: STABILITY_TEST mecanum_coast PASS settled_tilt=0.000 settled_speed=0.0000 mass=3140.0 max_speed=1.045 max_tilt=0.006 max_lateral_slip=0.022 max_yaw=0.175 min_wheels=4 final_speed=0.0622 fork_max=0.0038 fork_final=0.0033"
+      ]
+    },
+    {
+      "case": "reaction",
+      "pass_": true,
+      "csv": "Saved\\Telemetry\\Stability-mecanum_reaction-20261029-094947-6DBD9B59.csv",
+      "csv_sha256": "c3fe5cd19969da1f1ec98f469d3df4181f7715e4da053ea2821cd37ee80c5672",
+      "log": "Saved\\Validation\\Mecanum-20261029-094734-233\\reaction.log",
+      "log_sha256": "2a1fcf1f8415143b26f6e0088a49fbd026c1977e13944ee81cbe1a4f621b56c2",
+      "rows": 240,
+      "columns": 502,
+      "energy": {
+        "energy_reference_valid": 1.0,
+        "energy_stored_delta_j": -0.00841797,
+        "energy_drive_work_j": 0.0,
+        "energy_steering_joint_work_j": 0.0,
+        "energy_rolling_work_j": -1.064e-05,
+        "energy_hydraulic_dc_j": 0.0,
+        "energy_hydraulic_heat_j": 0.00941267,
+        "energy_tyre_damping_j": 0.0,
+        "energy_known_input_j": 0.0,
+        "energy_known_loss_j": 0.01083236,
+        "energy_unresolved_j": 0.00241439,
+        "energy_positive_peak_j": 0.00542165,
+        "energy_full_closure": 0.0,
+        "energy_roller_bearing_loss_j": 0.0004128,
+        "energy_shaft_joint_work_j": -0.00079487,
+        "energy_brake_elastic_delta_j": -0.00016863,
+        "energy_shaft_loss_j": 0.00096351,
+        "energy_bearing_transport_work_j": 0.0,
+        "energy_chain_damping_j": 3.273e-05
+      },
+      "check": [
+        "[2026.10.29-00.51.04:060][720]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.000520833",
+        "[2026.10.29-00.51.04:060][720]LogTemp: Display: MECANUM_REACTION root_rad_s=-0.06518301 rim_rad_s=104.93838501 delta_l_nms=0.17981878 input_impulse_nms=50.00000261 physics_thread_delta_l_nms=0.17981366 coast_start_j=2614.31771901 coast_delta_j=19.87697519 coast_peak_gain_j=19.87697519 predictor_work_j=20.75995176",
+        "[2026.10.29-00.51.04:060][720]LogTemp: Display: MECANUM_CHECK mecanum_reaction delta_m=0.0000/0.0000 speed_mps=-0.0000/0.0000 yaw_deg_s=-0.0000 roller_peak_rad_s=0.0013 contacts=4 closure_n=0.000000000 normal_n=30803.411 fork_m=0.00347 cargo_fell=0 reaction_pitch_deg=35.481097 reaction_delta_l_nms=0.179819 reaction_impulse_nms=50.000003 stop_distance_m=0.000000 hold_drift_m=0.000000 PASS",
+        "[2026.10.29-00.51.04:060][720]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.000520833 smallest_selected_s=0.000520833 smallest_observed_s=0.000520833 inner_clock_error_s=0.000000000000",
+        "[2026.10.29-00.51.04:061][720]LogTemp: Display: STABILITY_TEST mecanum_reaction PASS settled_tilt=0.000 settled_speed=0.0000 mass=3140.0 max_speed=0.000 max_tilt=0.000 max_lateral_slip=0.000 max_yaw=0.000 min_wheels=4 final_speed=-0.0000 fork_max=0.0035 fork_final=0.0035"
+      ]
+    },
+    {
+      "case": "ramp_brake",
+      "pass_": true,
+      "csv": "Saved\\Telemetry\\Stability-mecanum_ramp_brake-20261029-095122-82FDF48A.csv",
+      "csv_sha256": "1862546d2b19027eb32b4af5e6560d6d192c5951f740fb026fca4036d2c9b240",
+      "log": "Saved\\Validation\\Mecanum-20261029-094734-233\\ramp_brake.log",
+      "log_sha256": "d901515434576e33499df1812df88aac25fd4456793215f788b30b608cea0545",
+      "rows": 1200,
+      "columns": 561,
+      "energy": {
+        "energy_reference_valid": 1.0,
+        "energy_stored_delta_j": 11497.92154965,
+        "energy_drive_work_j": 15428.29265812,
+        "energy_steering_joint_work_j": 0.0,
+        "energy_rolling_work_j": -4369.92878535,
+        "energy_hydraulic_dc_j": 3328.23015329,
+        "energy_hydraulic_heat_j": 754.34858649,
+        "energy_tyre_damping_j": 0.0,
+        "energy_known_input_j": 18756.52281142,
+        "energy_known_loss_j": 5483.55109034,
+        "energy_unresolved_j": -1775.05017143,
+        "energy_positive_peak_j": 19.60765974,
+        "energy_full_closure": 0.0,
+        "energy_roller_bearing_loss_j": 4.62932657,
+        "energy_shaft_joint_work_j": -335.17948925,
+        "energy_brake_elastic_delta_j": 0.25329784,
+        "energy_shaft_loss_j": 334.92619141,
+        "energy_bearing_transport_work_j": 0.02850624,
+        "energy_chain_damping_j": 19.71820052
+      },
+      "check": [
+        "[2026.10.29-00.58.21:601][600]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.000520833",
+        "[2026.10.29-00.58.21:601][600]LogTemp: Display: MECANUM_CHECK mecanum_ramp_brake delta_m=8.0968/0.0001 speed_mps=0.0000/0.0000 yaw_deg_s=0.0000 roller_peak_rad_s=0.0248 contacts=7 closure_n=0.000000000 normal_n=34776.662 fork_m=0.43761 cargo_fell=0 reaction_pitch_deg=0.000000 reaction_delta_l_nms=0.000000 reaction_impulse_nms=0.000000 stop_distance_m=0.088452 hold_drift_m=0.000000 PASS",
+        "[2026.10.29-00.58.21:601][600]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.000520833 smallest_selected_s=0.000520833 smallest_observed_s=0.000520833 inner_clock_error_s=0.000000000000",
+        "[2026.10.29-00.58.21:601][600]LogTemp: Display: STABILITY_TEST mecanum_ramp_brake PASS settled_tilt=0.000 settled_speed=0.0000 mass=3140.0 max_speed=0.943 max_tilt=6.003 max_lateral_slip=0.059 max_yaw=0.982 min_wheels=4 final_speed=0.0000 fork_max=0.4520 fork_final=0.4376"
+      ]
+    },
+    {
+      "case": "halfstep",
+      "pass_": true,
+      "csv": "Saved\\Telemetry\\Stability-mecanum_halfstep-20261029-095840-13F8F8E6.csv",
+      "csv_sha256": "2b6811f07d23433b5844d2411c2a1d8ce99fb7f37763c439bfbabb57673d40b3",
+      "log": "Saved\\Validation\\Mecanum-20261029-094734-233\\halfstep.log",
+      "log_sha256": "fd1d81ce63f19c5e5b411bb09997563a54a1bd1e1ce6f32cc37af1940e2b0806",
+      "rows": 640,
+      "columns": 561,
+      "energy": {
+        "energy_reference_valid": 1.0,
+        "energy_stored_delta_j": 3048.94871363,
+        "energy_drive_work_j": 6097.02108934,
+        "energy_steering_joint_work_j": 0.0,
+        "energy_rolling_work_j": -4634.17557671,
+        "energy_hydraulic_dc_j": 3328.23015329,
+        "energy_hydraulic_heat_j": 751.65325484,
+        "energy_tyre_damping_j": 0.0,
+        "energy_known_input_j": 9425.25124264,
+        "energy_known_loss_j": 5862.1505001,
+        "energy_unresolved_j": -514.15202891,
+        "energy_positive_peak_j": 371.84694572,
+        "energy_full_closure": 0.0,
+        "energy_roller_bearing_loss_j": 5.39688195,
+        "energy_shaft_joint_work_j": -453.76625784,
+        "energy_brake_elastic_delta_j": 0.01202348,
+        "energy_shaft_loss_j": 453.75423435,
+        "energy_bearing_transport_work_j": 0.01090057,
+        "energy_chain_damping_j": 17.17055225
+      },
+      "check": [
+        "[2026.10.29-01.02.16:740][920]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.000520833",
+        "[2026.10.29-01.02.16:740][920]LogTemp: Display: MECANUM_CHECK mecanum_halfstep delta_m=9.1011/-0.1295 speed_mps=0.0000/0.0000 yaw_deg_s=-0.0000 roller_peak_rad_s=0.0232 contacts=4 closure_n=0.000000000 normal_n=34972.794 fork_m=0.43686 cargo_fell=0 reaction_pitch_deg=0.000000 reaction_delta_l_nms=0.000000 reaction_impulse_nms=0.000000 stop_distance_m=0.000000 hold_drift_m=0.000000 PASS",
+        "[2026.10.29-01.02.16:741][920]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.000520833 smallest_selected_s=0.000520833 smallest_observed_s=0.000520833 inner_clock_error_s=0.000000000000",
+        "[2026.10.29-01.02.16:741][920]LogTemp: Display: STABILITY_TEST mecanum_halfstep PASS settled_tilt=0.000 settled_speed=0.0000 mass=3140.0 max_speed=0.749 max_tilt=1.140 max_lateral_slip=0.109 max_yaw=11.113 min_wheels=2 final_speed=0.0000 fork_max=0.4484 fork_final=0.4369"
+      ]
+    },
+    {
+      "case": "high_carry",
+      "pass_": true,
+      "csv": "Saved\\Telemetry\\Stability-mecanum_high_carry-20261029-100234-9F1E1C51.csv",
+      "csv_sha256": "3b1eb4e653251e3c0ae23d7f893c2d39729df7ecb887476ab6dac13a861ebce7",
+      "log": "Saved\\Validation\\Mecanum-20261029-094734-233\\high_carry.log",
+      "log_sha256": "edce7bf06cce3b1ea9c5e09d3dc3fd8821c5c4345acccca704026a3d9252df11",
+      "rows": 640,
+      "columns": 561,
+      "energy": {
+        "energy_reference_valid": 1.0,
+        "energy_stored_delta_j": 5444.03418652,
+        "energy_drive_work_j": 4783.02081706,
+        "energy_steering_joint_work_j": 0.0,
+        "energy_rolling_work_j": -3726.27617136,
+        "energy_hydraulic_dc_j": 6900.68472177,
+        "energy_hydraulic_heat_j": 1518.70411184,
+        "energy_tyre_damping_j": 0.0,
+        "energy_known_input_j": 11683.70553883,
+        "energy_known_loss_j": 5630.55179058,
+        "energy_unresolved_j": -609.11956173,
+        "energy_positive_peak_j": 345.30252145,
+        "energy_full_closure": 0.0,
+        "energy_roller_bearing_loss_j": 89.27735413,
+        "energy_shaft_joint_work_j": -290.11138906,
+        "energy_brake_elastic_delta_j": 0.05791863,
+        "energy_shaft_loss_j": 290.05347043,
+        "energy_bearing_transport_work_j": 0.02559402,
+        "energy_chain_damping_j": 6.24068282
+      },
+      "check": [
+        "[2026.10.29-01.06.06:263][920]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.000520833",
+        "[2026.10.29-01.06.06:263][920]LogTemp: Display: MECANUM_CHECK mecanum_high_carry delta_m=6.6566/2.7107 speed_mps=0.0000/0.0000 yaw_deg_s=-0.0022 roller_peak_rad_s=0.0208 contacts=5 closure_n=0.000000000 normal_n=34972.712 fork_m=0.88745 cargo_fell=0 reaction_pitch_deg=0.000000 reaction_delta_l_nms=0.000000 reaction_impulse_nms=0.000000 stop_distance_m=0.000000 hold_drift_m=0.000000 PASS",
+        "[2026.10.29-01.06.06:263][920]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.000520833 smallest_selected_s=0.000520833 smallest_observed_s=0.000520833 inner_clock_error_s=0.000000000000",
+        "[2026.10.29-01.06.06:263][920]LogTemp: Display: STABILITY_TEST mecanum_high_carry PASS settled_tilt=0.000 settled_speed=0.0000 mass=3140.0 max_speed=0.627 max_tilt=0.008 max_lateral_slip=0.240 max_yaw=9.762 min_wheels=4 final_speed=0.0000 fork_max=0.8887 fork_final=0.8874"
+      ]
+    }
+  ],
+  "config_metadata_note": "RealComponents.json historical reference description was reformatted and annotated during the run. It is not loaded by the dynamics. All runtime config and compiled source hashes match the manifest.",
+  "unit_tests": {
+    "count": 32,
+    "log": "Saved\\Validation\\Mecanum-PropertyEnergy-Units-20261029.log",
+    "sha256": "c7ca476a5b31d91d4c3d522461c8d04d2ee8d330e0450bcaeccacc986f8b4479"
+  },
+  "actual_web_export": {
+    "pass": true,
+    "scope": "Actual native telemetry and actual UI export data function; not a browser download or complete energy closure.",
+    "world_id": "784AE4CD42A155C5CE1EC98E1A501A8D",
+    "scenario": "mecanum_high_carry",
+    "rows": 600,
+    "columns": 192,
+    "csv_sha256": "4824686899762859fcf593991a81d69cbe72cdaa9b53abe7b6c545d92601ba26",
+    "full_energy_closure": false,
+    "final": {
+      "reference_valid": true,
+      "full_closure": false,
+      "scope": "Stored energy + observed drive/steering work + hydraulic DC/heat + chain damping + tyre/rolling loss; residual includes unmeasured contact, structure/body loss and numerical error.",
+      "shaft_loss_j": 290.0534712858736,
+      "shaft_joint_work_j": -290.1113899155107,
+      "bearing_transport_work_j": 0.02559401618356018,
+      "chain_damping_j": 6.240682817764565,
+      "stored_delta_j": 5444.03420857466,
+      "drive_work_j": 4783.020817055522,
+      "steering_joint_work_j": 0,
+      "rolling_work_j": -3726.276171372266,
+      "hydraulic_dc_j": 6900.684721770298,
+      "hydraulic_heat_j": 1518.7041118407776,
+      "tyre_damping_j": 0,
+      "known_input_j": 11683.70553882582,
+      "roller_bearing_loss_j": 89.277354119195,
+      "known_loss_j": 5630.551791435877,
+      "unresolved_j": -609.1195388152828,
+      "positive_peak_j": 345.30252145124996
+    },
+    "wheels": [
+      {
+        "id": "FL",
+        "normal_n": 13471.964238788563,
+        "model": "physical-passive-rollers-v1",
+        "slip_measurement": "physics-contact-normal-impulse-weighted-rms",
+        "contact_geometry": "inscribed-9-spheres",
+        "rubber_deformation_modelled": false,
+        "rated_load_qualified": false,
+        "hand": 1,
+        "roller_angle_deg": 45,
+        "hub_mass_kg": 38,
+        "bearing_loss_w": -1.2916580087948938e-06,
+        "physical_wheel_mass_kg": 50,
+        "contact_inner_peak_n": 13472.341875487618,
+        "hub_inertia_mass_frame_kg_m2": [
+          0.16679365234375002,
+          0.16679365234375002,
+          0.267053955078125
+        ],
+        "catalogue_comparison_model": "Hickwall HIT305AHD",
+        "catalogue_comparison_url": "https://www.hit1994.com/en-US/p104-12-in-mecanum-wheel",
+        "catalogue_listed_load_kg": 3000,
+        "catalogue_listed_mass_kg": 40,
+        "catalogue_load_comparison_ratio": 0.4577629710767436,
+        "property_status": "custom geometry/mass/inertia/friction; catalogue comparison only; not calibrated or rated"
+      },
+      {
+        "id": "FR",
+        "normal_n": 10527.036987593334,
+        "model": "physical-passive-rollers-v1",
+        "slip_measurement": "physics-contact-normal-impulse-weighted-rms",
+        "contact_geometry": "inscribed-9-spheres",
+        "rubber_deformation_modelled": false,
+        "rated_load_qualified": false,
+        "hand": -1,
+        "roller_angle_deg": 45,
+        "hub_mass_kg": 38,
+        "bearing_loss_w": -1.0381334863758147e-07,
+        "physical_wheel_mass_kg": 50,
+        "contact_inner_peak_n": 10527.529138446569,
+        "hub_inertia_mass_frame_kg_m2": [
+          0.16679365234375002,
+          0.16679365234375002,
+          0.267053955078125
+        ],
+        "catalogue_comparison_model": "Hickwall HIT305AHD",
+        "catalogue_comparison_url": "https://www.hit1994.com/en-US/p104-12-in-mecanum-wheel",
+        "catalogue_listed_load_kg": 3000,
+        "catalogue_listed_mass_kg": 40,
+        "catalogue_load_comparison_ratio": 0.35769748513738814,
+        "property_status": "custom geometry/mass/inertia/friction; catalogue comparison only; not calibrated or rated"
+      },
+      {
+        "id": "RL",
+        "normal_n": 4095.006268362374,
+        "model": "physical-passive-rollers-v1",
+        "slip_measurement": "physics-contact-normal-impulse-weighted-rms",
+        "contact_geometry": "inscribed-9-spheres",
+        "rubber_deformation_modelled": false,
+        "rated_load_qualified": false,
+        "hand": -1,
+        "roller_angle_deg": 45,
+        "hub_mass_kg": 38,
+        "bearing_loss_w": -9.428946931986815e-08,
+        "physical_wheel_mass_kg": 50,
+        "contact_inner_peak_n": 4095.2107239181173,
+        "hub_inertia_mass_frame_kg_m2": [
+          0.16679365234375002,
+          0.16679365234375002,
+          0.267053955078125
+        ],
+        "catalogue_comparison_model": "Hickwall HIT305AHD",
+        "catalogue_comparison_url": "https://www.hit1994.com/en-US/p104-12-in-mecanum-wheel",
+        "catalogue_listed_load_kg": 3000,
+        "catalogue_listed_mass_kg": 40,
+        "catalogue_load_comparison_ratio": 0.13914394387911566,
+        "property_status": "custom geometry/mass/inertia/friction; catalogue comparison only; not calibrated or rated"
+      },
+      {
+        "id": "RR",
+        "normal_n": 6878.704054089424,
+        "model": "physical-passive-rollers-v1",
+        "slip_measurement": "physics-contact-normal-impulse-weighted-rms",
+        "contact_geometry": "inscribed-9-spheres",
+        "rubber_deformation_modelled": false,
+        "rated_load_qualified": false,
+        "hand": 1,
+        "roller_angle_deg": 45,
+        "hub_mass_kg": 38,
+        "bearing_loss_w": -7.005417160251183e-07,
+        "physical_wheel_mass_kg": 50,
+        "contact_inner_peak_n": 6879.068781853605,
+        "hub_inertia_mass_frame_kg_m2": [
+          0.16679365234375002,
+          0.16679365234375002,
+          0.267053955078125
+        ],
+        "catalogue_comparison_model": "Hickwall HIT305AHD",
+        "catalogue_comparison_url": "https://www.hit1994.com/en-US/p104-12-in-mecanum-wheel",
+        "catalogue_listed_load_kg": 3000,
+        "catalogue_listed_mass_kg": 40,
+        "catalogue_load_comparison_ratio": 0.23373102460378606,
+        "property_status": "custom geometry/mass/inertia/friction; catalogue comparison only; not calibrated or rated"
+      }
+    ]
+  },
+  "observed_peak_capture": {
+    "pass": true,
+    "samples": 6221,
+    "groups": {
+      "mecanum_ramp_brake": {
+        "samples": 2379,
+        "peak_frame_n": 14292.90269387116,
+        "peak_inner_n": 26456.673036437587
+      },
+      "mecanum_halfstep": {
+        "samples": 1862,
+        "peak_frame_n": 47073.79033746323,
+        "peak_inner_n": 96030.28833767981
+      },
+      "mecanum_high_carry": {
+        "samples": 1862,
+        "peak_frame_n": 15488.791207272274,
+        "peak_inner_n": 23964.511445465832
+      }
+    },
+    "sha256": "2f1c1c3440004d84bfbb87e673f2a9ecf1916a92833974c2cd40dfde38f0e676",
+    "scope": "Actually received native frames, with per-frame inner-step peaks; missing frames and pre-subscription history are not reconstructed. Not a global peak qualification."
+  },
+  "primary_sources_manifest": "Docs/References/MecanumSources-20261029/manifest.json",
+  "final_source_files": [
+    {
+      "path": "Source\\ForkliftSim\\CargoContactData.h",
+      "sha256": "1234dd0c6055e57cee262e519acd4026f60ae334e70de2541932293936e60f6a"
+    },
+    {
+      "path": "Source\\ForkliftSim\\CargoGeometry.h",
+      "sha256": "6bf5f2ebc97a269ac789bd7d112ba89f6edadebcac48bb70ea116e9cffc03eb2"
+    },
+    {
+      "path": "Source\\ForkliftSim\\CargoLab.cpp",
+      "sha256": "658677667c87caccde2dddf3d34e13261bbbf747865710c3244be164136843a4"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ChainConstitutive.h",
+      "sha256": "f1a88e2b779495597445b250dae12721696084eba551e687c41adaa6375405be"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ChassisActor.cpp",
+      "sha256": "c0ddada45454c63510558a2aec4a3ebd4a80ef38211b1c64042f69c920cd2b1c"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ChassisActor.h",
+      "sha256": "95bc6527bb6d197b0bf184708d2b67d324dd354483b4fd532d717a8964210c5a"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ComponentDetail.cpp",
+      "sha256": "06da55fe00820615d0ece52a6482779b634ebc20111af0479431f7bfa06f6527"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ComponentDetail.h",
+      "sha256": "d330e7cfd6805501dd946ad68023c421d9a1b22f19f7398e106b368853295643"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ComponentLab.cpp",
+      "sha256": "99df544bde16a1f35f8b0720bcd4e0161b5be4cf03eb9d247765563c7d45114f"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ComponentTests.cpp",
+      "sha256": "fdf40c3f39e8dbdc2abfb492aac423603c65626beeed607198010e723bdfef3a"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ContactLoadSampler.cpp",
+      "sha256": "58e7bb9a124888206a760478fec12cfea5c35f4e2fac8c1e4a516b01335dea9e"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ContactLoadSampler.h",
+      "sha256": "50938afce7a377cc65960dbbfccb073e82a7a7f4b32bd6a0143dd66b41e723b1"
+    },
+    {
+      "path": "Source\\ForkliftSim\\DrivetrainLab.cpp",
+      "sha256": "ce5ba2301ccce39558e31294e48f121b5e7afb7da402eae2824d47e0d143df79"
+    },
+    {
+      "path": "Source\\ForkliftSim\\DrivetrainModel.h",
+      "sha256": "79ab032e14e561818f4ce4e30e79b8f631025e444490fe8e729d394631e7b6f0"
+    },
+    {
+      "path": "Source\\ForkliftSim\\DrivetrainSettings.cpp",
+      "sha256": "f01c6c259e0630fa33645394ad6e59a91c1274b4a127fba4161c677d642a13f4"
+    },
+    {
+      "path": "Source\\ForkliftSim\\DrivetrainTests.cpp",
+      "sha256": "862fbb6b80c33165e31c246378ddc205539efebb043874e8ba45ec38e93dd3ef"
+    },
+    {
+      "path": "Source\\ForkliftSim\\EnergyAudit.cpp",
+      "sha256": "4be5f4df5906653a70080fabd56e8c6ddd7167c5345787743b1771dc7cc3763f"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkActor.cpp",
+      "sha256": "47f3eb635ebff378d77460e10b4a3f10f11d47e7d84098c98e295aeeead24937"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkActor.h",
+      "sha256": "362b8e9851565ff49edf2d9ac81d44b133d01ec8463ef0819d1d8ce218857105"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkliftLabGameMode.cpp",
+      "sha256": "10463faee3cba12bd4e3524f16ecc70c2dd04a02bc905fc9adbc6d96c89ed960"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkliftLabGameMode.h",
+      "sha256": "3a98dda45350e45a2a3ea401d385602b30679cede755d5fb7b2e5869f65c0b6b"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkliftSim.Build.cs",
+      "sha256": "9106a98dabfdccb639c109c82c8c1fb31dfcadd0cead1fb481bf18ea8ec3fb0f"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkliftSim.cpp",
+      "sha256": "d5c403c86ef482ea16887978c7df9f08d5e572c9174ef47ab6221fe068ff76f5"
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicCallback.cpp",
+      "sha256": "daf6c52b5e4e6d46d575e096998c8bebaf5ef43bbc13aad2794c6cc47e60a833"
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicCallback.h",
+      "sha256": "1a11fd7101fdfb49789729448c95b5783ceedbfe7c97eb9144b76e6f37971d36"
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicDetail.cpp",
+      "sha256": "a84c255c0d9ab09ab9223f3d14f9c8410d80704da008e90b488c597bfb08eb31"
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicLab.cpp",
+      "sha256": "d4d51d741566ed491942e4a9dc16849bbd6fb1aedf09ee54743cb7ee0b064211"
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicLift.cpp",
+      "sha256": "6a61633615f1d304d87df743b5aff8d28c5a79ea11531359de94501576dab64d"
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicLift.h",
+      "sha256": "80a69ca1289f3e678ad39b7a4638f66bf05b4e3e01e83073d001164f517570f5"
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicTests.cpp",
+      "sha256": "55e19a4d5f0c877815b1eaff8ea0aa6500f830ec0bf02f445f4a6b4ed41cd3eb"
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftBench.cpp",
+      "sha256": "a9c6d92f185281e08fbb321e3dabb696852d9c72dcbce3909dcdb4efbd0fcbdd"
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftBench.h",
+      "sha256": "0173bd86c2f1cbdc9fbb55c98d316c2d3ba36ba6e8df67528e9529384c0ecc31"
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftModel.cpp",
+      "sha256": "99cb22fd7ef0f66e646760af00e79669ceea041b6e1f820c15999750f3930537"
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftModel.h",
+      "sha256": "1a59b2412f34ee445f1a03d1ab10cb525e1ab8df45c4bfef7141deb56e228a76"
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftModelTests.cpp",
+      "sha256": "7066b6aa29d79e2e673ddd15e55e01b7445dae963b9b60913edc4e7f11bbeb42"
+    },
+    {
+      "path": "Source\\ForkliftSim\\MecanumLab.cpp",
+      "sha256": "690851452419c41b7b1d9d2450785f5939398cdbad8d8a82fa5ae2217a1dca63"
+    },
+    {
+      "path": "Source\\ForkliftSim\\MecanumModel.cpp",
+      "sha256": "99174fe6e6f43cfb52fb80835c7b59e71a6ff588a1f63c2e3f41e4722ac8f855"
+    },
+    {
+      "path": "Source\\ForkliftSim\\MecanumModel.h",
+      "sha256": "3ee13185b05a5b7bc75d0d84f1400344d70ddd8166f49621e70a3ad549f30fc7"
+    },
+    {
+      "path": "Source\\ForkliftSim\\MecanumTests.cpp",
+      "sha256": "2670b60ee37d5894275b034ae39121b1cc03dfbce3eb08bc55b9b46acf6ab3be"
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletLoadActor.cpp",
+      "sha256": "d1232480294ed7a40981c41d5a72f13634f40b96a404fdc4509d63d61a4c176f"
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletLoadActor.h",
+      "sha256": "04accca15dd7e0ee84e48f31e53c9409b6d82685a76be20d7fa792ef22ad8fe3"
+    },
+    {
+      "path": "Source\\ForkliftSim\\PayloadLab.cpp",
+      "sha256": "7a9fb2493ffb72ea983123007c6f461487add093b69357af33d4cb446657ba66"
+    },
+    {
+      "path": "Source\\ForkliftSim\\PayloadTests.cpp",
+      "sha256": "89aa46e875c80c01c00af2f8b9b7130e5ee7f4270d719bfdc4f0c82b81ace342"
+    },
+    {
+      "path": "Source\\ForkliftSim\\PhysicsReferenceTests.cpp",
+      "sha256": "4729ad8737bddd7397bfb188d63df51da919f944b31b337440998ef72dfa864a"
+    },
+    {
+      "path": "Source\\ForkliftSim\\RigidSpin.h",
+      "sha256": "9d3234df33cfa719e12da0d5d85ea4f0580f2b29ffa378fbae73a0e4fede7c0b"
+    },
+    {
+      "path": "Source\\ForkliftSim\\RollingReference.cpp",
+      "sha256": "cf6b83c9203ca3f1d840243547f5285d035176aa8098a1c9b899a995f0001c79"
+    },
+    {
+      "path": "Source\\ForkliftSim\\RollingReference.h",
+      "sha256": "635b24c94e0412d79962174adc79b220a95acfef7342a765797a6f2cb6db5794"
+    },
+    {
+      "path": "Source\\ForkliftSim\\StabilityLab.cpp",
+      "sha256": "5ac8f0d01c8c419360d206c0300440b49d34b110e8ad7439bc180786c38ac870"
+    },
+    {
+      "path": "Source\\ForkliftSim\\StabilityLab.h",
+      "sha256": "5755caea3f4fd72009d03aa18a7905adb17818bf26cfc1e90d33447ea1aee823"
+    },
+    {
+      "path": "Source\\ForkliftSim\\SwerveKinematics.h",
+      "sha256": "55b59c6b0bc0e1ec939479b4cc4ac8164c16bc0db850c1be31b586770cc228f3"
+    },
+    {
+      "path": "Source\\ForkliftSim\\SwerveTests.cpp",
+      "sha256": "08afd51376197abb3b1e3f3e100b6e0e8fc2593b56622968610a2c773e266a77"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TerrainCourse.cpp",
+      "sha256": "682dab2e34df2bf3381172d2bf5aad4506a13a219ee9be1932bf377e7d4e3357"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TerrainCourse.h",
+      "sha256": "d99064b37818a474f62be375bb7e31b866e93975a3680d729a863173fcd37ebb"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadModel.cpp",
+      "sha256": "d755bb2a1136753fa986a2b47e9a601d6118a5f113ddfa98549be60308232cd0"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadModel.h",
+      "sha256": "e93c8c21a6fdee0fc9e282e403dcc751be839cc34e1a190f6038c2896fe428a9"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadReference.cpp",
+      "sha256": "7baf50066304276325c8df5053210b77f091718784c42eadecea1982c18fc40e"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadReference.h",
+      "sha256": "c8b2ec4041fc771673b537b35895ac42de56976e309571d72b98eb7eae662ba4"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadTests.cpp",
+      "sha256": "be162d014b2b9c08810fc09b3337b482cf251aeb9c7ea899f742d256726ed8fb"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TyreCompliance.h",
+      "sha256": "c08a41ecc3bc315ef508db3e46193accb1f32db4fa37cdebca21e81154822152"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TyreLab.cpp",
+      "sha256": "1344195004571438ca31d37e31096e9bbe380f5f5db736123d3fe3e1459e9814"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TyreSettings.cpp",
+      "sha256": "7b8efe9d562ee4acb7bb22c9444f04e42f5143f5a215f3b481d80daa04a61271"
+    },
+    {
+      "path": "Source\\ForkliftSim\\TyreTests.cpp",
+      "sha256": "b8af96433d7fd9bcb406dcca07cf6a40b7e38ec691d9eefbc85ef8049c35a1a0"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ValidationLab.cpp",
+      "sha256": "b1b265b45c0e71f81562a87b9bb29c9cd3a506c54e0fb2e60cd2aa72349e0ed5"
+    },
+    {
+      "path": "Source\\ForkliftSim\\ValidationMath.h",
+      "sha256": "7a21953419de3f40d9d9c5d49bd2800d56a229b23b44ee2ad72986ad15fdb648"
+    },
+    {
+      "path": "Source\\ForkliftSim\\Vehicle3DHelpers.h",
+      "sha256": "195d84905d50d0275e44b2362b2b3abdc06f48ddc0318d543a41f3a6f022010a"
+    },
+    {
+      "path": "Source\\ForkliftSim\\Vehicle3DSettings.cpp",
+      "sha256": "73dbe76d7bb34e19659206b609b4d59a85cd8052bfe9ca21df2ed832a7a294c3"
+    },
+    {
+      "path": "Source\\ForkliftSim\\Vehicle3DSettings.h",
+      "sha256": "2a2d8dc0551150ccd1f23852f85efd9191371cc8c1ba87b7855f92d43e70ed79"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WebTelemetry.cpp",
+      "sha256": "cb9c3749e2224043f98abfb7bfb1b2548f7b07e914d0fc4d0519bcbf92fa49a4"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WebTelemetry.h",
+      "sha256": "3e3f57b424919c43e2a62fb66c59ea2ce1814e86f6abfe014b15293588551faf"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelActor.cpp",
+      "sha256": "cedde774aac00fe2151a8c117102bce37a320ef47f3937746f806c367f98ab40"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelActor.h",
+      "sha256": "2796f4e2c4d1669c69108b8d485deeb81799d8538d3e14ac0de8ddc55802d4b3"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelContactData.h",
+      "sha256": "f24c699b4cc1bd22de360e3bbb8c7354041ca5956818ec45ba94ae7fb036d5ea"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelContactGeometry.h",
+      "sha256": "541bd00d2e9320aa04372a879f404f63428b606d1537ad552d49103c0783efd0"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelContactTests.cpp",
+      "sha256": "00bc990656f1cceb3732e3d979de766a698a317fd1eff1f9c1240264d79ff1d0"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelLab.cpp",
+      "sha256": "ec907f4a80a81afb5c1f830943654a650c5092ca250e9241f70870cd3fc85efc"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelLab.h",
+      "sha256": "ce77b85bd904f62221c16f526ded18dcfc0b2b86702074fef0b2907a871cb441"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelModel.cpp",
+      "sha256": "532827e09e1d7c4d12d3e8810bf71d409cbd59b7aef9597c32e438743dbafa3e"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelModel.h",
+      "sha256": "19cf875d993fca07b8e5ba6d483db8d284e2825b3157175ff36886da9f5547ca"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelModelTests.cpp",
+      "sha256": "a5abdbe83c842c2ef85e4fb8db782d20dbf4ca41c07e85345137c662326ff0c0"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelResistance.h",
+      "sha256": "fba4def827952ffef56a67bae17d5f110a45a3a1ac0159ee85ad3ac589a0d468"
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelResistanceTests.cpp",
+      "sha256": "fb5d301cd9bf7448d68dd87bb9f2c35a6927369de55762578ebcfbc636276a12"
+    }
+  ],
+  "final_config_files": [
+    {
+      "path": "Config\\DefaultEngine.ini",
+      "sha256": "24708f528a9fd04780e8e54f885a638fea189abcc6ae49fe0a4730a388c37cda"
+    },
+    {
+      "path": "Config\\DefaultGame.ini",
+      "sha256": "ea4cfee89afdbdd14db2fb0a2591970c15c7a1bea3adc3f7d667ffee26124f76"
+    },
+    {
+      "path": "Config\\DefaultInput.ini",
+      "sha256": "11ebdcaedd0b429bcee9d84aa1e038f545217718a7c43c062fa260431c3a2209"
+    },
+    {
+      "path": "Config\\Drivetrain.json",
+      "sha256": "ea1ff21e8f3fdc305aa68e5eb6302fd9fd4b830c17356fed3c1d1c0d6aeae907"
+    },
+    {
+      "path": "Config\\ForkliftLab.json",
+      "sha256": "ee9979a6bc61948737215223b98756588f58b559c2d5124b38631e4b8a0ee837"
+    },
+    {
+      "path": "Config\\ForkStructure.json",
+      "sha256": "7b348a4629fc4f591304ddff5464cda9060324686688a0c94ebf53c5af033601"
+    },
+    {
+      "path": "Config\\Hydraulics.json",
+      "sha256": "95ca490d12d7fec3a32000dca4e3f7fe4d71a76ae76bea5fefe3b2ca184b7a31"
+    },
+    {
+      "path": "Config\\Mecanum.json",
+      "sha256": "443a109b416384bcbb9cd170efd6e13215e6cc96abc742398ba201ee1575d74a"
+    },
+    {
+      "path": "Config\\Payload.json",
+      "sha256": "5e0596cd9c28a6b0f9d548ed47069d070ebac0c47842de646d665cf94647618b"
+    },
+    {
+      "path": "Config\\PhysicsReference.json",
+      "sha256": "b8cb64d93a61986eb862a69c452f4baf964540804f2a3c0ac05a6a07a0eae7ac"
+    },
+    {
+      "path": "Config\\RealComponents.json",
+      "sha256": "8d23413422d5419b568be271a6bc68b80da9c5d26e9b802cbd0b815d9e070a01"
+    },
+    {
+      "path": "Config\\Tyres.json",
+      "sha256": "9291028b1b4d1334d6ee0ec3af7c8cc9cae637a572367047b77d536cb16e5524"
+    },
+    {
+      "path": "Config\\Vehicle3D.json",
+      "sha256": "bb376391ec3868c70ad9cbd8822a87acb33428b7cc7ca49a71b1bfb540eba61a"
+    },
+    {
+      "path": "Config\\WheelLab.json",
+      "sha256": "679be15650b66154a087f53ca228cbcc5512a95802dcb43928d601af4f6a599e"
+    }
+  ],
+  "scope": "5 native regressions and chain constitutive energy accounting; catalogue provenance and observer tests are not real-vehicle calibration or complete loss closure.",
+  "pass": true,
+  "web_tests": {
+    "pass": true,
+    "count": 5,
+    "log": "Saved\\Validation\\Mecanum-PropertyEnergy-WebTests-20261029.txt",
+    "sha256": "774b6adf830e7dbbc8ac8b1b439c862ffc06e2e36f3abfe507b995ab28234c93"
+  },
+  "launcher": {
+    "pass": true,
+    "path": "Saved\\Validation\\Mecanum-PropertyEnergy-Launcher-20261029.json",
+    "sha256": "8b90b9eef9702c6b241661a340aa74a049ccdcb091e5a922cd2ecb419f0dcfa8"
+  },
+  "source_archive": {
+    "path": "Saved\\Validation\\Mecanum-PropertyEnergy-Sources-20261029.zip",
+    "sha256": "d10c170522b352046256f0219e79318910061479df98e29f8826cb4726951367",
+    "bytes": 1722910
+  },
+  "final_audit": {
+    "pass": true,
+    "native_cases": 5,
+    "unit_tests": 32,
+    "web_subtests": 5,
+    "actual_rows": 600,
+    "actual_columns": 192,
+    "source_archive": true,
+    "single_launcher": true,
+    "source_download_hashes_verified": true,
+    "complete_energy_closure": false,
+    "real_hardware_calibration": false
+  }
+}

@@ -1,0 +1,1351 @@
+{
+  "date": "2026-11-06",
+  "pass": true,
+  "dll_sha256": "344b33de483a4729adb1eafe16d20d92a7507cc9175d1a1e0ac1ea786017f0dc",
+  "unit": {
+    "succeeded": 71,
+    "failed": 0
+  },
+  "native": {
+    "gpu_conditions": 9,
+    "regression_conditions": 3,
+    "manifests": [
+      {
+        "path": "Saved\\Validation\\Mecanum-20261106-141236-658-4855607b\\manifest.json",
+        "current_dll_sources_configs_match": true
+      },
+      {
+        "path": "Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\manifest.json",
+        "current_dll_sources_configs_match": true
+      },
+      {
+        "path": "Saved\\Validation\\Mecanum-20261106-141548-799-8d8482a5\\manifest.json",
+        "current_dll_sources_configs_match": true
+      },
+      {
+        "path": "Saved\\Validation\\Mecanum-20261106-141616-565-9e11dcbd\\manifest.json",
+        "current_dll_sources_configs_match": true
+      },
+      {
+        "path": "Saved\\Validation\\Mecanum-20261106-141644-280-c484c427\\manifest.json",
+        "current_dll_sources_configs_match": true
+      }
+    ]
+  },
+  "web": {
+    "date": "2026-11-06",
+    "pass": true,
+    "actual_frames": 238,
+    "recognized_frames": 100,
+    "partial_frames": 87,
+    "full_frames": 56,
+    "tracked_frames": 228,
+    "heel_range_fused_frames": 205,
+    "csv_columns": 29,
+    "csv_rows": 238,
+    "csv_sha256": "8b375e2973b80155ab2797648d553bacfec391b2957c0503bfce6ca0c388693d",
+    "stream_sha256": "fed1bbb9fb910347618753a372f8062a3dc5b393415a0a7671fb1285e03c8230",
+    "scope": "Actual GPU-depth recognition and measured sensor fusion received from Unreal; shared CSV verified. No browser physics, actor pose fallback, DOM clicks or autonomous insertion."
+  },
+  "camera_regression": "Actual GPU isolated calibration plane; normal scene occlusions exercised separately in nine pallet conditions. PASS.",
+  "protocol_checks": 30,
+  "web_module_regressions": 8,
+  "scope": "Known-family depth geometry with dimensional priors; proximity, presence, load, height and sensor-odometry fusion. No actor identity or ground-truth pose input. Conditional bounded occlusion tracking is not universal perception. Full insertion is distinct from supported load. No autonomous insertion/navigation or new FPS qualification. Prior low-friction torque oscillation remains.",
+  "artifacts": [
+    {
+      "path": "Config\\Cameras.json",
+      "sha256": "05fcfa306aa2a428c4fc6e0aa7260aeed48c9990a218e99636a089a82255daf1",
+      "bytes": 606
+    },
+    {
+      "path": "Config\\DefaultEngine.ini",
+      "sha256": "1560e132d73380aa79cdfe7e3b4c642e3b08d1529a83eacd7b08642c437ec1f8",
+      "bytes": 2853
+    },
+    {
+      "path": "Config\\DefaultGame.ini",
+      "sha256": "ea4cfee89afdbdd14db2fb0a2591970c15c7a1bea3adc3f7d667ffee26124f76",
+      "bytes": 297
+    },
+    {
+      "path": "Config\\DefaultInput.ini",
+      "sha256": "11ebdcaedd0b429bcee9d84aa1e038f545217718a7c43c062fa260431c3a2209",
+      "bytes": 9066
+    },
+    {
+      "path": "Config\\Drivetrain.json",
+      "sha256": "ea1ff21e8f3fdc305aa68e5eb6302fd9fd4b830c17356fed3c1d1c0d6aeae907",
+      "bytes": 664
+    },
+    {
+      "path": "Config\\DynamicsSensors.json",
+      "sha256": "46b116670aa2b17d7b304161a28118b9c54f1b242c6be79a090cca03a8fbe4c5",
+      "bytes": 608
+    },
+    {
+      "path": "Config\\ForkStructure.json",
+      "sha256": "7b348a4629fc4f591304ddff5464cda9060324686688a0c94ebf53c5af033601",
+      "bytes": 754
+    },
+    {
+      "path": "Config\\ForkliftLab.json",
+      "sha256": "ee9979a6bc61948737215223b98756588f58b559c2d5124b38631e4b8a0ee837",
+      "bytes": 634
+    },
+    {
+      "path": "Config\\Hydraulics.json",
+      "sha256": "95ca490d12d7fec3a32000dca4e3f7fe4d71a76ae76bea5fefe3b2ca184b7a31",
+      "bytes": 1219
+    },
+    {
+      "path": "Config\\JointSensors.json",
+      "sha256": "fa64f927c011006fac91d0761880ba878a23a651462aa2bb4aa9a4d0403dec14",
+      "bytes": 613
+    },
+    {
+      "path": "Config\\LidarSafety.json",
+      "sha256": "eca147a22d5e67b17294a35bd47255b17b3e6eb8cfad06ad0d4dd8c7c6426738",
+      "bytes": 523
+    },
+    {
+      "path": "Config\\Mecanum.json",
+      "sha256": "076cad78c9172ab7e8e12da2cda2ac418b0dc9a0faa8544d877d6b2c5366fe5b",
+      "bytes": 2125
+    },
+    {
+      "path": "Config\\Modeling.json",
+      "sha256": "f9c325f3ec86d851309517b00b87f3436e30b35a582b1d8718808ec85c983e12",
+      "bytes": 1413
+    },
+    {
+      "path": "Config\\NavigationMap.json",
+      "sha256": "f525e6555adf930ef6c8459c0c4e8ff7c1fa2bd8fb1ff6f184f24592b2ad65bc",
+      "bytes": 28917
+    },
+    {
+      "path": "Config\\NavigationTestMap.json",
+      "sha256": "29cd193fb7877850accfdd416afdaa467da4f145b9663dd0a19263c293f3dfb4",
+      "bytes": 378
+    },
+    {
+      "path": "Config\\PalletPerception.json",
+      "sha256": "21ec502e884675f6d85e1a1998429d11ffee43b5459eaf4ad9835a3e894d2212",
+      "bytes": 541
+    },
+    {
+      "path": "Config\\Payload.json",
+      "sha256": "5e0596cd9c28a6b0f9d548ed47069d070ebac0c47842de646d665cf94647618b",
+      "bytes": 631
+    },
+    {
+      "path": "Config\\PhysicsReference.json",
+      "sha256": "b8cb64d93a61986eb862a69c452f4baf964540804f2a3c0ac05a6a07a0eae7ac",
+      "bytes": 656
+    },
+    {
+      "path": "Config\\ProximitySensors.json",
+      "sha256": "a63ff6a0202c1e5e35f3df5aa2da4a30b7dae43794c96b9f8cb6992c2eb765ae",
+      "bytes": 435
+    },
+    {
+      "path": "Config\\PublicCalibration.json",
+      "sha256": "176e681049f780b8f49e2fd73153b76b130497de5d43970edf8d5bee08a89b9a",
+      "bytes": 3996
+    },
+    {
+      "path": "Config\\RackHandling.json",
+      "sha256": "f3a84dec3e76008af084d2a3869c7a476c555838757dec238c06deb98ca5a181",
+      "bytes": 389
+    },
+    {
+      "path": "Config\\RealComponents.json",
+      "sha256": "38bac35208b63e6a0f6a3ad8d11993dee11827893fc4dc0fed26ab4bbde8a898",
+      "bytes": 4927
+    },
+    {
+      "path": "Config\\SensorDrive.json",
+      "sha256": "845b7de4aa101109e75847f00a4d5b9594b1b60948b3637228e689f2d547a373",
+      "bytes": 401
+    },
+    {
+      "path": "Config\\SensorLiftControl.json",
+      "sha256": "d444787c91df56749020b1a5c24af897da751bd689f2b4b4c16f64ff8f4a6468",
+      "bytes": 586
+    },
+    {
+      "path": "Config\\Tyres.json",
+      "sha256": "9291028b1b4d1334d6ee0ec3af7c8cc9cae637a572367047b77d536cb16e5524",
+      "bytes": 1095
+    },
+    {
+      "path": "Config\\Vehicle3D.json",
+      "sha256": "bb376391ec3868c70ad9cbd8822a87acb33428b7cc7ca49a71b1bfb540eba61a",
+      "bytes": 1197
+    },
+    {
+      "path": "Config\\WarehousePayload.json",
+      "sha256": "04cf2f8239640d2310f283ab904d8310de56cf6f87cbc1cda631311f43993925",
+      "bytes": 4936
+    },
+    {
+      "path": "Config\\WheelLab.json",
+      "sha256": "679be15650b66154a087f53ca228cbcc5512a95802dcb43928d601af4f6a599e",
+      "bytes": 538
+    },
+    {
+      "path": "Docs\\AutomationBatches.md",
+      "sha256": "eddced11a018cd7b8f27054ebc3a0dfbd59d8defd079aee590ad4de24523eacb",
+      "bytes": 3271
+    },
+    {
+      "path": "Docs\\Images\\PalletPerception-20261106.png",
+      "sha256": "afe5d216308da53663b82d7473da95fd2584562aa4f1cf56adc32dadc702ed82",
+      "bytes": 254688
+    },
+    {
+      "path": "Docs\\PalletPerception.md",
+      "sha256": "78af549198e7018a351a7910565c569e74c70df7c05339f9f1c5c3d4a4b49a0d",
+      "bytes": 9310
+    },
+    {
+      "path": "Docs\\References\\PalletPerceptionPhysicsParity-20261106.json",
+      "sha256": "7742b9e2025f2974c7005f54ed1a760d39740b0c413bce36a25f7aa7ad993d48",
+      "bytes": 2795
+    },
+    {
+      "path": "Docs\\References\\PalletPerceptionValidation-20261106.json",
+      "sha256": "37479f0ec2d6457daa6df6e3ea08f41a7c6e586bef27f786c8ddb59f0aaaec3c",
+      "bytes": 15601
+    },
+    {
+      "path": "Docs\\References\\PalletPerceptionWeb-20261106.json",
+      "sha256": "7c7bd19d3c820db6be5cae0b189f9b11feb5f0125b45502cbc19637ff8fc383a",
+      "bytes": 600
+    },
+    {
+      "path": "README.md",
+      "sha256": "d8233572bf0f0e3d939b0e67b26c547f2642ee912d9eb33a47de13dc0740acd4",
+      "bytes": 30497
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141247-DB2BCC4E.csv",
+      "sha256": "495836c51678d1ebcf1ad83ba2c8040f9cc123f8031929dd4e24d812c6d48d4d",
+      "bytes": 52721
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141247-DB2BCC4E.csv.frame.json",
+      "sha256": "cd610fc98537300692f638473bb753b414ee96a56c579dd3914a4daa9be13cdb",
+      "bytes": 242
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141247-DB2BCC4E.csv.frame.json.depth.bin",
+      "sha256": "b0d553c6bcd765fea8de89f50d0b81857a764dbc0c31fbe05e5a0e6f771b408f",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141247-DB2BCC4E.csv.frame.json.validity.bin",
+      "sha256": "571359d0be6a4334dde92abed65d1aec4bf436139c6112ac3f19ca10b8d8ee8a",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141314-046F99F5.csv",
+      "sha256": "14d6e723ebc9fca894f3eae80d6c19743f92e347d13b9c4f37433310a2d259f5",
+      "bytes": 55961
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141314-046F99F5.csv.frame.json",
+      "sha256": "2e134df9ca0b485d4a9c83879d6bfe01ba308c368a5c3fac611d3aee601d4234",
+      "bytes": 242
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141314-046F99F5.csv.frame.json.depth.bin",
+      "sha256": "754db28648a8ba105852c671280377a3a87ab04decbd916fe088eb373c1835da",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141314-046F99F5.csv.frame.json.validity.bin",
+      "sha256": "051c61d502b8615c76358f7c78294b611086d6cb7033eb49f506dcef145bbacc",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141341-B8E082AF.csv",
+      "sha256": "91ab6a086cc7246dc975de26b3b2688d3d5243668cf1cce3467cbf09fd9ddbd4",
+      "bytes": 56445
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141341-B8E082AF.csv.frame.json",
+      "sha256": "bacc93935dd4839013f74eb18dbf179b509d49ae1bf04d4d93dc8fc1a87418ba",
+      "bytes": 238
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141341-B8E082AF.csv.frame.json.depth.bin",
+      "sha256": "ad75a2845535b7869f131039d2b0fede2896c84a68d05deabbf951b520c67ba8",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141341-B8E082AF.csv.frame.json.validity.bin",
+      "sha256": "d930519dc8bbe6d4975a712fcae8a6914b97a5b491cfd98df8e57fde96b5d9a1",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141406-FFB1224D.csv",
+      "sha256": "5938ce14fdfd8d1c1d38bbcefda0faaddc0e6df5cc1a074ce6539d77d6bcf8ab",
+      "bytes": 56086
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141406-FFB1224D.csv.frame.json",
+      "sha256": "bb7b5fce7b249eab9824599bec3b011afb6199c1b4168b3d216d80b4bdd3ae46",
+      "bytes": 242
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141406-FFB1224D.csv.frame.json.depth.bin",
+      "sha256": "8840ef3d97ed474e78fd65fa175ea8b9e1aeb1b434911a5c4bab47c617bc1db2",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141406-FFB1224D.csv.frame.json.validity.bin",
+      "sha256": "ab8a1d2f420025697561b6108a783b49a81ed94c7b9907cb3d53a499dc3aa4a5",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141433-F0CE9B7F.csv",
+      "sha256": "5ca127b49cbe809debd52002eb8d870ddd881cd2cb9555b9f007dda4beb25691",
+      "bytes": 56481
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141433-F0CE9B7F.csv.frame.json",
+      "sha256": "c15e70fb5ff51f27b94e6db8ed2682b96592caf1663715ec5af0e7fb5c7f6ca9",
+      "bytes": 241
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141433-F0CE9B7F.csv.frame.json.depth.bin",
+      "sha256": "014317bfb8af04cc7c7f04f1ce57ba1a04168de9a6c1bca0413e0058eee30b3c",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141433-F0CE9B7F.csv.frame.json.validity.bin",
+      "sha256": "2d4629188be5e11c71fce39ab29ea5e6778129d6153b41c6cc68db3d8a3d1547",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141459-F7FED5E9.csv",
+      "sha256": "c9ab31faa3f4495240fe655bee1d3ed27553d7653fc1989ecac955252e5973f2",
+      "bytes": 55709
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141459-F7FED5E9.csv.frame.json",
+      "sha256": "cd610fc98537300692f638473bb753b414ee96a56c579dd3914a4daa9be13cdb",
+      "bytes": 242
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141459-F7FED5E9.csv.frame.json.depth.bin",
+      "sha256": "b0d553c6bcd765fea8de89f50d0b81857a764dbc0c31fbe05e5a0e6f771b408f",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141459-F7FED5E9.csv.frame.json.validity.bin",
+      "sha256": "571359d0be6a4334dde92abed65d1aec4bf436139c6112ac3f19ca10b8d8ee8a",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141524-FBA316E1.csv",
+      "sha256": "9eed4a414836707ef515782a505b6a5adc03fe597c00f55d22f309310b018309",
+      "bytes": 80734
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141524-FBA316E1.csv.frame.json",
+      "sha256": "7b47e651887f42a974a0f9a3fdc1246110300fb97d14ddd31e532fa04e860dad",
+      "bytes": 243
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141524-FBA316E1.csv.frame.json.depth.bin",
+      "sha256": "b6781d2d8f7f1e58cc0310c1b0856612cde5e05bf05e5b6832805c548f312a33",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141524-FBA316E1.csv.frame.json.validity.bin",
+      "sha256": "8b0426dfdb1d047ad34f6b119a9c0a75d3a05df9611c0abac77f58ddbe6a7cdc",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141558-F09AFF61.csv",
+      "sha256": "f098417733ca4508bb33de15b3b5ec666d3f2b075c4802dd9d4a2f7758878902",
+      "bytes": 53138
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141558-F09AFF61.csv.frame.json",
+      "sha256": "cd610fc98537300692f638473bb753b414ee96a56c579dd3914a4daa9be13cdb",
+      "bytes": 242
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141558-F09AFF61.csv.frame.json.depth.bin",
+      "sha256": "b0d553c6bcd765fea8de89f50d0b81857a764dbc0c31fbe05e5a0e6f771b408f",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141558-F09AFF61.csv.frame.json.validity.bin",
+      "sha256": "571359d0be6a4334dde92abed65d1aec4bf436139c6112ac3f19ca10b8d8ee8a",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141626-D37E8266.csv",
+      "sha256": "14d6e723ebc9fca894f3eae80d6c19743f92e347d13b9c4f37433310a2d259f5",
+      "bytes": 55961
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141626-D37E8266.csv.frame.json",
+      "sha256": "2e134df9ca0b485d4a9c83879d6bfe01ba308c368a5c3fac611d3aee601d4234",
+      "bytes": 242
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141626-D37E8266.csv.frame.json.depth.bin",
+      "sha256": "754db28648a8ba105852c671280377a3a87ab04decbd916fe088eb373c1835da",
+      "bytes": 230400
+    },
+    {
+      "path": "Saved\\Telemetry\\PalletPerception-20261106-141626-D37E8266.csv.frame.json.validity.bin",
+      "sha256": "051c61d502b8615c76358f7c78294b611086d6cb7033eb49f506dcef145bbacc",
+      "bytes": 57600
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141247-3C6433B4.csv",
+      "sha256": "ea7f96b87de3db6b1cfe941856af7da714577409f647fbabe627f189ad4e17e4",
+      "bytes": 338149
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141314-8F776305.csv",
+      "sha256": "20f90df4577d67f88f42e9d3c92a8ba4979c92abbd37261d5358192adb46f8b3",
+      "bytes": 341103
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141340-93341A34.csv",
+      "sha256": "da04247aa1cb0a23b0728fe3537b9db0d0abd83a3ceedc38b180aa4eeb9cf6db",
+      "bytes": 339418
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141406-6CD034D8.csv",
+      "sha256": "dfa4ec8a96800c7d8d2443047599a133415883939925c4843a8a0d5e5282ea90",
+      "bytes": 339013
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141433-28A0B7DD.csv",
+      "sha256": "4253308c98594a478b0c042e730a3858760fef9569801319dcd082ade04f8c34",
+      "bytes": 339868
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141459-172C4E32.csv",
+      "sha256": "ea7f96b87de3db6b1cfe941856af7da714577409f647fbabe627f189ad4e17e4",
+      "bytes": 338149
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141524-67E5FF57.csv",
+      "sha256": "2af1c1b287452f0e96851488b88592768dd5fe302c6ccd5fab31dd21baa51a3f",
+      "bytes": 503526
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141558-9D8EA7D7.csv",
+      "sha256": "a991a3320b5995f9a21805f8cc98109d2fb3d4b87a39bfcc54716383319a5011",
+      "bytes": 339295
+    },
+    {
+      "path": "Saved\\Telemetry\\ProximitySensors-20261106-141626-F2E4B588.csv",
+      "sha256": "20f90df4577d67f88f42e9d3c92a8ba4979c92abbd37261d5358192adb46f8b3",
+      "bytes": 341103
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_aligned-20261106-141247-DCD60FC6.csv",
+      "sha256": "8be7b278750a864feb9692a242c679da7200d9026e5b41976f9b745eae879aaa",
+      "bytes": 751554
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_aligned-20261106-141558-53B42F99.csv",
+      "sha256": "fab0b66cc5442e5ea5667e2d2dd0e853c676042a48b1f8c09ed294f21c48cea7",
+      "bytes": 751554
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_box-20261106-141433-7D8539A5.csv",
+      "sha256": "9688cde3329539494ba67390b13af4231fa21b407f7fc03adb42c2bd3fe03550",
+      "bytes": 656342
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_disabled-20261106-141459-EE74F5F9.csv",
+      "sha256": "142cd1a6662ccdc4614817468ce5794f2c5e9457c1aaf4e8d38b88ef7bdbab85",
+      "bytes": 751554
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_high-20261106-141524-F9EADEAF.csv",
+      "sha256": "7ca78c817008b28a81a3c2a067ae3f1a385f35e82c5f6559e5c3df0fe91f8806",
+      "bytes": 1129752
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_insert-20261106-141314-6F58A3B8.csv",
+      "sha256": "016000317af968495629de30b52e9b4c9fb903f78ab100a3c29f982601c1f6ba",
+      "bytes": 757858
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_insert-20261106-141626-C6964F61.csv",
+      "sha256": "ff58f12676ccd9b78714cab4d14875621ed058c25193a5946e57fe2491bbc308",
+      "bytes": 757858
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_shift-20261106-141406-316C5FDD.csv",
+      "sha256": "bf72042c3fbba45268ad4c259ddefc2eabb6483b0e504275fa03c4aeafd744f8",
+      "bytes": 751543
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_pallet_vision_yaw-20261106-141341-BA9C2B2D.csv",
+      "sha256": "38ea358b051901e6bde46c3df9f4850e7c16cc4ec75e980a2fc2d2203baac755",
+      "bytes": 751440
+    },
+    {
+      "path": "Saved\\Validation\\Cameras-20261106-142119\\CameraValidation.log",
+      "sha256": "2d4bb9ce26cc1e08b538885b045c3cd36d94fac9f0d4a9cc0d0c69d448128eac",
+      "bytes": 105011
+    },
+    {
+      "path": "Saved\\Validation\\Cameras-20261106-142119\\cameras.json",
+      "sha256": "d9a9faa4404217ba3dd512ccb9321230d0c505909a0cff4f71f352aa139d6e12",
+      "bytes": 3018
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141236-658-4855607b\\manifest.json",
+      "sha256": "c358160756e0aa2e92055331eaa2f3facd4c8106b327997098f8223de1725322",
+      "bytes": 31626
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141236-658-4855607b\\pallet_vision_aligned.log",
+      "sha256": "de45a3e8f3e47cee5af294f934ef10062c669a365f2280ca8998071f197dcc14",
+      "bytes": 105293
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141236-658-4855607b\\pallet_vision_insert.log",
+      "sha256": "c1bb93709db0e68b8e1edd7762319897d494bb9aaa0820a939ad3e42675357f1",
+      "bytes": 105102
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141236-658-4855607b\\results.json",
+      "sha256": "9edfe90c162fdc176ffa0e88bb1692847c4e3508b9c087322fed1bf96facd163",
+      "bytes": 3747
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\manifest.json",
+      "sha256": "4ef7e05973a3282741a34abacf69529c0434ecd5691919770adf519385a34ee3",
+      "bytes": 31626
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_box.log",
+      "sha256": "3756e1d49a02df06895ec57b806252106c9aeda2074414dd1f0ccbbebcd52440",
+      "bytes": 104575
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_disabled.log",
+      "sha256": "5ca1f105e28c61bad1b3be461bb85c149bb61bdd138a13608d55510361017100",
+      "bytes": 105304
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_high.log",
+      "sha256": "4810041002f8e0f1a4c96556ca9b7616cb8a16bc0a36c3c028eefa4b097c0ff2",
+      "bytes": 105272
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_shift.log",
+      "sha256": "0771e2ffeef25e5ffef54b5b98be5816e0e0e1faf3410847b5813e5dd0f809ef",
+      "bytes": 105279
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_yaw.log",
+      "sha256": "75dce9c5129b5565cc691a96e078432fbb12a42e1960591d2b05990fb182fda1",
+      "bytes": 105075
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\results.json",
+      "sha256": "0c74643341d9d9d29095cbf15f9d0b1f4c0d93c48c433d101da1d300f1a08e1f",
+      "bytes": 9322
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141548-799-8d8482a5\\manifest.json",
+      "sha256": "cc219133225e70dd0d1c7f4bba83a0f22e4dc181c0955ab3d7c9b9aaeb3dcb40",
+      "bytes": 31629
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141548-799-8d8482a5\\pallet_vision_aligned.log",
+      "sha256": "eb1232703bb5ce00f42e8ccba39617703ef38254aa26ebc4ab9d3db62155147e",
+      "bytes": 105156
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141548-799-8d8482a5\\results.json",
+      "sha256": "47fe30c3fef3c2b8ebf4d47b6b22a26d86677bd708083920cdb61a94c5e1300a",
+      "bytes": 1878
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141616-565-9e11dcbd\\manifest.json",
+      "sha256": "fa8fa0a37e31d61a384ee7333970a9427e82221f8d8515d22b6a8bf24dfa3abc",
+      "bytes": 31626
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141616-565-9e11dcbd\\pallet_vision_insert.log",
+      "sha256": "89fa21cede63c653fea4f7e1471c17d09323aead98eeae08c47a3b28f9e016c1",
+      "bytes": 105341
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141616-565-9e11dcbd\\results.json",
+      "sha256": "73db60729e89e3a5f4ed85ea70eeeadf3d30efb05f392cd5dbb08849b1a27302",
+      "bytes": 1874
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141644-280-c484c427\\manifest.json",
+      "sha256": "d91796e352d3229d09ccf7eb772a8923636c5bcc239a45947e4a7b790f7e141d",
+      "bytes": 31627
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261106-141644-280-c484c427\\results.json",
+      "sha256": "13f8fafa11804918caac6b0ad9279a2ea7affd4a365fec69f3af6646fe122f74",
+      "bytes": 5828
+    },
+    {
+      "path": "Saved\\Validation\\PalletPerception-Live.jsonl",
+      "sha256": "fed1bbb9fb910347618753a372f8062a3dc5b393415a0a7671fb1285e03c8230",
+      "bytes": 9547162
+    },
+    {
+      "path": "Saved\\Validation\\PalletPerception-QualifiedUnit\\index.json",
+      "sha256": "1c61abe6a7577ca018433f0b18bd0f18dfd552552cf406dcb3c4a97fc7a0b402",
+      "bytes": 30453
+    },
+    {
+      "path": "Saved\\Validation\\PalletPerception-WebExport.csv",
+      "sha256": "8b375e2973b80155ab2797648d553bacfec391b2957c0503bfce6ca0c388693d",
+      "bytes": 90335
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\PalletPerception-Cameras.txt",
+      "sha256": "452cdc419316cb4f3ec292002b12a67fc8ea9f41bb929f0bb6ac55163b87f4ba",
+      "bytes": 189
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\PalletPerception-FinalBuild.txt",
+      "sha256": "e5ab12afecc8d37aee20d923f9e9242350c9a1676afd043264ae73e5cbd958c4",
+      "bytes": 3600
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\PalletPerception-FinalNative.txt",
+      "sha256": "b740e0352fa7872aa4796a8a9bce5c7903e48ec16859f8aa35ee6d6acfd64486",
+      "bytes": 7316
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\PalletPerception-FinalWeb.txt",
+      "sha256": "6c3adb810a1b810676ee3d541da076e0657e6dd2989f0ea66c63a887b9dc7d56",
+      "bytes": 548
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\PalletPerception-JSBridge.txt",
+      "sha256": "f357ee82aaec649b4c0727415ae439202fdc52152d9e14b8cd807bf11dc2eefc",
+      "bytes": 1354
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\PalletPerception-QualifiedUnit.log",
+      "sha256": "2b3d5ac9dfbb81dc12f876c5500f687b9c57dcadf353ba488a9ebfa9c24feaf7",
+      "bytes": 173036
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\PalletPerception-WebModules.txt",
+      "sha256": "433e391d3376dee5cca6b45bd8cdfe09d02ed87048dd0e53ce9b2a21989d4e09",
+      "bytes": 240
+    },
+    {
+      "path": "Scripts\\Test-Mecanum.ps1",
+      "sha256": "88fba5ee38bb03848ee5b09d31d7d93a3dce42d3935631839e63be60a60b720d",
+      "bytes": 11242
+    },
+    {
+      "path": "Scripts\\Test-PalletPerception.ps1",
+      "sha256": "8e4561b1e049be122be8504d47421c82c199b64a760a77f96495ef986578bdea",
+      "bytes": 1927
+    },
+    {
+      "path": "Scripts\\plot_pallet_perception.py",
+      "sha256": "33f03a08cb28e58ec8ea8f27b83a876391c9f0d2e74a363344227c216cbde58d",
+      "bytes": 3970
+    },
+    {
+      "path": "Scripts\\validate_pallet_perception.py",
+      "sha256": "e9857fd28bc6f26230ac7e7414f5a289e9c76f5374c7578d9a107c038ce397b4",
+      "bytes": 3758
+    },
+    {
+      "path": "Source\\ForkliftSim\\CameraMounts.h",
+      "sha256": "137f628b14f4ace8acaf6196479466dadbe2990364b65f7127673eefa4f3cc04",
+      "bytes": 442
+    },
+    {
+      "path": "Source\\ForkliftSim\\CameraSensorTests.cpp",
+      "sha256": "e478c15c5e746f19ae8cf5ae66aad3fbfb127b99e46bb4c4097c1f37d04a4421",
+      "bytes": 3155
+    },
+    {
+      "path": "Source\\ForkliftSim\\CameraSensors.cpp",
+      "sha256": "fe45270ad4d98dcb3e84cef093109fd8c27253353414900b271c450420e5066f",
+      "bytes": 25015
+    },
+    {
+      "path": "Source\\ForkliftSim\\CameraSensors.h",
+      "sha256": "e7dad41fa12be70b53e848f071ed06e3f54c04e48be8fa12108a99f40f4aba64",
+      "bytes": 3216
+    },
+    {
+      "path": "Source\\ForkliftSim\\CameraViews.cpp",
+      "sha256": "bb7539073192bdcfdb2ecdd5cf562d6b3e5a5941bdc98f1ea8d736adaffc869f",
+      "bytes": 1748
+    },
+    {
+      "path": "Source\\ForkliftSim\\CargoContactData.h",
+      "sha256": "1234dd0c6055e57cee262e519acd4026f60ae334e70de2541932293936e60f6a",
+      "bytes": 835
+    },
+    {
+      "path": "Source\\ForkliftSim\\CargoGeometry.h",
+      "sha256": "6bf5f2ebc97a269ac789bd7d112ba89f6edadebcac48bb70ea116e9cffc03eb2",
+      "bytes": 1247
+    },
+    {
+      "path": "Source\\ForkliftSim\\CargoLab.cpp",
+      "sha256": "658677667c87caccde2dddf3d34e13261bbbf747865710c3244be164136843a4",
+      "bytes": 12855
+    },
+    {
+      "path": "Source\\ForkliftSim\\ChainConstitutive.h",
+      "sha256": "f1a88e2b779495597445b250dae12721696084eba551e687c41adaa6375405be",
+      "bytes": 580
+    },
+    {
+      "path": "Source\\ForkliftSim\\ChassisActor.cpp",
+      "sha256": "8fbb56d26645c22d19867c52dd1e2d30346e5b9b3278720fbdbf987c83caaa80",
+      "bytes": 3243
+    },
+    {
+      "path": "Source\\ForkliftSim\\ChassisActor.h",
+      "sha256": "95bc6527bb6d197b0bf184708d2b67d324dd354483b4fd532d717a8964210c5a",
+      "bytes": 417
+    },
+    {
+      "path": "Source\\ForkliftSim\\ComponentDetail.cpp",
+      "sha256": "06da55fe00820615d0ece52a6482779b634ebc20111af0479431f7bfa06f6527",
+      "bytes": 2266
+    },
+    {
+      "path": "Source\\ForkliftSim\\ComponentDetail.h",
+      "sha256": "d330e7cfd6805501dd946ad68023c421d9a1b22f19f7398e106b368853295643",
+      "bytes": 1013
+    },
+    {
+      "path": "Source\\ForkliftSim\\ComponentLab.cpp",
+      "sha256": "99df544bde16a1f35f8b0720bcd4e0161b5be4cf03eb9d247765563c7d45114f",
+      "bytes": 10344
+    },
+    {
+      "path": "Source\\ForkliftSim\\ComponentTests.cpp",
+      "sha256": "fdf40c3f39e8dbdc2abfb492aac423603c65626beeed607198010e723bdfef3a",
+      "bytes": 4528
+    },
+    {
+      "path": "Source\\ForkliftSim\\ContactEnergyAudit.cpp",
+      "sha256": "266ca93b59fa7f66f51753d10860edb6162585dbb507b8ad42e9cc22f094af07",
+      "bytes": 4855
+    },
+    {
+      "path": "Source\\ForkliftSim\\ContactLoadSampler.cpp",
+      "sha256": "c36ba18d7498354d4de6b97f4fa21ae02153dc687b6905a8805fffe48733ebc9",
+      "bytes": 44095
+    },
+    {
+      "path": "Source\\ForkliftSim\\ContactLoadSampler.h",
+      "sha256": "04e16d90cfab17a48e98d51c76a12c06e5b25ec43dc72b06ded3dc3d7898ed8c",
+      "bytes": 12361
+    },
+    {
+      "path": "Source\\ForkliftSim\\DrivetrainLab.cpp",
+      "sha256": "ce5ba2301ccce39558e31294e48f121b5e7afb7da402eae2824d47e0d143df79",
+      "bytes": 9960
+    },
+    {
+      "path": "Source\\ForkliftSim\\DrivetrainModel.h",
+      "sha256": "79ab032e14e561818f4ce4e30e79b8f631025e444490fe8e729d394631e7b6f0",
+      "bytes": 4297
+    },
+    {
+      "path": "Source\\ForkliftSim\\DrivetrainSettings.cpp",
+      "sha256": "f01c6c259e0630fa33645394ad6e59a91c1274b4a127fba4161c677d642a13f4",
+      "bytes": 1574
+    },
+    {
+      "path": "Source\\ForkliftSim\\DrivetrainTests.cpp",
+      "sha256": "862fbb6b80c33165e31c246378ddc205539efebb043874e8ba45ec38e93dd3ef",
+      "bytes": 2559
+    },
+    {
+      "path": "Source\\ForkliftSim\\DynamicsSensorTests.cpp",
+      "sha256": "31f7d621ac21ffd53c201db83a2c3ac8d4be215451944a322d1eb62758e890c5",
+      "bytes": 6556
+    },
+    {
+      "path": "Source\\ForkliftSim\\DynamicsSensors.cpp",
+      "sha256": "a142ddf4bd90fa286703cc2e114330b1be8811a920d786c71a8f1c16606500b0",
+      "bytes": 10363
+    },
+    {
+      "path": "Source\\ForkliftSim\\DynamicsSensors.h",
+      "sha256": "61e8dabfae891c4ec74e6c03dab707eec99576a447704e9fa7b7df942ea6e96b",
+      "bytes": 2745
+    },
+    {
+      "path": "Source\\ForkliftSim\\EnergyAudit.cpp",
+      "sha256": "d052d0f9ead5f8cc49640b7b9f85faa91f2081a63cb3720bbff44e8f7ff18364",
+      "bytes": 6051
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkActor.cpp",
+      "sha256": "ebd07116976b7a7cf825a451e7fdea39e1cf07a222094ab87139073f7c17dd08",
+      "bytes": 14816
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkActor.h",
+      "sha256": "45a1630b5a053a2cd6083a6e2f1a426f0f206be2edfd48b067878e9b9cfc1d30",
+      "bytes": 2753
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkliftLabGameMode.cpp",
+      "sha256": "ef0a96342fc32bae965930add3cfbc8ad7db0f04905e2bbf6679838ff74e9c7f",
+      "bytes": 10231
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkliftLabGameMode.h",
+      "sha256": "59475bd4625b834c6e1d0c6dde3219317744bb9d82fe72a0072e823677a6327e",
+      "bytes": 1073
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkliftSim.Build.cs",
+      "sha256": "3372f6d7306def67f86eda2dd37092d1a9331c7663d8cdd4956ff3b9803e45dc",
+      "bytes": 499
+    },
+    {
+      "path": "Source\\ForkliftSim\\ForkliftSim.cpp",
+      "sha256": "d5c403c86ef482ea16887978c7df9f08d5e572c9174ef47ab6221fe068ff76f5",
+      "bytes": 118
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicCallback.cpp",
+      "sha256": "20983190174db62663054f8bd5c597c827940435c83b0c6fd5013d7fa1afe971",
+      "bytes": 5283
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicCallback.h",
+      "sha256": "bdbf08657db23d454777713fd031504ff46260dbdcc2ee41c6b80d82b4768340",
+      "bytes": 1912
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicDetail.cpp",
+      "sha256": "f2b17915bb6979ac159cedfd0d4b73891b3f9aeec5592ca9818ae37561bbc830",
+      "bytes": 4262
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicLab.cpp",
+      "sha256": "d4d51d741566ed491942e4a9dc16849bbd6fb1aedf09ee54743cb7ee0b064211",
+      "bytes": 6936
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicLift.cpp",
+      "sha256": "74d6f29cc7244a2766a21dc6e2be194f55e68fbcfbe0d75ccc3b3922f88156af",
+      "bytes": 6547
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicLift.h",
+      "sha256": "45b5883ec332bcc7700b32a703b0b32017fafaf334cc18e4e903c04d66edb1fa",
+      "bytes": 3243
+    },
+    {
+      "path": "Source\\ForkliftSim\\HydraulicTests.cpp",
+      "sha256": "55e19a4d5f0c877815b1eaff8ea0aa6500f830ec0bf02f445f4a6b4ed41cd3eb",
+      "bytes": 4292
+    },
+    {
+      "path": "Source\\ForkliftSim\\JointSensorSampling.cpp",
+      "sha256": "4c7f3a3fcf961ac65bc59e764a79153c29adce69e93b8b279328e6c92a984b41",
+      "bytes": 3377
+    },
+    {
+      "path": "Source\\ForkliftSim\\JointSensorTests.cpp",
+      "sha256": "31ee91011eaf291d7dbb06f47433e7b4a8d5f47e1681c626f709c65707316626",
+      "bytes": 5925
+    },
+    {
+      "path": "Source\\ForkliftSim\\JointSensors.cpp",
+      "sha256": "149105e51b7c9008470244b19e364368eb8446f3d6397979828b1ae750d144ce",
+      "bytes": 13698
+    },
+    {
+      "path": "Source\\ForkliftSim\\JointSensors.h",
+      "sha256": "838e4ed04107dda8cef33570a0944502c1d6ac976dcf8fc82d7d6ccb96b5bcc9",
+      "bytes": 2952
+    },
+    {
+      "path": "Source\\ForkliftSim\\LidarSafety.cpp",
+      "sha256": "1acdb8454baa1b013e5c044462dfce73b2da9452df0b2741768be16c4ff3023c",
+      "bytes": 12279
+    },
+    {
+      "path": "Source\\ForkliftSim\\LidarSafety.h",
+      "sha256": "a757697ed449e7eea5c6335d11ae9935a9942a5b79e4ec1417263bec7a9237df",
+      "bytes": 2588
+    },
+    {
+      "path": "Source\\ForkliftSim\\LidarSafetySampling.cpp",
+      "sha256": "68ffd291eb6612b937f802bfd81598217ef48cecec39b4af9318844e523a32a5",
+      "bytes": 6868
+    },
+    {
+      "path": "Source\\ForkliftSim\\LidarSafetyTests.cpp",
+      "sha256": "56999b13f4be0e34570586811f14a2b5a8a519b6ee7efe678b0d85d3913a661a",
+      "bytes": 5918
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftBench.cpp",
+      "sha256": "a9c6d92f185281e08fbb321e3dabb696852d9c72dcbce3909dcdb4efbd0fcbdd",
+      "bytes": 19067
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftBench.h",
+      "sha256": "0173bd86c2f1cbdc9fbb55c98d316c2d3ba36ba6e8df67528e9529384c0ecc31",
+      "bytes": 2426
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftModel.cpp",
+      "sha256": "99cb22fd7ef0f66e646760af00e79669ceea041b6e1f820c15999750f3930537",
+      "bytes": 4486
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftModel.h",
+      "sha256": "1a59b2412f34ee445f1a03d1ab10cb525e1ab8df45c4bfef7141deb56e228a76",
+      "bytes": 1586
+    },
+    {
+      "path": "Source\\ForkliftSim\\LiftModelTests.cpp",
+      "sha256": "7066b6aa29d79e2e673ddd15e55e01b7445dae963b9b60913edc4e7f11bbeb42",
+      "bytes": 2167
+    },
+    {
+      "path": "Source\\ForkliftSim\\MecanumLab.cpp",
+      "sha256": "c466d17451d6b303be2dea3c625facae5a063111f88d20a54bb9e55423aa2139",
+      "bytes": 22785
+    },
+    {
+      "path": "Source\\ForkliftSim\\MecanumModel.cpp",
+      "sha256": "6d08be4272e271f785da3f54f554360a2f70268f43179d9b165dddc8ccb88f8a",
+      "bytes": 14663
+    },
+    {
+      "path": "Source\\ForkliftSim\\MecanumModel.h",
+      "sha256": "5695b0f31bf95d51e99963ec038812c320ed84f0cedfb7d60d4ec49df3913c14",
+      "bytes": 1793
+    },
+    {
+      "path": "Source\\ForkliftSim\\MecanumTests.cpp",
+      "sha256": "f80d0896d068cdae5ffa84a379143e4dbbb0d2218f22ecceee405b374a1c109c",
+      "bytes": 8126
+    },
+    {
+      "path": "Source\\ForkliftSim\\Modeling.cpp",
+      "sha256": "f2cb936aff56bc876189a599a9d3c00ecbe25d4df1cf86ddb31414446036557e",
+      "bytes": 5001
+    },
+    {
+      "path": "Source\\ForkliftSim\\Modeling.h",
+      "sha256": "15abf96755d33b1da676e66043290a8430e9ea1dbcfc7b2b149dec81ae354fd2",
+      "bytes": 242
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletLoadActor.cpp",
+      "sha256": "012464bb73e6dae316baa40cbe4b690353a2bfba3baa6683b264ba37b8f70d0c",
+      "bytes": 11975
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletLoadActor.h",
+      "sha256": "8c8e77c5e2d15e8e2b98c18e500db1e44b9f4e74c50f192191b445e46fa90948",
+      "bytes": 1556
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletPerception.cpp",
+      "sha256": "8cb9535b9dc54e0ee18d5a7b0f350d2a2d2b6b83f61ec4b1673307d23b20f779",
+      "bytes": 13408
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletPerception.h",
+      "sha256": "e4b6ca988faac32e0d8b74417e2d90a49d69c48d7c0302d6b907b9cd4b225237",
+      "bytes": 2369
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletPerceptionLab.cpp",
+      "sha256": "377234abdbce02bcd813e09c4d7b6fd61657917ca160862632af2c5ebec15b56",
+      "bytes": 4930
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletPerceptionTests.cpp",
+      "sha256": "b0d96188a5809e7abbced681b2561b37692bd9ba3950535f88455f2fe33ad9ff",
+      "bytes": 4428
+    },
+    {
+      "path": "Source\\ForkliftSim\\PalletVision.cpp",
+      "sha256": "5800a3740dd7fdf2de66b8f4cff010f56f06ea718d64b397aaa9d3900a7d4d09",
+      "bytes": 10539
+    },
+    {
+      "path": "Source\\ForkliftSim\\PayloadLab.cpp",
+      "sha256": "cc24829d76e2f586dc32bf8f1aa3a2ea0a5633f94bf10c6e5c5a18f80bef157d",
+      "bytes": 17759
+    },
+    {
+      "path": "Source\\ForkliftSim\\PayloadTests.cpp",
+      "sha256": "89aa46e875c80c01c00af2f8b9b7130e5ee7f4270d719bfdc4f0c82b81ace342",
+      "bytes": 2227
+    },
+    {
+      "path": "Source\\ForkliftSim\\PerformanceReport.cpp",
+      "sha256": "43dbf87ac25e32eaaf2b3e3de0771711985c03c4510db49f19f73aad6ab12a5a",
+      "bytes": 4007
+    },
+    {
+      "path": "Source\\ForkliftSim\\PhysicsReferenceTests.cpp",
+      "sha256": "4729ad8737bddd7397bfb188d63df51da919f944b31b337440998ef72dfa864a",
+      "bytes": 3431
+    },
+    {
+      "path": "Source\\ForkliftSim\\PlanarLocalization.cpp",
+      "sha256": "205354b675904bba866213fa60ef7dc7f67010ed436f7553a5bcacb3001edacf",
+      "bytes": 2539
+    },
+    {
+      "path": "Source\\ForkliftSim\\ProximitySampling.cpp",
+      "sha256": "9c6b7e19c7e5b8ded4c38ec1262964c79a655c88086615b1e0ebd67b01ee1089",
+      "bytes": 6599
+    },
+    {
+      "path": "Source\\ForkliftSim\\ProximitySensorTests.cpp",
+      "sha256": "9438daf88eabab7e2ad3d85c296e86cc9ad93833bb3263065394006ae0ae2a29",
+      "bytes": 5228
+    },
+    {
+      "path": "Source\\ForkliftSim\\ProximitySensors.cpp",
+      "sha256": "78faf6334e4dd3425dcdd21efd56b8cb164c3f5a3535fb724a2250b49ce74864",
+      "bytes": 9913
+    },
+    {
+      "path": "Source\\ForkliftSim\\ProximitySensors.h",
+      "sha256": "7d4deda23c76fd8394240d73c1432ee776222979f7dc1bbdb1811dab8a240d46",
+      "bytes": 3081
+    },
+    {
+      "path": "Source\\ForkliftSim\\ProximityValidation.cpp",
+      "sha256": "86b62bb76e0fbea2fb443dad79fab39b68a21a84a5618395df10add59f545169",
+      "bytes": 3667
+    },
+    {
+      "path": "Source\\ForkliftSim\\RackHandling.cpp",
+      "sha256": "0bf1e75c0c513f94d9cc9ef6d519994d02889762ff7f7f808530ec4d407ef931",
+      "bytes": 9002
+    },
+    {
+      "path": "Source\\ForkliftSim\\RackHandling.h",
+      "sha256": "f0f2fc74b5ed5fa0746f5ba75e014dae670c6922a8aae7fd625d8da5643ccf46",
+      "bytes": 713
+    },
+    {
+      "path": "Source\\ForkliftSim\\ReducedMecanum.cpp",
+      "sha256": "30ded706055b4cbb39ba4fcc30489f2ec58414009d2166b75c61a45dc27bf41b",
+      "bytes": 11310
+    },
+    {
+      "path": "Source\\ForkliftSim\\ReducedMecanum.h",
+      "sha256": "34634c93affe4d694da0fc37d27b8ea120612a1147f45e52b80b4d341398312b",
+      "bytes": 2600
+    },
+    {
+      "path": "Source\\ForkliftSim\\RigidSpin.h",
+      "sha256": "9d3234df33cfa719e12da0d5d85ea4f0580f2b29ffa378fbae73a0e4fede7c0b",
+      "bytes": 1693
+    },
+    {
+      "path": "Source\\ForkliftSim\\RollingReference.cpp",
+      "sha256": "cf6b83c9203ca3f1d840243547f5285d035176aa8098a1c9b899a995f0001c79",
+      "bytes": 5122
+    },
+    {
+      "path": "Source\\ForkliftSim\\RollingReference.h",
+      "sha256": "635b24c94e0412d79962174adc79b220a95acfef7342a765797a6f2cb6db5794",
+      "bytes": 858
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorDrive.h",
+      "sha256": "3b5826677dc25d4af001c5ac85436861cc3af91549262f6e7c446344a1af0e60",
+      "bytes": 2823
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorDriveIntegration.cpp",
+      "sha256": "55d78b5dee877730dd66a431e6b54e4378fa55a3d34b2c8056f2b11a1e614d86",
+      "bytes": 10308
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorDriveLab.cpp",
+      "sha256": "e6f18ba084d78e9510b377e29025418ba94bb782ad293564a8db7130fd8a215d",
+      "bytes": 3233
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorDriveModel.cpp",
+      "sha256": "3043c03ec990f3910a2c05f6fa138cff8165070b7a849e7644782fce3e74de69",
+      "bytes": 6990
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorDriveTests.cpp",
+      "sha256": "a33a936705f5eaddba600ec3986e04cffe981155ecc9bd19cf3eeedc717061ad",
+      "bytes": 4653
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorLiftControl.cpp",
+      "sha256": "4a5d6190707baedd26cc05c5af845335c272f4bea568142d436de245b9ffddce",
+      "bytes": 11478
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorLiftControl.h",
+      "sha256": "c4b29000dcb896799be4d82555399ccaf8c4fb7ed84ada4daa721b34d8b34843",
+      "bytes": 2420
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorLiftIntegration.cpp",
+      "sha256": "ff01ac6c1d5a4054c4ed8b3c54725fd0e98ae5e1974ca15df436f79c1e2a8e2e",
+      "bytes": 4266
+    },
+    {
+      "path": "Source\\ForkliftSim\\SensorLiftTests.cpp",
+      "sha256": "ee02a4fdb2ab1721a6d6f9773e236592416add8381a9be512362b7385a73718d",
+      "bytes": 6649
+    },
+    {
+      "path": "Source\\ForkliftSim\\StabilityLab.cpp",
+      "sha256": "ff68425e7e47c7b1ce3b9fef0ebf0ede2cb557aa477bd1f92a2b030dd47bce79",
+      "bytes": 89824
+    },
+    {
+      "path": "Source\\ForkliftSim\\StabilityLab.h",
+      "sha256": "e4e807796fa94ee27a3705009c6d0d40836990e99663c1f98a3e259fccf73a61",
+      "bytes": 16509
+    },
+    {
+      "path": "Source\\ForkliftSim\\SwerveKinematics.h",
+      "sha256": "55b59c6b0bc0e1ec939479b4cc4ac8164c16bc0db850c1be31b586770cc228f3",
+      "bytes": 3077
+    },
+    {
+      "path": "Source\\ForkliftSim\\SwerveTests.cpp",
+      "sha256": "08afd51376197abb3b1e3f3e100b6e0e8fc2593b56622968610a2c773e266a77",
+      "bytes": 4400
+    },
+    {
+      "path": "Source\\ForkliftSim\\TerrainCourse.cpp",
+      "sha256": "682dab2e34df2bf3381172d2bf5aad4506a13a219ee9be1932bf377e7d4e3357",
+      "bytes": 2282
+    },
+    {
+      "path": "Source\\ForkliftSim\\TerrainCourse.h",
+      "sha256": "d99064b37818a474f62be375bb7e31b866e93975a3680d729a863173fcd37ebb",
+      "bytes": 623
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadModel.cpp",
+      "sha256": "d755bb2a1136753fa986a2b47e9a601d6118a5f113ddfa98549be60308232cd0",
+      "bytes": 12681
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadModel.h",
+      "sha256": "e93c8c21a6fdee0fc9e282e403dcc751be839cc34e1a190f6038c2896fe428a9",
+      "bytes": 3728
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadReference.cpp",
+      "sha256": "7baf50066304276325c8df5053210b77f091718784c42eadecea1982c18fc40e",
+      "bytes": 16377
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadReference.h",
+      "sha256": "c8b2ec4041fc771673b537b35895ac42de56976e309571d72b98eb7eae662ba4",
+      "bytes": 1211
+    },
+    {
+      "path": "Source\\ForkliftSim\\TreadTests.cpp",
+      "sha256": "be162d014b2b9c08810fc09b3337b482cf251aeb9c7ea899f742d256726ed8fb",
+      "bytes": 6802
+    },
+    {
+      "path": "Source\\ForkliftSim\\TyreCompliance.h",
+      "sha256": "c08a41ecc3bc315ef508db3e46193accb1f32db4fa37cdebca21e81154822152",
+      "bytes": 1698
+    },
+    {
+      "path": "Source\\ForkliftSim\\TyreLab.cpp",
+      "sha256": "68bce1359697ea4e8040316ca4b95696b9f181008cf70bb0f0724470cd3f4cc4",
+      "bytes": 15217
+    },
+    {
+      "path": "Source\\ForkliftSim\\TyreSettings.cpp",
+      "sha256": "7b8efe9d562ee4acb7bb22c9444f04e42f5143f5a215f3b481d80daa04a61271",
+      "bytes": 2467
+    },
+    {
+      "path": "Source\\ForkliftSim\\TyreTests.cpp",
+      "sha256": "b8af96433d7fd9bcb406dcca07cf6a40b7e38ec691d9eefbc85ef8049c35a1a0",
+      "bytes": 1496
+    },
+    {
+      "path": "Source\\ForkliftSim\\ValidationLab.cpp",
+      "sha256": "b1b265b45c0e71f81562a87b9bb29c9cd3a506c54e0fb2e60cd2aa72349e0ed5",
+      "bytes": 10636
+    },
+    {
+      "path": "Source\\ForkliftSim\\ValidationMath.h",
+      "sha256": "7a21953419de3f40d9d9c5d49bd2800d56a229b23b44ee2ad72986ad15fdb648",
+      "bytes": 569
+    },
+    {
+      "path": "Source\\ForkliftSim\\Vehicle3DHelpers.h",
+      "sha256": "f389caefdf80ec26c962adfb4b24718d81e43c01bdfc803d6fb0d5232113318d",
+      "bytes": 3746
+    },
+    {
+      "path": "Source\\ForkliftSim\\Vehicle3DSettings.cpp",
+      "sha256": "73dbe76d7bb34e19659206b609b4d59a85cd8052bfe9ca21df2ed832a7a294c3",
+      "bytes": 4951
+    },
+    {
+      "path": "Source\\ForkliftSim\\Vehicle3DSettings.h",
+      "sha256": "3b96d46e9c5094af87261f1f90ff6182fd669a7c2b3b0b7aa4b94729e876730d",
+      "bytes": 1928
+    },
+    {
+      "path": "Source\\ForkliftSim\\VehicleGuardLab.cpp",
+      "sha256": "5f0dc7d1345ec918626a644aa1e5e6a7bd75aa2101a7d1195c1f5d6262a7d135",
+      "bytes": 5513
+    },
+    {
+      "path": "Source\\ForkliftSim\\WebTelemetry.cpp",
+      "sha256": "aa281890c6eb8da660ad57228bcf6407dfd880fa6794e5ca317419c4b605986d",
+      "bytes": 27820
+    },
+    {
+      "path": "Source\\ForkliftSim\\WebTelemetry.h",
+      "sha256": "3e3f57b424919c43e2a62fb66c59ea2ce1814e86f6abfe014b15293588551faf",
+      "bytes": 837
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelActor.cpp",
+      "sha256": "dea41f765bd241b051441b52805993d0a814a2b366b9ffa35e7706a926f395fa",
+      "bytes": 28677
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelActor.h",
+      "sha256": "d89d7022b340affaf99e7b4122f61e8b69b16fabe4f775d1f55170a9d35af9ae",
+      "bytes": 6098
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelContactData.h",
+      "sha256": "f24c699b4cc1bd22de360e3bbb8c7354041ca5956818ec45ba94ae7fb036d5ea",
+      "bytes": 1239
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelContactGeometry.h",
+      "sha256": "c9d6e0bb21031e378a118255b8a86d4fcbb6293df5c8ec1ae643f4d617fa41ab",
+      "bytes": 7348
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelContactTests.cpp",
+      "sha256": "e0461f6d2f837255e1257e674e20a59c670a779a7ed065e17f9463d5a85917c9",
+      "bytes": 7416
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelLab.cpp",
+      "sha256": "ec907f4a80a81afb5c1f830943654a650c5092ca250e9241f70870cd3fc85efc",
+      "bytes": 16209
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelLab.h",
+      "sha256": "ce77b85bd904f62221c16f526ded18dcfc0b2b86702074fef0b2907a871cb441",
+      "bytes": 1743
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelModel.cpp",
+      "sha256": "532827e09e1d7c4d12d3e8810bf71d409cbd59b7aef9597c32e438743dbafa3e",
+      "bytes": 8733
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelModel.h",
+      "sha256": "19cf875d993fca07b8e5ba6d483db8d284e2825b3157175ff36886da9f5547ca",
+      "bytes": 2181
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelModelTests.cpp",
+      "sha256": "a5abdbe83c842c2ef85e4fb8db782d20dbf4ca41c07e85345137c662326ff0c0",
+      "bytes": 7458
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelResistance.h",
+      "sha256": "73488ee509ca39e115c62f5160aac7f693fc0212b0a3e1f9cf4c30847b2430b3",
+      "bytes": 1745
+    },
+    {
+      "path": "Source\\ForkliftSim\\WheelResistanceTests.cpp",
+      "sha256": "7e20c1df02b340dd6170fe69fe5b8d3657a36a2d341e1a2a1de0cebeed5f6d46",
+      "bytes": 3623
+    },
+    {
+      "path": "Web\\PhysicsLab\\bridge-test.mjs",
+      "sha256": "672d28c3e0edbc62d6bc9b00e78b7a4056200e91aa656804226a32ec4f94d60a",
+      "bytes": 5563
+    },
+    {
+      "path": "Web\\PhysicsLab\\bridge.mjs",
+      "sha256": "c552aeb7ecdd079f51f015a86593b4310cec672e49ecceadb0d5d39627d94093",
+      "bytes": 7084
+    },
+    {
+      "path": "Web\\PhysicsLab\\build.mjs",
+      "sha256": "d4dce7103ceaf9c8cb8cf50d52c322743c03294828568de8de98cd2133da84b0",
+      "bytes": 3395
+    },
+    {
+      "path": "Web\\PhysicsLab\\dist\\data.mjs",
+      "sha256": "ef918363402c32578737177346f817630708a62a75ff4ee2c693600dab921c4c",
+      "bytes": 17498
+    },
+    {
+      "path": "Web\\PhysicsLab\\dist\\live.html",
+      "sha256": "123ea4c74c83b69456ae9e778415e6a6d08a1c4856fb23e298a204165c6b89a4",
+      "bytes": 13087
+    },
+    {
+      "path": "Web\\PhysicsLab\\dist\\live.mjs",
+      "sha256": "9a0dcad5d6d11a19b968c152b5254f9d3a132b7c790677757a14c4f8edab4adf",
+      "bytes": 52561
+    },
+    {
+      "path": "Web\\PhysicsLab\\dist\\pallet-perception.mjs",
+      "sha256": "d47c6843374937d6b093cc4f0b01e45491f8c85d2e107c33f1d198f37919c794",
+      "bytes": 1406
+    },
+    {
+      "path": "Web\\PhysicsLab\\pallet-perception-test.mjs",
+      "sha256": "606545dceecd123681577c447e8b761c55491f2f684da42bdd5eb7b8d3555c69",
+      "bytes": 1129
+    },
+    {
+      "path": "Web\\PhysicsLab\\verify-pallet-perception-live.mjs",
+      "sha256": "01fe7535433cb24406b4dee14fa2c20aaf81c4da653f8d6b9b7e2144bc7e3af9",
+      "bytes": 3360
+    }
+  ]
+}

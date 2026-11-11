@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://webstore.exsto.com/upload/elfinder/fiches-matieres/FT-VULKOLLAN-V92.pdf",
+    "downloaded": true,
+    "sha256": "5A8857F9EBA31746162E546A918298763F78342A391DB4A7E24251230D84EAC5",
+    "file": "EXSTO-Vulkollan92-20210212.pdf",
+    "bytes": 49121
+  },
+  {
+    "url": "https://www.pus-polyurethan.de/files/download/materials/en/vulkollan.pdf",
+    "downloaded": false,
+    "error": "Response status code does not indicate success: 404 (Not Found)."
+  }
+]

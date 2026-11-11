@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict';
+import {liftControlCsv} from './dist/lift-control.mjs';
+const frame={source:{world_id:'test',run_id:'run'},sim_time_s:2,fork:{height_m:9},lift_control:{mode:'sensor_feedback_direct_valve',state:'fault_latched',fault_latched:true,measured_height_m:null,command_spool:0,pump_enabled:false}};
+const c=liftControlCsv([{received_at_ms:1,frame}]);assert.equal(c.columns.length,19);assert.equal(c.rows.length,1);const cells=c.rows[0].split(',');assert.equal(cells.length,19);assert.equal(cells[c.columns.indexOf('measured_height_m')],'');assert.equal(cells[c.columns.indexOf('command_spool')],'0');assert.equal(cells[c.columns.indexOf('pump_enabled')],'false');frame.lift_control.mode='legacy_physics_test_or_fixture';assert.equal(liftControlCsv([{frame}]).rows.length,0);console.log('LIFT_CONTROL_CSV PASS: received control state, null height, zero spool and no physics fallback');

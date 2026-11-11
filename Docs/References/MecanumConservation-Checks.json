@@ -1,0 +1,67 @@
+{
+  "scope": "Actual CSV static load transfer versus moment balance; friction A/B; not real-component calibration.",
+  "static_window_s": [
+    10,
+    13
+  ],
+  "shallow_front_load_transfer": {
+    "actual_n": 648.0974333333324,
+    "expected_n": 653.5568639062501,
+    "relative_error": 0.00835341325969271,
+    "pass_check": true
+  },
+  "eccentric_right_load_transfer": {
+    "actual_n": 353.2485166666629,
+    "expected_n": 362.9813192307692,
+    "relative_error": 0.02681350815720233,
+    "pass_check": true
+  },
+  "grip_normal": {
+    "contact_slip_rms_mps": 0.06895259362417051,
+    "effective_mu": 0.8
+  },
+  "grip_low": {
+    "contact_slip_rms_mps": 1.1237935602543587,
+    "effective_mu": 0.05
+  },
+  "friction_response": {
+    "pass_check": true
+  },
+  "clock_comparison": {
+    "endpoint_speed_difference_mps": 0.0005999999999999339,
+    "endpoint_distance_difference_m": 0.01810000000000045,
+    "max_clock_lag_s": 0.033333335,
+    "pass_check": true
+  },
+  "artifacts": [
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_lift-20261029-012740-7086CD9F.csv",
+      "sha256": "6413f8e4778640d1bc4dbcf849602282db8661b7403d7edc0a434fa6b7c25d2f"
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_eccentric_lift-20261029-013340-FE3E1976.csv",
+      "sha256": "5d3d5297b473258eb7bbe1f1d2c1f11bc7d950ebeb6e69c82aa7235d5a3b3ad0"
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_shallow_lift-20261029-013644-BE832399.csv",
+      "sha256": "2923b23e63842699a4a2d03b9b4b03cb101964aac02780097bf0e5634008b279"
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_grip_normal-20261029-013622-7AAECFAD.csv",
+      "sha256": "d2284a92f43d998471bb5115eb0e41f1eb94dfd7a36230523573d85fbf407803"
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_grip_low-20261029-013511-8A2FF184.csv",
+      "sha256": "2ae271e18d1529f78786161a3dffc410c84197c2f1152bf70fe9221eb546936d"
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_straight-20261029-012533-2F6A19AD.csv",
+      "sha256": "2db8e27d63fdbb6478bc753baa58db6b5418a22cfe254f887e0f930bc2c60967"
+    },
+    {
+      "path": "Saved\\Telemetry\\Stability-mecanum_straight-20261029-013948-16C8E031.csv",
+      "sha256": "0a570fdbd401e0187d1d38b48874b9ca5c641f708b1d9180bf0d2f644359227d"
+    }
+  ],
+  "pass_check": true
+}

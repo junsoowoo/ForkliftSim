@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {jointSensorCsv} from './dist/joint-sensors.mjs';
+const sample={id:'encoder_fl',status:'valid',valid:true,sequence:10,capture_sim_s:1,delivery_sim_s:1.02,age_s:.02,counts:4096,position_rad:2*Math.PI,angular_velocity_rad_s:3,nominal_surface_mps:.45,dropped_packets:0};
+const frame={source:{kind:'unreal',world_id:'world',run_id:'run'},sim_time_s:1.02,vehicle:{speed_mps:99},fork:{height_m:99},joint_sensors:{encoders:[sample],fork_height:{...sample,id:'fork_height',counts:undefined,height_m:.501},fork_limits:{...sample,id:'fork_limits',counts:undefined,lower_active:false,upper_active:true}}};
+const e={received_at_ms:1000,frame};let result=jointSensorCsv([e]);
+assert.equal(result.rows.length,3);for(const row of result.rows)assert.equal(row.split(',').length,result.columns.length);
+const values=row=>Object.fromEntries(result.columns.map((k,i)=>[k,row.split(',')[i]]));
+assert.equal(values(result.rows[0]).counts,'4096');assert.equal(values(result.rows[1]).height_m,'0.501');assert.equal(values(result.rows[2]).upper_active,'true');
+frame.joint_sensors.encoders[0]={...sample,valid:false,status:'stale'};
+result=jointSensorCsv([e]);assert.equal(values(result.rows[0]).counts,'');assert.equal(values(result.rows[0]).angular_velocity_rad_s,'');
+delete frame.joint_sensors;result=jointSensorCsv([e]);assert.equal(result.rows.length,0);assert(!result.csv.includes('99'));
+console.log('JOINT_SENSOR_EXPORT PASS: actual values, null/stale handling, separate channels, no ground-truth fallback.');

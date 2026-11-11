@@ -1,0 +1,9 @@
+{
+  "source": "Authored fixed navigation pillars for the known-map warehouse demo. Their surveyed box faces are a static map prior. Localization still measures real physics rays; no live actor pose is used.",
+  "id": "warehouse-pillars-v1",
+  "boxes": [
+    {"center_m": [-2.5, -3.8, 0.6], "size_m": [1.0, 1.0, 1.2]},
+    {"center_m": [3.5, 3.5, 0.6], "size_m": [1.0, 1.0, 1.2]},
+    {"center_m": [8.0, -0.4, 0.6], "size_m": [1.0, 1.0, 1.2]}
+  ]
+}

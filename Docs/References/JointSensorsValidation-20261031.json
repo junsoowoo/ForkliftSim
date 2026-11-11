@@ -1,0 +1,301 @@
+{
+  "date": "2026-10-31",
+  "scope": "Read-only virtual physical-joint sensors. Truth columns are independent diagnostics, not controller inputs. No navigation, IMU, load sensor or safety interlock claim.",
+  "native_cases": [
+    {
+      "case": "joint_sensors",
+      "fps": 60,
+      "physics_hz": 960,
+      "transport_fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\JointSensors-20261031-192729-BA59F33D.csv",
+      "sha256": "c0e4e4e9769ea5d00dda3137bb1d547f0a75243fca4fdf5e0239bd5969297d91",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_joint_sensors-20261031-192729-E5443309.csv",
+      "dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "metrics": {
+        "snapshot_rows": 8400,
+        "valid_by_channel": {
+          "encoder_fl": 1399,
+          "encoder_fr": 1399,
+          "encoder_rl": 1399,
+          "encoder_rr": 1399,
+          "fork_height": 1399,
+          "fork_limits": 1399
+        },
+        "min_delivery_latency_s": 0.026041667999990636,
+        "max_encoder_angle_error_rad": 0.001137073999998961,
+        "observed_capture_hz": {
+          "encoder_fl": 99.99910116907418,
+          "encoder_fr": 99.99910116907418,
+          "encoder_rl": 99.99910116907418,
+          "encoder_rr": 99.99910116907418,
+          "fork_height": 49.99955058453709,
+          "fork_limits": 99.99910116907418
+        },
+        "min_measured_shaft_rad_s": -7.657631694,
+        "max_measured_shaft_rad_s": 7.804893842
+      },
+      "pass": true
+    },
+    {
+      "case": "joint_sensors",
+      "fps": 60,
+      "physics_hz": 960,
+      "transport_fault": "all",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\JointSensors-20261031-192729-C22F7BBB.csv",
+      "sha256": "35fe6f337d8aec92d86aaf29ec76b0e9b66791e14ca1bc54ffae28beb0557089",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_joint_sensors-20261031-192729-C7CC3094.csv",
+      "dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "metrics": {
+        "snapshot_rows": 8400,
+        "valid_by_channel": {
+          "encoder_fl": 1362,
+          "encoder_fr": 1362,
+          "encoder_rl": 1362,
+          "encoder_rr": 1362,
+          "fork_height": 1362,
+          "fork_limits": 1362
+        },
+        "min_delivery_latency_s": 0.0229166670000005,
+        "max_encoder_angle_error_rad": 0.0012011549999986215,
+        "observed_capture_hz": {
+          "encoder_fl": 99.99910116907418,
+          "encoder_fr": 99.99910116907418,
+          "encoder_rl": 99.99910116907418,
+          "encoder_rr": 99.99910116907418,
+          "fork_height": 49.99955058453709,
+          "fork_limits": 99.99910116907418
+        },
+        "min_measured_shaft_rad_s": -7.657631694,
+        "max_measured_shaft_rad_s": 7.804893842,
+        "outage_and_recovery_verified": true
+      },
+      "pass": true
+    },
+    {
+      "case": "joint_sensors",
+      "fps": 30,
+      "physics_hz": 960,
+      "transport_fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\JointSensors-20261031-192850-122A97C7.csv",
+      "sha256": "35efdccec12fc6feda67c8484a45306a55244a8516c02e369f60d9cbf805c5ee",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_joint_sensors-20261031-192850-9ACE07E7.csv",
+      "dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "metrics": {
+        "snapshot_rows": 6300,
+        "valid_by_channel": {
+          "encoder_fl": 1049,
+          "encoder_fr": 1049,
+          "encoder_rl": 1049,
+          "encoder_rr": 1049,
+          "fork_height": 1049,
+          "fork_limits": 1049
+        },
+        "min_delivery_latency_s": 0.03333333499999469,
+        "max_encoder_angle_error_rad": 0.0011382270000002137,
+        "observed_capture_hz": {
+          "encoder_fl": 99.99969686921575,
+          "encoder_fr": 99.99969686921575,
+          "encoder_rl": 99.99969686921575,
+          "encoder_rr": 99.99969686921575,
+          "fork_height": 49.99940148027673,
+          "fork_limits": 99.99969686921575
+        },
+        "min_measured_shaft_rad_s": -7.690356616,
+        "max_measured_shaft_rad_s": 7.95215599
+      },
+      "pass": true
+    },
+    {
+      "case": "joint_sensors",
+      "fps": 60,
+      "physics_hz": 1920,
+      "transport_fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\JointSensors-20261031-193004-78D0442B.csv",
+      "sha256": "5ffe1bba8f750551f66bcee627eff8b580a373b7641e5e9072d4a150558177da",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_joint_sensors-20261031-193004-82C4FF10.csv",
+      "dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "metrics": {
+        "snapshot_rows": 8400,
+        "valid_by_channel": {
+          "encoder_fl": 1399,
+          "encoder_fr": 1399,
+          "encoder_rl": 1399,
+          "encoder_rr": 1399,
+          "fork_height": 1399,
+          "fork_limits": 1399
+        },
+        "min_delivery_latency_s": 0.026562500999986582,
+        "max_encoder_angle_error_rad": 0.0010765470000002608,
+        "observed_capture_hz": {
+          "encoder_fl": 99.99984584810723,
+          "encoder_fr": 99.99984584810723,
+          "encoder_rl": 99.99984584810723,
+          "encoder_rr": 99.99984584810723,
+          "fork_height": 49.999922924053614,
+          "fork_limits": 99.99984584810723
+        },
+        "min_measured_shaft_rad_s": -7.285601004,
+        "max_measured_shaft_rad_s": 7.440613791
+      },
+      "pass": true
+    },
+    {
+      "case": "carry",
+      "fps": 60,
+      "physics_hz": 960,
+      "transport_fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\JointSensors-20261031-192850-AB22CE3D.csv",
+      "sha256": "158eb5bb8447d0fb9aca9be19b61a2385fabe2f1321837c7e3fec50f58a1b8f6",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261031-192850-05112C0A.csv",
+      "dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "metrics": {
+        "snapshot_rows": 3840,
+        "valid_by_channel": {
+          "encoder_fl": 639,
+          "encoder_fr": 639,
+          "encoder_rl": 639,
+          "encoder_rr": 639,
+          "fork_height": 639,
+          "fork_limits": 639
+        },
+        "min_delivery_latency_s": 0.026041667999997742,
+        "max_encoder_angle_error_rad": 0.0011290789999947037,
+        "observed_capture_hz": {
+          "encoder_fl": 99.99803802847529,
+          "encoder_fr": 99.99803802847529,
+          "encoder_rl": 99.99803802847529,
+          "encoder_rr": 99.99803802847529,
+          "fork_height": 49.999019014237646,
+          "fork_limits": 99.99803802847529
+        },
+        "min_measured_shaft_rad_s": -0.147262148,
+        "max_measured_shaft_rad_s": 7.510369546
+      },
+      "pass": true
+    },
+    {
+      "case": "ramp_brake",
+      "fps": 60,
+      "physics_hz": 960,
+      "transport_fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\JointSensors-20261031-192939-05108BEC.csv",
+      "sha256": "5125f420327b17c979f1355f244f9a129e82e8a096ed42e3a4390577b3324f62",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261031-192939-B5219EAE.csv",
+      "dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "metrics": {
+        "snapshot_rows": 7200,
+        "valid_by_channel": {
+          "encoder_fl": 1199,
+          "encoder_fr": 1199,
+          "encoder_rl": 1199,
+          "encoder_rr": 1199,
+          "fork_height": 1199,
+          "fork_limits": 1199
+        },
+        "min_delivery_latency_s": 0.026041667999997742,
+        "max_encoder_angle_error_rad": 0.0011484369999976707,
+        "observed_capture_hz": {
+          "encoder_fl": 99.99895208639009,
+          "encoder_fr": 99.99895208639009,
+          "encoder_rl": 99.99895208639009,
+          "encoder_rr": 99.99895208639009,
+          "fork_height": 49.999476043195045,
+          "fork_limits": 99.99895208639009
+        },
+        "min_measured_shaft_rad_s": -0.294524296,
+        "max_measured_shaft_rad_s": 7.21584525
+      },
+      "pass": true
+    },
+    {
+      "case": "halfstep",
+      "fps": 60,
+      "physics_hz": 960,
+      "transport_fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\JointSensors-20261031-193059-7411BC9B.csv",
+      "sha256": "8d6b6d094bc1e3854d85463e739ea172750948ce500c3ac33417af1eb8987a44",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_halfstep-20261031-193059-C9066AC2.csv",
+      "dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "metrics": {
+        "snapshot_rows": 3840,
+        "valid_by_channel": {
+          "encoder_fl": 639,
+          "encoder_fr": 639,
+          "encoder_rl": 639,
+          "encoder_rr": 639,
+          "fork_height": 639,
+          "fork_limits": 639
+        },
+        "min_delivery_latency_s": 0.026041667999997742,
+        "max_encoder_angle_error_rad": 0.0012119110000057276,
+        "observed_capture_hz": {
+          "encoder_fl": 99.99803802847529,
+          "encoder_fr": 99.99803802847529,
+          "encoder_rl": 99.99803802847529,
+          "encoder_rr": 99.99803802847529,
+          "fork_height": 49.999019014237646,
+          "fork_limits": 99.99803802847529
+        },
+        "min_measured_shaft_rad_s": -0.147262148,
+        "max_measured_shaft_rad_s": 11.780971837
+      },
+      "pass": true
+    },
+    {
+      "case": "zero_grip",
+      "fps": 60,
+      "physics_hz": 960,
+      "transport_fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\JointSensors-20261031-193149-14261654.csv",
+      "sha256": "b9d392a1f8eb9d7505fe40dc173505d52de2eb0c779adbb6d0e9588baa422ffb",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_zero_grip-20261031-193149-1259599C.csv",
+      "dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "metrics": {
+        "snapshot_rows": 1440,
+        "valid_by_channel": {
+          "encoder_fl": 239,
+          "encoder_fr": 239,
+          "encoder_rl": 239,
+          "encoder_rr": 239,
+          "fork_height": 239,
+          "fork_limits": 239
+        },
+        "min_delivery_latency_s": 0.026041667999999518,
+        "max_encoder_angle_error_rad": 0.001144961000008493,
+        "observed_capture_hz": {
+          "encoder_fl": 99.99476055091455,
+          "encoder_fr": 99.99476055091455,
+          "encoder_rl": 99.99476055091455,
+          "encoder_rr": 99.99476055091455,
+          "fork_height": 49.997380275457274,
+          "fork_limits": 99.99476055091455
+        },
+        "min_measured_shaft_rad_s": 0.0,
+        "max_measured_shaft_rad_s": 11.486447541,
+        "wheel_spin_without_vehicle_motion_verified": true
+      },
+      "pass": true
+    }
+  ],
+  "fault_physics_comparisons": [
+    {
+      "fps": 60,
+      "physics_hz": 960,
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "hardware_calibrated": false,
+  "controller_connected": false
+}

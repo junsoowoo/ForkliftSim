@@ -1,0 +1,15 @@
+{
+  "source": "Local handling controller assumptions, not a certified safety controller. Surveyed rack station; known initial odometry frame. No actor pose feedback.",
+  "max_drive_mps": 0.12,
+  "max_strafe_mps": 0.06,
+  "max_yaw_rad_s": 0.08,
+  "insert_depth_m": 1.075,
+  "withdraw_m": 1.50,
+  "carry_height_m": 0.25,
+  "lift_clearance_m": 0.10,
+  "stage_timeout_s": 45,
+  "job_timeout_s": 140,
+  "settle_dwell_s": 0.4,
+  "sensor_stale_s": 0.35,
+  "max_station_approach_m": 2.5
+}

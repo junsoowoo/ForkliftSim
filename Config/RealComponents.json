@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "profile_id": "hybrid4-component-reference-v1",
+  "retrieved_kst": "2026-10-31",
+  "calibration_status": "PUBLIC_SPEC_REFERENCED_NOT_MEASURED_CALIBRATION",
+  "vehicle_identity": "Custom four independently driven/steered modules. Not an EKS 215a replica.",
+  "sources": [
+    {
+      "id": "EKS2019",
+      "manufacturer": "Jungheinrich",
+      "document": "EKS 215a Technical data, 01/2019",
+      "url": "https://www.logisnextamericas.com/globalassets/migration-blocks/jungheinrich/product-listing/walkie-stackers/eks-215a/eks_215a_spec_sheet-english.pdf",
+      "rows": "1.5, 1.6, 2.1, 3.5, 4.22, 5.2, 6.1, 6.2",
+      "values": {
+        "capacity_kg": 1500,
+        "load_center_m": 0.6,
+        "service_mass_kg": 3140,
+        "fork_length_m": 1.2,
+        "fork_width_m": 0.12,
+        "fork_thickness_m": 0.05,
+        "lift_speed_loaded_mps": 0.29,
+        "drive_motor_kw": 3.0,
+        "lift_motor_kw_s3_15_percent": 9.5
+      },
+      "caveats": "Historical 48 V version. New 24 V products differ. Sheet axle masses sum to 3280 kg, not 3140 kg; inconsistent axle split is excluded. Motor output/duty is not pump DC input. Original 2/1x running gear is not adopted."
+    },
+    {
+      "id": "BL16",
+      "manufacturer": "Blickle",
+      "document": "Drive wheels series, GVUN 304/60H7; G16 catalogue p546 cross-check",
+      "url": "https://www.blickle.com/wheels-castors/standard-range/drive-wheels/drive-wheels",
+      "values": {
+        "diameter_m": 0.3,
+        "width_m": 0.1,
+        "shore_a": 92,
+        "load_kg_at_4_kmh": 2700,
+        "load_kg_at_10_kmh": 1850,
+        "load_kg_at_16_kmh": 1050
+      },
+      "caveats": "Drive wheel component reference. No claim that this wheel is fitted to EKS. Ratings are per catalogue conditions, not simulated strength or a load-deflection curve. Catalogue PDF unavailable; manufacturer webpage verified."
+    },
+    {
+      "id": "CASCADE",
+      "manufacturer": "Cascade",
+      "document": "ITA Forks product specification",
+      "url": "https://www.cascorp.com/us/en/ITA-Forks",
+      "values": {
+        "minimum_yield_strength_pa": 825000000
+      },
+      "caveats": "Material-series reference only. EKS fork manufacturer, grade and ultimate fracture stress are not identified."
+    },
+    {
+      "id": "SHELL46",
+      "manufacturer": "Shell",
+      "document": "Tellus S2 MX 46 TDS v4.4, 2026-09-18, page 2",
+      "url": "https://www.shell-livedocs.com/data/published/en-US/b7ec968b-7d02-44c0-ae59-165717520b62.pdf",
+      "values": {
+        "density_at_15c_kg_m3": 856,
+        "kinematic_viscosity_40c_cst": 46,
+        "kinematic_viscosity_100c_cst": 6.9
+      },
+      "caveats": "Selected reference fluid properties. Not an EKS fluid recommendation or identified factory fill. Density held constant in prototype."
+    }
+  ],
+  "bindings": [
+    {
+      "target": "Vehicle3D.json wheel_radius_m / wheel_width_m",
+      "status": "published_component_geometry",
+      "source": "BL16"
+    },
+    {
+      "target": "Vehicle3D.json total dry mass = 3140 kg",
+      "status": "design_target_from_historical_spec",
+      "source": "EKS2019",
+      "note": "Chassis mass is the residual after assumed module masses and fork geometry-derived masses. Actual OEM COM/inertia is unknown."
+    },
+    {
+      "target": "ForkStructure.json geometry",
+      "status": "published_dimensions_with_uniform_section_approximation",
+      "source": "EKS2019"
+    },
+    {
+      "target": "ForkStructure.json yield_strength_pa",
+      "status": "different_manufacturer_component_material_reference",
+      "source": "CASCADE"
+    },
+    {
+      "target": "Hydraulics.json density / viscosity",
+      "status": "published_fluid_properties",
+      "source": "SHELL46"
+    }
+  ],
+  "unidentified_parameters": [
+    "OEM component masses, COM and inertia",
+    "tyre radial/shear stiffness, damping, friction and pressure map",
+    "fork Young modulus, damping, true taper, heel fillet, ultimate stress and fatigue",
+    "mast/cylinder dimensions, actual rope path, chain stiffness and mass",
+    "hose compliance, routing, valves and pump maps",
+    "oil heat capacity, tank thermal mass and cooling"
+  ],
+  "not_imported_as_oem_values": [
+    "3 kW drive output is not divided by four to manufacture four motor specifications",
+    "9.5 kW intermittent lift output is not substituted for DC pump input",
+    "Shore hardness is not converted into measured tyre stiffness",
+    "catalogue capacity is not equated to a deformation or failure threshold"
+  ],
+  "active_drive_note": "Default is now custom mecanum. The original independently-steered modules and Blickle wheel rating below are historical regular-wheel references; they are not a mecanum rating. See Mecanum.json catalogue_comparison and Docs/MecanumPropertyCalibration.md."
+}

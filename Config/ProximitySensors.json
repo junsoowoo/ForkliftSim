@@ -1,0 +1,20 @@
+{
+  "hz": 20,
+  "min_range_m": 0.02,
+  "max_range_m": 1.5,
+  "presence_max_m": 0.15,
+  "sigma_m": 0.001,
+  "bias_m": 0.001,
+  "quantum_m": 0.001,
+  "optical_dropout": 0.001,
+  "latency_s": 0.03,
+  "stale_s": 0.3,
+  "packet_dropout": 0.001,
+  "presence_debounce_s": 0.05,
+  "forward_offset_m": 0.01,
+  "range_above_tine_top_m": 0.03,
+  "presence_above_tine_top_m": 0.001,
+  "near_fraction": 0.2,
+  "far_fraction": 0.8,
+  "seed": 7251
+}

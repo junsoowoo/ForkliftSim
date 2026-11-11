@@ -1,0 +1,20 @@
+{
+  "source": "Fixed-heading mecanum mission on an authored known 2D work area. Surveyed station poses and known localization starting bay; no SLAM or actor pose feedback.",
+  "bounds_m": [-4.0, -5.5, 12.0, 7.5],
+  "cell_m": 0.2,
+  "front_m": 2.15,
+  "rear_m": 0.80,
+  "half_width_m": 0.65,
+  "clearance_m": 0.20,
+  "empty_speed_mps": 0.25,
+  "loaded_speed_mps": 0.18,
+  "localization_max_age_s": 1.5,
+  "observation_ttl_s": 2.0,
+  "replan_s": 1.0,
+  "command_lease_s": 0.15,
+  "navigation_timeout_s": 120,
+  "mission_timeout_s": 600,
+  "max_pickup_retries": 1,
+  "pickup_approach_m": [0.0, 0.0],
+  "dropoff_approach_m": [3.24, -2.5]
+}

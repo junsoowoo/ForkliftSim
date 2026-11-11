@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "source_kind": "measured_wheel_rig",
+  "source_document": "",
+  "equipment_id": "",
+  "test_method": "",
+  "measured_at": "",
+  "temperature_c": null,
+  "normal_unit": "N",
+  "position_unit": "m",
+  "wheel": {"radius_m": 0.15, "width_m": 0.1, "tread_depth_m": 0.05},
+  "points": [],
+  "instructions": "Actual wheel-rig data only. Each point: hub_height_m, normal_n, uncertainty_n, split=train or holdout. At least 3 training points at distinct heights and 2 independent holdouts. Empty fields are intentionally rejected. No example forces are real measurements."
+}

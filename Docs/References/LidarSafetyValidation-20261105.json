@@ -1,0 +1,173 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "dll_sha256": "53cf1e25617b5b592d449e99ca661f0331ccbc0426c24ef84da22247623aa6ef",
+  "guard_conditions": [
+    {
+      "case": "vehicle_guard_front",
+      "fps": 60,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160210-7B88EBE9.csv",
+      "csv_sha256": "8808abd3e9f8401121fff7d53d6337614d9adf65477389aace789af21d688e38",
+      "metrics": {
+        "post_0_8s_transient_peak_speed_mps": 0.22293040921354176,
+        "minimum_fixture_footprint_gap_m": 0.4292000000000007,
+        "first_obstacle_hold_s": 7.666667067,
+        "front_capture_hz": 10.00557672330106,
+        "rear_capture_hz": 10.00557672330106
+      }
+    },
+    {
+      "case": "vehicle_guard_fault",
+      "fps": 60,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160241-BC8393E2.csv",
+      "csv_sha256": "1b9164688cd4a23d536eb4930f0cde78424ead265832c31a7723df672c51ad3a",
+      "metrics": {
+        "global_hold_height_span_m": 9.28999999927349e-07,
+        "front_capture_hz": 10.00557672330106,
+        "rear_capture_hz": 10.00557672330106
+      }
+    },
+    {
+      "case": "vehicle_guard_creep",
+      "fps": 60,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160311-10D32AAD.csv",
+      "csv_sha256": "9ca26cf1cb747fd12d8ea2bec58fc56e383604d1be8c3d90a3f5e32c50f8eec3",
+      "metrics": {
+        "post_0_8s_transient_peak_speed_mps": 0.22293040921354176,
+        "manual_creep_max_speed_mps": 0.1382887748823814,
+        "minimum_fixture_footprint_gap_m": 0.33970000000000056,
+        "first_obstacle_hold_s": 7.666667067,
+        "front_capture_hz": 10.00557672330106,
+        "rear_capture_hz": 10.00557672330106
+      }
+    },
+    {
+      "case": "vehicle_guard_rear",
+      "fps": 60,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160342-8A8F8730.csv",
+      "csv_sha256": "391f89b23d84ff65329bdec5b7f729bbff2fe0aa460568d478b314068111fec4",
+      "metrics": {
+        "post_0_8s_transient_peak_speed_mps": 0.21368341359465742,
+        "minimum_fixture_footprint_gap_m": 0.40530000000000044,
+        "first_obstacle_hold_s": 5.966666978,
+        "front_capture_hz": 10.00557672330106,
+        "rear_capture_hz": 10.00557672330106
+      }
+    },
+    {
+      "case": "vehicle_guard_side",
+      "fps": 60,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160413-03F18D4C.csv",
+      "csv_sha256": "e4d68684fe92b17a847711b32b916ba8ee039ee44133a5d65131d3524efcfc25",
+      "metrics": {
+        "post_0_8s_transient_peak_speed_mps": 0.2197956308048077,
+        "minimum_fixture_footprint_gap_m": 0.44660000000000044,
+        "first_obstacle_hold_s": 6.066666983,
+        "front_capture_hz": 10.00557672330106,
+        "rear_capture_hz": 10.00557672330106
+      }
+    },
+    {
+      "case": "vehicle_guard_diagonal",
+      "fps": 60,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160444-EF024406.csv",
+      "csv_sha256": "f81e22cbd4a30f7aad72926a64b9e20fc7bb36ca068282fc70f35ba1722a5345",
+      "metrics": {
+        "post_0_8s_transient_peak_speed_mps": 0.2221857549352383,
+        "minimum_fixture_footprint_gap_m": 0.5077000000000002,
+        "first_obstacle_hold_s": 10.466667213,
+        "front_capture_hz": 10.00557672330106,
+        "rear_capture_hz": 10.00557672330106
+      }
+    },
+    {
+      "case": "vehicle_guard_estop",
+      "fps": 60,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160515-B698DF71.csv",
+      "csv_sha256": "d30e81bfc96b8177c6aa69ad9e36e6e5acd57e78732666f757b0fe8b55ec70ed",
+      "metrics": {
+        "global_hold_height_span_m": 3.483999999942533e-06,
+        "front_capture_hz": 10.00557672330106,
+        "rear_capture_hz": 10.00557672330106
+      }
+    },
+    {
+      "case": "vehicle_guard_carry",
+      "fps": 60,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160545-04AF8D91.csv",
+      "csv_sha256": "eec5f50936550d989fdf86dd313d3f310b341b0b887ee9f2aef53e6af6d0e495",
+      "metrics": {
+        "post_0_8s_transient_peak_speed_mps": 0.1617963389290194,
+        "minimum_fixture_footprint_gap_m": 0.4010000000000007,
+        "first_obstacle_hold_s": 20.666667745,
+        "front_capture_hz": 10.004178333338333,
+        "rear_capture_hz": 10.004178333338333
+      }
+    },
+    {
+      "case": "vehicle_guard_front",
+      "fps": 30,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261105-160627-378123F2.csv",
+      "csv_sha256": "56ca1b26692fe948fb380c7255c441655215f5f8b626da6140ce39575c5f170a",
+      "metrics": {
+        "post_0_8s_transient_peak_speed_mps": 0.2229077671457443,
+        "minimum_fixture_footprint_gap_m": 0.3965000000000005,
+        "first_obstacle_hold_s": 7.700000402,
+        "front_capture_hz": 10.011160192275218,
+        "rear_capture_hz": 10.011160192275218
+      }
+    }
+  ],
+  "legacy_regression": [
+    {
+      "lidar_safety_csv": "",
+      "sensor_lift_csv": "",
+      "proximity_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261105-160658-ACE3F007.csv",
+      "dynamics_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/DynamicsSensors-20261105-160658-303C2B0B.csv",
+      "joint_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/JointSensors-20261105-160658-2FF5CEB5.csv",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-160658-2633D82A.csv",
+      "case": "carry",
+      "metadata_pass": true,
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "max_inner_s": 0.001041667,
+      "fps": 60,
+      "physics_hz": 960,
+      "exit_code": 0,
+      "result": [
+        "[2026.11.05-07.07.23:708][920]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.001041667",
+        "[2026.11.05-07.07.23:708][920]LogTemp: Display: MECANUM_CHECK mecanum_carry delta_m=6.6007/2.7664 speed_mps=-0.0045/0.0049 yaw_deg_s=-0.2566 roller_peak_rad_s=0.0000 contacts=0 closure_n=0.000000000 normal_n=34975.571 fork_m=0.43829 cargo_fell=0 reaction_pitch_deg=0.000000 reaction_delta_l_nms=0.000000 reaction_impulse_nms=0.000000 stop_distance_m=0.000000 hold_drift_m=0.000000 PASS",
+        "[2026.11.05-07.07.23:708][920]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.001041667 smallest_selected_s=0.001041667 smallest_observed_s=0.001041667 inner_clock_error_s=0.000000000000",
+        "[2026.11.05-07.07.23:708][920]LogTemp: Display: STABILITY_TEST mecanum_carry PASS settled_tilt=0.000 settled_speed=0.0001 mass=3140.0 max_speed=0.638 max_tilt=0.001 max_lateral_slip=0.000 max_yaw=14.101 min_wheels=4 final_speed=-0.0045 fork_max=0.4403 fork_final=0.4383"
+      ],
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-160650-997-243f2ced\\carry.log"
+    },
+    {
+      "lidar_safety_csv": "",
+      "sensor_lift_csv": "",
+      "proximity_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261105-160734-0FCB6F5D.csv",
+      "dynamics_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/DynamicsSensors-20261105-160734-0227171F.csv",
+      "joint_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/JointSensors-20261105-160734-95975EDC.csv",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261105-160734-7B75C36E.csv",
+      "case": "ramp_brake",
+      "metadata_pass": true,
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "max_inner_s": 0.001041667,
+      "fps": 60,
+      "physics_hz": 960,
+      "exit_code": 0,
+      "result": [
+        "[2026.11.05-07.08.20:012][600]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.001041667",
+        "[2026.11.05-07.08.20:012][600]LogTemp: Display: MECANUM_CHECK mecanum_ramp_brake delta_m=8.0545/-0.0006 speed_mps=-0.0000/-0.0000 yaw_deg_s=-0.0004 roller_peak_rad_s=0.0000 contacts=0 closure_n=0.000000000 normal_n=34780.563 fork_m=0.43971 cargo_fell=0 reaction_pitch_deg=0.000000 reaction_delta_l_nms=0.000000 reaction_impulse_nms=0.000000 stop_distance_m=0.098359 hold_drift_m=0.005838 PASS",
+        "[2026.11.05-07.08.20:012][600]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.001041667 smallest_selected_s=0.001041667 smallest_observed_s=0.001041667 inner_clock_error_s=0.000000000000",
+        "[2026.11.05-07.08.20:012][600]LogTemp: Display: STABILITY_TEST mecanum_ramp_brake PASS settled_tilt=0.000 settled_speed=0.0001 mass=3140.0 max_speed=0.964 max_tilt=6.000 max_lateral_slip=0.000 max_yaw=1.074 min_wheels=4 final_speed=-0.0000 fork_max=0.4577 fork_final=0.4397"
+      ],
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-160650-997-243f2ced\\ramp_brake.log"
+    }
+  ],
+  "settling_criterion": "Speed below 0.1 m/s from hold+3 seconds, with separate physical footprint clearance check. Initial hold+0.8 second criterion failed due to decaying brake/tyre transients; no braking coefficients changed to fit this test. Manual-creep release is checked after 0.6 seconds, separately from the original full-speed brake transient. Fault settling checked after 9.5 seconds.",
+  "scope": "Dual planar simulation LiDAR and measured protective field; flat-floor default-friction fixtures. No navigation, localization, certified safety or all-surface guarantee."
+}

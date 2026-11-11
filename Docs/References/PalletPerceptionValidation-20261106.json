@@ -1,0 +1,227 @@
+{
+  "date": "2026-11-06",
+  "pass": true,
+  "dll_sha256": "344b33de483a4729adb1eafe16d20d92a7507cc9175d1a1e0ac1ea786017f0dc",
+  "gpu_conditions": [
+    {
+      "case": "pallet_vision_aligned",
+      "proximity_fault": false,
+      "pass": true,
+      "valid_vision_snapshots": 237,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141247-DB2BCC4E.csv",
+      "csv_sha256": "495836c51678d1ebcf1ad83ba2c8040f9cc123f8031929dd4e24d812c6d48d4d",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_aligned-20261106-141247-DCD60FC6.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141247-3C6433B4.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141236-658-4855607b\\pallet_vision_aligned.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141247-DB2BCC4E.csv.frame.json",
+      "metrics": {
+        "distance_check_max_error_m": 0.012187
+      }
+    },
+    {
+      "case": "pallet_vision_insert",
+      "proximity_fault": false,
+      "pass": true,
+      "valid_vision_snapshots": 100,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141314-046F99F5.csv",
+      "csv_sha256": "14d6e723ebc9fca894f3eae80d6c19743f92e347d13b9c4f37433310a2d259f5",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_insert-20261106-141314-6F58A3B8.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141314-8F776305.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141236-658-4855607b\\pallet_vision_insert.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141314-046F99F5.csv.frame.json",
+      "metrics": {
+        "full_snapshots": 59,
+        "minimum_actual_full_depth_m": 1.06296,
+        "maximum_full_depth_estimate_error_m": 0.015039009999999964,
+        "distance_check_max_error_m": 0.0
+      }
+    },
+    {
+      "case": "pallet_vision_yaw",
+      "proximity_fault": false,
+      "pass": true,
+      "valid_vision_snapshots": 237,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141341-B8E082AF.csv",
+      "csv_sha256": "91ab6a086cc7246dc975de26b3b2688d3d5243668cf1cce3467cbf09fd9ddbd4",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_yaw-20261106-141341-BA9C2B2D.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141340-93341A34.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_yaw.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141341-B8E082AF.csv.frame.json",
+      "metrics": {
+        "distance_check_max_error_m": 0.012044
+      }
+    },
+    {
+      "case": "pallet_vision_shift",
+      "proximity_fault": false,
+      "pass": true,
+      "valid_vision_snapshots": 237,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141406-FFB1224D.csv",
+      "csv_sha256": "5938ce14fdfd8d1c1d38bbcefda0faaddc0e6df5cc1a074ce6539d77d6bcf8ab",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_shift-20261106-141406-316C5FDD.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141406-6CD034D8.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_shift.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141406-FFB1224D.csv.frame.json",
+      "metrics": {
+        "distance_check_max_error_m": 0.037469
+      }
+    },
+    {
+      "case": "pallet_vision_box",
+      "proximity_fault": false,
+      "pass": true,
+      "valid_vision_snapshots": 0,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141433-F0CE9B7F.csv",
+      "csv_sha256": "5ca127b49cbe809debd52002eb8d870ddd881cd2cb9555b9f007dda4beb25691",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_box-20261106-141433-7D8539A5.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141433-28A0B7DD.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_box.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141433-F0CE9B7F.csv.frame.json",
+      "metrics": {
+        "distance_check_max_error_m": 0.0
+      }
+    },
+    {
+      "case": "pallet_vision_disabled",
+      "proximity_fault": false,
+      "pass": true,
+      "valid_vision_snapshots": 71,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141459-F7FED5E9.csv",
+      "csv_sha256": "c9ab31faa3f4495240fe655bee1d3ed27553d7653fc1989ecac955252e5973f2",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_disabled-20261106-141459-EE74F5F9.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141459-172C4E32.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_disabled.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141459-F7FED5E9.csv.frame.json",
+      "metrics": {
+        "distance_check_max_error_m": 0.012017
+      }
+    },
+    {
+      "case": "pallet_vision_high",
+      "proximity_fault": false,
+      "pass": true,
+      "valid_vision_snapshots": 283,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141524-FBA316E1.csv",
+      "csv_sha256": "9eed4a414836707ef515782a505b6a5adc03fe597c00f55d22f309310b018309",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_high-20261106-141524-F9EADEAF.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141524-67E5FF57.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141331-352-fe4522f5\\pallet_vision_high.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141524-FBA316E1.csv.frame.json",
+      "metrics": {
+        "distance_check_max_error_m": 0.0308
+      }
+    },
+    {
+      "case": "pallet_vision_aligned",
+      "proximity_fault": true,
+      "pass": true,
+      "valid_vision_snapshots": 237,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141558-F09AFF61.csv",
+      "csv_sha256": "f098417733ca4508bb33de15b3b5ec666d3f2b075c4802dd9d4a2f7758878902",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_aligned-20261106-141558-53B42F99.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141558-9D8EA7D7.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141548-799-8d8482a5\\pallet_vision_aligned.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141558-F09AFF61.csv.frame.json",
+      "metrics": {
+        "distance_check_max_error_m": 0.012187
+      }
+    },
+    {
+      "case": "pallet_vision_insert",
+      "proximity_fault": false,
+      "pass": true,
+      "valid_vision_snapshots": 100,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141626-D37E8266.csv",
+      "csv_sha256": "14d6e723ebc9fca894f3eae80d6c19743f92e347d13b9c4f37433310a2d259f5",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_pallet_vision_insert-20261106-141626-C6964F61.csv",
+      "proximity_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141626-F2E4B588.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141616-565-9e11dcbd\\pallet_vision_insert.log",
+      "frame": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/PalletPerception-20261106-141626-D37E8266.csv.frame.json",
+      "metrics": {
+        "full_snapshots": 59,
+        "minimum_actual_full_depth_m": 1.06296,
+        "maximum_full_depth_estimate_error_m": 0.015039009999999964,
+        "distance_check_max_error_m": 0.0
+      }
+    }
+  ],
+  "regression": [
+    {
+      "pallet_perception_csv": "",
+      "sensor_drive_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorDrive-20261106-141653-A4276DCC.csv",
+      "lidar_safety_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/LidarSafety-20261106-141653-24525D85.csv",
+      "sensor_lift_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorLift-20261106-141653-8630D70F.csv",
+      "proximity_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141653-7E0F4C61.csv",
+      "dynamics_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/DynamicsSensors-20261106-141653-1927C79A.csv",
+      "joint_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/JointSensors-20261106-141653-4F65B2B6.csv",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_drive_sensor_straight-20261106-141653-3C6C4B26.csv",
+      "case": "drive_sensor_straight",
+      "metadata_pass": true,
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "max_inner_s": 0.001041667,
+      "fps": 60,
+      "physics_hz": 960,
+      "exit_code": 0,
+      "result": [
+        "[2026.11.06-05.17.20:579][800]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.001041667",
+        "[2026.11.06-05.17.20:579][800]LogTemp: Display: STABILITY_TEST mecanum_drive_sensor_straight PASS settled_tilt=0.000 settled_speed=0.0001 mass=3140.0 max_speed=0.508 max_tilt=0.000 max_lateral_slip=0.000 max_yaw=0.358 min_wheels=4 final_speed=0.0001 fork_max=0.0015 fork_final=0.0015"
+      ],
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141644-280-c484c427\\drive_sensor_straight.log"
+    },
+    {
+      "pallet_perception_csv": "",
+      "sensor_drive_csv": "",
+      "lidar_safety_csv": "",
+      "sensor_lift_csv": "",
+      "proximity_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141733-0EFCBBBC.csv",
+      "dynamics_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/DynamicsSensors-20261106-141733-12071348.csv",
+      "joint_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/JointSensors-20261106-141733-DFBFF254.csv",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261106-141733-D6D0DE09.csv",
+      "case": "carry",
+      "metadata_pass": true,
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "max_inner_s": 0.001041667,
+      "fps": 60,
+      "physics_hz": 960,
+      "exit_code": 0,
+      "result": [
+        "[2026.11.06-05.18.04:963][920]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.001041667",
+        "[2026.11.06-05.18.04:963][920]LogTemp: Display: MECANUM_CHECK mecanum_carry delta_m=6.6007/2.7664 speed_mps=-0.0045/0.0049 yaw_deg_s=-0.2566 roller_peak_rad_s=0.0000 contacts=0 closure_n=0.000000000 normal_n=34975.571 fork_m=0.43829 cargo_fell=0 reaction_pitch_deg=0.000000 reaction_delta_l_nms=0.000000 reaction_impulse_nms=0.000000 stop_distance_m=0.000000 hold_drift_m=0.000000 PASS",
+        "[2026.11.06-05.18.04:963][920]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.001041667 smallest_selected_s=0.001041667 smallest_observed_s=0.001041667 inner_clock_error_s=0.000000000000",
+        "[2026.11.06-05.18.04:963][920]LogTemp: Display: STABILITY_TEST mecanum_carry PASS settled_tilt=0.000 settled_speed=0.0001 mass=3140.0 max_speed=0.638 max_tilt=0.001 max_lateral_slip=0.000 max_yaw=14.101 min_wheels=4 final_speed=-0.0045 fork_max=0.4403 fork_final=0.4383"
+      ],
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141644-280-c484c427\\carry.log"
+    },
+    {
+      "pallet_perception_csv": "",
+      "sensor_drive_csv": "",
+      "lidar_safety_csv": "",
+      "sensor_lift_csv": "",
+      "proximity_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261106-141817-17E8D6E0.csv",
+      "dynamics_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/DynamicsSensors-20261106-141817-643E05EB.csv",
+      "joint_sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/JointSensors-20261106-141817-82D38642.csv",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261106-141817-4142F647.csv",
+      "case": "ramp_brake",
+      "metadata_pass": true,
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "max_inner_s": 0.001041667,
+      "fps": 60,
+      "physics_hz": 960,
+      "exit_code": 0,
+      "result": [
+        "[2026.11.06-05.19.15:918][600]LogTemp: Display: NUMERICAL_STEP max_game_s=0.016666668 max_inner_s=0.001041667",
+        "[2026.11.06-05.19.15:918][600]LogTemp: Display: MECANUM_CHECK mecanum_ramp_brake delta_m=8.0545/-0.0006 speed_mps=-0.0000/-0.0000 yaw_deg_s=-0.0004 roller_peak_rad_s=0.0000 contacts=0 closure_n=0.000000000 normal_n=34780.563 fork_m=0.43971 cargo_fell=0 reaction_pitch_deg=0.000000 reaction_delta_l_nms=0.000000 reaction_impulse_nms=0.000000 stop_distance_m=0.098359 hold_drift_m=0.005838 PASS",
+        "[2026.11.06-05.19.15:918][600]LogTemp: Display: MECANUM_NUMERICS base_step_s=0.001041667 smallest_selected_s=0.001041667 smallest_observed_s=0.001041667 inner_clock_error_s=0.000000000000",
+        "[2026.11.06-05.19.15:918][600]LogTemp: Display: STABILITY_TEST mecanum_ramp_brake PASS settled_tilt=0.000 settled_speed=0.0001 mass=3140.0 max_speed=0.964 max_tilt=6.000 max_lateral_slip=0.000 max_yaw=1.074 min_wheels=4 final_speed=-0.0000 fork_max=0.4577 fork_final=0.4397"
+      ],
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-141644-280-c484c427\\ramp_brake.log"
+    }
+  ],
+  "scope": "Actual GPU depth on a known pallet family + proximity/presence/load/height fusion. Test ground truth is diagnostics only. Timed manual fixture input is not autonomous insertion. No universal object recognition or certified insertion guarantee."
+}

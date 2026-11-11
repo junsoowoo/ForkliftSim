@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-31",
+  "dll_sha256": "a88ff8e887c10f1160569fd3c6cdb918d3be4c3e96b60b4f4717f44ee53977b2",
+  "native_cases_passed": 32,
+  "convergence_comparisons_passed": 8,
+  "unit_tests_passed": 38,
+  "web_received_frames_verified": 600,
+  "web_export_columns": 57,
+  "regression_received_frames": 6696,
+  "default_scene_performance": {
+    "mean_fps": 56.1404969836559,
+    "p95_frame_ms": 28.928302228450775,
+    "tail_120_mean_fps": 43.79215865319551,
+    "realtime_ratio": 0.9837975593177305,
+    "scope": "World game-tick wall intervals after first simulation second; not GPU timing or a long-running editor PIE guarantee.",
+    "map": "/Game/Maps/WarehouseLab",
+    "resolution": [
+      1280,
+      800
+    ],
+    "physics_hz": 960,
+    "iterations": [
+      32,
+      32
+    ],
+    "camera_views": true,
+    "sample_count": 2964
+  },
+  "hardware_calibration_complete": false,
+  "full_energy_closure": false,
+  "impact_force_peaks_qualified": false,
+  "wheel_load_rating_qualified": false,
+  "observer_camera_occlusion_resolved": false,
+  "notes": [
+    "Public source proxies and numerical qualification are not real hardware measurements.",
+    "Default observer can be obscured by warehouse racks; existing mouse orbit and V inspection view remain available. No viewer or sensor changes were made to hide the issue.",
+    "Rendering capture stops before complete rack handoff; completed rack trials are separate native test evidence.",
+    "A/B static support report retains its earlier comparison DLL hash.",
+    "Inspection view intentionally hides the chassis deck render, retaining its mass and collision."
+  ],
+  "evidence": [
+    {
+      "path": "Docs/References/CurrentPhysics-20261031.json",
+      "sha256": "675adc4b8371d1bf270fb59b546002496c1bd4aa9869d3e1cbb6e3be32f8f0b8"
+    },
+    {
+      "path": "Saved/Validation/Priorities4-Unit-Qualified/index.json",
+      "sha256": "eda0ef127c3748cda892a090392b2f0d38bb02641111b0f854d09fe233f6db45"
+    },
+    {
+      "path": "Docs/References/CurrentPhysicsWeb-20261031.json",
+      "sha256": "97280806c6656c9741569097d826b55363baf650673ed135d4648db5f28b6660"
+    },
+    {
+      "path": "Docs/References/CurrentPhysicsLive-20261031.json",
+      "sha256": "2d119b2edcc4368e7876052c06ee960b9a40b3fee0e84f0ddd60eeda18368c22"
+    },
+    {
+      "path": "Docs/References/StaticSupportCorrection-20261031.json",
+      "sha256": "e7550c728da97161a7e17207995a1f1bb6cdfd887f94d6a85bcb98abe0b51599"
+    },
+    {
+      "path": "Docs/References/PublicCalibrationDownloads-20261031.json",
+      "sha256": "06587cfaaacbbbe6735ff63630a68ae7bb42fbe45925370a083de8655c11b218"
+    },
+    {
+      "path": "Docs/References/CurrentPhysicsPerformance-20261031.json",
+      "sha256": "85f574c52d63c28dba26ffaf05735c23d71fe544c639900dd6cf8ed29039ef18"
+    },
+    {
+      "path": "Saved/Validation/Performance/Priorities4-WarehousePresentation.log",
+      "sha256": "c3762ef1163640e3384c5f18bf62ea96f843096739fe5c6ffdf121340eaf2a95"
+    },
+    {
+      "path": "Saved/Validation/Performance/Priorities4-WarehouseInspection.log",
+      "sha256": "21b4c5658302a46b44d64f4f35b2c114fdc80b38a1cf3612ffa1b35ace1ff5bd"
+    },
+    {
+      "path": "Docs/Images/CurrentPhysics-default-view-20261031.png",
+      "sha256": "4ff181eff845b2d637e4959cbfb9712e0a81bc33a16dda370172f8561e8af0bd"
+    },
+    {
+      "path": "Docs/Images/CurrentPhysics-inspection-view-20261031.png",
+      "sha256": "2ac0279be103f4d2b135e24f9dd35a1629fd695b17835b940d490ee1e9355f22"
+    }
+  ],
+  "post_qualification_nonsemantic_changes": [
+    {
+      "path": "Config/DefaultEngine.ini",
+      "before_sha256": "4cd29c929e6bf8a67fc6e9ab76953734c8f51dc49479847ee7c3cb493cc6f801",
+      "after_sha256": "1560e132d73380aa79cdfe7e3b4c642e3b08d1529a83eacd7b08642c437ec1f8",
+      "snapshot": "Saved/Backups/DefaultEngine-qualified-20261031.ini",
+      "change": "Removed one empty EOF line only; all configuration content and physics values are unchanged."
+    }
+  ]
+}

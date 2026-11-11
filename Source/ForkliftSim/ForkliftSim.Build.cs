@@ -5,7 +5,8 @@ public class ForkliftSim : ModuleRules
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PublicDependencyModuleNames.AddRange(new string[] {
-            "Core", "CoreUObject", "Engine", "InputCore", "PhysicsCore", "Json"
+            "Core", "CoreUObject", "Engine", "InputCore", "PhysicsCore", "Chaos", "Json", "MeshDescription", "StaticMeshDescription"
         });
+        PrivateDependencyModuleNames.AddRange(new string[] { "HTTP", "RenderCore", "RHI" });
     }
 }

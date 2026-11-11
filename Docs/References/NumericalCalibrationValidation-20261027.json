@@ -1,0 +1,1891 @@
+{
+  "recorded_kst": "2026-10-27",
+  "scope": "Batch 3+4 observer/numerical diagnostics and calibration workflow. Not real-wheel calibration or full energy closure.",
+  "full_closure": false,
+  "material_calibration": "awaiting_wheel_measurements",
+  "coupled_ring_qualified": false,
+  "units_passed": 28,
+  "source_mismatches_after_test": [],
+  "dll_sha256": "08aea85cb1ac935a9e3b60e4fb2da94494b790056230f1943a1662b544f5bcc9",
+  "component_runs": [
+    {
+      "folder": "Components-20261027-032420-194",
+      "manifest": {
+        "coupled_tread": false,
+        "tread_segments_override": 0,
+        "fps": 60,
+        "tread_mode": "rigid",
+        "source_sha256": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoContactData.h",
+            "Hash": "1234DD0C6055E57CEE262E519ACD4026F60AE334E70DE2541932293936E60F6A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoGeometry.h",
+            "Hash": "6BF5F2EBC97A269AC789BD7D112BA89F6EDADEBCAC48BB70EA116E9CFFC03EB2"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoLab.cpp",
+            "Hash": "658677667C87CACCDE2DDDF3D34E13261BBBF747865710C3244BE164136843A4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.cpp",
+            "Hash": "C0DDADA45454C63510558A2AEC4A3EBD4A80EF38211B1C64042F69C920CD2B1C"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.h",
+            "Hash": "95BC6527BB6D197B0BF184708D2B67D324DD354483B4FD532D717A8964210C5A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.cpp",
+            "Hash": "06DA55FE00820615D0ECE52A6482779B634EBC20111AF0479431F7BFA06F6527"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.h",
+            "Hash": "D330E7CFD6805501DD946AD68023C421D9A1B22F19F7398E106B368853295643"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentLab.cpp",
+            "Hash": "99DF544BDE16A1F35F8B0720BCD4E0161B5BE4CF03EB9D247765563C7D45114F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentTests.cpp",
+            "Hash": "FDF40C3F39E8DBDC2ABFB492AAC423603C65626BEEED607198010E723BDFEF3A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.cpp",
+            "Hash": "9FD0F8DCBEE11AFDD3DF191CCC38F8A776920BC6750DC2D2E39F0DE994DA19BC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.h",
+            "Hash": "6E3528833DE9A0BA797B399992AF9E1C4EA20BC1EF5CC9FEC3E81B6821B48523"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainLab.cpp",
+            "Hash": "FF1C8DD69B6EBE6DE2497473168E6BD218606F82388CCDC4B759D4C783A30690"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainModel.h",
+            "Hash": "79AB032E14E561818F4CE4E30E79B8F631025E444490FE8E729D394631E7B6F0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainSettings.cpp",
+            "Hash": "F01C6C259E0630FA33645394AD6E59A91C1274B4A127FBA4161C677D642A13F4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainTests.cpp",
+            "Hash": "862FBB6B80C33165E31C246378DDC205539EFEBB043874E8BA45EC38E93DD3EF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\EnergyAudit.cpp",
+            "Hash": "C62DF48D85181EEFEB7EEF36638A415CB7C4F8790B84075F4AFA480BA0EC3885"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.cpp",
+            "Hash": "5BE506256BE18BC6FF8C1E72C1ECD07764B2740FCC2A05F9528FFCC31CBA62A7"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.h",
+            "Hash": "362B8E9851565FF49EDF2D9AC81D44B133D01EC8463EF0819D1D8CE218857105"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.cpp",
+            "Hash": "10463FAEE3CBA12BD4E3524F16ECC70C2DD04A02BC905FC9ADBC6D96C89ED960"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.h",
+            "Hash": "3A98DDA45350E45A2A3EA401D385602B30679CEDE755D5FB7B2E5869F65C0B6B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.Build.cs",
+            "Hash": "9106A98DABFDCCB639C109C82C8C1FB31DFCADD0CEAD1FB481BF18EA8EC3FB0F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.cpp",
+            "Hash": "D5C403C86EF482EA16887978C7DF9F08D5E572C9174EF47AB6221FE068FF76F5"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.cpp",
+            "Hash": "2FFD940C1A64920677B6CE3FCCA65CF04B03AABA1F4535496E1B660C87C6B182"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.h",
+            "Hash": "1A11FD7101FDFB49789729448C95B5783CEEDBFE7C97EB9144B76E6F37971D36"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicDetail.cpp",
+            "Hash": "A84C255C0D9AB09AB9223F3D14F9C8410D80704DA008E90B488C597BFB08EB31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLab.cpp",
+            "Hash": "D4D51D741566ED491942E4A9DC16849BBD6FB1AEDF09EE54743CB7EE0B064211"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.cpp",
+            "Hash": "6A61633615F1D304D87DF743B5AFF8D28C5A79EA11531359DE94501576DAB64D"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.h",
+            "Hash": "C40EB63F5C0DE0DC7484B8FAEDC88C8AFCB293F3AF1173288EDE11F71FA30F7D"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicTests.cpp",
+            "Hash": "BB3A6A68657831F69907F53198F53A430F709189AE1417432D7C17E3B8B85BD9"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.cpp",
+            "Hash": "A9C6D92F185281E08FBB321E3DABB696852D9C72DCBCE3909DCDB4EFBD0FCBDD"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.h",
+            "Hash": "0173BD86C2F1CBDC9FBB55C98D316C2D3BA36BA6E8DF67528E9529384C0ECC31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.cpp",
+            "Hash": "99CB22FD7EF0F66E646760AF00E79669CEEA041B6E1F820C15999750F3930537"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.h",
+            "Hash": "1A59B2412F34EE445F1A03D1AB10CB525E1AB8DF45C4BFEF7141DEB56E228A76"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModelTests.cpp",
+            "Hash": "7066B6AA29D79E2E673DDD15E55E01B7445DAE963B9B60913EDC4E7F11BBEB42"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.cpp",
+            "Hash": "D1232480294ED7A40981C41D5A72F13634F40B96A404FDC4509D63D61A4C176F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.h",
+            "Hash": "04ACCCA15DD7E0EE84E48F31E53C9409B6D82685A76BE20D7FA792EF22AD8FE3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadLab.cpp",
+            "Hash": "2EAA7BE8F5569235EB727DC669476C078EB14EBE02E2F2A4FE020C0D577AB304"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadTests.cpp",
+            "Hash": "89AA46E875C80C01C00AF2F8B9B7130E5EE7F4270D719BFDC4F0C82B81ACE342"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PhysicsReferenceTests.cpp",
+            "Hash": "4729AD8737BDDD7397BFB188D63DF51DA919F944B31B337440998EF72DFA864A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.cpp",
+            "Hash": "CF6B83C9203CA3F1D840243547F5285D035176AA8098A1C9B899A995F0001C79"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.h",
+            "Hash": "635B24C94E0412D79962174ADC79B220A95ACFEF7342A765797A6F2CB6DB5794"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.cpp",
+            "Hash": "E2FDE3224FE2F69F77A62C6A69A03FF6FB60AE718AA8F5CF2A2F54CEB14A2487"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.h",
+            "Hash": "99BEB5F89754E46C7AD758CF6C34CC7DDD882A83BFEB933E3A7438FF9B0BC4B3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveKinematics.h",
+            "Hash": "55B59C6B0BC0E1EC939479B4CC4AC8164C16BC0DB850C1BE31B586770CC228F3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveTests.cpp",
+            "Hash": "08AFD51376197ABB3B1E3F3E100B6E0E8FC2593B56622968610A2C773E266A77"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.cpp",
+            "Hash": "682DAB2E34DF2BF3381172D2BF5AAD4506A13A219EE9BE1932BF377E7D4E3357"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.h",
+            "Hash": "D99064B37818A474F62BE375BB7E31B866E93975A3680D729A863173FCD37EBB"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.cpp",
+            "Hash": "217D8B918B1B98B11AC3667661A5EA5BB1A167A80B70FCDE0349EC237A546CC0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.h",
+            "Hash": "E93C8C21A6FDEE0FC9E282E403DCC751BE839CC34E1A190F6038C2896FE428A9"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.cpp",
+            "Hash": "625762060C04B6D126A2463FF11DFB05B49E37EAE7DB4ED3E2F9A309F69476E3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.h",
+            "Hash": "C8B2EC4041FC771673B537B35895AC42DE56976E309571D72B98EB7EAE662BA4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadTests.cpp",
+            "Hash": "BE162D014B2B9C08810FC09B3337B482CF251AEB9C7EA899F742D256726ED8FB"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreCompliance.h",
+            "Hash": "C08A41ECC3BC315EF508DB3E46193ACCB1F32DB4FA37CDEBCA21E81154822152"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreLab.cpp",
+            "Hash": "8BE3DAF8423FB7034487C5B1308CD5904A72EB6C3A4D5A5DB1224850C79328A8"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreSettings.cpp",
+            "Hash": "7B8EFE9D562EE4ACB7BB22C9444F04E42F5143F5A215F3B481D80DAA04A61271"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreTests.cpp",
+            "Hash": "B8AF96433D7FD9BCB406DCCA07CF6A40B7E38EC691D9EEFBC85EF8049C35A1A0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationLab.cpp",
+            "Hash": "B1B265B45C0E71F81562A87B9BB29C9CD3A506C54E0FB2E60CD2AA72349E0ED5"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationMath.h",
+            "Hash": "7A21953419DE3F40D9D9C5D49BD2800D56A229B23B44EE2AD72986AD15FDB648"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DHelpers.h",
+            "Hash": "67FA443A23ED9C75C2EB24DE3B5C4D0ADC4A728FAD65A07901622F5EE6F96D87"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.cpp",
+            "Hash": "73DBE76D7BB34E19659206B609B4D59A85CD8052BFE9CA21DF2ED832A7A294C3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.h",
+            "Hash": "0008E5A261EB83FE3888C119E81C48F2F0DD67DA85F56B70E22C5841C49D54D1"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.cpp",
+            "Hash": "C186EDC0019AAAC576CEDE1BF58275FDEB1D23365C20052794413FCC6753B0EF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.h",
+            "Hash": "3E3F57B424919C43E2A62FB66C59EA2CE1814E86F6ABFE014B15293588551FAF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.cpp",
+            "Hash": "363EC4FFF953634ADE5CE6C14A595EC8221DB07818B4BAA2457BE259BE7D940A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.h",
+            "Hash": "499FE20B6D919047C404162DBC0579216663B15D65571A7BF40B2A7D4AE2E82B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactData.h",
+            "Hash": "F24C699B4CC1BD22DE360E3BBB8C7354041CA5956818EC45BA94AE7FB036D5EA"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactGeometry.h",
+            "Hash": "541BD00D2E9320AA04372A879F404F63428B606D1537AD552D49103C0783EFD0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactTests.cpp",
+            "Hash": "00BC990656F1CCEB3732E3D979DE766A698A317FD1EFF1F9C1240264D79FF1D0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.cpp",
+            "Hash": "EC907F4A80A81AFB5C1F830943654A650C5092CA250E9241F70870CD3FC85EFC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.h",
+            "Hash": "CE77B85BD904F62221C16F526DED18DCFC0B2B86702074FEF0B2907A871CB441"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.cpp",
+            "Hash": "532827E09E1D7C4D12D3E8810BF71D409CBD59B7AEF9597C32E438743DBAFA3E"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.h",
+            "Hash": "19CF875D993FCA07B8E5BA6D483DB8D284E2825B3157175FF36886DA9F5547CA"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModelTests.cpp",
+            "Hash": "A5ABDBE83C842C2EF85E4FB8DB782D20DBF4CA41C07E85345137C662326FF0C0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistance.h",
+            "Hash": "EE9E4AA9043C047020E720505018C8C696DA07944ED8EC85B8625F417D5F23BE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistanceTests.cpp",
+            "Hash": "96CF4E736C5BA2CBD2BC17EB94D4744D3CA1505146FA0D44F4766FD4E0256BE1"
+          }
+        ],
+        "physics_hz": 480,
+        "tread_quality": "high",
+        "configs": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Drivetrain.json",
+            "Hash": "EA1FF21E8F3FDC305AA68E5EB6302FD9FD4B830C17356FED3C1D1C0D6AEAE907"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkliftLab.json",
+            "Hash": "EE9979A6BC61948737215223B98756588F58B559C2D5124B38631E4B8A0EE837"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkStructure.json",
+            "Hash": "7B348A4629FC4F591304DDFF5464CDA9060324686688A0C94EBF53C5AF033601"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Hydraulics.json",
+            "Hash": "95CA490D12D7FEC3A32000DCA4E3F7FE4D71A76AE76BEA5FEFE3B2CA184B7A31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Payload.json",
+            "Hash": "5E0596CD9C28A6B0F9D548ED47069D070EBAC0C47842DE646D665CF94647618B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PhysicsReference.json",
+            "Hash": "B8CB64D93A61986EB862A69C452F4BAF964540804F2A3C0AC05A6A07A0EAE7AC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RealComponents.json",
+            "Hash": "5A488DDFAD2D52051BD5F74E405089381C148AB3DEA66EAB14EA2AFAE8055AAE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Tyres.json",
+            "Hash": "9291028B1B4D1334D6EE0EC3AF7C8CC9CAE637A572367047B77D536CB16E5524"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Vehicle3D.json",
+            "Hash": "BB376391EC3868C70AD9CBD8822A87ACB33428B7CC7CA49A71B1BFB540EBA61A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WheelLab.json",
+            "Hash": "679BE15650B66154A087F53CA228CBCC5512A95802DCB43928D601AF4F6A599E"
+          }
+        ],
+        "native_tyre_edges": false,
+        "dll_sha256": "08AEA85CB1AC935A9E3B60E4FB2DA94494B790056230F1943A1662B544F5BCC9",
+        "reference": "hybrid4-component-reference-v1"
+      },
+      "results": [
+        {
+          "case": "carry",
+          "fps": 60,
+          "pass": true,
+          "result": [
+            "[2026.10.26-18.24.51:447][920]LogTemp: Display: ENERGY_AUDIT reference=1 stored_delta_j=2547.187076 drive_j=4438.914171 steering_joint_j=76.299226 input_j=7767.855215 known_loss_j=4132.562027 unresolved_j=-1088.106112 positive_peak_j=17.634342 full_closure=0",
+            "[2026.10.26-18.24.51:447][920]LogTemp: Display: TREAD_TIMESTEP world_s=32.000002 physics_s=31.983335 max_inner_s=0.002083333 max_game_s=0.016667",
+            "[2026.10.26-18.24.51:447][920]LogTemp: Display: CONTACT_CHECK swerve_components_carry edge_refinements=0 peak_points=4 band_closure_ns=0.000000000 point_vs_pair_peak_n=0.00134 peak_normal_n=16270.254 peak_compression_mm=17.366 x_m=4.7502 max_tilt_deg=0.4468",
+            "[2026.10.26-18.24.51:447][920]LogTemp: Display: COMPONENT_CHECK swerve_components_carry mass_kg=3140.000 fork_m=0.43819 pallet_m=0.31638 mast_m=0.22213 chain_error_m=0.006062 tension_n=6062.418 oil_c=39.6896 pump_pa=6209592.69 cylinder_pa=6209582.67 line_peak_pa=7000923.92 deflection_mm=2.69616/2.72801 hold_s=0.000 drift_m=0.000000 PASS"
+          ],
+          "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Components-20261027-032420-194\\carry-60.log"
+        },
+        {
+          "case": "lift",
+          "fps": 60,
+          "pass": true,
+          "result": [
+            "[2026.10.26-18.25.22:370][920]LogTemp: Display: ENERGY_AUDIT reference=1 stored_delta_j=2547.342035 drive_j=0.000000 steering_joint_j=-0.084014 input_j=3252.557804 known_loss_j=722.629607 unresolved_j=17.413839 positive_peak_j=17.634342 full_closure=0",
+            "[2026.10.26-18.25.22:370][920]LogTemp: Display: TREAD_TIMESTEP world_s=32.000002 physics_s=31.983335 max_inner_s=0.002083333 max_game_s=0.016667",
+            "[2026.10.26-18.25.22:370][920]LogTemp: Display: CONTACT_CHECK swerve_components_lift edge_refinements=0 peak_points=4 band_closure_ns=0.000000000 point_vs_pair_peak_n=0.00134 peak_normal_n=11984.199 peak_compression_mm=14.283 x_m=-0.0010 max_tilt_deg=0.2726",
+            "[2026.10.26-18.25.22:370][920]LogTemp: Display: COMPONENT_CHECK swerve_components_lift mass_kg=3140.000 fork_m=0.43827 pallet_m=0.31633 mast_m=0.22217 chain_error_m=0.006062 tension_n=6062.628 oil_c=39.6895 pump_pa=6209779.70 cylinder_pa=6209779.45 line_peak_pa=7000923.92 deflection_mm=2.63587/2.64993 hold_s=0.000 drift_m=0.000000 PASS"
+          ],
+          "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Components-20261027-032420-194\\lift-60.log"
+        }
+      ]
+    },
+    {
+      "folder": "Components-20261027-032623-008",
+      "manifest": {
+        "coupled_tread": false,
+        "tread_segments_override": 0,
+        "fps": 60,
+        "tread_mode": "rigid",
+        "source_sha256": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoContactData.h",
+            "Hash": "1234DD0C6055E57CEE262E519ACD4026F60AE334E70DE2541932293936E60F6A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoGeometry.h",
+            "Hash": "6BF5F2EBC97A269AC789BD7D112BA89F6EDADEBCAC48BB70EA116E9CFFC03EB2"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoLab.cpp",
+            "Hash": "658677667C87CACCDE2DDDF3D34E13261BBBF747865710C3244BE164136843A4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.cpp",
+            "Hash": "C0DDADA45454C63510558A2AEC4A3EBD4A80EF38211B1C64042F69C920CD2B1C"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.h",
+            "Hash": "95BC6527BB6D197B0BF184708D2B67D324DD354483B4FD532D717A8964210C5A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.cpp",
+            "Hash": "06DA55FE00820615D0ECE52A6482779B634EBC20111AF0479431F7BFA06F6527"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.h",
+            "Hash": "D330E7CFD6805501DD946AD68023C421D9A1B22F19F7398E106B368853295643"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentLab.cpp",
+            "Hash": "99DF544BDE16A1F35F8B0720BCD4E0161B5BE4CF03EB9D247765563C7D45114F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentTests.cpp",
+            "Hash": "FDF40C3F39E8DBDC2ABFB492AAC423603C65626BEEED607198010E723BDFEF3A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.cpp",
+            "Hash": "9FD0F8DCBEE11AFDD3DF191CCC38F8A776920BC6750DC2D2E39F0DE994DA19BC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.h",
+            "Hash": "6E3528833DE9A0BA797B399992AF9E1C4EA20BC1EF5CC9FEC3E81B6821B48523"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainLab.cpp",
+            "Hash": "FF1C8DD69B6EBE6DE2497473168E6BD218606F82388CCDC4B759D4C783A30690"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainModel.h",
+            "Hash": "79AB032E14E561818F4CE4E30E79B8F631025E444490FE8E729D394631E7B6F0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainSettings.cpp",
+            "Hash": "F01C6C259E0630FA33645394AD6E59A91C1274B4A127FBA4161C677D642A13F4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainTests.cpp",
+            "Hash": "862FBB6B80C33165E31C246378DDC205539EFEBB043874E8BA45EC38E93DD3EF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\EnergyAudit.cpp",
+            "Hash": "C62DF48D85181EEFEB7EEF36638A415CB7C4F8790B84075F4AFA480BA0EC3885"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.cpp",
+            "Hash": "5BE506256BE18BC6FF8C1E72C1ECD07764B2740FCC2A05F9528FFCC31CBA62A7"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.h",
+            "Hash": "362B8E9851565FF49EDF2D9AC81D44B133D01EC8463EF0819D1D8CE218857105"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.cpp",
+            "Hash": "10463FAEE3CBA12BD4E3524F16ECC70C2DD04A02BC905FC9ADBC6D96C89ED960"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.h",
+            "Hash": "3A98DDA45350E45A2A3EA401D385602B30679CEDE755D5FB7B2E5869F65C0B6B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.Build.cs",
+            "Hash": "9106A98DABFDCCB639C109C82C8C1FB31DFCADD0CEAD1FB481BF18EA8EC3FB0F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.cpp",
+            "Hash": "D5C403C86EF482EA16887978C7DF9F08D5E572C9174EF47AB6221FE068FF76F5"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.cpp",
+            "Hash": "2FFD940C1A64920677B6CE3FCCA65CF04B03AABA1F4535496E1B660C87C6B182"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.h",
+            "Hash": "1A11FD7101FDFB49789729448C95B5783CEEDBFE7C97EB9144B76E6F37971D36"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicDetail.cpp",
+            "Hash": "A84C255C0D9AB09AB9223F3D14F9C8410D80704DA008E90B488C597BFB08EB31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLab.cpp",
+            "Hash": "D4D51D741566ED491942E4A9DC16849BBD6FB1AEDF09EE54743CB7EE0B064211"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.cpp",
+            "Hash": "6A61633615F1D304D87DF743B5AFF8D28C5A79EA11531359DE94501576DAB64D"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.h",
+            "Hash": "C40EB63F5C0DE0DC7484B8FAEDC88C8AFCB293F3AF1173288EDE11F71FA30F7D"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicTests.cpp",
+            "Hash": "BB3A6A68657831F69907F53198F53A430F709189AE1417432D7C17E3B8B85BD9"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.cpp",
+            "Hash": "A9C6D92F185281E08FBB321E3DABB696852D9C72DCBCE3909DCDB4EFBD0FCBDD"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.h",
+            "Hash": "0173BD86C2F1CBDC9FBB55C98D316C2D3BA36BA6E8DF67528E9529384C0ECC31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.cpp",
+            "Hash": "99CB22FD7EF0F66E646760AF00E79669CEEA041B6E1F820C15999750F3930537"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.h",
+            "Hash": "1A59B2412F34EE445F1A03D1AB10CB525E1AB8DF45C4BFEF7141DEB56E228A76"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModelTests.cpp",
+            "Hash": "7066B6AA29D79E2E673DDD15E55E01B7445DAE963B9B60913EDC4E7F11BBEB42"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.cpp",
+            "Hash": "D1232480294ED7A40981C41D5A72F13634F40B96A404FDC4509D63D61A4C176F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.h",
+            "Hash": "04ACCCA15DD7E0EE84E48F31E53C9409B6D82685A76BE20D7FA792EF22AD8FE3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadLab.cpp",
+            "Hash": "2EAA7BE8F5569235EB727DC669476C078EB14EBE02E2F2A4FE020C0D577AB304"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadTests.cpp",
+            "Hash": "89AA46E875C80C01C00AF2F8B9B7130E5EE7F4270D719BFDC4F0C82B81ACE342"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PhysicsReferenceTests.cpp",
+            "Hash": "4729AD8737BDDD7397BFB188D63DF51DA919F944B31B337440998EF72DFA864A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.cpp",
+            "Hash": "CF6B83C9203CA3F1D840243547F5285D035176AA8098A1C9B899A995F0001C79"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.h",
+            "Hash": "635B24C94E0412D79962174ADC79B220A95ACFEF7342A765797A6F2CB6DB5794"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.cpp",
+            "Hash": "E2FDE3224FE2F69F77A62C6A69A03FF6FB60AE718AA8F5CF2A2F54CEB14A2487"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.h",
+            "Hash": "99BEB5F89754E46C7AD758CF6C34CC7DDD882A83BFEB933E3A7438FF9B0BC4B3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveKinematics.h",
+            "Hash": "55B59C6B0BC0E1EC939479B4CC4AC8164C16BC0DB850C1BE31B586770CC228F3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveTests.cpp",
+            "Hash": "08AFD51376197ABB3B1E3F3E100B6E0E8FC2593B56622968610A2C773E266A77"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.cpp",
+            "Hash": "682DAB2E34DF2BF3381172D2BF5AAD4506A13A219EE9BE1932BF377E7D4E3357"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.h",
+            "Hash": "D99064B37818A474F62BE375BB7E31B866E93975A3680D729A863173FCD37EBB"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.cpp",
+            "Hash": "217D8B918B1B98B11AC3667661A5EA5BB1A167A80B70FCDE0349EC237A546CC0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.h",
+            "Hash": "E93C8C21A6FDEE0FC9E282E403DCC751BE839CC34E1A190F6038C2896FE428A9"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.cpp",
+            "Hash": "625762060C04B6D126A2463FF11DFB05B49E37EAE7DB4ED3E2F9A309F69476E3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.h",
+            "Hash": "C8B2EC4041FC771673B537B35895AC42DE56976E309571D72B98EB7EAE662BA4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadTests.cpp",
+            "Hash": "BE162D014B2B9C08810FC09B3337B482CF251AEB9C7EA899F742D256726ED8FB"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreCompliance.h",
+            "Hash": "C08A41ECC3BC315EF508DB3E46193ACCB1F32DB4FA37CDEBCA21E81154822152"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreLab.cpp",
+            "Hash": "8BE3DAF8423FB7034487C5B1308CD5904A72EB6C3A4D5A5DB1224850C79328A8"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreSettings.cpp",
+            "Hash": "7B8EFE9D562EE4ACB7BB22C9444F04E42F5143F5A215F3B481D80DAA04A61271"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreTests.cpp",
+            "Hash": "B8AF96433D7FD9BCB406DCCA07CF6A40B7E38EC691D9EEFBC85EF8049C35A1A0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationLab.cpp",
+            "Hash": "B1B265B45C0E71F81562A87B9BB29C9CD3A506C54E0FB2E60CD2AA72349E0ED5"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationMath.h",
+            "Hash": "7A21953419DE3F40D9D9C5D49BD2800D56A229B23B44EE2AD72986AD15FDB648"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DHelpers.h",
+            "Hash": "67FA443A23ED9C75C2EB24DE3B5C4D0ADC4A728FAD65A07901622F5EE6F96D87"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.cpp",
+            "Hash": "73DBE76D7BB34E19659206B609B4D59A85CD8052BFE9CA21DF2ED832A7A294C3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.h",
+            "Hash": "0008E5A261EB83FE3888C119E81C48F2F0DD67DA85F56B70E22C5841C49D54D1"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.cpp",
+            "Hash": "C186EDC0019AAAC576CEDE1BF58275FDEB1D23365C20052794413FCC6753B0EF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.h",
+            "Hash": "3E3F57B424919C43E2A62FB66C59EA2CE1814E86F6ABFE014B15293588551FAF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.cpp",
+            "Hash": "363EC4FFF953634ADE5CE6C14A595EC8221DB07818B4BAA2457BE259BE7D940A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.h",
+            "Hash": "499FE20B6D919047C404162DBC0579216663B15D65571A7BF40B2A7D4AE2E82B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactData.h",
+            "Hash": "F24C699B4CC1BD22DE360E3BBB8C7354041CA5956818EC45BA94AE7FB036D5EA"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactGeometry.h",
+            "Hash": "541BD00D2E9320AA04372A879F404F63428B606D1537AD552D49103C0783EFD0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactTests.cpp",
+            "Hash": "00BC990656F1CCEB3732E3D979DE766A698A317FD1EFF1F9C1240264D79FF1D0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.cpp",
+            "Hash": "EC907F4A80A81AFB5C1F830943654A650C5092CA250E9241F70870CD3FC85EFC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.h",
+            "Hash": "CE77B85BD904F62221C16F526DED18DCFC0B2B86702074FEF0B2907A871CB441"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.cpp",
+            "Hash": "532827E09E1D7C4D12D3E8810BF71D409CBD59B7AEF9597C32E438743DBAFA3E"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.h",
+            "Hash": "19CF875D993FCA07B8E5BA6D483DB8D284E2825B3157175FF36886DA9F5547CA"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModelTests.cpp",
+            "Hash": "A5ABDBE83C842C2EF85E4FB8DB782D20DBF4CA41C07E85345137C662326FF0C0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistance.h",
+            "Hash": "EE9E4AA9043C047020E720505018C8C696DA07944ED8EC85B8625F417D5F23BE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistanceTests.cpp",
+            "Hash": "96CF4E736C5BA2CBD2BC17EB94D4744D3CA1505146FA0D44F4766FD4E0256BE1"
+          }
+        ],
+        "physics_hz": 960,
+        "tread_quality": "high",
+        "configs": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Drivetrain.json",
+            "Hash": "EA1FF21E8F3FDC305AA68E5EB6302FD9FD4B830C17356FED3C1D1C0D6AEAE907"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkliftLab.json",
+            "Hash": "EE9979A6BC61948737215223B98756588F58B559C2D5124B38631E4B8A0EE837"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkStructure.json",
+            "Hash": "7B348A4629FC4F591304DDFF5464CDA9060324686688A0C94EBF53C5AF033601"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Hydraulics.json",
+            "Hash": "95CA490D12D7FEC3A32000DCA4E3F7FE4D71A76AE76BEA5FEFE3B2CA184B7A31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Payload.json",
+            "Hash": "5E0596CD9C28A6B0F9D548ED47069D070EBAC0C47842DE646D665CF94647618B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PhysicsReference.json",
+            "Hash": "B8CB64D93A61986EB862A69C452F4BAF964540804F2A3C0AC05A6A07A0EAE7AC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RealComponents.json",
+            "Hash": "5A488DDFAD2D52051BD5F74E405089381C148AB3DEA66EAB14EA2AFAE8055AAE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Tyres.json",
+            "Hash": "9291028B1B4D1334D6EE0EC3AF7C8CC9CAE637A572367047B77D536CB16E5524"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Vehicle3D.json",
+            "Hash": "BB376391EC3868C70AD9CBD8822A87ACB33428B7CC7CA49A71B1BFB540EBA61A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WheelLab.json",
+            "Hash": "679BE15650B66154A087F53CA228CBCC5512A95802DCB43928D601AF4F6A599E"
+          }
+        ],
+        "native_tyre_edges": false,
+        "dll_sha256": "08AEA85CB1AC935A9E3B60E4FB2DA94494B790056230F1943A1662B544F5BCC9",
+        "reference": "hybrid4-component-reference-v1"
+      },
+      "results": [
+        {
+          "case": "carry",
+          "fps": 60,
+          "pass": true,
+          "result": [
+            "[2026.10.26-18.27.02:688][920]LogTemp: Display: ENERGY_AUDIT reference=1 stored_delta_j=2550.139961 drive_j=4293.666591 steering_joint_j=46.881307 input_j=7592.953311 known_loss_j=4154.319203 unresolved_j=-888.494147 positive_peak_j=19.007032 full_closure=0",
+            "[2026.10.26-18.27.02:688][920]LogTemp: Display: TREAD_TIMESTEP world_s=32.000002 physics_s=31.983335 max_inner_s=0.001041667 max_game_s=0.016667",
+            "[2026.10.26-18.27.02:688][920]LogTemp: Display: CONTACT_CHECK swerve_components_carry edge_refinements=0 peak_points=4 band_closure_ns=0.000000000 point_vs_pair_peak_n=0.00097 peak_normal_n=16670.183 peak_compression_mm=17.619 x_m=4.7414 max_tilt_deg=0.4512",
+            "[2026.10.26-18.27.02:688][920]LogTemp: Display: COMPONENT_CHECK swerve_components_carry mass_kg=3140.000 fork_m=0.43823 pallet_m=0.31690 mast_m=0.22215 chain_error_m=0.006063 tension_n=6063.106 oil_c=39.6897 pump_pa=6210286.03 cylinder_pa=6210283.53 line_peak_pa=7023452.24 deflection_mm=2.40785/2.42620 hold_s=0.000 drift_m=0.000000 PASS"
+          ],
+          "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Components-20261027-032623-008\\carry-60.log"
+        }
+      ]
+    },
+    {
+      "folder": "Components-20261027-032705-299",
+      "manifest": {
+        "coupled_tread": false,
+        "tread_segments_override": 0,
+        "fps": 30,
+        "tread_mode": "rigid",
+        "source_sha256": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoContactData.h",
+            "Hash": "1234DD0C6055E57CEE262E519ACD4026F60AE334E70DE2541932293936E60F6A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoGeometry.h",
+            "Hash": "6BF5F2EBC97A269AC789BD7D112BA89F6EDADEBCAC48BB70EA116E9CFFC03EB2"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoLab.cpp",
+            "Hash": "658677667C87CACCDE2DDDF3D34E13261BBBF747865710C3244BE164136843A4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.cpp",
+            "Hash": "C0DDADA45454C63510558A2AEC4A3EBD4A80EF38211B1C64042F69C920CD2B1C"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.h",
+            "Hash": "95BC6527BB6D197B0BF184708D2B67D324DD354483B4FD532D717A8964210C5A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.cpp",
+            "Hash": "06DA55FE00820615D0ECE52A6482779B634EBC20111AF0479431F7BFA06F6527"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.h",
+            "Hash": "D330E7CFD6805501DD946AD68023C421D9A1B22F19F7398E106B368853295643"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentLab.cpp",
+            "Hash": "99DF544BDE16A1F35F8B0720BCD4E0161B5BE4CF03EB9D247765563C7D45114F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentTests.cpp",
+            "Hash": "FDF40C3F39E8DBDC2ABFB492AAC423603C65626BEEED607198010E723BDFEF3A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.cpp",
+            "Hash": "9FD0F8DCBEE11AFDD3DF191CCC38F8A776920BC6750DC2D2E39F0DE994DA19BC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.h",
+            "Hash": "6E3528833DE9A0BA797B399992AF9E1C4EA20BC1EF5CC9FEC3E81B6821B48523"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainLab.cpp",
+            "Hash": "FF1C8DD69B6EBE6DE2497473168E6BD218606F82388CCDC4B759D4C783A30690"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainModel.h",
+            "Hash": "79AB032E14E561818F4CE4E30E79B8F631025E444490FE8E729D394631E7B6F0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainSettings.cpp",
+            "Hash": "F01C6C259E0630FA33645394AD6E59A91C1274B4A127FBA4161C677D642A13F4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainTests.cpp",
+            "Hash": "862FBB6B80C33165E31C246378DDC205539EFEBB043874E8BA45EC38E93DD3EF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\EnergyAudit.cpp",
+            "Hash": "C62DF48D85181EEFEB7EEF36638A415CB7C4F8790B84075F4AFA480BA0EC3885"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.cpp",
+            "Hash": "5BE506256BE18BC6FF8C1E72C1ECD07764B2740FCC2A05F9528FFCC31CBA62A7"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.h",
+            "Hash": "362B8E9851565FF49EDF2D9AC81D44B133D01EC8463EF0819D1D8CE218857105"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.cpp",
+            "Hash": "10463FAEE3CBA12BD4E3524F16ECC70C2DD04A02BC905FC9ADBC6D96C89ED960"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.h",
+            "Hash": "3A98DDA45350E45A2A3EA401D385602B30679CEDE755D5FB7B2E5869F65C0B6B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.Build.cs",
+            "Hash": "9106A98DABFDCCB639C109C82C8C1FB31DFCADD0CEAD1FB481BF18EA8EC3FB0F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.cpp",
+            "Hash": "D5C403C86EF482EA16887978C7DF9F08D5E572C9174EF47AB6221FE068FF76F5"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.cpp",
+            "Hash": "2FFD940C1A64920677B6CE3FCCA65CF04B03AABA1F4535496E1B660C87C6B182"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.h",
+            "Hash": "1A11FD7101FDFB49789729448C95B5783CEEDBFE7C97EB9144B76E6F37971D36"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicDetail.cpp",
+            "Hash": "A84C255C0D9AB09AB9223F3D14F9C8410D80704DA008E90B488C597BFB08EB31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLab.cpp",
+            "Hash": "D4D51D741566ED491942E4A9DC16849BBD6FB1AEDF09EE54743CB7EE0B064211"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.cpp",
+            "Hash": "6A61633615F1D304D87DF743B5AFF8D28C5A79EA11531359DE94501576DAB64D"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.h",
+            "Hash": "C40EB63F5C0DE0DC7484B8FAEDC88C8AFCB293F3AF1173288EDE11F71FA30F7D"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicTests.cpp",
+            "Hash": "BB3A6A68657831F69907F53198F53A430F709189AE1417432D7C17E3B8B85BD9"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.cpp",
+            "Hash": "A9C6D92F185281E08FBB321E3DABB696852D9C72DCBCE3909DCDB4EFBD0FCBDD"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.h",
+            "Hash": "0173BD86C2F1CBDC9FBB55C98D316C2D3BA36BA6E8DF67528E9529384C0ECC31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.cpp",
+            "Hash": "99CB22FD7EF0F66E646760AF00E79669CEEA041B6E1F820C15999750F3930537"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.h",
+            "Hash": "1A59B2412F34EE445F1A03D1AB10CB525E1AB8DF45C4BFEF7141DEB56E228A76"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModelTests.cpp",
+            "Hash": "7066B6AA29D79E2E673DDD15E55E01B7445DAE963B9B60913EDC4E7F11BBEB42"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.cpp",
+            "Hash": "D1232480294ED7A40981C41D5A72F13634F40B96A404FDC4509D63D61A4C176F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.h",
+            "Hash": "04ACCCA15DD7E0EE84E48F31E53C9409B6D82685A76BE20D7FA792EF22AD8FE3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadLab.cpp",
+            "Hash": "2EAA7BE8F5569235EB727DC669476C078EB14EBE02E2F2A4FE020C0D577AB304"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadTests.cpp",
+            "Hash": "89AA46E875C80C01C00AF2F8B9B7130E5EE7F4270D719BFDC4F0C82B81ACE342"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PhysicsReferenceTests.cpp",
+            "Hash": "4729AD8737BDDD7397BFB188D63DF51DA919F944B31B337440998EF72DFA864A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.cpp",
+            "Hash": "CF6B83C9203CA3F1D840243547F5285D035176AA8098A1C9B899A995F0001C79"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.h",
+            "Hash": "635B24C94E0412D79962174ADC79B220A95ACFEF7342A765797A6F2CB6DB5794"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.cpp",
+            "Hash": "E2FDE3224FE2F69F77A62C6A69A03FF6FB60AE718AA8F5CF2A2F54CEB14A2487"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.h",
+            "Hash": "99BEB5F89754E46C7AD758CF6C34CC7DDD882A83BFEB933E3A7438FF9B0BC4B3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveKinematics.h",
+            "Hash": "55B59C6B0BC0E1EC939479B4CC4AC8164C16BC0DB850C1BE31B586770CC228F3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveTests.cpp",
+            "Hash": "08AFD51376197ABB3B1E3F3E100B6E0E8FC2593B56622968610A2C773E266A77"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.cpp",
+            "Hash": "682DAB2E34DF2BF3381172D2BF5AAD4506A13A219EE9BE1932BF377E7D4E3357"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.h",
+            "Hash": "D99064B37818A474F62BE375BB7E31B866E93975A3680D729A863173FCD37EBB"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.cpp",
+            "Hash": "217D8B918B1B98B11AC3667661A5EA5BB1A167A80B70FCDE0349EC237A546CC0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.h",
+            "Hash": "E93C8C21A6FDEE0FC9E282E403DCC751BE839CC34E1A190F6038C2896FE428A9"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.cpp",
+            "Hash": "625762060C04B6D126A2463FF11DFB05B49E37EAE7DB4ED3E2F9A309F69476E3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.h",
+            "Hash": "C8B2EC4041FC771673B537B35895AC42DE56976E309571D72B98EB7EAE662BA4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadTests.cpp",
+            "Hash": "BE162D014B2B9C08810FC09B3337B482CF251AEB9C7EA899F742D256726ED8FB"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreCompliance.h",
+            "Hash": "C08A41ECC3BC315EF508DB3E46193ACCB1F32DB4FA37CDEBCA21E81154822152"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreLab.cpp",
+            "Hash": "8BE3DAF8423FB7034487C5B1308CD5904A72EB6C3A4D5A5DB1224850C79328A8"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreSettings.cpp",
+            "Hash": "7B8EFE9D562EE4ACB7BB22C9444F04E42F5143F5A215F3B481D80DAA04A61271"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreTests.cpp",
+            "Hash": "B8AF96433D7FD9BCB406DCCA07CF6A40B7E38EC691D9EEFBC85EF8049C35A1A0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationLab.cpp",
+            "Hash": "B1B265B45C0E71F81562A87B9BB29C9CD3A506C54E0FB2E60CD2AA72349E0ED5"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationMath.h",
+            "Hash": "7A21953419DE3F40D9D9C5D49BD2800D56A229B23B44EE2AD72986AD15FDB648"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DHelpers.h",
+            "Hash": "67FA443A23ED9C75C2EB24DE3B5C4D0ADC4A728FAD65A07901622F5EE6F96D87"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.cpp",
+            "Hash": "73DBE76D7BB34E19659206B609B4D59A85CD8052BFE9CA21DF2ED832A7A294C3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.h",
+            "Hash": "0008E5A261EB83FE3888C119E81C48F2F0DD67DA85F56B70E22C5841C49D54D1"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.cpp",
+            "Hash": "C186EDC0019AAAC576CEDE1BF58275FDEB1D23365C20052794413FCC6753B0EF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.h",
+            "Hash": "3E3F57B424919C43E2A62FB66C59EA2CE1814E86F6ABFE014B15293588551FAF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.cpp",
+            "Hash": "363EC4FFF953634ADE5CE6C14A595EC8221DB07818B4BAA2457BE259BE7D940A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.h",
+            "Hash": "499FE20B6D919047C404162DBC0579216663B15D65571A7BF40B2A7D4AE2E82B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactData.h",
+            "Hash": "F24C699B4CC1BD22DE360E3BBB8C7354041CA5956818EC45BA94AE7FB036D5EA"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactGeometry.h",
+            "Hash": "541BD00D2E9320AA04372A879F404F63428B606D1537AD552D49103C0783EFD0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactTests.cpp",
+            "Hash": "00BC990656F1CCEB3732E3D979DE766A698A317FD1EFF1F9C1240264D79FF1D0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.cpp",
+            "Hash": "EC907F4A80A81AFB5C1F830943654A650C5092CA250E9241F70870CD3FC85EFC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.h",
+            "Hash": "CE77B85BD904F62221C16F526DED18DCFC0B2B86702074FEF0B2907A871CB441"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.cpp",
+            "Hash": "532827E09E1D7C4D12D3E8810BF71D409CBD59B7AEF9597C32E438743DBAFA3E"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.h",
+            "Hash": "19CF875D993FCA07B8E5BA6D483DB8D284E2825B3157175FF36886DA9F5547CA"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModelTests.cpp",
+            "Hash": "A5ABDBE83C842C2EF85E4FB8DB782D20DBF4CA41C07E85345137C662326FF0C0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistance.h",
+            "Hash": "EE9E4AA9043C047020E720505018C8C696DA07944ED8EC85B8625F417D5F23BE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistanceTests.cpp",
+            "Hash": "96CF4E736C5BA2CBD2BC17EB94D4744D3CA1505146FA0D44F4766FD4E0256BE1"
+          }
+        ],
+        "physics_hz": 480,
+        "tread_quality": "high",
+        "configs": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Drivetrain.json",
+            "Hash": "EA1FF21E8F3FDC305AA68E5EB6302FD9FD4B830C17356FED3C1D1C0D6AEAE907"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkliftLab.json",
+            "Hash": "EE9979A6BC61948737215223B98756588F58B559C2D5124B38631E4B8A0EE837"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkStructure.json",
+            "Hash": "7B348A4629FC4F591304DDFF5464CDA9060324686688A0C94EBF53C5AF033601"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Hydraulics.json",
+            "Hash": "95CA490D12D7FEC3A32000DCA4E3F7FE4D71A76AE76BEA5FEFE3B2CA184B7A31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Payload.json",
+            "Hash": "5E0596CD9C28A6B0F9D548ED47069D070EBAC0C47842DE646D665CF94647618B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PhysicsReference.json",
+            "Hash": "B8CB64D93A61986EB862A69C452F4BAF964540804F2A3C0AC05A6A07A0EAE7AC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RealComponents.json",
+            "Hash": "5A488DDFAD2D52051BD5F74E405089381C148AB3DEA66EAB14EA2AFAE8055AAE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Tyres.json",
+            "Hash": "9291028B1B4D1334D6EE0EC3AF7C8CC9CAE637A572367047B77D536CB16E5524"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Vehicle3D.json",
+            "Hash": "BB376391EC3868C70AD9CBD8822A87ACB33428B7CC7CA49A71B1BFB540EBA61A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WheelLab.json",
+            "Hash": "679BE15650B66154A087F53CA228CBCC5512A95802DCB43928D601AF4F6A599E"
+          }
+        ],
+        "native_tyre_edges": false,
+        "dll_sha256": "08AEA85CB1AC935A9E3B60E4FB2DA94494B790056230F1943A1662B544F5BCC9",
+        "reference": "hybrid4-component-reference-v1"
+      },
+      "results": [
+        {
+          "case": "lift",
+          "fps": 30,
+          "pass": true,
+          "result": [
+            "[2026.10.26-18.27.31:149][960]LogTemp: Display: ENERGY_AUDIT reference=1 stored_delta_j=2548.710766 drive_j=0.000000 steering_joint_j=0.002791 input_j=3254.220905 known_loss_j=723.290341 unresolved_j=17.780201 positive_peak_j=17.860821 full_closure=0",
+            "[2026.10.26-18.27.31:149][960]LogTemp: Display: TREAD_TIMESTEP world_s=32.000002 physics_s=31.966668 max_inner_s=0.002083333 max_game_s=0.033333",
+            "[2026.10.26-18.27.31:149][960]LogTemp: Display: CONTACT_CHECK swerve_components_lift edge_refinements=0 peak_points=4 band_closure_ns=0.000000000 point_vs_pair_peak_n=0.00102 peak_normal_n=11978.441 peak_compression_mm=14.279 x_m=-0.0024 max_tilt_deg=0.2732",
+            "[2026.10.26-18.27.31:149][960]LogTemp: Display: COMPONENT_CHECK swerve_components_lift mass_kg=3140.000 fork_m=0.43828 pallet_m=0.31632 mast_m=0.22217 chain_error_m=0.006063 tension_n=6062.651 oil_c=39.6897 pump_pa=6209800.66 cylinder_pa=6209800.25 line_peak_pa=6991417.13 deflection_mm=2.64160/2.65494 hold_s=0.000 drift_m=0.000000 PASS"
+          ],
+          "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Components-20261027-032705-299\\lift-30.log"
+        }
+      ]
+    },
+    {
+      "folder": "Components-20261027-032621-893",
+      "manifest": {
+        "coupled_tread": true,
+        "tread_segments_override": 64,
+        "fps": 60,
+        "tread_mode": "deformable",
+        "source_sha256": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoContactData.h",
+            "Hash": "1234DD0C6055E57CEE262E519ACD4026F60AE334E70DE2541932293936E60F6A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoGeometry.h",
+            "Hash": "6BF5F2EBC97A269AC789BD7D112BA89F6EDADEBCAC48BB70EA116E9CFFC03EB2"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoLab.cpp",
+            "Hash": "658677667C87CACCDE2DDDF3D34E13261BBBF747865710C3244BE164136843A4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.cpp",
+            "Hash": "C0DDADA45454C63510558A2AEC4A3EBD4A80EF38211B1C64042F69C920CD2B1C"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.h",
+            "Hash": "95BC6527BB6D197B0BF184708D2B67D324DD354483B4FD532D717A8964210C5A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.cpp",
+            "Hash": "06DA55FE00820615D0ECE52A6482779B634EBC20111AF0479431F7BFA06F6527"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.h",
+            "Hash": "D330E7CFD6805501DD946AD68023C421D9A1B22F19F7398E106B368853295643"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentLab.cpp",
+            "Hash": "99DF544BDE16A1F35F8B0720BCD4E0161B5BE4CF03EB9D247765563C7D45114F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentTests.cpp",
+            "Hash": "FDF40C3F39E8DBDC2ABFB492AAC423603C65626BEEED607198010E723BDFEF3A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.cpp",
+            "Hash": "9FD0F8DCBEE11AFDD3DF191CCC38F8A776920BC6750DC2D2E39F0DE994DA19BC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.h",
+            "Hash": "6E3528833DE9A0BA797B399992AF9E1C4EA20BC1EF5CC9FEC3E81B6821B48523"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainLab.cpp",
+            "Hash": "FF1C8DD69B6EBE6DE2497473168E6BD218606F82388CCDC4B759D4C783A30690"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainModel.h",
+            "Hash": "79AB032E14E561818F4CE4E30E79B8F631025E444490FE8E729D394631E7B6F0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainSettings.cpp",
+            "Hash": "F01C6C259E0630FA33645394AD6E59A91C1274B4A127FBA4161C677D642A13F4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainTests.cpp",
+            "Hash": "862FBB6B80C33165E31C246378DDC205539EFEBB043874E8BA45EC38E93DD3EF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\EnergyAudit.cpp",
+            "Hash": "C62DF48D85181EEFEB7EEF36638A415CB7C4F8790B84075F4AFA480BA0EC3885"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.cpp",
+            "Hash": "5BE506256BE18BC6FF8C1E72C1ECD07764B2740FCC2A05F9528FFCC31CBA62A7"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.h",
+            "Hash": "362B8E9851565FF49EDF2D9AC81D44B133D01EC8463EF0819D1D8CE218857105"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.cpp",
+            "Hash": "10463FAEE3CBA12BD4E3524F16ECC70C2DD04A02BC905FC9ADBC6D96C89ED960"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.h",
+            "Hash": "3A98DDA45350E45A2A3EA401D385602B30679CEDE755D5FB7B2E5869F65C0B6B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.Build.cs",
+            "Hash": "9106A98DABFDCCB639C109C82C8C1FB31DFCADD0CEAD1FB481BF18EA8EC3FB0F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.cpp",
+            "Hash": "D5C403C86EF482EA16887978C7DF9F08D5E572C9174EF47AB6221FE068FF76F5"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.cpp",
+            "Hash": "2FFD940C1A64920677B6CE3FCCA65CF04B03AABA1F4535496E1B660C87C6B182"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.h",
+            "Hash": "1A11FD7101FDFB49789729448C95B5783CEEDBFE7C97EB9144B76E6F37971D36"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicDetail.cpp",
+            "Hash": "A84C255C0D9AB09AB9223F3D14F9C8410D80704DA008E90B488C597BFB08EB31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLab.cpp",
+            "Hash": "D4D51D741566ED491942E4A9DC16849BBD6FB1AEDF09EE54743CB7EE0B064211"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.cpp",
+            "Hash": "6A61633615F1D304D87DF743B5AFF8D28C5A79EA11531359DE94501576DAB64D"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.h",
+            "Hash": "C40EB63F5C0DE0DC7484B8FAEDC88C8AFCB293F3AF1173288EDE11F71FA30F7D"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicTests.cpp",
+            "Hash": "BB3A6A68657831F69907F53198F53A430F709189AE1417432D7C17E3B8B85BD9"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.cpp",
+            "Hash": "A9C6D92F185281E08FBB321E3DABB696852D9C72DCBCE3909DCDB4EFBD0FCBDD"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.h",
+            "Hash": "0173BD86C2F1CBDC9FBB55C98D316C2D3BA36BA6E8DF67528E9529384C0ECC31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.cpp",
+            "Hash": "99CB22FD7EF0F66E646760AF00E79669CEEA041B6E1F820C15999750F3930537"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.h",
+            "Hash": "1A59B2412F34EE445F1A03D1AB10CB525E1AB8DF45C4BFEF7141DEB56E228A76"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModelTests.cpp",
+            "Hash": "7066B6AA29D79E2E673DDD15E55E01B7445DAE963B9B60913EDC4E7F11BBEB42"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.cpp",
+            "Hash": "D1232480294ED7A40981C41D5A72F13634F40B96A404FDC4509D63D61A4C176F"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.h",
+            "Hash": "04ACCCA15DD7E0EE84E48F31E53C9409B6D82685A76BE20D7FA792EF22AD8FE3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadLab.cpp",
+            "Hash": "2EAA7BE8F5569235EB727DC669476C078EB14EBE02E2F2A4FE020C0D577AB304"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadTests.cpp",
+            "Hash": "89AA46E875C80C01C00AF2F8B9B7130E5EE7F4270D719BFDC4F0C82B81ACE342"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PhysicsReferenceTests.cpp",
+            "Hash": "4729AD8737BDDD7397BFB188D63DF51DA919F944B31B337440998EF72DFA864A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.cpp",
+            "Hash": "CF6B83C9203CA3F1D840243547F5285D035176AA8098A1C9B899A995F0001C79"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.h",
+            "Hash": "635B24C94E0412D79962174ADC79B220A95ACFEF7342A765797A6F2CB6DB5794"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.cpp",
+            "Hash": "E2FDE3224FE2F69F77A62C6A69A03FF6FB60AE718AA8F5CF2A2F54CEB14A2487"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.h",
+            "Hash": "99BEB5F89754E46C7AD758CF6C34CC7DDD882A83BFEB933E3A7438FF9B0BC4B3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveKinematics.h",
+            "Hash": "55B59C6B0BC0E1EC939479B4CC4AC8164C16BC0DB850C1BE31B586770CC228F3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveTests.cpp",
+            "Hash": "08AFD51376197ABB3B1E3F3E100B6E0E8FC2593B56622968610A2C773E266A77"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.cpp",
+            "Hash": "682DAB2E34DF2BF3381172D2BF5AAD4506A13A219EE9BE1932BF377E7D4E3357"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.h",
+            "Hash": "D99064B37818A474F62BE375BB7E31B866E93975A3680D729A863173FCD37EBB"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.cpp",
+            "Hash": "217D8B918B1B98B11AC3667661A5EA5BB1A167A80B70FCDE0349EC237A546CC0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.h",
+            "Hash": "E93C8C21A6FDEE0FC9E282E403DCC751BE839CC34E1A190F6038C2896FE428A9"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.cpp",
+            "Hash": "625762060C04B6D126A2463FF11DFB05B49E37EAE7DB4ED3E2F9A309F69476E3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.h",
+            "Hash": "C8B2EC4041FC771673B537B35895AC42DE56976E309571D72B98EB7EAE662BA4"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadTests.cpp",
+            "Hash": "BE162D014B2B9C08810FC09B3337B482CF251AEB9C7EA899F742D256726ED8FB"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreCompliance.h",
+            "Hash": "C08A41ECC3BC315EF508DB3E46193ACCB1F32DB4FA37CDEBCA21E81154822152"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreLab.cpp",
+            "Hash": "8BE3DAF8423FB7034487C5B1308CD5904A72EB6C3A4D5A5DB1224850C79328A8"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreSettings.cpp",
+            "Hash": "7B8EFE9D562EE4ACB7BB22C9444F04E42F5143F5A215F3B481D80DAA04A61271"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreTests.cpp",
+            "Hash": "B8AF96433D7FD9BCB406DCCA07CF6A40B7E38EC691D9EEFBC85EF8049C35A1A0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationLab.cpp",
+            "Hash": "B1B265B45C0E71F81562A87B9BB29C9CD3A506C54E0FB2E60CD2AA72349E0ED5"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationMath.h",
+            "Hash": "7A21953419DE3F40D9D9C5D49BD2800D56A229B23B44EE2AD72986AD15FDB648"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DHelpers.h",
+            "Hash": "67FA443A23ED9C75C2EB24DE3B5C4D0ADC4A728FAD65A07901622F5EE6F96D87"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.cpp",
+            "Hash": "73DBE76D7BB34E19659206B609B4D59A85CD8052BFE9CA21DF2ED832A7A294C3"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.h",
+            "Hash": "0008E5A261EB83FE3888C119E81C48F2F0DD67DA85F56B70E22C5841C49D54D1"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.cpp",
+            "Hash": "C186EDC0019AAAC576CEDE1BF58275FDEB1D23365C20052794413FCC6753B0EF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.h",
+            "Hash": "3E3F57B424919C43E2A62FB66C59EA2CE1814E86F6ABFE014B15293588551FAF"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.cpp",
+            "Hash": "363EC4FFF953634ADE5CE6C14A595EC8221DB07818B4BAA2457BE259BE7D940A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.h",
+            "Hash": "499FE20B6D919047C404162DBC0579216663B15D65571A7BF40B2A7D4AE2E82B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactData.h",
+            "Hash": "F24C699B4CC1BD22DE360E3BBB8C7354041CA5956818EC45BA94AE7FB036D5EA"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactGeometry.h",
+            "Hash": "541BD00D2E9320AA04372A879F404F63428B606D1537AD552D49103C0783EFD0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactTests.cpp",
+            "Hash": "00BC990656F1CCEB3732E3D979DE766A698A317FD1EFF1F9C1240264D79FF1D0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.cpp",
+            "Hash": "EC907F4A80A81AFB5C1F830943654A650C5092CA250E9241F70870CD3FC85EFC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.h",
+            "Hash": "CE77B85BD904F62221C16F526DED18DCFC0B2B86702074FEF0B2907A871CB441"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.cpp",
+            "Hash": "532827E09E1D7C4D12D3E8810BF71D409CBD59B7AEF9597C32E438743DBAFA3E"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.h",
+            "Hash": "19CF875D993FCA07B8E5BA6D483DB8D284E2825B3157175FF36886DA9F5547CA"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModelTests.cpp",
+            "Hash": "A5ABDBE83C842C2EF85E4FB8DB782D20DBF4CA41C07E85345137C662326FF0C0"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistance.h",
+            "Hash": "EE9E4AA9043C047020E720505018C8C696DA07944ED8EC85B8625F417D5F23BE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistanceTests.cpp",
+            "Hash": "96CF4E736C5BA2CBD2BC17EB94D4744D3CA1505146FA0D44F4766FD4E0256BE1"
+          }
+        ],
+        "physics_hz": 480,
+        "tread_quality": "high",
+        "configs": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Drivetrain.json",
+            "Hash": "EA1FF21E8F3FDC305AA68E5EB6302FD9FD4B830C17356FED3C1D1C0D6AEAE907"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkliftLab.json",
+            "Hash": "EE9979A6BC61948737215223B98756588F58B559C2D5124B38631E4B8A0EE837"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkStructure.json",
+            "Hash": "7B348A4629FC4F591304DDFF5464CDA9060324686688A0C94EBF53C5AF033601"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Hydraulics.json",
+            "Hash": "95CA490D12D7FEC3A32000DCA4E3F7FE4D71A76AE76BEA5FEFE3B2CA184B7A31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Payload.json",
+            "Hash": "5E0596CD9C28A6B0F9D548ED47069D070EBAC0C47842DE646D665CF94647618B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PhysicsReference.json",
+            "Hash": "B8CB64D93A61986EB862A69C452F4BAF964540804F2A3C0AC05A6A07A0EAE7AC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RealComponents.json",
+            "Hash": "5A488DDFAD2D52051BD5F74E405089381C148AB3DEA66EAB14EA2AFAE8055AAE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Tyres.json",
+            "Hash": "9291028B1B4D1334D6EE0EC3AF7C8CC9CAE637A572367047B77D536CB16E5524"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Vehicle3D.json",
+            "Hash": "BB376391EC3868C70AD9CBD8822A87ACB33428B7CC7CA49A71B1BFB540EBA61A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WheelLab.json",
+            "Hash": "679BE15650B66154A087F53CA228CBCC5512A95802DCB43928D601AF4F6A599E"
+          }
+        ],
+        "native_tyre_edges": false,
+        "dll_sha256": "08AEA85CB1AC935A9E3B60E4FB2DA94494B790056230F1943A1662B544F5BCC9",
+        "reference": "hybrid4-component-reference-v1"
+      },
+      "results": [
+        {
+          "case": "halfstep",
+          "fps": 60,
+          "pass": false,
+          "result": [
+            "[2026.10.26-18.38.10:937][920]LogTemp: Display: ENERGY_AUDIT reference=1 stored_delta_j=3005.759858 drive_j=4056.894508 steering_joint_j=1.468972 input_j=7319.246219 known_loss_j=5851.900000 unresolved_j=1538.413639 positive_peak_j=3187.361853 full_closure=0",
+            "[2026.10.26-18.38.10:937][920]LogTemp: Display: TREAD_TIMESTEP world_s=32.000002 physics_s=31.983335 max_inner_s=0.002083333 max_game_s=0.016667",
+            "[2026.10.26-18.38.10:937][920]LogTemp: Display: TREAD_CHECK swerve_components_halfstep count=64 static_s=12.0167 mean_compression_m=0.0095002 spread_m=0.0291326 closure_n=0.00000000 coast_start_mps=0.000000 coast_delta_j=0.000000 coast_peak_j=0.000000",
+            "[2026.10.26-18.38.10:937][920]LogTemp: Display: CONTACT_CHECK swerve_components_halfstep edge_refinements=0 peak_points=46 band_closure_ns=0.000000000 point_vs_pair_peak_n=0.00070 peak_normal_n=21789.719 peak_compression_mm=24.702 x_m=9.1207 max_tilt_deg=1.1530",
+            "[2026.10.26-18.38.10:937][920]LogTemp: Display: COMPONENT_CHECK swerve_components_halfstep mass_kg=3140.000 fork_m=0.43832 pallet_m=0.33154 mast_m=0.22223 chain_error_m=0.006143 tension_n=6092.157 oil_c=39.6911 pump_pa=6200592.39 cylinder_pa=6203321.56 line_peak_pa=6990240.25 deflection_mm=2.64024/2.66428 hold_s=0.000 drift_m=0.000000 FAIL"
+          ],
+          "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Components-20261027-032621-893\\halfstep-60.log"
+        }
+      ]
+    }
+  ],
+  "energy_baseline": {
+    "schema": 1,
+    "full_closure": false,
+    "pass_bound_and_observer": true,
+    "reports": [
+      {
+        "csv": "Saved\\Telemetry\\Stability-swerve_components_carry-20261027-032429-7AB8224E.csv",
+        "sha256": "1bc92f9c418c3e46dfd1aa90ccb1c20735f65befe3be32c9f52d29b223f00200",
+        "samples": 620,
+        "observed_s": 30.95,
+        "full_closure": false,
+        "scope": "Partial measured work/loss budget; contact, brake, bearing, structure/body losses and numerical error remain in signed residual.",
+        "algebra_error_j": 1.0001258488046005e-08,
+        "positive_unresolved_j": 17.63434155,
+        "positive_bound_j": 408.5009636185,
+        "one_sided_bound_pass": true,
+        "observer_pass": true,
+        "late_window_residual_change_j": -917.32258258,
+        "final": {
+          "energy_stored_delta_j": 2547.18863622,
+          "energy_drive_work_j": 4438.9141713,
+          "energy_steering_joint_work_j": 76.29916757,
+          "energy_rolling_work_j": -3383.9599365,
+          "energy_hydraulic_dc_j": 3252.64181799,
+          "energy_hydraulic_heat_j": 720.79916603,
+          "energy_tyre_damping_j": 27.80292423,
+          "energy_known_input_j": 7767.85515686,
+          "energy_known_loss_j": 4132.56202675,
+          "energy_unresolved_j": -1088.10449389,
+          "energy_positive_peak_j": 17.63434155,
+          "time_s": 31.9667
+        }
+      },
+      {
+        "csv": "Saved\\Telemetry\\Stability-swerve_components_carry-20261027-032632-485A30AD.csv",
+        "sha256": "263ccaf20901a1cdba93f38f03f1c4fbc2066c88957b8b97887b7bc91f9803ef",
+        "samples": 620,
+        "observed_s": 30.95,
+        "full_closure": false,
+        "scope": "Partial measured work/loss budget; contact, brake, bearing, structure/body losses and numerical error remain in signed residual.",
+        "algebra_error_j": 1.000091742753284e-08,
+        "positive_unresolved_j": 19.00703205,
+        "positive_bound_j": 399.828589598,
+        "one_sided_bound_pass": true,
+        "observer_pass": true,
+        "late_window_residual_change_j": -754.54423521,
+        "final": {
+          "energy_stored_delta_j": 2550.14012707,
+          "energy_drive_work_j": 4293.66659055,
+          "energy_steering_joint_work_j": 46.88123234,
+          "energy_rolling_work_j": -3399.87153421,
+          "energy_hydraulic_dc_j": 3252.40541279,
+          "energy_hydraulic_heat_j": 720.95126694,
+          "energy_tyre_damping_j": 33.49639895,
+          "energy_known_input_j": 7592.95323567,
+          "energy_known_loss_j": 4154.3192001,
+          "energy_unresolved_j": -888.4939085,
+          "energy_positive_peak_j": 19.00703205,
+          "time_s": 31.9667
+        }
+      },
+      {
+        "csv": "Saved\\Telemetry\\Stability-swerve_components_lift-20261027-032503-5838649D.csv",
+        "sha256": "f5eb8444de450984704e14d39a0b2d79c02cc95356eff2e98eba56d7ad9a9575",
+        "samples": 620,
+        "observed_s": 30.95,
+        "full_closure": false,
+        "scope": "Partial measured work/loss budget; contact, brake, bearing, structure/body losses and numerical error remain in signed residual.",
+        "algebra_error_j": 1.0000412942190451e-08,
+        "positive_unresolved_j": 17.63434155,
+        "positive_bound_j": 182.6279129415,
+        "one_sided_bound_pass": true,
+        "observer_pass": true,
+        "late_window_residual_change_j": -0.06163427999999982,
+        "final": {
+          "energy_stored_delta_j": 2547.34202985,
+          "energy_drive_work_j": 0.0,
+          "energy_steering_joint_work_j": -0.08401592,
+          "energy_rolling_work_j": -0.01164458,
+          "energy_hydraulic_dc_j": 3252.64181799,
+          "energy_hydraulic_heat_j": 718.9153507,
+          "energy_tyre_damping_j": 3.70261207,
+          "energy_known_input_j": 3252.55780207,
+          "energy_known_loss_j": 722.62960735,
+          "energy_unresolved_j": 17.41383513,
+          "energy_positive_peak_j": 17.63434155,
+          "time_s": 31.9667
+        }
+      },
+      {
+        "csv": "Saved\\Telemetry\\Stability-swerve_components_lift-20261027-032713-05626F6F.csv",
+        "sha256": "dd6525fed6ddb042d1601277339d18944938a591203c1e665410cc64fdc698f6",
+        "samples": 465,
+        "observed_s": 30.9334,
+        "full_closure": false,
+        "scope": "Partial measured work/loss budget; contact, brake, bearing, structure/body losses and numerical error remain in signed residual.",
+        "algebra_error_j": 1.0000405836763093e-08,
+        "positive_unresolved_j": 17.86082061,
+        "positive_bound_j": 182.711081477,
+        "one_sided_bound_pass": true,
+        "observer_pass": true,
+        "late_window_residual_change_j": -0.0009562600000023735,
+        "final": {
+          "energy_stored_delta_j": 2548.71078708,
+          "energy_drive_work_j": 0.0,
+          "energy_steering_joint_work_j": 0.00279284,
+          "energy_rolling_work_j": -0.01127005,
+          "energy_hydraulic_dc_j": 3254.21811435,
+          "energy_hydraulic_heat_j": 719.29214499,
+          "energy_tyre_damping_j": 3.98692548,
+          "energy_known_input_j": 3254.22090718,
+          "energy_known_loss_j": 723.29034052,
+          "energy_unresolved_j": 17.78022041,
+          "energy_positive_peak_j": 17.86082061,
+          "time_s": 31.9667
+        }
+      }
+    ]
+  },
+  "energy_coupled_halfstep": {
+    "schema": 1,
+    "full_closure": false,
+    "pass_bound_and_observer": false,
+    "reports": [
+      {
+        "csv": "Saved\\Telemetry\\Stability-swerve_components_halfstep-20261027-032630-C8749251.csv",
+        "sha256": "a5da4fd0af2c60ee38ba56465f18924cb856611d45ca488ff14d2fb663792415",
+        "samples": 620,
+        "observed_s": 30.95,
+        "full_closure": false,
+        "scope": "Partial measured work/loss budget; contact, brake, bearing, structure/body losses and numerical error remain in signed residual.",
+        "algebra_error_j": 1.0000803740695119e-08,
+        "positive_unresolved_j": 3187.36185261,
+        "positive_bound_j": 385.992260593,
+        "one_sided_bound_pass": false,
+        "observer_pass": true,
+        "late_window_residual_change_j": 775.0822185200001,
+        "final": {
+          "energy_stored_delta_j": 3004.08140333,
+          "energy_drive_work_j": 4056.89450806,
+          "energy_steering_joint_work_j": 1.46871832,
+          "energy_rolling_work_j": -2487.82561456,
+          "energy_hydraulic_dc_j": 3260.88273887,
+          "energy_hydraulic_heat_j": 732.81915867,
+          "energy_tyre_damping_j": 2631.19589935,
+          "energy_known_input_j": 7319.24596525,
+          "energy_known_loss_j": 5851.84067257,
+          "energy_unresolved_j": 1536.67611065,
+          "energy_positive_peak_j": 3187.36185261,
+          "time_s": 31.9667
+        }
+      }
+    ]
+  },
+  "numerical_diagnostics": [
+    {
+      "folder": "CoupledTread-20261027-014530-108",
+      "manifest": {
+        "phase_fractions": [
+          0.5
+        ],
+        "fps": 60,
+        "model": "cohesive-ring-v1",
+        "heights_m": [
+          0.145
+        ],
+        "probe": false,
+        "schema": 2,
+        "position_iterations": 128,
+        "configs": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Drivetrain.json",
+            "Hash": "EA1FF21E8F3FDC305AA68E5EB6302FD9FD4B830C17356FED3C1D1C0D6AEAE907"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkliftLab.json",
+            "Hash": "EE9979A6BC61948737215223B98756588F58B559C2D5124B38631E4B8A0EE837"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkStructure.json",
+            "Hash": "7B348A4629FC4F591304DDFF5464CDA9060324686688A0C94EBF53C5AF033601"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Hydraulics.json",
+            "Hash": "95CA490D12D7FEC3A32000DCA4E3F7FE4D71A76AE76BEA5FEFE3B2CA184B7A31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Payload.json",
+            "Hash": "5E0596CD9C28A6B0F9D548ED47069D070EBAC0C47842DE646D665CF94647618B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PhysicsReference.json",
+            "Hash": "B8CB64D93A61986EB862A69C452F4BAF964540804F2A3C0AC05A6A07A0EAE7AC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RealComponents.json",
+            "Hash": "5A488DDFAD2D52051BD5F74E405089381C148AB3DEA66EAB14EA2AFAE8055AAE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Tyres.json",
+            "Hash": "9291028B1B4D1334D6EE0EC3AF7C8CC9CAE637A572367047B77D536CB16E5524"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Vehicle3D.json",
+            "Hash": "BB376391EC3868C70AD9CBD8822A87ACB33428B7CC7CA49A71B1BFB540EBA61A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WheelLab.json",
+            "Hash": "679BE15650B66154A087F53CA228CBCC5512A95802DCB43928D601AF4F6A599E"
+          }
+        ],
+        "counts": [
+          64
+        ],
+        "oracle_sha256": "0BCB85802A00F40F25F9FAA9C3F290E1DDCD6D6DD102502A52295270392CD144",
+        "dll_sha256": "0E4BFEBB512098626EA2AC57B614E41F680CC52B20D2FFD0DFB6FF73CF4EBDDC",
+        "physics_hz": 960,
+        "velocity_iterations": 32
+      },
+      "results": [
+        {
+          "count": 64,
+          "height_m": 0.145,
+          "phase_fraction": 0.5,
+          "fps": 60,
+          "physics_hz": 960,
+          "max_inner_s": 0.00104166672099,
+          "numerics_observed": false,
+          "pass": false,
+          "normal_n": 4016.22818,
+          "oracle": {
+            "count": 64,
+            "height_m": 0.145,
+            "phase_fraction": 0.5,
+            "normal_n": 3903.136189480375,
+            "compression_m": 0.004891988341623004,
+            "rotation_rad": 0.05634265732946916,
+            "energy_j": 9.054961052689235,
+            "minimum_gap_m": -3.469446951953614e-18,
+            "success": true,
+            "equilibrium_residual_n": 0.0006860421295403453,
+            "iterations": 113
+          },
+          "numerics": "[2026.10.26-16.48.32:689][720]LogTemp: Display: RING_NUMERICS max_inner_s=0.00104166672099 position_iterations=127 velocity_iterations=32 minimum_vertex_z_m=-0.000021265",
+          "result": "[2026.10.26-16.48.32:689][720]LogTemp: Display: TREAD_REFERENCE count=64 height_m=0.14500 phase_fraction=0.50000 coupled=1 probe=0 neighbor_response_m=0.00000000 normal_n=4016.22818 analytic_n=3903.13619 continuum_n=0.00000 force_error=0.0289746 continuum_error=0.0000000 input_work_j=1.3333333 excess_gain_j=0.0000000 final_delta_j=-0.0000000 max_compression_m=0.0049056 shear_m=0.0007661 rotation_rad=0.0493845 link_j=1.7916909 PASS",
+          "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\CoupledTread-20261027-014530-108\\ring-64-0.14499999999999999-0.5.log"
+        }
+      ]
+    },
+    {
+      "folder": "CoupledTread-20261027-015001-670",
+      "manifest": {
+        "phase_fractions": [
+          0
+        ],
+        "fps": 60,
+        "model": "cohesive-ring-v1",
+        "heights_m": [
+          0.145
+        ],
+        "probe": false,
+        "schema": 2,
+        "position_iterations": 127,
+        "configs": [
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Drivetrain.json",
+            "Hash": "EA1FF21E8F3FDC305AA68E5EB6302FD9FD4B830C17356FED3C1D1C0D6AEAE907"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkliftLab.json",
+            "Hash": "EE9979A6BC61948737215223B98756588F58B559C2D5124B38631E4B8A0EE837"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkStructure.json",
+            "Hash": "7B348A4629FC4F591304DDFF5464CDA9060324686688A0C94EBF53C5AF033601"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Hydraulics.json",
+            "Hash": "95CA490D12D7FEC3A32000DCA4E3F7FE4D71A76AE76BEA5FEFE3B2CA184B7A31"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Payload.json",
+            "Hash": "5E0596CD9C28A6B0F9D548ED47069D070EBAC0C47842DE646D665CF94647618B"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PhysicsReference.json",
+            "Hash": "B8CB64D93A61986EB862A69C452F4BAF964540804F2A3C0AC05A6A07A0EAE7AC"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RealComponents.json",
+            "Hash": "5A488DDFAD2D52051BD5F74E405089381C148AB3DEA66EAB14EA2AFAE8055AAE"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Tyres.json",
+            "Hash": "9291028B1B4D1334D6EE0EC3AF7C8CC9CAE637A572367047B77D536CB16E5524"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Vehicle3D.json",
+            "Hash": "BB376391EC3868C70AD9CBD8822A87ACB33428B7CC7CA49A71B1BFB540EBA61A"
+          },
+          {
+            "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WheelLab.json",
+            "Hash": "679BE15650B66154A087F53CA228CBCC5512A95802DCB43928D601AF4F6A599E"
+          }
+        ],
+        "counts": [
+          64
+        ],
+        "oracle_sha256": "0BCB85802A00F40F25F9FAA9C3F290E1DDCD6D6DD102502A52295270392CD144",
+        "dll_sha256": "0E4BFEBB512098626EA2AC57B614E41F680CC52B20D2FFD0DFB6FF73CF4EBDDC",
+        "physics_hz": 1920,
+        "velocity_iterations": 32
+      },
+      "results": [
+        {
+          "count": 64,
+          "height_m": 0.145,
+          "phase_fraction": 0,
+          "fps": 60,
+          "physics_hz": 1920,
+          "max_inner_s": 0.000520833360497,
+          "numerics_observed": true,
+          "pass": false,
+          "normal_n": 4064.96514,
+          "oracle": {
+            "count": 64,
+            "height_m": 0.145,
+            "phase_fraction": 0.0,
+            "normal_n": 3889.2872862930526,
+            "compression_m": 0.004999999999999998,
+            "rotation_rad": 0.05564526211501568,
+            "energy_j": 8.989083689193171,
+            "minimum_gap_m": -1.0408340855860843e-17,
+            "success": true,
+            "equilibrium_residual_n": 0.0010605238438370324,
+            "iterations": 109
+          },
+          "numerics": "[2026.10.26-16.54.27:975][720]LogTemp: Display: RING_NUMERICS max_inner_s=0.000520833360497 position_iterations=127 velocity_iterations=32 minimum_vertex_z_m=-0.000010257",
+          "result": "[2026.10.26-16.54.27:975][720]LogTemp: Display: TREAD_REFERENCE count=64 height_m=0.14500 phase_fraction=0.00000 coupled=1 probe=0 neighbor_response_m=0.00000000 normal_n=4064.96514 analytic_n=3889.28729 continuum_n=0.00000 force_error=0.0451697 continuum_error=0.0000000 input_work_j=1.3333333 excess_gain_j=0.0000000 final_delta_j=-0.0000000 max_compression_m=0.0049897 shear_m=0.0007509 rotation_rad=0.0451176 link_j=1.7931015 FAIL",
+          "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\CoupledTread-20261027-015001-670\\ring-64-0.14499999999999999-0.log"
+        }
+      ]
+    }
+  ],
+  "material_status": {
+    "schema": 1,
+    "status": "awaiting_wheel_measurements",
+    "applied": false,
+    "active_foundation_n_per_m3": 100000000,
+    "scope": "One equivalent foundation coefficient; damping/Poisson/friction not identified.",
+    "config_sha256": {
+      "Drivetrain.json": "ea1ff21e8f3fdc305aa68e5eb6302fd9fd4b830c17356fed3c1d1c0d6aeae907",
+      "ForkliftLab.json": "ee9979a6bc61948737215223b98756588f58b559c2d5124b38631e4b8a0ee837",
+      "ForkStructure.json": "7b348a4629fc4f591304ddff5464cda9060324686688a0c94ebf53c5af033601",
+      "Hydraulics.json": "95ca490d12d7fec3a32000dca4e3f7fe4d71a76ae76bea5fefe3b2ca184b7a31",
+      "Payload.json": "5e0596cd9c28a6b0f9d548ed47069d070ebac0c47842de646d665cf94647618b",
+      "PhysicsReference.json": "b8cb64d93a61986eb862a69c452f4baf964540804f2a3c0ac05a6a07a0eae7ac",
+      "RealComponents.json": "5a488ddfad2d52051bd5f74e405089381c148ab3dea66eab14ea2afae8055aae",
+      "Tyres.json": "9291028b1b4d1334d6ee0ec3af7c8cc9cae637a572367047b77d536cb16e5524",
+      "Vehicle3D.json": "bb376391ec3868c70ad9cbd8822a87acb33428b7cc7ca49a71b1bfb540eba61a",
+      "WheelLab.json": "679be15650b66154a087f53ca228cbcc5512a95802dcb43928d601af4f6a599e"
+    },
+    "reason": "No actual wheel load-deflection measurements supplied. Published capacity/hardness are insufficient."
+  },
+  "source_documents": [
+    {
+      "url": "https://webstore.exsto.com/upload/elfinder/fiches-matieres/FT-VULKOLLAN-V92.pdf",
+      "downloaded": true,
+      "sha256": "5A8857F9EBA31746162E546A918298763F78342A391DB4A7E24251230D84EAC5",
+      "file": "EXSTO-Vulkollan92-20210212.pdf",
+      "bytes": 49121
+    },
+    {
+      "url": "https://www.pus-polyurethan.de/files/download/materials/en/vulkollan.pdf",
+      "downloaded": false,
+      "error": "Response status code does not indicate success: 404 (Not Found)."
+    }
+  ]
+}

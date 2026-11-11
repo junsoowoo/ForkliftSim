@@ -1,0 +1,19 @@
+{
+  "model": "generic-tof-range-noise-v1",
+  "source": "Simulation design assumptions, not a calibrated or safety-rated commercial sensor. Scene depth is converted to radial range before noise and quantization. RGB-D channels share one exposure.",
+  "width": 320,
+  "height": 180,
+  "hz": 8,
+  "front_fov_deg": 85,
+  "rear_fov_deg": 100,
+  "front_min_range_m": 0.3,
+  "front_max_range_m": 4.0,
+  "rear_min_range_m": 0.3,
+  "rear_max_range_m": 6.0,
+  "noise_sigma_base_m": 0.003,
+  "noise_sigma_per_m2": 0.001,
+  "quantization_m": 0.001,
+  "dropout_probability": 0.002,
+  "latency_s": 0.05,
+  "seed": 317
+}

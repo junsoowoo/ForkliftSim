@@ -1,0 +1,305 @@
+{
+  "date": "2026-11-07",
+  "pass": true,
+  "realtime_target_passed_both_samples": true,
+  "dll_sha256": "2b1d6f859bbb4824cd506ff395fe795671564198d443d4c5807b0b514498fb49",
+  "unit": {
+    "succeeded": 89,
+    "failed": 0
+  },
+  "native_conditions": 12,
+  "native_manifests": [
+    {
+      "path": "Saved\\Validation\\Mecanum-20261107-002954-402-5e6054c6\\manifest.json",
+      "sha256": "4caba9397103561f9a506539d3fa5bf7e169837e710e245bee4e73488903fe07",
+      "conditions": 8,
+      "rendered": true,
+      "current_dll_sources_configs_and_test_script_match": true
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261107-004223-667-c6f89fc0\\manifest.json",
+      "sha256": "feaacbae83a7f404dec6e09e98e72ada16bf2715695468400946adf1682e6dcd",
+      "conditions": 1,
+      "rendered": true,
+      "current_dll_sources_configs_and_test_script_match": true
+    },
+    {
+      "path": "Saved\\Validation\\Mecanum-20261107-004319-131-4237c646\\manifest.json",
+      "sha256": "68258a09d15cca7dbdf4552bda8ee33664e943bf45ff48894367be9a3326497d",
+      "conditions": 2,
+      "rendered": false,
+      "current_dll_sources_configs_and_test_script_match": true
+    }
+  ],
+  "web": {
+    "date": "2026-11-07",
+    "pass": true,
+    "actual_frames": 10808,
+    "moving_frames": 1758,
+    "carried_self_filter_frames": 1078,
+    "planned_path_frames": 2044,
+    "csv_columns": 30,
+    "csv_rows": 10808,
+    "csv_sha256": "bfaa2628dab95c494625292f7217b0e3870e8d7bb288bbf7009f3336e529bf22",
+    "stream_sha256": "bb6d842aa96dacfd9cbbb646d3068b913d50a96396238a4c01adb641d3ee81fa",
+    "cases": [
+      {
+        "case": "mecanum_mission_blocked",
+        "state": "blocked",
+        "reason": "goal_footprint_blocked",
+        "pickup_receipt": false,
+        "dropoff_receipt": false,
+        "replans": 1,
+        "retries": 0
+      },
+      {
+        "case": "mecanum_mission_cancel",
+        "state": "cancelled",
+        "reason": "operator_cancel",
+        "pickup_receipt": true,
+        "dropoff_receipt": false,
+        "replans": 2,
+        "retries": 0
+      },
+      {
+        "case": "mecanum_mission_watchdog",
+        "state": "fault_latched",
+        "reason": "mission_command_expired",
+        "pickup_receipt": true,
+        "dropoff_receipt": false,
+        "replans": 2,
+        "retries": 0
+      },
+      {
+        "case": "mecanum_mission_retry",
+        "state": "pickup",
+        "reason": "",
+        "pickup_receipt": false,
+        "dropoff_receipt": false,
+        "replans": 1,
+        "retries": 1
+      },
+      {
+        "case": "mecanum_mission_sensor_recovery",
+        "state": "to_dropoff",
+        "reason": "",
+        "pickup_receipt": true,
+        "dropoff_receipt": false,
+        "replans": 3,
+        "retries": 0
+      },
+      {
+        "case": "mecanum_mission_low",
+        "state": "complete",
+        "reason": "",
+        "pickup_receipt": true,
+        "dropoff_receipt": true,
+        "replans": 2,
+        "retries": 0
+      },
+      {
+        "case": "mecanum_mission_avoid_pause",
+        "state": "complete",
+        "reason": "",
+        "pickup_receipt": true,
+        "dropoff_receipt": true,
+        "replans": 4,
+        "retries": 0
+      },
+      {
+        "case": "mecanum_mission_high",
+        "state": "complete",
+        "reason": "",
+        "pickup_receipt": true,
+        "dropoff_receipt": true,
+        "replans": 2,
+        "retries": 0
+      }
+    ],
+    "scope": "Actual Unreal SSE and received-only module export. Complete cycles: low/high/avoid_pause. Retry and sensor recovery end at explicit checkpoints. Browser history remains current-world last 30 seconds/max600; this independent recorder spans all eight cases. Not DOM-click or full-mission realtime qualification."
+  },
+  "realtime_sample": {
+    "mean_fps": 43.20921403181571,
+    "web_frames": 315,
+    "pass": true,
+    "full_mission": false,
+    "meets_realtime_target": true,
+    "p95_frame_ms": 32.45609998703003,
+    "scope": "20 simulation seconds of actual default warehouse, two cameras, reduced 960Hz, balanced offscreen standalone and actual web telemetry. Not full-mission performance or editor PIE guarantee.",
+    "benchmark": false,
+    "actual_realtime_ratio": 0.9922207235763517
+  },
+  "default_warehouse_full_mission": {
+    "full_mission": true,
+    "scope": "Complete tier-1 mission in actual default warehouse without fixture map, two cameras, reduced 960Hz, balanced offscreen standalone and actual web telemetry. Not Editor PIE or all conditions performance guarantee.",
+    "mean_fps": 41.790197095153395,
+    "benchmark": false,
+    "pass": true,
+    "web_frames": 600,
+    "p95_frame_ms": 38.13210129737854,
+    "actual_realtime_ratio": 0.9701897700349125,
+    "meets_realtime_target": true
+  },
+  "artifacts": [
+    {
+      "path": "Saved\\Validation\\Mission-20261107-002954-53bc4970\\mission.json",
+      "sha256": "f5b9e2779e7c1b1395fcf564c7d3ef9a6cc830b37cc84b1affc267717b13367c"
+    },
+    {
+      "path": "Saved\\Validation\\Mission-QualifiedUnit\\index.json",
+      "sha256": "9451be008cf20279adb9cf1a4b3b1ae2dbf61b6170bd4b503b7ec40f4190da65"
+    },
+    {
+      "path": "Saved\\Validation\\Mission-QualifiedUnit\\manifest.json",
+      "sha256": "7337f5d8eee6631bf10943779f5d012f5750e577367b107ac594d5de3974d3b1"
+    },
+    {
+      "path": "Saved\\Validation\\MissionRealtime-20261107-002755\\manifest.json",
+      "sha256": "5a43069ca9f6a0ca6e733f19fa25a79f07f5bcec7d2bed02a66a30c60b24fd91"
+    },
+    {
+      "path": "Saved\\Validation\\MissionRealtime-20261107-002755\\performance.json",
+      "sha256": "30060730b94460edad9c710f0241800e19adec1036b543e748753d348c51eae6"
+    },
+    {
+      "path": "Saved\\Validation\\MissionRealtime-20261107-002755\\result.json",
+      "sha256": "cff9110c9fefded46fbf8e598aeef72f77738c76f4585d7460d82dbd147ae6dd"
+    },
+    {
+      "path": "Saved\\Validation\\MissionRealtime-20261107-002755\\web-frames.json",
+      "sha256": "05e1c32ffe832a080d193cacf73d74b4c7a2f74aa09aec476f9d19e197ae44a0"
+    },
+    {
+      "path": "Saved\\Validation\\MissionDefault-20261107-002402\\manifest.json",
+      "sha256": "b2a761a1ee664335e09bb77ef4fc34d26d9ceafcdc099415d50d63f870e7d42a"
+    },
+    {
+      "path": "Saved\\Validation\\MissionDefault-20261107-002402\\performance.json",
+      "sha256": "36892f28e9f628a5a1bc7022b15b6a8eb32c3b0ca920bb5a166a30869449e9d0"
+    },
+    {
+      "path": "Saved\\Validation\\MissionDefault-20261107-002402\\result.json",
+      "sha256": "7c30d4bb4c3ee5a0c6719ef599bd287d497f77d63a4676eef844826984294a21"
+    },
+    {
+      "path": "Saved\\Validation\\MissionDefault-20261107-002402\\web-frames.json",
+      "sha256": "665e600e9a0408c7b53e37a14149f771f63e0156c0b970972161cbfe2810a9d1"
+    },
+    {
+      "path": "Saved\\Validation\\MissionDefault-20261107-002402\\runtime.log",
+      "sha256": "1b6def719326c3264db8184c771897b0bbf5550ed64267b663856cc6aa602c2e"
+    },
+    {
+      "path": "Saved\\Validation\\Cameras-20261107-004703\\cameras.json",
+      "sha256": "2bdcfd82b76bbf44dced36883b05e6b5605f2b8114ca3374652a76cb1b63c97e"
+    },
+    {
+      "path": "Docs\\References\\MissionWeb-20261107.json",
+      "sha256": "9f63dc293a7c73b22a401f747c666275c90d82194e50fcf8810d3e6e15aba051"
+    },
+    {
+      "path": "Docs\\MissionNavigation.png",
+      "sha256": "71af866890ed9bad2023d5f295fe882577421a2daddf6ff98ca88cf265a564c5"
+    },
+    {
+      "path": "Saved\\Validation\\MissionPlotInputs.json",
+      "sha256": "4c1d2ae84ba39ae842702128e6476ad7e4cd90415b31d8d1feb58ed4aeac3388"
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\Mission-WebModules.txt",
+      "sha256": "c22cdad3b03a8fd46aa81d3474038c5c9ae9c82afe71b402e89493ab1355a48a"
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\Mission-Bridge.txt",
+      "sha256": "aca817d49d81cc19498f0fb272e8cd2239390b3b6b8e02c372d647c7fd3ae114"
+    }
+  ],
+  "implementation_and_launchers": [
+    {
+      "path": "Start.bat",
+      "sha256": "e7064f581a6906d8ee45d689b9c04697e717e378b1a39c83294c9e869fe2f1c2"
+    },
+    {
+      "path": "Scripts\\Start.ps1",
+      "sha256": "1079d35f1b65a962e21b5bbb67e47856015b78adbe0af5079e835b92d60d5c5c"
+    },
+    {
+      "path": "Scripts\\Run.ps1",
+      "sha256": "b98ec54bb1e98c0828df5a72984b74733ed80c5d1e2a52a95f4bb926117989bd"
+    },
+    {
+      "path": "Scripts\\Test-Mission.ps1",
+      "sha256": "fb33a3bcb21cad1b4f4df4d62225e45db62e1b015d5e32c576bda0f588cd0fa4"
+    },
+    {
+      "path": "Scripts\\Test-MissionRealtime.ps1",
+      "sha256": "d51802a9584c25834444fd81fb7cc3295f4b08dfaef328fd769d117d6788d6c2"
+    },
+    {
+      "path": "Scripts\\Test-Cameras.ps1",
+      "sha256": "65d731746ac540f8fc218cbe297b5d90374bc14acea92ec5e7e4712419bb5d62"
+    },
+    {
+      "path": "Scripts\\validate_mission.py",
+      "sha256": "9c9e96bec740b3b81e203bb84977eeac09172abe49993c24bf01f642b7c14de9"
+    },
+    {
+      "path": "Scripts\\plot_mission.py",
+      "sha256": "4135fe12f12ff6f9f4892405988636659056b4fc443daaeee78c9721ae1d4897"
+    },
+    {
+      "path": "Scripts\\write_mission_evidence.py",
+      "sha256": "d51884738fa645a2f9653d1a4f8cde66e3afe488f0bbde49f9ed8cd8de59ad68"
+    },
+    {
+      "path": "Web\\PhysicsLab\\verify-mission-live.mjs",
+      "sha256": "acd5d9dc80fea9be4a84ccab2323b37fc426e122b35d74ae9a4d2bad562854d2"
+    },
+    {
+      "path": "Web\\PhysicsLab\\mission-test.mjs",
+      "sha256": "735e9b9f50e2a1e8a5d29a69d4ac9ead50847ad91c0de3cf33dfa37e92b6adf7"
+    },
+    {
+      "path": "Web\\PhysicsLab\\bridge-test.mjs",
+      "sha256": "ddf9917d678207103dfca4941180dea95123f14a6affe32d87f1fd95e80668ea"
+    },
+    {
+      "path": "Web\\PhysicsLab\\dist\\mission.mjs",
+      "sha256": "3adf283ff3e672de9d3b25e93a7286ba746ceac16f8a96c5b7a721cca737b05f"
+    },
+    {
+      "path": "Web\\PhysicsLab\\dist\\live.mjs",
+      "sha256": "a0f62266aeefb0f2036df76b286dec5ac2cddba60868032d4de631b350849a7a"
+    },
+    {
+      "path": "Web\\PhysicsLab\\dist\\live.html",
+      "sha256": "971802caa537573bab1bebb3b24afa9aa4aa204d0be3c7f5aacd36807421bd46"
+    },
+    {
+      "path": "Web\\PhysicsLab\\dist\\data.mjs",
+      "sha256": "494e559cfedc7a7eb27a1143e5177f84598cf95c638bf7088dd1bdbce2f8d559"
+    },
+    {
+      "path": "Web\\PhysicsLab\\bridge.mjs",
+      "sha256": "c2424940c937be7dd70b60c3e9d1c68e2d7550443cc48f3491bf2de4dee804f7"
+    },
+    {
+      "path": "Web\\PhysicsLab\\build.mjs",
+      "sha256": "87b08e9be74bb8a5abb180f24e881e286700501346ae505837829515779c17e5"
+    },
+    {
+      "path": "Docs\\MissionNavigation.md",
+      "sha256": "67c804c896373feb841e75e124ff2e1971bbe534ca71faeccda931223308065a"
+    },
+    {
+      "path": "Docs\\AutomationBatches.md",
+      "sha256": "d12210987cdde3c3adf4b065feabc391f7c2886f98203d4175f63ae987b8c507"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f6272406c93d91c73570cb13240f66012836ce183bed5010307785a88af5bbd4"
+    }
+  ],
+  "scope": "Known mapped 2D workspace, fixed-heading full-envelope mecanum planning, measured localization/LiDAR and local handling receipts. Low/high/avoidance are full cycles; retry and sensor-recovery fixtures verify specific checkpoints, not full cycles. Ground truth only in independent verdicts. No SLAM, dynamic-human safety certification or universal localization guarantee.",
+  "excluded_candidates": "Builds 1–13 and earlier full-suite/Trial candidates include development failures or older sources and are not counted. Only the current DLL/source/config manifests above qualify. pass means functional checks; performance qualification is reported separately. The 20-second sample and default-warehouse full-cycle performance are separate measurements, neither certifies Editor PIE or all conditions. Camera regression uses actual GPU targets; web checks include received data/module export, not DOM-click downloads."
+}

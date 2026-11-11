@@ -1,0 +1,22 @@
+[
+  {
+    "file": "Saved\\Research\\PublicCalibration-20261031\\HickwallCatalogue.pdf",
+    "url": "https://www.hit1994.com/pdfimages/2025HIT_pdfc_2608302_264417_5083344.pdf",
+    "sha256": "be5bf74cbbf9feac46a3b65771b24a1accb66905550b61035510231cc833db81",
+    "bytes": 2608302,
+    "downloaded": true
+  },
+  {
+    "file": "Saved\\Research\\PublicCalibration-20261031\\EKS215a2019.pdf",
+    "url": "https://www.logisnextamericas.com/globalassets/migration-blocks/jungheinrich/product-listing/walkie-stackers/eks-215a/eks_215a_spec_sheet-english.pdf",
+    "sha256": "333536ddaa1cf8422dc9ae651dd21d04c6a3042d9820585c3e33b9ac92115392",
+    "bytes": 1154223,
+    "downloaded": true
+  },
+  {
+    "file": "Saved\\Research\\PublicCalibration-20261031\\BlicklePU.pdf",
+    "url": "https://www.blickle.us/en-us/-/media/project/blickle/global-web/service/mediathek/prospekte/pdf/us/competence_in_polyurethane_240923_en_us.pdf?fh=d84b7ddc2d5702224c25dde9e3e7828d",
+    "downloaded": false,
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)>"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "status": "downloaded",
+    "url": "https://lifttrucks.ringpower.com/uploads/eqYjjAJ9/eks_215a_spec_sheet-english.pdf",
+    "sha256": "AE8DFCF2DE9FDFF2C3CBC055A650BE532841660A63738A812785713475F86781",
+    "name": "EKS215a-2019.pdf"
+  },
+  {
+    "status": "downloaded",
+    "url": "https://www.shell-livedocs.com/data/published/en-US/b7ec968b-7d02-44c0-ae59-165717520b62.pdf",
+    "sha256": "87A1B259E4ABB0ED1B826D0CC595776F56789CDBAB9AD5D2A4A5918C1D02A7B5",
+    "name": "Shell-Tellus-S2-MX46.pdf"
+  },
+  {
+    "status": "unavailable",
+    "url": "https://www.blickle-raeder.ch/de-ch/-/media/project/blickle/global-web/service/mediathek/katalogkapitel/pdf-dokumente/de/katalogkapitel_15.pdf?fh=50a6b0e92ad11bb27a7ad9bff3263e2e",
+    "reason": "Response is not a PDF",
+    "name": "Blickle-DriveWheels.pdf"
+  }
+]

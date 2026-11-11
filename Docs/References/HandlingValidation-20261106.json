@@ -1,0 +1,253 @@
+{
+  "date": "2026-11-06",
+  "pass": true,
+  "dll_sha256": "81b135203c034acba320d54b48b6d6112b3d5bd2ae219ac0e0e52670adc0f008",
+  "cases": [
+    {
+      "case": "handling_estop",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-153840-43DDD5DC.csv",
+      "csv_sha256": "1b8a6bab30b478f815de490c5bbd0acb33097a56c98476a1a7f11ac3788eda6f",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_estop-20261106-153840-78C3EB9D.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_estop.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "fault_latched"
+      ],
+      "metrics": {
+        "fault_s": 4.30000022,
+        "post_fault_x_drift_m": 0.0
+      }
+    },
+    {
+      "case": "handling_cancel",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-153902-5F66A31A.csv",
+      "csv_sha256": "e73b06c52bcbbfb375e1d51a1c0f202915056b6005538a5c0cbcd1ceebe58a2d",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_cancel-20261106-153902-3864631F.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_cancel.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "fault_latched"
+      ],
+      "metrics": {
+        "fault_s": 4.30000022,
+        "post_fault_x_drift_m": 0.0
+      }
+    },
+    {
+      "case": "handling_obstacle",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-153923-C75F6687.csv",
+      "csv_sha256": "ca6ee87cc4c0f6e0c98828c4e12dd8aba21dfe51182d14f3d56a1d46c59e47ef",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_obstacle-20261106-153923-0AD88D82.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_obstacle.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "fault_latched"
+      ],
+      "metrics": {
+        "fault_s": 4.36666689,
+        "post_fault_x_drift_m": 0.0
+      }
+    },
+    {
+      "case": "handling_camera_loss",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-153945-0458E8A0.csv",
+      "csv_sha256": "ad88b6a30cbaf9ae0927bdfdc57c854946be7ef57f9255c8a820a16285f7ba85",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_camera_loss-20261106-153945-02B27951.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_camera_loss.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "fault_latched"
+      ],
+      "metrics": {
+        "fault_s": 4.30000022,
+        "post_fault_x_drift_m": 0.0
+      }
+    },
+    {
+      "case": "handling_sensor_loss",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-154006-3591ACDE.csv",
+      "csv_sha256": "e9e2162aa8a5ab7e6ebd69ad130955bdd496cfdc1c91f01f3437d3ab64bbb6a5",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_sensor_loss-20261106-154006-D9FF98D3.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_sensor_loss.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "fault_latched"
+      ],
+      "metrics": {
+        "fault_s": 4.50000023,
+        "post_fault_x_drift_m": 0.00010000000000000026
+      }
+    },
+    {
+      "case": "handling_pick_low",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-154026-F07BABBC.csv",
+      "csv_sha256": "e029f2d63213a4a460e76b52c03fa4b1460fa028b918755184f83f84b4e44ddb",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_pick_low-20261106-154026-1A8E0D66.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_pick_low.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "pick_lift",
+        "pick_withdraw",
+        "lower_to_carry",
+        "complete"
+      ],
+      "metrics": {
+        "actual_depth_before_lift_m": 1.085
+      }
+    },
+    {
+      "case": "handling_align",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-154139-C49F3A05.csv",
+      "csv_sha256": "4379f944d108534dd43ef7c0146779e31096de57fa72db83291239e0cbeaac7d",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_align-20261106-154139-0EBD8C86.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_align.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "pick_lift",
+        "pick_withdraw",
+        "lower_to_carry",
+        "complete"
+      ],
+      "metrics": {
+        "actual_depth_before_lift_m": 1.0815
+      }
+    },
+    {
+      "case": "handling_pick",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-154257-B1195113.csv",
+      "csv_sha256": "bd929f674216ee4db3587ca59450c116bdb79c9f80fda1855f0097042a933ff5",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_pick-20261106-154257-8A63BFC8.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_pick.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "pick_lift",
+        "pick_withdraw",
+        "lower_to_carry",
+        "complete"
+      ],
+      "metrics": {
+        "actual_depth_before_lift_m": 1.08297
+      }
+    },
+    {
+      "case": "handling_place_low",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-154359-7CC5355F.csv",
+      "csv_sha256": "6b96263e49c82f5d49f47b15824a366cda5d68df67ab844f74cb34355148514b",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_place_low-20261106-154359-0637779E.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_place_low.log",
+      "states": [
+        "idle",
+        "place_raise",
+        "place_approach",
+        "place_lower",
+        "place_withdraw",
+        "lower_to_carry",
+        "complete"
+      ],
+      "metrics": {}
+    },
+    {
+      "case": "handling_pick_high",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-154515-710BE122.csv",
+      "csv_sha256": "468d9ad89112ac45b7d8b97f93d34ec9bbb20cb13548de850733e1b9557fe08c",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_pick_high-20261106-154515-F1D35E87.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_pick_high.log",
+      "states": [
+        "idle",
+        "pick_height",
+        "acquire",
+        "align",
+        "insert",
+        "pick_lift",
+        "pick_withdraw",
+        "lower_to_carry",
+        "complete"
+      ],
+      "metrics": {
+        "actual_depth_before_lift_m": 1.08304
+      }
+    },
+    {
+      "case": "handling_place_high",
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Handling-20261106-154655-AE5EFD0B.csv",
+      "csv_sha256": "5acfa3120566f974018b7a7a37ebd3c5f2155fd2a0e3eb4f20e2660406e5a8f5",
+      "physics_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_handling_place_high-20261106-154655-DF561185.csv",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261106-153825-035-36db17c9\\handling_place_high.log",
+      "states": [
+        "idle",
+        "place_raise",
+        "place_approach",
+        "place_lower",
+        "place_withdraw",
+        "lower_to_carry",
+        "complete"
+      ],
+      "metrics": {}
+    },
+    {
+      "case": "drive_sensor_straight",
+      "regression": true,
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_drive_sensor_straight-20261106-154915-3BA57AD6.csv",
+      "csv_sha256": "1e01ee1fd5ba69a7a386d443cd537bceb7fb3b06534fa20f2f2df7841ef7bf77"
+    },
+    {
+      "case": "carry",
+      "regression": true,
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261106-155015-02522D54.csv",
+      "csv_sha256": "9814f027aa846fa840c0d09bb420daed8769350de816a49ea4c045b83d3d2235"
+    },
+    {
+      "case": "ramp_brake",
+      "regression": true,
+      "pass": true,
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261106-155110-113F2E9B.csv",
+      "csv_sha256": "4500728f2bb8b90ce8657e95e3f3c0151453d29509ae3e963f57211ee764c681"
+    }
+  ],
+  "scope": "Measured local handling, known pallet family and surveyed rack; independent physical ground truth only in test verdicts. Manual carrier preparation for place fixtures. No global route planning, universal recognition or certified target masking."
+}

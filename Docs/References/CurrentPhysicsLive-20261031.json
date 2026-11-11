@@ -1,0 +1,79 @@
+{
+  "complete": true,
+  "earliest_start_ms": 1793423466344,
+  "samples": 6696,
+  "groups": {
+    "mecanum_settle": {
+      "samples": 159,
+      "peak_frame_n": 8563.056900670435,
+      "peak_inner_n": 8587.8345821059
+    },
+    "mecanum_idle": {
+      "samples": 183,
+      "peak_frame_n": 8565.731636500672,
+      "peak_inner_n": 8587.8345821059
+    },
+    "mecanum_coast": {
+      "samples": 178,
+      "peak_frame_n": 9796.239524902237,
+      "peak_inner_n": 9836.65679376124
+    },
+    "mecanum_carry": {
+      "samples": 613,
+      "peak_frame_n": 13979.903304275307,
+      "peak_inner_n": 14009.11213335411
+    },
+    "mecanum_eccentric_lift": {
+      "samples": 515,
+      "peak_frame_n": 13112.89411950982,
+      "peak_inner_n": 13499.383570177964
+    },
+    "mecanum_shallow_lift": {
+      "samples": 482,
+      "peak_frame_n": 13341.462334237727,
+      "peak_inner_n": 14209.78034576456
+    },
+    "mecanum_high_carry": {
+      "samples": 486,
+      "peak_frame_n": 14084.078106967354,
+      "peak_inner_n": 14120.377637646974
+    },
+    "mecanum_step": {
+      "samples": 485,
+      "peak_frame_n": 14807.04247777958,
+      "peak_inner_n": 15255.666801947733
+    },
+    "mecanum_halfstep": {
+      "samples": 488,
+      "peak_frame_n": 21276.275444232535,
+      "peak_inner_n": 93059.19653032847
+    },
+    "mecanum_split_carry": {
+      "samples": 556,
+      "peak_frame_n": 13860.502273269924,
+      "peak_inner_n": 15975.261546981246
+    },
+    "mecanum_ramp_brake": {
+      "samples": 1032,
+      "peak_frame_n": 14020.551328941317,
+      "peak_inner_n": 14045.244985186831
+    },
+    "mecanum_cargo_slide": {
+      "samples": 444,
+      "peak_frame_n": 12885.9601439697,
+      "peak_inner_n": 27079.581481399964
+    },
+    "mecanum_cargo_drop": {
+      "samples": 408,
+      "peak_frame_n": 12954.479117971008,
+      "peak_inner_n": 33995.96454960333
+    },
+    "mecanum_lower": {
+      "samples": 435,
+      "peak_frame_n": 12983.957403071461,
+      "peak_inner_n": 13560.515310179011
+    }
+  },
+  "sha256": "26f0cde293bb4ebe1d028519931f5737ba7445ee87c15786428d21cc9eafa8a5",
+  "scope": "Actual received frames. Internal peaks cover received intervals only, not a proof of every simulated peak."
+}

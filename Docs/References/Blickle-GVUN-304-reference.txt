@@ -1,0 +1,10 @@
+Manufacturer webpage extract (not a copy of the original catalogue)
+Verified date (KST): 2026-10-26
+Source: https://www.blickle.com/wheels-castors/standard-range/drive-wheels/drive-wheels
+Model: GVUN 304/60H7
+Diameter / width: 300 / 100 mm
+Catalogue load ratings: 2700 kg at 4 km/h; 1850 kg at 10 km/h; 1050 kg at 16 km/h
+Material series: Vulkollan polyurethane tread on cast iron centre; 92 Shore A
+Application: selected drive-wheel geometry/material reference for a custom four-module prototype.
+No statement that this model is fitted to the Jungheinrich EKS 215a.
+No measured stiffness, friction, pressure map or wheel inertia inferred from these ratings.

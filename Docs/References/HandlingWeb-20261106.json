@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-06",
+  "pass": true,
+  "actual_frames": 6666,
+  "moving_frames": 3055,
+  "full_history_frames": 2095,
+  "transfer_frames": 2783,
+  "csv_columns": 20,
+  "csv_rows": 6666,
+  "csv_sha256": "605a55c8b3628e9f09db2de89c4ac53f1a78b775dfa365b28c41c405723c6f6f",
+  "stream_sha256": "2d71e06deb6d23a6561db87d84774b5c04f231fd76bac4f397070929ad38d1b9",
+  "cases": [
+    {
+      "case": "mecanum_handling_estop",
+      "state": "fault_latched",
+      "reason": "required_sensor_or_controller_fault"
+    },
+    {
+      "case": "mecanum_handling_cancel",
+      "state": "fault_latched",
+      "reason": "operator_cancel"
+    },
+    {
+      "case": "mecanum_handling_obstacle",
+      "state": "fault_latched",
+      "reason": "non_target_obstacle"
+    },
+    {
+      "case": "mecanum_handling_camera_loss",
+      "state": "fault_latched",
+      "reason": "pallet_track_or_camera_lost"
+    },
+    {
+      "case": "mecanum_handling_sensor_loss",
+      "state": "fault_latched",
+      "reason": "required_sensor_or_controller_fault"
+    },
+    {
+      "case": "mecanum_handling_pick_low",
+      "state": "complete",
+      "reason": ""
+    },
+    {
+      "case": "mecanum_handling_align",
+      "state": "complete",
+      "reason": ""
+    },
+    {
+      "case": "mecanum_handling_pick",
+      "state": "complete",
+      "reason": ""
+    },
+    {
+      "case": "mecanum_handling_place_low",
+      "state": "complete",
+      "reason": ""
+    },
+    {
+      "case": "mecanum_handling_pick_high",
+      "state": "complete",
+      "reason": ""
+    },
+    {
+      "case": "mecanum_handling_place_high",
+      "state": "complete",
+      "reason": ""
+    }
+  ],
+  "scope": "Actual Unreal SSE, received-only export and final task states; no browser physics, fake defaults, DOM-click or FPS qualification."
+}

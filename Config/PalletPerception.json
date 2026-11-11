@@ -1,0 +1,8 @@
+{
+ "family":"warehouse-standard-two-entry-template",
+ "opening_spacing_m":0.45,"opening_width_m":0.354,"opening_height_m":0.093,
+ "support_half_width_m":0.45,"pallet_width_m":1.011,
+ "frame_stale_s":0.5,"track_max_s":20.0,"track_max_distance_m":1.8,
+ "minimum_confidence":0.65,"full_insertion_depth_m":1.02,"decision_dwell_s":0.15,
+ "source":"Known pallet family dimensional prior; not live pallet ground truth or a universal learned detector. Opening width is checked against measured face transitions. Nominal height is a family prior."
+}

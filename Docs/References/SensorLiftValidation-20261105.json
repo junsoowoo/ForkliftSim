@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "scope": "Sensor-only lift valve feedback and simulated interlocks. Manual vehicle driving; no pallet recognition, insertion decision, navigation or hardware safety certification.",
+  "sensor_control_cases": [
+    {
+      "case": "lift_sensor_empty",
+      "fps": 60,
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631",
+      "controller_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorLift-20261105-145754-24F94FCE.csv",
+      "csv_sha256": "d4a5247caf473af630ad009ed91a29f55ab2e8c50d1e48d23c35ded1e2b4ab5d",
+      "metrics": {
+        "settled_max_height_errors_m": [
+          0.0015922280000000288,
+          0.0032490059999999987,
+          0.000977758999999967
+        ]
+      }
+    },
+    {
+      "case": "lift_sensor_loaded",
+      "fps": 60,
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631",
+      "controller_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorLift-20261105-145843-280CD157.csv",
+      "csv_sha256": "d22b07c651575dc1b98975b4047def5f7c0aaa07499c7acc432a2376f0bb8fdf",
+      "metrics": {
+        "settled_max_height_errors_m": [
+          0.00017485299999997483,
+          0.003058793999999976,
+          0.0036426620000000742
+        ]
+      }
+    },
+    {
+      "case": "lift_sensor_fault_up",
+      "fps": 60,
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631",
+      "controller_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorLift-20261105-145940-1DF0AD7C.csv",
+      "csv_sha256": "3917c10ce1a67ff53e14c0e10df7ceac824e2cb47903fb0ba6523bbcb1ee8d08",
+      "metrics": {
+        "fault_stop_drift_m": 0.014663225000000002,
+        "travel_after_outage_m": 0.027622124000000026,
+        "recovery_captured_target_m": 0.391
+      }
+    },
+    {
+      "case": "lift_sensor_fault_down",
+      "fps": 60,
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631",
+      "controller_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorLift-20261105-150037-830779EE.csv",
+      "csv_sha256": "fba0ec544761ef20730151a3df2b7fc2720d349441267a6768210893a73d3147",
+      "metrics": {
+        "fault_stop_drift_m": 0.0017769420000000036,
+        "travel_after_outage_m": 0.01623484799999997,
+        "recovery_captured_target_m": 0.768
+      }
+    },
+    {
+      "case": "lift_sensor_pressure",
+      "fps": 60,
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631",
+      "controller_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorLift-20261105-150131-C6B4470C.csv",
+      "csv_sha256": "0774c342337c760d9e9746634cc85837ffa39a68b6f73329d610d31af856a3ec",
+      "metrics": {
+        "pressure_inhibit_snapshots": 280
+      }
+    },
+    {
+      "case": "lift_sensor_watchdog",
+      "fps": 60,
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631",
+      "controller_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorLift-20261105-150225-771E7789.csv",
+      "csv_sha256": "c6b7a902ba0d3eccab57fc388f05df867691b435e0fa820d679747334bf8928f",
+      "metrics": {
+        "fault_stop_drift_m": 0.009173863000000004,
+        "travel_after_outage_m": 0.014172247000000027,
+        "recovery_captured_target_m": 0.38
+      }
+    },
+    {
+      "case": "lift_sensor_loaded",
+      "fps": 30,
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631",
+      "controller_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/SensorLift-20261105-150321-88E40719.csv",
+      "csv_sha256": "e4125ff3702e72881aeec44aba5b1f1874346d10cc8bbad19da472f1d8d567e4",
+      "metrics": {
+        "settled_max_height_errors_m": [
+          0.0002566339999999778,
+          0.00294878799999998,
+          0.0038749439999999913
+        ]
+      }
+    }
+  ],
+  "legacy_regression": [
+    {
+      "case": "carry",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-150413-0FCA9CF1.csv",
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631"
+    },
+    {
+      "case": "ramp_brake",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261105-150448-B23FADCD.csv",
+      "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631"
+    }
+  ],
+  "feedback_plumbing_no_truth_copy": true,
+  "dll_sha256": "7fd4f255eeab2acac227549d19b76152dfdfa7e647bd5246c5f6f00e55b08631",
+  "controller_config": {
+    "kp_per_m": 4.0,
+    "ki_per_m_s": 0.4,
+    "kd_s_per_m": 1.5,
+    "integral_spool_cap": 0.2,
+    "max_up_spool": 0.65,
+    "max_down_spool": 0.22,
+    "spool_slew_per_s": 3.0,
+    "hold_deadband_m": 0.006,
+    "hold_reopen_m": 0.012,
+    "velocity_filter_s": 0.15,
+    "max_measured_speed_mps": 0.6,
+    "max_sample_age_s": 0.25,
+    "healthy_before_arm_s": 0.2,
+    "command_lease_s": 0.1,
+    "upper_target_margin_m": 0.04,
+    "pressure_trip_pa": 6900000,
+    "pressure_release_pa": 6500000,
+    "pressure_debounce_s": 0.1,
+    "settle_dwell_s": 0.2,
+    "max_lower_speed_mps": 0.06,
+    "lower_approach_per_s": 0.8
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "source": "Custom handling bay, not an OEM rated rack. Explicit rigid support surfaces; measured Warehouse pallet/cargo envelope. SI units.",
+  "center_x_m": 6.95,
+  "center_y_m": -2.5,
+  "depth_m": 1.45,
+  "width_m": 1.8,
+  "lower_deck_top_m": 0.35,
+  "upper_deck_top_m": 1.95,
+  "deck_thickness_m": 0.04,
+  "post_height_m": 3.0,
+  "support_mu": 0.5,
+  "handling_clearance_m": 0.05
+}

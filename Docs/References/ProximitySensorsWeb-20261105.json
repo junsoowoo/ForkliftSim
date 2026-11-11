@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "actual_frames": 461,
+  "stale_frames": 24,
+  "recovery_frames": 5,
+  "no_return_observations": 118,
+  "presence_on": 864,
+  "presence_off": 862,
+  "csv_columns": 17,
+  "csv_rows": 3688,
+  "csv_sha256": "bb43860b017cef720d9858e0e57f27f7d44485c641d5865bfa5b50d3bd8e5403",
+  "stream_sha256": "1817e5ee4c31a903fe816515b9fd436d0f7d05495ec83a65861220c2d9257378",
+  "scope": "Actual received Unreal stream and shared UI exporter; no semantic object truth, no DOM click automation."
+}

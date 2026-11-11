@@ -1,0 +1,544 @@
+{
+  "date": "2026-10-31",
+  "catalogue": {
+    "model": "Hickwall HIT305AHD",
+    "url": "https://www.hit1994.com/en-US/p104-12-in-mecanum-wheel",
+    "checked_date": "2026-10-31",
+    "listed_load_kg": 750,
+    "listed_mass_kg": 40,
+    "diameter_m": 0.305,
+    "width_m": 0.156,
+    "roller_count": 8,
+    "roller_material": "PU",
+    "frame_material": "cast iron",
+    "application": "conflicting_manufacturer_load_values_excluded_from_load_ratio",
+    "missing": [
+      "test_speed",
+      "duty_cycle",
+      "dynamic_derating",
+      "inertia_tensor",
+      "mass_split",
+      "friction_curve",
+      "bearing_loss",
+      "load_deflection_curve"
+    ],
+    "webpage_listed_load_kg": 3000,
+    "catalogue_single_wheel_load_kg": 750,
+    "load_basis_verified": false,
+    "catalogue_url": "https://www.hit1994.com/pdfimages/2025HIT_pdfc_2608302_264417_5083344.pdf"
+  },
+  "cases": [
+    {
+      "case": "brake",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_brake-20261029-011937-FC3DB479.csv",
+      "sha256": "d6feb332d10f8a184e200813c90443ce5e89fa1bddf7e42e583efb05b1f31f8e",
+      "peak_frame_load_n": 10003.279,
+      "wheel": "FL",
+      "time_s": 5.5167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "ramp_brake",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_ramp_brake-20261029-012119-F6E68174.csv",
+      "sha256": "473b83074933a779fc03756c586c06ae1bf0dbdb745048cd9b2257d1c14b16b6",
+      "peak_frame_load_n": 14078.005,
+      "wheel": "FL",
+      "time_s": 19.9667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "reaction",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_reaction-20261029-012119-3189F323.csv",
+      "sha256": "cc3b997d4dfd3ae1b2c903b2c070b064d9765d89ba8452cb542d64960e7a3598",
+      "peak_frame_load_n": 8079.192,
+      "wheel": "FL",
+      "time_s": 1.1167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "coast",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_coast-20261029-012221-CC5E470C.csv",
+      "sha256": "8fb1ae98258acc1aa2a2ef158eaa48ebddabbb0cb49ae85d19f2d58fb4bb10b1",
+      "peak_frame_load_n": 9903.966,
+      "wheel": "FR",
+      "time_s": 5.3667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "idle",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_idle-20261029-012325-8553B8E0.csv",
+      "sha256": "e2fde5b8a16b593e7c20256983867be95374c7bd6079c7994d0660b5917c1da6",
+      "peak_frame_load_n": 8079.192,
+      "wheel": "FL",
+      "time_s": 1.1167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "friction_keys",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_friction_keys-20261029-012429-391D881F.csv",
+      "sha256": "291957d469102971c97e1ee4eac438e4b6d5acc728bcd51ba5ce9d3ce78a95a3",
+      "peak_frame_load_n": 8079.192,
+      "wheel": "FL",
+      "time_s": 1.1167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "straight",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_straight-20261029-012533-2F6A19AD.csv",
+      "sha256": "2db8e27d63fdbb6478bc753baa58db6b5418a22cfe254f887e0f930bc2c60967",
+      "peak_frame_load_n": 10214.544,
+      "wheel": "FR",
+      "time_s": 11.1167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "reverse",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_reverse-20261029-012644-98888317.csv",
+      "sha256": "bd8a69639adfd1033802f6f14ddc41a2a7daad4b0e46481f36e1c9bf5726fde2",
+      "peak_frame_load_n": 10037.781,
+      "wheel": "FL",
+      "time_s": 2.7167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "strafe",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_strafe-20261029-012753-866A2277.csv",
+      "sha256": "91987c0fbf80456068b1fabeca7ab5f5817fc57c4ac5cead15f1f8c4160e1c54",
+      "peak_frame_load_n": 9705.181,
+      "wheel": "FL",
+      "time_s": 10.9667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "strafe_left",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_strafe_left-20261029-012904-6EFF45F7.csv",
+      "sha256": "2fc85ee4d2144c178319e5509c2dc8048deb644f35f825c5896d5597f11bd67c",
+      "peak_frame_load_n": 10043.988,
+      "wheel": "FR",
+      "time_s": 7.0167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "diagonal",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_diagonal-20261029-013015-245B9353.csv",
+      "sha256": "09e6e193f861328607a01360c6ec3c02765491db06c23c3237882332b86c1a51",
+      "peak_frame_load_n": 12356.216,
+      "wheel": "RL",
+      "time_s": 2.2167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "spin",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_spin-20261029-013129-7BEFCF39.csv",
+      "sha256": "d23f30c47908058a97157bf80cb32077d1aeaabb85e1076091335a156349e2be",
+      "peak_frame_load_n": 10815.862,
+      "wheel": "FR",
+      "time_s": 7.8667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "curve",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_curve-20261029-013240-903545F0.csv",
+      "sha256": "0bf7da994870ba02cd4f6eaea03f171207440bbccd70f21d3d99a530446f8f66",
+      "peak_frame_load_n": 10969.185,
+      "wheel": "FR",
+      "time_s": 11.2167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "zero_grip",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_zero_grip-20261029-013357-68BFD777.csv",
+      "sha256": "b9599c39e78cfb6a173bd48557df11fae08559c91c543339445beb6bdd9e3382",
+      "peak_frame_load_n": 9362.032,
+      "wheel": "FR",
+      "time_s": 11.1667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "grip_low",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_grip_low-20261029-013511-8A2FF184.csv",
+      "sha256": "2ae271e18d1529f78786161a3dffc410c84197c2f1152bf70fe9221eb546936d",
+      "peak_frame_load_n": 10059.757,
+      "wheel": "FL",
+      "time_s": 7.8667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "grip_normal",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_grip_normal-20261029-013622-7AAECFAD.csv",
+      "sha256": "d2284a92f43d998471bb5115eb0e41f1eb94dfd7a36230523573d85fbf407803",
+      "peak_frame_load_n": 10003.279,
+      "wheel": "FL",
+      "time_s": 5.5167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "settle",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_settle-20261029-013738-4D2CEC47.csv",
+      "sha256": "22538816d9eec53b28c8e5e21b58d6e2f06457a61e0723b329d5f05eece7064b",
+      "peak_frame_load_n": 8079.192,
+      "wheel": "FL",
+      "time_s": 1.1167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "lift",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_lift-20261029-012740-7086CD9F.csv",
+      "sha256": "6413f8e4778640d1bc4dbcf849602282db8661b7403d7edc0a434fa6b7c25d2f",
+      "peak_frame_load_n": 12682.774,
+      "wheel": "FL",
+      "time_s": 2.8167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "carry",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_carry-20261029-013040-59FD6C63.csv",
+      "sha256": "df9133112f721457559d4bf4da114272adf22b980bfd6218afc51b991b2b48ba",
+      "peak_frame_load_n": 14925.865,
+      "wheel": "FR",
+      "time_s": 20.5667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "eccentric_lift",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_eccentric_lift-20261029-013340-FE3E1976.csv",
+      "sha256": "5d3d5297b473258eb7bbe1f1d2c1f11bc7d950ebeb6e69c82aa7235d5a3b3ad0",
+      "peak_frame_load_n": 12908.742,
+      "wheel": "FR",
+      "time_s": 2.8167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "shallow_lift",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_shallow_lift-20261029-013644-BE832399.csv",
+      "sha256": "2923b23e63842699a4a2d03b9b4b03cb101964aac02780097bf0e5634008b279",
+      "peak_frame_load_n": 12985.101,
+      "wheel": "FL",
+      "time_s": 2.8667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "high_carry",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_high_carry-20261029-013931-989F29DF.csv",
+      "sha256": "54d3146ef05f0212b480f0235a0b2c10d03a9747c5643954d5d6d07d7d44e5f4",
+      "peak_frame_load_n": 15488.791,
+      "wheel": "FL",
+      "time_s": 22.8667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "step",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_step-20261029-012740-369B12C7.csv",
+      "sha256": "f49d889199bf7da5cb5dd216127e6fdef8ada475eff55a450e62e5f100474db0",
+      "peak_frame_load_n": 17224.112,
+      "wheel": "FL",
+      "time_s": 23.1167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "halfstep",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_halfstep-20261029-013039-9AC506FC.csv",
+      "sha256": "5907b1ceb8b1eb05e442c2c0ac14f3046936098a8c3e6af8ec53214d75fd0372",
+      "peak_frame_load_n": 27045.189,
+      "wheel": "FL",
+      "time_s": 24.1667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "split_carry",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_split_carry-20261029-013332-D9469F09.csv",
+      "sha256": "40d3965c3c80ed824543ed069e6ca6166dc1391ba72cc7fdc47b240b3bf94b79",
+      "peak_frame_load_n": 15329.804,
+      "wheel": "FR",
+      "time_s": 24.8167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "cargo_slide",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_cargo_slide-20261029-013634-2C5B5434.csv",
+      "sha256": "cc88cd5e378a2793e1216edc7d0ea28fceb11407e9828bd48989e252b46f9efb",
+      "peak_frame_load_n": 13722.254,
+      "wheel": "FL",
+      "time_s": 18.9167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "cargo_drop",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_cargo_drop-20261029-013921-3736E7B5.csv",
+      "sha256": "e8ab6adcb37935ae13c67f5bc23a5630d959ce366a0e5b06af4cb704ffe4cfaa",
+      "peak_frame_load_n": 13984.925,
+      "wheel": "FL",
+      "time_s": 18.2667,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    },
+    {
+      "case": "lower",
+      "csv": "Saved\\Telemetry\\Stability-mecanum_lower-20261029-014156-038349BF.csv",
+      "sha256": "d1c2f0c244744c0db742148a7209205d735acc3398d61c107765ea735530cc10",
+      "peak_frame_load_n": 13263.217,
+      "wheel": "FL",
+      "time_s": 18.5167,
+      "peak_inner_load_n": null,
+      "catalogue_frame_ratio": null,
+      "catalogue_inner_ratio": null
+    }
+  ],
+  "scope": "Actual historical v0.18 native loads; catalogue comparison only. Not certification, calibration or fatigue life.",
+  "actual_wheel_rated": false,
+  "measured_calibration_complete": false,
+  "current": {
+    "diameter_m": 0.3,
+    "width_m": 0.16,
+    "mass_kg": 50,
+    "roller_count": 12,
+    "hub_mass_kg": 38.0,
+    "roller_mass_kg": 1.0
+  },
+  "unknown_parameters": [
+    "test_speed",
+    "duty_cycle",
+    "dynamic_derating",
+    "inertia_tensor",
+    "mass_split",
+    "friction_curve",
+    "bearing_loss",
+    "load_deflection_curve"
+  ],
+  "config_sha256": {
+    "Mecanum.json": "076cad78c9172ab7e8e12da2cda2ac418b0dc9a0faa8544d877d6b2c5366fe5b",
+    "Vehicle3D.json": "bb376391ec3868c70ad9cbd8822a87acb33428b7cc7ca49a71b1bfb540eba61a"
+  },
+  "largest_frame_comparison": {
+    "case": "halfstep",
+    "csv": "Saved\\Telemetry\\Stability-mecanum_halfstep-20261029-013039-9AC506FC.csv",
+    "sha256": "5907b1ceb8b1eb05e442c2c0ac14f3046936098a8c3e6af8ec53214d75fd0372",
+    "peak_frame_load_n": 27045.189,
+    "wheel": "FL",
+    "time_s": 24.1667,
+    "peak_inner_load_n": null,
+    "catalogue_frame_ratio": null,
+    "catalogue_inner_ratio": null
+  },
+  "largest_inner_comparison": null,
+  "inner_peak_status": "Not recorded by historical mecanum fixture; frame averages cannot qualify impact loads.",
+  "parameter_ledger": [
+    {
+      "config": "Vehicle3D.json",
+      "key": "wheel_mass_kg",
+      "value": 50,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "wheel_radius_m",
+      "value": 0.15,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "wheel_width_m",
+      "value": 0.1,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "tyre_friction",
+      "value": 0.9,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "road_friction",
+      "value": 0.8,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "rolling_resistance_coefficient",
+      "value": 0.015,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "bearing_coulomb_nm",
+      "value": 1.0,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "bearing_viscous_nm_per_rad_s",
+      "value": 0.05,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "drive_torque_nm",
+      "value": 450,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Vehicle3D.json",
+      "key": "brake_torque_nm",
+      "value": 900,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "roller_count",
+      "value": 12,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "wheel_width_m",
+      "value": 0.16,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "hub_radius_m",
+      "value": 0.105,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "hub_width_m",
+      "value": 0.14,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "roller_max_radius_m",
+      "value": 0.02,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "roller_half_length_m",
+      "value": 0.075,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "roller_mass_kg",
+      "value": 1.0,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "roller_bearing_coulomb_nm",
+      "value": 0.03,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Mecanum.json",
+      "key": "roller_bearing_viscous_nms",
+      "value": 0.002,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Drivetrain.json",
+      "key": "drive_motor_peak_nm",
+      "value": 45,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Drivetrain.json",
+      "key": "drive_motor_power_w",
+      "value": 2000,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Drivetrain.json",
+      "key": "drive_motor_max_rpm",
+      "value": 1800,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Drivetrain.json",
+      "key": "drive_gear_ratio",
+      "value": 12,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Drivetrain.json",
+      "key": "drive_gear_efficiency",
+      "value": 0.9,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Drivetrain.json",
+      "key": "drive_motor_efficiency",
+      "value": 0.9,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Drivetrain.json",
+      "key": "drive_response_s",
+      "value": 0.04,
+      "status": "design_assumption_not_fitted_to_hardware"
+    },
+    {
+      "config": "Drivetrain.json",
+      "key": "drive_rotor_inertia_kg_m2",
+      "value": 0.0004,
+      "status": "design_assumption_not_fitted_to_hardware"
+    }
+  ],
+  "legacy_width_note": "Vehicle3D.json width is the regular-wheel reference. Active mecanum width is Mecanum.json wheel_width_m.",
+  "primary_source_archive": "Docs/References/MecanumSources-20261029/manifest.json"
+}

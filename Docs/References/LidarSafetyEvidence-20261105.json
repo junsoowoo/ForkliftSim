@@ -1,0 +1,157 @@
+{
+  "date": "2026-11-05",
+  "dll_sha256": "53cf1e25617b5b592d449e99ca661f0331ccbc0426c24ef84da22247623aa6ef",
+  "unit_tests": {
+    "passed": 62,
+    "failed": 0,
+    "pending": 0
+  },
+  "guard_conditions": 9,
+  "legacy_physics_conditions": 2,
+  "native_manifest_paths": [
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-160202-166-7c3a8a4c\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-160303-314-fbfc3feb\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-160619-635-44bb05aa\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-160650-997-243f2ced\\manifest.json"
+  ],
+  "web_actual_frames": 302,
+  "web_csv_columns": 18,
+  "camera_gpu_regression_pass": true,
+  "javascript_regression_pass": [
+    "live-state",
+    "joint-sensors",
+    "dynamics-sensors",
+    "proximity-sensors",
+    "lift-control",
+    "lidar-safety"
+  ],
+  "initial_strict_brake_settling_criterion_pass": false,
+  "final_criterion": "Speed below 0.1 m/s from hold+3 seconds, with separate physical footprint clearance check. Initial hold+0.8 second criterion failed due to decaying brake/tyre transients; no braking coefficients changed to fit this test. Manual-creep release is checked after 0.6 seconds, separately from the original full-speed brake transient. Fault settling checked after 9.5 seconds.",
+  "scope": "Dual planar simulation LiDAR and measured protective field; flat-floor default-friction fixtures. No navigation, localization, certified safety or all-surface guarantee. Driving still uses GT feedback. Manual Shift mode is a low-speed operator override of obstacle drive hold, never fault/e-stop. No batch 2-5 implementation or new FPS qualification.",
+  "files": [
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\LidarSafety-QualifiedUnit\\index.json",
+      "sha256": "0dcc1636c493bb6dcdb4fdc3fc464768c3dacf2192106a5eed62926d716f775c"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Performance\\LidarSafety-FinalBuild2.txt",
+      "sha256": "984d4fe55f6f3be7af12d079cccc10a4870f40b3d7dcae5e87f1ea524c2e53c1"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Cameras-20261105-160858\\cameras.json",
+      "sha256": "0caa856456dceb61559ff960f7efd2186a966ddc7910f5782198aa1cccb82a4f"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Cameras-20261105-160858\\CameraValidation.log",
+      "sha256": "c9a7571c9dbd10aeaa6928123f740808fc0989bbda0ca709d23f28b3ebe8beb6"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\LidarSafetyValidation-20261105.json",
+      "sha256": "5f60515072887134a287d972dde84435ab298f7faa4d16987a07f080ed2feaa1"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\LidarSafetyWeb-20261105.json",
+      "sha256": "3e0ab92525dce63c32c4c96808856182729461fba75d0b5a21ca1ad42b47181d"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\LidarSafetyPhysicsParity-20261105.json",
+      "sha256": "a95ce95d2a9bb8221571a4be814bcb455e0a972741668cc2f9bf75ff39ca7a9f"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\LidarSafety-Live.jsonl",
+      "sha256": "a114870a02f23bb80b4a0d4013096509c5e050e9aa5ef34e7b42741624220275"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\LidarSafety-WebExport.csv",
+      "sha256": "22f9aa169b653f862067ffd7fea37fcf3ffebf11e28d46d526ca9feb870b1b42"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\validate_lidar_safety.py",
+      "sha256": "8df255de60da0ecb6e312e45ae5f05904e959f54480021ddf09f0c8f59b0970e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\Test-LidarSafety.ps1",
+      "sha256": "074063555a715bc4c94b732b7987f05929d4276183afe2b3b92559cd731201cd"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\Test-Mecanum.ps1",
+      "sha256": "3a852166f9e7d77f3ea0a878f5fd38af20fbaf44c6ec74a2148470c04c50e2b4"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\LidarSafety.md",
+      "sha256": "d01bdee39b350941b58147e5c6b08ea9a3bae1499d855c005d412a8a53dc6968"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\AutomationBatches.md",
+      "sha256": "72d638203d0ecf044fa2729564689ba1bf099629a4c880197baba4dea23090e7"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LidarSafety.cpp",
+      "sha256": "35050dbbbb15db952719234f289e725c14b2019301644c4c65481a43c47e010e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LidarSafety.h",
+      "sha256": "9bbb9762e3aaf9c640137c07eb0f0bb7977e94d93350da75766cd3a0540df44e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LidarSafetySampling.cpp",
+      "sha256": "bb3655134db133a0fbefcdac4bfc88c50d9649721d2bd6210ccafd8639e1b00c"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LidarSafetyTests.cpp",
+      "sha256": "56999b13f4be0e34570586811f14a2b5a8a519b6ee7efe678b0d85d3913a661a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\VehicleGuardLab.cpp",
+      "sha256": "5f0dc7d1345ec918626a644aa1e5e6a7bd75aa2101a7d1195c1f5d6262a7d135"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\LidarSafety.json",
+      "sha256": "eca147a22d5e67b17294a35bd47255b17b3e6eb8cfad06ad0d4dd8c7c6426738"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\bridge-test.mjs",
+      "sha256": "f581f0fd82db04d7bbf62a505c02c5ecef10c4fe29a55fc125814c288c2c7730"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dynamics-sensors-test.mjs",
+      "sha256": "57d976804c70b655bd00dde887409fd72933416d9d853a5eaa4e87b505e79148"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\joint-sensors-test.mjs",
+      "sha256": "e39a25015774cdd634e0550c2f30c12970c66f39dcab72d189689b3bd4665253"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\lidar-safety-test.mjs",
+      "sha256": "a3790d78096cbdf2d69b58b47fe2741a3aa1d8fc3c0aa94e6ee8db7a62141bb8"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\lift-control-test.mjs",
+      "sha256": "8aaefa92c0e29ba4a1aa0ec0cdbdca0adda0f84cb5e59f35b49ec3ae35877cb3"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\live-state-test.mjs",
+      "sha256": "9df9b55f27ab7a567b8e09cc89ac9422158a96fb453e5d32e9f5d0c5356231f2"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\proximity-sensors-test.mjs",
+      "sha256": "66d6f254773e4a83680d683e589d6c6d36cd1590c5483ed982b0bcac2e100456"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\data.mjs",
+      "sha256": "abbb7cab2dd8379dd9821bf1eae37211418365a8317e71cff7f583e82fe5182e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\live.mjs",
+      "sha256": "259a0158d228dad0b803f8f05d23b67df49c20970aef1e49835f4822d25ee30f"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\live.html",
+      "sha256": "68a3782375954f72c59c3dde3af744626869999b9ee6090a2847ae36301e4762"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\lidar-safety.mjs",
+      "sha256": "3bb9c3182b4cdbb6d000df91e423bfc7dfafc4eef20c62fb6a0b98ba5f5df7ed"
+    }
+  ]
+}

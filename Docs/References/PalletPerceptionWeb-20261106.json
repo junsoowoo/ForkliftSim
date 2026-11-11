@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-06",
+  "pass": true,
+  "actual_frames": 238,
+  "recognized_frames": 100,
+  "partial_frames": 87,
+  "full_frames": 56,
+  "tracked_frames": 228,
+  "heel_range_fused_frames": 205,
+  "csv_columns": 29,
+  "csv_rows": 238,
+  "csv_sha256": "8b375e2973b80155ab2797648d553bacfec391b2957c0503bfce6ca0c388693d",
+  "stream_sha256": "fed1bbb9fb910347618753a372f8062a3dc5b393415a0a7671fb1285e03c8230",
+  "scope": "Actual GPU-depth recognition and measured sensor fusion received from Unreal; shared CSV verified. No browser physics, actor pose fallback, DOM clicks or autonomous insertion."
+}

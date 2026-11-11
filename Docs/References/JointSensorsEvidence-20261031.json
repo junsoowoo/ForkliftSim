@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-31",
+  "dll_sha256": "30e07457c1387cab59f7d2e11322c14123641afb2c8a949994148157280f3784",
+  "unit_passed": 43,
+  "native_passed": 8,
+  "camera_gpu_regression_pass": true,
+  "web_actual_frames": 1091,
+  "web_csv_columns": 19,
+  "physics_parity_cases": 3,
+  "controller_connected": false,
+  "hardware_calibrated": false,
+  "scope": "Four wheel-output encoders, carriage height and two position-actuated limit switches. Read-only virtual sensors with latency/noise/quantization/transport failure. No IMU, load/short-range sensor, navigation or safety interlock claim.",
+  "evidence": [
+    {
+      "path": "Config/JointSensors.json",
+      "sha256": "fa64f927c011006fac91d0761880ba878a23a651462aa2bb4aa9a4d0403dec14"
+    },
+    {
+      "path": "Docs/References/JointSensorsValidation-20261031.json",
+      "sha256": "bc583a1838ac2171227ff30eab0afa9b570c0409ec248cc405642f4d9e169680"
+    },
+    {
+      "path": "Docs/References/JointSensorsWeb-20261031.json",
+      "sha256": "a4f79f5010e74e416e3c5734879795e925fa86f89d603e167b69e0d7c737fae5"
+    },
+    {
+      "path": "Docs/References/JointSensorsPhysicsParity-20261031.json",
+      "sha256": "fe2a176c9d9aeb37b6f52c1f8a35f922227717c6b06a4eb81846ae51566882e3"
+    },
+    {
+      "path": "Saved/Validation/JointSensors-Unit-Qualified/index.json",
+      "sha256": "7fc412bccc805b4f94a26e2a7a8e1954674ccd0af4ab686769b53821e42f3e3b"
+    },
+    {
+      "path": "Saved/Validation/JointSensors-WebExport.csv",
+      "sha256": "35493b4ed11f51ea59600e0ea8faf437fb54156a2bc41ae15190a33de304f39a"
+    },
+    {
+      "path": "Saved/Validation/JointSensors-Live.jsonl",
+      "sha256": "bc45ac53b3f389e0121d9fd9939bc87ed46279cf92d2642290c792ac52c47abc"
+    },
+    {
+      "path": "Saved\\Validation\\Performance\\JointSensors-CameraRegression.txt",
+      "sha256": "497d23b6be1fedbbf6384710aba6b144413ad092cc4c03bf63c47743978ed4fa"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Cameras-20261031-193504\\cameras.json",
+      "sha256": "0e13dd1e75f6f630fa278653b04cbd742d788a7303d29cd59a8aa5c15ff4a06e"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/joint-sensors.mjs",
+      "sha256": "7df102027bf6bb84ba54557d01a837aeccf1975112daea4c64e6aa37902dd82b"
+    }
+  ]
+}

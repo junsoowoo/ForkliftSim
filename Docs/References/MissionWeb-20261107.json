@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-07",
+  "pass": true,
+  "actual_frames": 10808,
+  "moving_frames": 1758,
+  "carried_self_filter_frames": 1078,
+  "planned_path_frames": 2044,
+  "csv_columns": 30,
+  "csv_rows": 10808,
+  "csv_sha256": "bfaa2628dab95c494625292f7217b0e3870e8d7bb288bbf7009f3336e529bf22",
+  "stream_sha256": "bb6d842aa96dacfd9cbbb646d3068b913d50a96396238a4c01adb641d3ee81fa",
+  "cases": [
+    {
+      "case": "mecanum_mission_blocked",
+      "state": "blocked",
+      "reason": "goal_footprint_blocked",
+      "pickup_receipt": false,
+      "dropoff_receipt": false,
+      "replans": 1,
+      "retries": 0
+    },
+    {
+      "case": "mecanum_mission_cancel",
+      "state": "cancelled",
+      "reason": "operator_cancel",
+      "pickup_receipt": true,
+      "dropoff_receipt": false,
+      "replans": 2,
+      "retries": 0
+    },
+    {
+      "case": "mecanum_mission_watchdog",
+      "state": "fault_latched",
+      "reason": "mission_command_expired",
+      "pickup_receipt": true,
+      "dropoff_receipt": false,
+      "replans": 2,
+      "retries": 0
+    },
+    {
+      "case": "mecanum_mission_retry",
+      "state": "pickup",
+      "reason": "",
+      "pickup_receipt": false,
+      "dropoff_receipt": false,
+      "replans": 1,
+      "retries": 1
+    },
+    {
+      "case": "mecanum_mission_sensor_recovery",
+      "state": "to_dropoff",
+      "reason": "",
+      "pickup_receipt": true,
+      "dropoff_receipt": false,
+      "replans": 3,
+      "retries": 0
+    },
+    {
+      "case": "mecanum_mission_low",
+      "state": "complete",
+      "reason": "",
+      "pickup_receipt": true,
+      "dropoff_receipt": true,
+      "replans": 2,
+      "retries": 0
+    },
+    {
+      "case": "mecanum_mission_avoid_pause",
+      "state": "complete",
+      "reason": "",
+      "pickup_receipt": true,
+      "dropoff_receipt": true,
+      "replans": 4,
+      "retries": 0
+    },
+    {
+      "case": "mecanum_mission_high",
+      "state": "complete",
+      "reason": "",
+      "pickup_receipt": true,
+      "dropoff_receipt": true,
+      "replans": 2,
+      "retries": 0
+    }
+  ],
+  "scope": "Actual Unreal SSE and received-only module export. Complete cycles: low/high/avoid_pause. Retry and sensor recovery end at explicit checkpoints. Browser history remains current-world last 30 seconds/max600; this independent recorder spans all eight cases. Not DOM-click or full-mission realtime qualification."
+}

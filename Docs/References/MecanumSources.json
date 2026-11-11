@@ -1,0 +1,34 @@
+{
+  "accessed_on": "2026-10-27",
+  "engine_version": "5.6.1",
+  "public_sources": [
+    {
+      "url": "https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/mecanum-drive-kinematics.html",
+      "adopted": "Four-wheel inverse/forward kinematic mechanism, transformed to Unreal X-forward/Y-right axes. No physical component coefficients."
+    },
+    {
+      "url": "https://www.gdok.co.kr/en/catalog/14_mecanum_catalog_en.pdf",
+      "adopted": false,
+      "reason": "Published MP-152/176 capacities 125/150 kg per wheel (500/600 kg set) do not qualify this 3t+ virtual platform."
+    }
+  ],
+  "engine_evidence": [
+    {
+      "path": "Source/Runtime/Engine/Private/PhysicsEngine/BodyInstance.cpp",
+      "sha256": "9f85960766cf30d0aeebc8d1e54c9a821679df4bfb5043d2613d5b7dbc62007e"
+    },
+    {
+      "path": "Source/Runtime/PhysicsCore/Private/ChaosEngineInterface.cpp",
+      "sha256": "29ae71bad07aea183ca026a29528a0cd8dfe5615ad2c2943ded1f9e0536987c9"
+    },
+    {
+      "path": "Source/Runtime/Experimental/Chaos/Private/Chaos/PBDRigidsEvolutionGBF.cpp",
+      "sha256": "74fd48a851a523be31460c377b12e3eeed835a8e1b0956d44bf9f65193c2d3b6"
+    },
+    {
+      "path": "Source/Runtime/Engine/Private/PhysicsEngine/ConstraintInstance.cpp",
+      "sha256": "4c4eb01c33b0c019d6c7f09f815837aa6eec74067c1f80a0ff33450a1c9474ec"
+    }
+  ],
+  "assumptions": "Custom hub/roller shape, mass split, bearing losses, speed-controller gains. No rated commercial mecanum product or measured roller material curve adopted."
+}

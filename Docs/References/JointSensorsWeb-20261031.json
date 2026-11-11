@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "actual_frames": 1091,
+  "stale_frames": 24,
+  "recovery_frames": 5,
+  "csv_columns": 19,
+  "csv_rows": 6546,
+  "csv_sha256": "35493b4ed11f51ea59600e0ea8faf437fb54156a2bc41ae15190a33de304f39a",
+  "stream_sha256": "bc45ac53b3f389e0121d9fd9939bc87ed46279cf92d2642290c792ac52c47abc",
+  "scope": "Actual received native sensor stream and shared UI CSV exporter. DOM click not automated. Truth is not used as a fallback. Controller remains disconnected."
+}

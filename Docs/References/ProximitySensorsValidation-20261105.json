@@ -1,0 +1,658 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "scope": "Virtual single-ray range and binary surface presence; no semantic pallet recognition, full insertion claim or automatic control.",
+  "native_cases": [
+    {
+      "case": "settle",
+      "fps": 60,
+      "fault": "",
+      "dll_sha256": "bf61226324743133e6fed2f2463f77000c46360eb0109d3698fdf77b2c52e40e",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261105-135339-95CDC7EA.csv",
+      "csv_sha256": "ce10cd2cacee2e93c7f58bc20a15db0dcf690ed05c168960c7b7c914966fc9cf",
+      "metrics": {
+        "heel_left": {
+          "capture_hz": 20.028049446503676,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 239
+          },
+          "on": 0,
+          "off": 0
+        },
+        "heel_right": {
+          "capture_hz": 20.028049446503676,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 239
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_left": {
+          "capture_hz": 20.028049446503676,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 239
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_right": {
+          "capture_hz": 20.028049446503676,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 238,
+            "dropout": 1
+          },
+          "on": 0,
+          "off": 0
+        },
+        "presence_left_near": {
+          "capture_hz": 20.028049446503676,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 2,
+            "valid": 237
+          },
+          "on": 0,
+          "off": 237
+        },
+        "presence_right_near": {
+          "capture_hz": 20.028049446503676,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 5,
+            "valid": 231,
+            "dropout": 3
+          },
+          "on": 0,
+          "off": 231
+        },
+        "presence_left_far": {
+          "capture_hz": 20.028049446503676,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 2,
+            "valid": 237
+          },
+          "on": 0,
+          "off": 237
+        },
+        "presence_right_far": {
+          "capture_hz": 20.028049446503676,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 2,
+            "valid": 237
+          },
+          "on": 0,
+          "off": 237
+        }
+      }
+    },
+    {
+      "case": "carry",
+      "fps": 60,
+      "fault": "all",
+      "dll_sha256": "bf61226324743133e6fed2f2463f77000c46360eb0109d3698fdf77b2c52e40e",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261105-135555-21A61DBA.csv",
+      "csv_sha256": "151d5f86731246d8ee8de1e5c10069914b602722701c8e6cb9b6dc8abe4a6da7",
+      "metrics": {
+        "heel_left": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0.0029504370000000826,
+          "reading_states": {
+            "unavailable": 37,
+            "valid": 562,
+            "no_return": 41
+          },
+          "on": 0,
+          "off": 0
+        },
+        "heel_right": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0.00312758799999996,
+          "reading_states": {
+            "unavailable": 37,
+            "valid": 559,
+            "no_return": 41,
+            "dropout": 3
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_left": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0.0012723400000000098,
+          "reading_states": {
+            "unavailable": 37,
+            "valid": 3,
+            "no_return": 42,
+            "too_close": 558
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_right": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0.0021960399999999833,
+          "reading_states": {
+            "unavailable": 37,
+            "valid": 3,
+            "no_return": 42,
+            "too_close": 557,
+            "dropout": 1
+          },
+          "on": 0,
+          "off": 0
+        },
+        "presence_left_near": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 37,
+            "initializing": 2,
+            "valid": 601
+          },
+          "on": 0,
+          "off": 601
+        },
+        "presence_right_near": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 37,
+            "initializing": 5,
+            "valid": 595,
+            "dropout": 3
+          },
+          "on": 0,
+          "off": 595
+        },
+        "presence_left_far": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 37,
+            "initializing": 3,
+            "valid": 599,
+            "dropout": 1
+          },
+          "on": 599,
+          "off": 0
+        },
+        "presence_right_far": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 37,
+            "initializing": 2,
+            "valid": 601
+          },
+          "on": 601,
+          "off": 0
+        }
+      }
+    },
+    {
+      "case": "carry",
+      "fps": 60,
+      "fault": "",
+      "dll_sha256": "bf61226324743133e6fed2f2463f77000c46360eb0109d3698fdf77b2c52e40e",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261105-135632-6149127E.csv",
+      "csv_sha256": "4669f7e60fb1b4a90d0c9cb08dc34e29add0cc148d2150cb0c61fa10baffdf93",
+      "metrics": {
+        "heel_left": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0.00320545299999997,
+          "reading_states": {
+            "unavailable": 1,
+            "valid": 598,
+            "no_return": 41
+          },
+          "on": 0,
+          "off": 0
+        },
+        "heel_right": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0.0032450169999999065,
+          "reading_states": {
+            "unavailable": 1,
+            "valid": 595,
+            "no_return": 41,
+            "dropout": 3
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_left": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0.0012723400000000098,
+          "reading_states": {
+            "unavailable": 1,
+            "valid": 3,
+            "no_return": 42,
+            "too_close": 594
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_right": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0.0021960399999999833,
+          "reading_states": {
+            "unavailable": 1,
+            "valid": 3,
+            "no_return": 42,
+            "too_close": 593,
+            "dropout": 1
+          },
+          "on": 0,
+          "off": 0
+        },
+        "presence_left_near": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 2,
+            "valid": 637
+          },
+          "on": 0,
+          "off": 637
+        },
+        "presence_right_near": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 6,
+            "valid": 629,
+            "dropout": 4
+          },
+          "on": 0,
+          "off": 629
+        },
+        "presence_left_far": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 3,
+            "valid": 635,
+            "dropout": 1
+          },
+          "on": 635,
+          "off": 0
+        },
+        "presence_right_far": {
+          "capture_hz": 20.010453739548947,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 2,
+            "valid": 637
+          },
+          "on": 637,
+          "off": 0
+        }
+      }
+    },
+    {
+      "case": "rack_pick_low",
+      "fps": 60,
+      "fault": "",
+      "dll_sha256": "bf61226324743133e6fed2f2463f77000c46360eb0109d3698fdf77b2c52e40e",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261105-135707-8E349206.csv",
+      "csv_sha256": "695d3492c74f307eb0851a8e9b05a7a91379f1deee367c006e9b9d21b4c89fcb",
+      "metrics": {
+        "heel_left": {
+          "capture_hz": 20.005180303978577,
+          "max_range_bias_removed_error_m": 0.0032271579999999947,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 645,
+            "valid": 641,
+            "dropout": 2
+          },
+          "on": 0,
+          "off": 0
+        },
+        "heel_right": {
+          "capture_hz": 20.005180303978577,
+          "max_range_bias_removed_error_m": 0.004170350000000002,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 644,
+            "valid": 641,
+            "dropout": 2,
+            "too_far": 1
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_left": {
+          "capture_hz": 20.005180303978577,
+          "max_range_bias_removed_error_m": 0.003559921999999994,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 495,
+            "valid": 290,
+            "too_close": 503
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_right": {
+          "capture_hz": 20.005180303978577,
+          "max_range_bias_removed_error_m": 0.003014658999999976,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 536,
+            "dropout": 3,
+            "valid": 248,
+            "too_close": 501
+          },
+          "on": 0,
+          "off": 0
+        },
+        "presence_left_near": {
+          "capture_hz": 20.005180303978577,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 2,
+            "valid": 1286
+          },
+          "on": 471,
+          "off": 815
+        },
+        "presence_right_near": {
+          "capture_hz": 20.005180303978577,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 6,
+            "valid": 1278,
+            "dropout": 4
+          },
+          "on": 471,
+          "off": 807
+        },
+        "presence_left_far": {
+          "capture_hz": 20.005180303978577,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 3,
+            "valid": 1284,
+            "dropout": 1
+          },
+          "on": 567,
+          "off": 717
+        },
+        "presence_right_far": {
+          "capture_hz": 20.005180303978577,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 3,
+            "valid": 1284,
+            "dropout": 1
+          },
+          "on": 565,
+          "off": 719
+        }
+      }
+    },
+    {
+      "case": "rack_pick_high",
+      "fps": 60,
+      "fault": "",
+      "dll_sha256": "bf61226324743133e6fed2f2463f77000c46360eb0109d3698fdf77b2c52e40e",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261105-135804-27894C21.csv",
+      "csv_sha256": "53e1a139c6efb1a751d7da38a4233b85a40905b28a9a25c23c6b24def82c493a",
+      "metrics": {
+        "heel_left": {
+          "capture_hz": 20.00456934062093,
+          "max_range_bias_removed_error_m": 0.0032069899999999938,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 978,
+            "valid": 481,
+            "dropout": 1
+          },
+          "on": 0,
+          "off": 0
+        },
+        "heel_right": {
+          "capture_hz": 20.00456934062093,
+          "max_range_bias_removed_error_m": 0.004262815000000002,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 976,
+            "valid": 482,
+            "dropout": 2
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_left": {
+          "capture_hz": 20.00456934062093,
+          "max_range_bias_removed_error_m": 0.0015149109999999513,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 975,
+            "valid": 9,
+            "too_close": 476
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_right": {
+          "capture_hz": 20.00456934062093,
+          "max_range_bias_removed_error_m": 0.0011975719999999792,
+          "reading_states": {
+            "unavailable": 1,
+            "no_return": 973,
+            "dropout": 3,
+            "valid": 9,
+            "too_close": 475
+          },
+          "on": 0,
+          "off": 0
+        },
+        "presence_left_near": {
+          "capture_hz": 20.00456934062093,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 2,
+            "valid": 1458
+          },
+          "on": 548,
+          "off": 910
+        },
+        "presence_right_near": {
+          "capture_hz": 20.00456934062093,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 6,
+            "valid": 1450,
+            "dropout": 4
+          },
+          "on": 548,
+          "off": 902
+        },
+        "presence_left_far": {
+          "capture_hz": 20.00456934062093,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 3,
+            "valid": 1456,
+            "dropout": 1
+          },
+          "on": 644,
+          "off": 812
+        },
+        "presence_right_far": {
+          "capture_hz": 20.00456934062093,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 3,
+            "valid": 1456,
+            "dropout": 1
+          },
+          "on": 642,
+          "off": 814
+        }
+      }
+    },
+    {
+      "case": "carry",
+      "fps": 30,
+      "fault": "",
+      "dll_sha256": "bf61226324743133e6fed2f2463f77000c46360eb0109d3698fdf77b2c52e40e",
+      "csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/ProximitySensors-20261105-135908-3135A71A.csv",
+      "csv_sha256": "1df1427072bd5165ce26e4e061c54f69e21f6dbd614bd587ae5cc952e1d90c27",
+      "metrics": {
+        "heel_left": {
+          "capture_hz": 20.010470160291494,
+          "max_range_bias_removed_error_m": 0.0030032099999999793,
+          "reading_states": {
+            "unavailable": 1,
+            "valid": 449,
+            "no_return": 30
+          },
+          "on": 0,
+          "off": 0
+        },
+        "heel_right": {
+          "capture_hz": 20.010470160291494,
+          "max_range_bias_removed_error_m": 0.0031269349999999982,
+          "reading_states": {
+            "unavailable": 1,
+            "valid": 447,
+            "no_return": 30,
+            "dropout": 2
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_left": {
+          "capture_hz": 20.010470160291494,
+          "max_range_bias_removed_error_m": 0.0007819480000000037,
+          "reading_states": {
+            "unavailable": 1,
+            "valid": 3,
+            "no_return": 30,
+            "too_close": 446
+          },
+          "on": 0,
+          "off": 0
+        },
+        "tip_right": {
+          "capture_hz": 20.010470160291494,
+          "max_range_bias_removed_error_m": 0.0021960399999999833,
+          "reading_states": {
+            "unavailable": 1,
+            "valid": 3,
+            "no_return": 30,
+            "too_close": 445,
+            "dropout": 1
+          },
+          "on": 0,
+          "off": 0
+        },
+        "presence_left_near": {
+          "capture_hz": 20.010470160291494,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 1,
+            "valid": 478
+          },
+          "on": 0,
+          "off": 478
+        },
+        "presence_right_near": {
+          "capture_hz": 20.010470160291494,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 6,
+            "valid": 469,
+            "dropout": 4
+          },
+          "on": 0,
+          "off": 469
+        },
+        "presence_left_far": {
+          "capture_hz": 20.010470160291494,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 2,
+            "valid": 476,
+            "dropout": 1
+          },
+          "on": 476,
+          "off": 0
+        },
+        "presence_right_far": {
+          "capture_hz": 20.010470160291494,
+          "max_range_bias_removed_error_m": 0,
+          "reading_states": {
+            "unavailable": 1,
+            "initializing": 1,
+            "valid": 478
+          },
+          "on": 478,
+          "off": 0
+        }
+      }
+    }
+  ],
+  "scene_geometry_checks": 7,
+  "rack_observations": [
+    {
+      "tier": "low",
+      "max_sensor_world_z_m": 0.549210306,
+      "mount_minus_lift_span_m": 0.04831256300000001,
+      "on": 471,
+      "off": 815,
+      "above_upper_tier_on": 0
+    },
+    {
+      "tier": "high",
+      "max_sensor_world_z_m": 2.149267417,
+      "mount_minus_lift_span_m": 0.04844205000000004,
+      "on": 548,
+      "off": 910,
+      "above_upper_tier_on": 446
+    }
+  ],
+  "fault_physics_max_differences": {
+    "time_s": 0.0,
+    "chassis_x_m": 0.0,
+    "chassis_y_m": 0.0,
+    "speed_mps": 0.0,
+    "lateral_mps": 0.0,
+    "yaw_deg_s": 0.0,
+    "fork_actual_m": 0.0,
+    "normal_sum_n": 0.0,
+    "energy_unresolved_j": 0.0
+  }
+}

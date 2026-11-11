@@ -1,0 +1,23 @@
+{
+  "kp_per_m": 4.0,
+  "ki_per_m_s": 0.4,
+  "kd_s_per_m": 1.5,
+  "integral_spool_cap": 0.2,
+  "max_up_spool": 0.65,
+  "max_down_spool": 0.22,
+  "spool_slew_per_s": 3.0,
+  "hold_deadband_m": 0.006,
+  "hold_reopen_m": 0.012,
+  "velocity_filter_s": 0.15,
+  "max_measured_speed_mps": 0.6,
+  "max_sample_age_s": 0.25,
+  "healthy_before_arm_s": 0.2,
+  "command_lease_s": 0.1,
+  "upper_target_margin_m": 0.04,
+  "pressure_trip_pa": 6900000,
+  "pressure_release_pa": 6500000,
+  "pressure_debounce_s": 0.1,
+  "settle_dwell_s": 0.2,
+  "max_lower_speed_mps": 0.06,
+  "lower_approach_per_s": 0.8
+}

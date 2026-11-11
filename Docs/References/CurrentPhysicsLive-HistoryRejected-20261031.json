@@ -1,0 +1,23 @@
+{
+  "complete": true,
+  "samples": 600,
+  "groups": {
+    "mecanum_lower": {
+      "samples": 298,
+      "peak_frame_n": 13061.237003338692,
+      "peak_inner_n": 13086.376290008593
+    },
+    "mecanum_settle": {
+      "samples": 136,
+      "peak_frame_n": 8586.098195665023,
+      "peak_inner_n": 8595.975232146931
+    },
+    "mecanum_idle": {
+      "samples": 144,
+      "peak_frame_n": 8586.098195665023,
+      "peak_inner_n": 8597.972471939855
+    }
+  },
+  "sha256": "f8e3b726988f1c491a0e26c9017d8bc55d6c9270c0a3cc635795d1588ab1e166",
+  "scope": "Actual received frames. Internal peaks cover received intervals only, not a proof of every simulated peak."
+}

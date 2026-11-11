@@ -1,0 +1,21 @@
+{
+  "source": "Uncalibrated system-level electric drive assumptions, per module, not a selected commercial motor",
+  "enabled": true,
+  "drive_motor_peak_nm": 45,
+  "drive_motor_power_w": 2000,
+  "drive_motor_max_rpm": 1800,
+  "drive_gear_ratio": 12,
+  "drive_gear_efficiency": 0.9,
+  "drive_motor_efficiency": 0.9,
+  "drive_response_s": 0.04,
+  "drive_rotor_inertia_kg_m2": 0.0004,
+  "steer_motor_peak_nm": 60,
+  "steer_motor_power_w": 800,
+  "steer_motor_max_rpm": 1800,
+  "steer_gear_ratio": 100,
+  "steer_gear_efficiency": 0.85,
+  "steer_motor_efficiency": 0.85,
+  "steer_response_s": 0.03,
+  "steer_rotor_inertia_kg_m2": 0.0002,
+  "steer_backlash_deg": 0.2
+}

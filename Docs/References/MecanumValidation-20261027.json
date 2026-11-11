@@ -1,0 +1,727 @@
+{
+  "schema": 1,
+  "date": "2026-10-27",
+  "model": "physical-passive-rollers-v1",
+  "implementation": "Integrated mecanum prototype, actual rollers and contact-driven motion.",
+  "full_qualification": false,
+  "full_energy_closure": false,
+  "unit_tests_pass": 29,
+  "native_cases": 15,
+  "native_pass": 13,
+  "native_fail": 2,
+  "legacy_straight_pass": true,
+  "remaining": [
+    "Full-module free-floating angular-momentum conservation",
+    "Loaded 6-degree slope brake hold",
+    "Real roller material calibration and rated-load evidence",
+    "Complete mechanical energy closure"
+  ],
+  "profile": {
+    "roller_count_per_wheel": 12,
+    "physics_hz": 480,
+    "position_iterations": 127,
+    "velocity_iterations": 32,
+    "max_translation_mps": 1,
+    "gyroscopic_terms": true,
+    "nonlinear_joints": true,
+    "separate_engine_angular_guard_rad_s": 2000,
+    "default_terrain": "flat"
+  },
+  "runs": [
+    {
+      "path": "Saved/Validation/Mecanum-20261027-232458-809/manifest.json",
+      "sha256": "0ffbf6696799cc7ebb24672c0f77c180ae30c174a976608fd10f53e5dfdbde38"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-20261027-232458-809/results.json",
+      "sha256": "6639d760e00fc5dbe0067e5c916d7113dd0840c1a1ed11f04bc5220f5ee98a9a"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-20261027-232511-189/manifest.json",
+      "sha256": "0fcda9391b273b56eb9302f71e5b151ad8f1ba14da9f540f76cd906840e039c1"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-20261027-232511-189/results.json",
+      "sha256": "91bf1ed24e9e97c47bae993d52b14eaae620c99b184d6df85fa75eb1c17bcaf7"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-20261027-232523-809/manifest.json",
+      "sha256": "7c39bfbfe47e016d3ecac0dd2d5b62a84efc2b220378c4428b44572c6e93e3b7"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-20261027-232523-809/results.json",
+      "sha256": "e44af6d3a3ad0d48d2bb02224ca3b0e7fabab2e5ac08fc0c48b74b8c8847f32f"
+    }
+  ],
+  "cases": [
+    {
+      "case": "diagonal",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          6.6536,
+          6.34
+        ],
+        "speed_mps": [
+          0.7007,
+          0.699
+        ],
+        "yaw_deg_s": -0.0862,
+        "roller_peak_rad_s": 87.9838,
+        "contacts": 8.0,
+        "closure_n": 0.0,
+        "normal_n": 31536.283,
+        "fork_m": 0.00465,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232458-809\\diagonal.log",
+      "log_sha256": "540e79181a86e6dc511f5c5d4c439c94d9a01382d3150611174652d045feaad9"
+    },
+    {
+      "case": "reaction",
+      "pass": false,
+      "behaviour_pass": false,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          0.0,
+          -0.0001
+        ],
+        "speed_mps": [
+          0.0,
+          0.0
+        ],
+        "yaw_deg_s": 0.0,
+        "roller_peak_rad_s": 0.0082,
+        "contacts": 4.0,
+        "closure_n": 0.0,
+        "normal_n": 30803.373,
+        "fork_m": 0.00334,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 35.483242,
+        "reaction_delta_l_nms": 46.84818,
+        "reaction_impulse_nms": 50.000003,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232458-809\\reaction.log",
+      "log_sha256": "f18bb99ccd7b8dd33307aa70f616312f310461898035f24160e20c2b61cf5483"
+    },
+    {
+      "case": "ramp_brake",
+      "pass": false,
+      "behaviour_pass": false,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          6.5028,
+          -0.0443
+        ],
+        "speed_mps": [
+          0.0,
+          0.0
+        ],
+        "yaw_deg_s": 0.0,
+        "roller_peak_rad_s": 0.0686,
+        "contacts": 6.0,
+        "closure_n": 0.0,
+        "normal_n": 34916.14,
+        "fork_m": 0.43878,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 1.509326,
+        "hold_drift_m": 1.228696
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232458-809\\ramp_brake.log",
+      "log_sha256": "3a557cb5e7c8d170de803e40065030896a599b51be2cb9688cf757300793b142"
+    },
+    {
+      "case": "settle",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          0.0,
+          -0.0001
+        ],
+        "speed_mps": [
+          0.0,
+          0.0
+        ],
+        "yaw_deg_s": 0.0,
+        "roller_peak_rad_s": 0.0082,
+        "contacts": 4.0,
+        "closure_n": 0.0,
+        "normal_n": 30803.373,
+        "fork_m": 0.00334,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\settle.log",
+      "log_sha256": "0a25a9d60a66f15edc927269142e36d9d7668d5af34088821eccf34513a621d9"
+    },
+    {
+      "case": "straight",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          9.6264,
+          -0.0107
+        ],
+        "speed_mps": [
+          1.0007,
+          -0.0003
+        ],
+        "yaw_deg_s": -0.0215,
+        "roller_peak_rad_s": 20.2844,
+        "contacts": 8.0,
+        "closure_n": 0.0,
+        "normal_n": 30727.145,
+        "fork_m": 0.00349,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\straight.log",
+      "log_sha256": "3d18cf83484252e87babca54a3568ff2e21b47104e7722dc1255ab50f4984843"
+    },
+    {
+      "case": "reverse",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          -9.6289,
+          0.0036
+        ],
+        "speed_mps": [
+          -1.0021,
+          0.0025
+        ],
+        "yaw_deg_s": 0.1141,
+        "roller_peak_rad_s": 12.5257,
+        "contacts": 7.0,
+        "closure_n": 0.0,
+        "normal_n": 30099.132,
+        "fork_m": 0.00353,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\reverse.log",
+      "log_sha256": "9a5c0a1d9834a51adf598d59d28421bd9054cd9ff4d250615a152239efbfa391"
+    },
+    {
+      "case": "strafe",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          0.0128,
+          9.2801
+        ],
+        "speed_mps": [
+          -0.0002,
+          0.9989
+        ],
+        "yaw_deg_s": -0.0083,
+        "roller_peak_rad_s": 157.4193,
+        "contacts": 8.0,
+        "closure_n": 0.0,
+        "normal_n": 31693.31,
+        "fork_m": 0.00683,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\strafe.log",
+      "log_sha256": "cb8f9acccb600b2ba56f26c21bc8db15003e3c717193c17475c8a10c35038562"
+    },
+    {
+      "case": "strafe_left",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          0.0341,
+          -9.282
+        ],
+        "speed_mps": [
+          -0.0023,
+          -1.0025
+        ],
+        "yaw_deg_s": 0.1173,
+        "roller_peak_rad_s": 131.8033,
+        "contacts": 8.0,
+        "closure_n": 0.0,
+        "normal_n": 31519.088,
+        "fork_m": 0.00764,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\strafe_left.log",
+      "log_sha256": "87996c30efd3d16791dc791e852b46b6e5588fe6413e4830774133bc5e92a5ac"
+    },
+    {
+      "case": "spin",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          -0.0765,
+          -0.1072
+        ],
+        "speed_mps": [
+          0.0011,
+          -0.0006
+        ],
+        "yaw_deg_s": 27.1255,
+        "roller_peak_rad_s": 35.4006,
+        "contacts": 8.0,
+        "closure_n": 0.0,
+        "normal_n": 31400.299,
+        "fork_m": 0.00376,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\spin.log",
+      "log_sha256": "86ef58421a3dde0f7e9d30b5381093b619617d68102e2b2ea53982eafe0a20ea"
+    },
+    {
+      "case": "curve",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          3.3829,
+          2.8888
+        ],
+        "speed_mps": [
+          0.6033,
+          0.0022
+        ],
+        "yaw_deg_s": 18.431,
+        "roller_peak_rad_s": 67.6504,
+        "contacts": 7.0,
+        "closure_n": 0.0,
+        "normal_n": 31325.022,
+        "fork_m": 0.00319,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\curve.log",
+      "log_sha256": "360cc7013ed12ad0a9e49d7d5f49fec24dc54fe1b469695ad9e29eb7d355b917"
+    },
+    {
+      "case": "brake",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          5.1233,
+          -0.001
+        ],
+        "speed_mps": [
+          -0.0,
+          0.0004
+        ],
+        "yaw_deg_s": -0.0003,
+        "roller_peak_rad_s": 0.0154,
+        "contacts": 4.0,
+        "closure_n": 0.0,
+        "normal_n": 30803.56,
+        "fork_m": 0.00352,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\brake.log",
+      "log_sha256": "d1c42cda3463919e01adee27e8b8e88306c9315a22a3a0ef7d9337104e6ecc3c"
+    },
+    {
+      "case": "zero_grip",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          -0.0,
+          -0.0
+        ],
+        "speed_mps": [
+          -0.0,
+          -0.0
+        ],
+        "yaw_deg_s": 0.0058,
+        "roller_peak_rad_s": 47.7046,
+        "contacts": 8.0,
+        "closure_n": 0.0,
+        "normal_n": 31949.322,
+        "fork_m": 0.00478,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232511-189\\zero_grip.log",
+      "log_sha256": "4789615d2196482bc0cf04e6213fc63aa4b2bfdd6741d58a8abf7290cd17e559"
+    },
+    {
+      "case": "lift",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          0.0001,
+          -0.0001
+        ],
+        "speed_mps": [
+          -0.0,
+          0.0
+        ],
+        "yaw_deg_s": 0.0003,
+        "roller_peak_rad_s": 0.0038,
+        "contacts": 4.0,
+        "closure_n": 0.0,
+        "normal_n": 34972.498,
+        "fork_m": 0.43828,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232523-809\\lift.log",
+      "log_sha256": "3e248def382a07fbd5acd2332bd4d01db72b1ae96c7fc5a485ce5d55b1f88811"
+    },
+    {
+      "case": "carry",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          6.7617,
+          2.5466
+        ],
+        "speed_mps": [
+          0.0,
+          0.0
+        ],
+        "yaw_deg_s": 0.0011,
+        "roller_peak_rad_s": 0.021,
+        "contacts": 4.0,
+        "closure_n": 0.0,
+        "normal_n": 34971.529,
+        "fork_m": 0.43853,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232523-809\\carry.log",
+      "log_sha256": "14d65176dd30fffa708a957444b42cad484ea941187d1e07409ef18827b01d9e"
+    },
+    {
+      "case": "step",
+      "pass": true,
+      "behaviour_pass": true,
+      "step_pass": true,
+      "metrics": {
+        "delta_m": [
+          9.2614,
+          -0.0153
+        ],
+        "speed_mps": [
+          0.0003,
+          0.0003
+        ],
+        "yaw_deg_s": 0.0211,
+        "roller_peak_rad_s": 0.0226,
+        "contacts": 4.0,
+        "closure_n": 0.0,
+        "normal_n": 34980.591,
+        "fork_m": 0.42037,
+        "cargo_fell": 0.0,
+        "reaction_pitch_deg": 0.0,
+        "reaction_delta_l_nms": 0.0,
+        "reaction_impulse_nms": 0.0,
+        "stop_distance_m": 0.0,
+        "hold_drift_m": 0.0
+      },
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261027-232523-809\\step.log",
+      "log_sha256": "5f9829dd19f5406de986380ebf066c6178c4d215b9219e4ce5c20e9439b4e009"
+    }
+  ],
+  "csvs": {
+    "straight": {
+      "path": "Saved/Telemetry/Stability-mecanum_straight-20261027-232619-C5D67B3F.csv",
+      "sha256": "7ce5540930f38efb92c82f22857ee16d7a43448cfed0832d711cff7862cf888a",
+      "samples": 240,
+      "end_s": 11.9667
+    },
+    "strafe": {
+      "path": "Saved/Telemetry/Stability-mecanum_strafe-20261027-232821-08A4182C.csv",
+      "sha256": "0faa0f6f417940de685c4bc234ff8a86a991b85134e0823a7e094d9d9d4c1f85",
+      "samples": 240,
+      "end_s": 11.9667
+    },
+    "diagonal": {
+      "path": "Saved/Telemetry/Stability-mecanum_diagonal-20261027-232509-F3ACF8F1.csv",
+      "sha256": "8695ee13a9bd66bb0d27704108b703b33c2f2efbdf30c48d7a2cbcd0884a4c53",
+      "samples": 240,
+      "end_s": 11.9667
+    },
+    "lift": {
+      "path": "Saved/Telemetry/Stability-mecanum_lift-20261027-232534-F81ACA67.csv",
+      "sha256": "bf90d4f1096aec96cdeec5bbf9f23b2af5870107a27ad227dd9788ad48d3b096",
+      "samples": 640,
+      "end_s": 31.9667
+    },
+    "carry": {
+      "path": "Saved/Telemetry/Stability-mecanum_carry-20261027-232754-0748EE8C.csv",
+      "sha256": "a05da86216c7a133c1f5fcc2a880815215ad563f4f0627dd7c6c04003eea2f71",
+      "samples": 640,
+      "end_s": 31.9667
+    },
+    "step": {
+      "path": "Saved/Telemetry/Stability-mecanum_step-20261027-233024-EE5EC8A5.csv",
+      "sha256": "a3739cfb4d12af95ae004bf374f4acee5c127fde3a00515a34019f5054ab2eed",
+      "samples": 640,
+      "end_s": 31.9667
+    },
+    "ramp_brake": {
+      "path": "Saved/Telemetry/Stability-mecanum_ramp_brake-20261027-232702-1EB92EDB.csv",
+      "sha256": "9614ecd9e3990b572126f57a8bd20e88b6e7c4470eae39e0131ed939d335358e",
+      "samples": 1200,
+      "end_s": 59.9667
+    }
+  },
+  "geometry": {
+    "scope": "Independent authored hull, 13x32 sampled profile; native convex cooking, stiffness, load rating and contact dynamics require separate tests.",
+    "pass_geometry": true,
+    "results": [
+      {
+        "hand": -1,
+        "pass_geometry": true,
+        "max_adjacent_intersection_insphere_m": -0.005196245318033654,
+        "hub_min_radial_clearance_m": 0.005000000000009094,
+        "actual_width_m": 0.12013594477275794,
+        "max_radial_m": 0.14999999999999092,
+        "max_authored_support_drop_m": 0.00011231991953455922
+      },
+      {
+        "hand": 1,
+        "pass_geometry": true,
+        "max_adjacent_intersection_insphere_m": -0.005196245318034032,
+        "hub_min_radial_clearance_m": 0.005000000000009094,
+        "actual_width_m": 0.12013594477275794,
+        "max_radial_m": 0.14999999999999092,
+        "max_authored_support_drop_m": 0.00011231991953455922
+      }
+    ],
+    "config_sha256": "e53ecc88bf62cff696212d153d94648881406a9b3bf7c3550effcf72060562a1"
+  },
+  "web_export": {
+    "pass": true,
+    "rows": 440,
+    "columns": 160,
+    "scope": "Actual browser export of received Unreal telemetry; includes 48 roller N/omega/torque fields.",
+    "sha256": "ad8401ee8b04a7570428443034b7ac19fda1e6e3ee63e824f135173f98043ddf"
+  },
+  "sources": {
+    "path": "Docs/References/MecanumSources.json",
+    "sha256": "2132595ec49000974a74c01606a475dd5288462547e34036f3bab559f1215b42"
+  },
+  "physics_test_dll_sha256": "e6da42f6bcce22b93f40f9d51850858f7270cc82569796bdb3b8e8529c377bc1",
+  "current_dll_sha256": "e1cf5c559f97e58f082cb38a323391c8e6efbf7972ffd4804c2eb86b65838299",
+  "physics_test_revision_source_and_config_match_native_manifests": true,
+  "rendering_revision": {
+    "scope": "Only rendered end-cap triangle winding, massless RPM marks and HUD labels changed; collision hull vertices, masses, control and force code identical.",
+    "physics_unchanged": true,
+    "files": [
+      {
+        "source": "StabilityLab.cpp",
+        "unchanged_physics_region_sha256": "4d0069043d5abb5c636f75fcbb3f6e419db7533446d18e5c086baecd4dfc25e7",
+        "before_normalized_lf_sha256": "1c9002e15a51ed2ec3cc582c8d5ab2f13b3cbffcd9774a32f5e3b6b50124a4bf",
+        "after_normalized_lf_sha256": "807802ecb3032d3be232d31f4100e0496924b366e329d64beff7955c66b19e61",
+        "before_sha256": "653d6c9ab582a4173f9861e5fe5c0f95621f7842ec936da87da5dbe40316cfe9",
+        "after_sha256": "038db1208e8ad583cd3e282d58b4b54730ada67383739171a2031dfe6fb5180b"
+      },
+      {
+        "source": "WheelActor.cpp",
+        "unchanged_physics_region_sha256": "aa39b7262ad0517f5a30018ccc0955f4126583d5ed3b230bd8be4dc1a987ff36",
+        "before_normalized_lf_sha256": "19e05cf1a3acb4de675b7ecb452ab31447bff572db3bb372d0ea4718f56d6781",
+        "after_normalized_lf_sha256": "f400c8460c436219572622034bf7b1eeefa382ebca1444e8c69dd729c56d210d",
+        "before_sha256": "98fb98c855718924d3a72557988fa085a86363558af90794eabb451dc2e2c69a",
+        "after_sha256": "ba33ac871c78554c3397d6bba0031e439b32355995b8526b876b5679c8b744ae"
+      },
+      {
+        "source": "MecanumModel.cpp",
+        "unchanged_physics_region_sha256": "be96395c531680dd43a8d5a8667a83de25feabeb1b55b80a7b3383c7ee45195b",
+        "before_normalized_lf_sha256": "f80d379f31ea8a7acfacb0b86bd8843bd51da695e6d6f4b7a513be02062f82ba",
+        "after_normalized_lf_sha256": "f5adb2ad58dceb1f3807d38d391c5acf50b1dbac41376a4184184b47eed6aca2",
+        "before_sha256": "887f6aa1e12f3a623c6c5756728b60f33a48a0c47abfce37e96e10a863445932",
+        "after_sha256": "ef79308a5fe10b22c214f36dc707cfdbd105d68cbb85e28ba5ef3e8887b6b8c8"
+      }
+    ]
+  },
+  "actual_web": {
+    "pass": true,
+    "scope": "Actual Unreal source, physical rollers, contact-load closure, work accounting, passive pivot error; not real-wheel calibration.",
+    "world_id": "6E790DA74F1DE115A73813B1BC776A52",
+    "frames": 600,
+    "scenario": "mecanum_step",
+    "max_roller_omega_rad_s": 132.42738485166237,
+    "max_anchor_error_m": 0.00025596925346952465,
+    "max_contact_closure_n": 3.637978807091713e-12,
+    "max_bearing_loss_j": 31.10960375986048
+  },
+  "actual_component_web": {
+    "pass": true,
+    "frames": 600,
+    "scenario": "mecanum_step",
+    "world_id": "6E790DA74F1DE115A73813B1BC776A52",
+    "height_m": 0.4203675168208089,
+    "final_height_m": 0.4203675168208089,
+    "mass_kg": 3139.9999618530273,
+    "chain_tension_n": 6070.453782048286,
+    "chain_stretch_m": 0.006070523199991906,
+    "oil_temp_c": 39.70134780769505,
+    "pressure_pa": 6218137.62769341,
+    "deflection_m": [
+      0.003700772807853916,
+      0.0037072126994779583
+    ]
+  },
+  "actual_energy_web": {
+    "pass": true,
+    "scope": "Actual observer provenance, finite values, bending energy and accounting identity; not full energy closure.",
+    "full_closure": false,
+    "world_id": "6E790DA74F1DE115A73813B1BC776A52",
+    "frames": 600,
+    "referenced": 600,
+    "scenario": "mecanum_step",
+    "final": {
+      "reference_valid": true,
+      "full_closure": false,
+      "scope": "Stored energy + observed drive/steering work + hydraulic DC/heat + tyre/rolling loss; residual includes unmeasured contact, brake, bearing, structure/body loss and numerical error.",
+      "stored_delta_j": 3370.4970072435844,
+      "drive_work_j": 8252.474133739095,
+      "steering_joint_work_j": 0,
+      "rolling_work_j": -5008.506315201679,
+      "hydraulic_dc_j": 3323.6831008784316,
+      "hydraulic_heat_j": 906.043545754174,
+      "tyre_damping_j": 0,
+      "known_input_j": 11576.157234617527,
+      "roller_bearing_loss_j": 31.10960367753854,
+      "known_loss_j": 5945.659464633392,
+      "unresolved_j": -2260.0007627405503,
+      "positive_peak_j": 15.824012828764353
+    }
+  },
+  "final_render_smoke_pass": true,
+  "artifacts": [
+    {
+      "path": "Docs/MecanumWheel.png",
+      "sha256": "e3919ec9e2e997378bac71e78c8a04f34e15e9aec3c35e118244a77e134c0f42"
+    },
+    {
+      "path": "Docs/MecanumUnreal.png",
+      "sha256": "1bf31ea89e1078ccba2bf3a4b41dc92aff760b3ef50be1bf7f27fac219bfb550"
+    },
+    {
+      "path": "Docs/MecanumWeb.png",
+      "sha256": "65ffa5363ef3f9a6eea3c86f739b610219d3fd3f5a64ef947a18c3882c81bf06"
+    },
+    {
+      "path": "Docs/MecanumValidation.png",
+      "sha256": "cbde2b7d2531491d535be41c08937496446f5c4dba791f6c6ac6b7aa58270d12"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-ReleaseUnits.log",
+      "sha256": "7e7966a4d3205e85a85aeb4fa4367d333656e9529679ec99c404dc500f057017"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-RenderBuild.log",
+      "sha256": "ae4ab1b49103886beee8d60ec369b36a42cbfbe554470c56e67230fe41067a72"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-RenderSmoke.log",
+      "sha256": "bbbd12596f84dc3c6a0accc2d871dff42092378c261d72517f124394fbf3c57d"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-ReleaseWeb.txt",
+      "sha256": "66545ebaab2ada757a38e5e29b317634fb0288fb17ef5046af7ea7981f676eef"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-ReleaseComponentWeb.txt",
+      "sha256": "b14688dc5054913a15ec1298d11d58ec7a9e4e4563b2939beb5646340dcee4be"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-ReleaseEnergyWeb.txt",
+      "sha256": "705550852f7ca2a5ff64ae500bcd423b556903eddd3563d6d3fd3f8252a72d4d"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-WebExport.json",
+      "sha256": "b8ea19ed51569b39bc1c6bea1ae4d5eeff86c7be54e6cf7c6805cb21bb04a720"
+    },
+    {
+      "path": "Saved/Validation/Mecanum-FinalDiffCheck.txt",
+      "sha256": "ee707cb9b05fbf4765013a43ed35b54c3e1f8aa889d2cd5b89eee0b14114346e"
+    }
+  ],
+  "scope_note": "13/15 native cases qualify basic functionality only. Slope hold and full-module angular-momentum conservation explicitly fail. Final DLL differs only in proven render/HUD regions; its native render smoke passed. No full-physics or real-equipment accuracy claim."
+}

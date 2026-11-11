@@ -1,0 +1,62 @@
+[
+  {
+    "file": "HIT305AHD.html",
+    "url": "https://www.hit1994.com/en-US/p104-12-in-mecanum-wheel",
+    "final_url": "https://www.hit1994.com/en-US/p104-12-in-mecanum-wheel",
+    "sha256": "3a648e8f0e7be0eaa0240ca48adebb6f8dc6d5cf3a691ff318c1d547fdc4bf83",
+    "bytes": 21824,
+    "status": "downloaded",
+    "checked_date": "2026-10-29"
+  },
+  {
+    "file": "SKF-friction.html",
+    "url": "https://evolution.skf.com/using-a-friction-model-as-an-engineering-tool-3/",
+    "final_url": "https://evolution.skf.com/using-a-friction-model-as-an-engineering-tool-3/",
+    "sha256": "f7ecb023e40d14c687852f4918de0e87c1ba4d2e07b6046c82aeb2a631b3de44",
+    "bytes": 68740,
+    "status": "downloaded",
+    "checked_date": "2026-10-29"
+  },
+  {
+    "file": "Blickle-PU.html",
+    "url": "https://www.blickle.us/en-us/guide/polyurethane-wheels",
+    "status": "download_failed",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)>",
+    "checked_date": "2026-10-29"
+  },
+  {
+    "url": "https://www.hit1994.com/en-US/dp104",
+    "file": "HIT305AHD-dp104.pdf",
+    "status": "downloaded",
+    "sha256": "eb49e5a3548318ef52b53b6be1bc9182e7bd454dbe18e52c7fe2509987ed3dd0",
+    "bytes": 170674,
+    "content_type": "application",
+    "content_disposition": "attachment; filename=HIT-20261029085146.pdf",
+    "checked_date": "2026-10-29"
+  },
+  {
+    "url": "https://www.hit1994.com/en-US/dcp_2d7",
+    "file": "HIT305AHD-dcp_2d7.dwg",
+    "status": "downloaded",
+    "sha256": "67b82363fd3184d1e1aa542b8448457aed8375e484535c6978d068cdba038a3a",
+    "bytes": 710031,
+    "content_type": "application",
+    "content_disposition": "attachment; filename=HIT-2D-20261029085147.dwg",
+    "checked_date": "2026-10-29"
+  },
+  {
+    "url": "https://www.hit1994.com/en-US/dcp_3d8",
+    "file": "HIT305AHD-dcp_3d8.step",
+    "status": "downloaded",
+    "sha256": "1a29178cfd99805fccc6e9b89306c95ebc1b4f841a64908037ef18db5e2084d6",
+    "bytes": 2684916,
+    "content_type": "application",
+    "content_disposition": "attachment; filename=HIT-3D-20261029085149.step",
+    "checked_date": "2026-10-29"
+  },
+  {
+    "file": "HIT305AHD-dp104.pdf",
+    "inspection": "Rendered complete page with bundled PDFium and visually inspected. Drawing HIT305AHD-A shows diameter 304.90 mm and width 156.00 mm; web table rounds diameter to 305 mm. No speed/duty load qualification, inertia or material friction curve on this drawing.",
+    "inspection_date": "2026-10-29"
+  }
+]

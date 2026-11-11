@@ -94,7 +94,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\Scripts\Run.ps1 -Stability
 로그: `Saved/Logs/Stability-<scenario>-<fps>.log`의 `STABILITY_TEST ... PASS`,
 `DRIVE_CHECK`, `POWERED_MIN_SPEED`, `FRICTION_KEY` 항목입니다.
 CSV에는 입력, 바퀴별 토크·각속도·종/횡슬립, 실제 조향각, 내부 충돌 횟수도 저장합니다.
-일반 수동 실행은 `Start-StabilityLab.bat`이며 화면 상단 버전은 `0.3.1`입니다.
+현재 일반 수동 실행은 `Start.bat -Mode stability` → Play입니다. 이 문서의 `0.3.1` 수치는 당시 후륜 조향 모델의 검증 기록입니다.
 
 기본 정지·직진·공회전·제동·승강·급조향·저마찰 두 종류·전복 시험도 수정 후 60 FPS에서
 PASS입니다. 기존 0.3.0의 수치는 [StabilityValidation.md](StabilityValidation.md)에 역사 기록으로 남겼습니다.

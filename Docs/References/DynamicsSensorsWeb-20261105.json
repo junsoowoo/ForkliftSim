@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "actual_frames": 538,
+  "stale_frames": 31,
+  "recovery_frames": 7,
+  "csv_columns": 21,
+  "csv_rows": 2152,
+  "csv_sha256": "1f35d421ff964fa2d1541436f732b370f85f97d45c92020cc7dfb32ec996db1b",
+  "stream_sha256": "f6ee10088b13d9ba6a7d0d8d26bd57fa60732c6aef0b1a5ba9b21323bbcf161b",
+  "scope": "Actual Unreal receive stream and the UI shared CSV exporter; no truth fallback, no DOM click automation."
+}

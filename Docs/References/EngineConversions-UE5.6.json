@@ -1,0 +1,37 @@
+{
+  "engine_build": {
+    "MajorVersion": 5,
+    "MinorVersion": 6,
+    "PatchVersion": 1,
+    "Changelist": 44394996,
+    "CompatibleChangelist": 43139311,
+    "IsLicenseeVersion": 0,
+    "IsPromotedBuild": 1,
+    "BranchName": "++UE5+Release-5.6"
+  },
+  "installed_source_evidence": [
+    {
+      "relative_engine_path": "Source/Runtime/PhysicsCore/Private/ChaosConstraintSettings.cpp",
+      "sha256": "f121b04e51d66d13ec16521f3f0d7e8aa72d99fe8ee9db06d7b1e9004867c13c"
+    },
+    {
+      "relative_engine_path": "Source/Runtime/Engine/Private/PhysicsEngine/Experimental/PhysInterface_Chaos.cpp",
+      "sha256": "c686c7b555eee96b10263079410ec3a3348c27909580034a064e33a47e3c273c"
+    },
+    {
+      "relative_engine_path": "Source/Runtime/Experimental/Chaos/Public/Chaos/Evolution/IterationSettings.h",
+      "sha256": "c805410d7703f4e4e8cfe17ad299b81a2d47fb5de032214cd040ad6a08ba45a9"
+    },
+    {
+      "relative_engine_path": "Source/Runtime/Experimental/Chaos/Private/Chaos/Joint/PBDJointContainerSolver.cpp",
+      "sha256": "69751848ff3ea6b1974db62703c7fe0aabd2ed86eefa49a1f4d5ded8ef99fa1f"
+    }
+  ],
+  "source_default_angular_stiffness_scale": 1.5,
+  "source_default_angular_damping_scale": 1.5,
+  "source_default_linear_stiffness_scale": 1.0,
+  "source_default_linear_damping_scale": 1.0,
+  "position_iteration_storage": "signed int8",
+  "maximum_iteration_setting": 127,
+  "mapping": "AngularSpring supplies K*10000/ConstraintSettings::AngularDriveStiffnessScale and C*10000/AngularDriveDampingScale. No global CVar override; tuned servo gains are separate."
+}

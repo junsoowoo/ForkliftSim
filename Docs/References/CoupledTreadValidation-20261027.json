@@ -1,0 +1,280 @@
+{
+  "rotations": [
+    {
+      "height_m": 0.14,
+      "relative_spread": 0.020778721169948625,
+      "pass": true
+    },
+    {
+      "height_m": 0.145,
+      "relative_spread": 0.02870876101391653,
+      "pass": true
+    }
+  ],
+  "fine_reference": "Saved/Validation/CoupledTread-FineOracle.jsonl",
+  "native_report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\CoupledTread-20261027-010637-910\\results.json",
+  "points": [
+    {
+      "height_m": 0.14,
+      "phase_fraction": 0,
+      "native_pass": true,
+      "normal_n": 9163.31657,
+      "energy64_n": 9215.599330436464,
+      "energy128_n": 9041.21009357934,
+      "solver_error": 0.005673289230770823,
+      "space_refinement_error": 0.018923265932489785,
+      "combined_error": 0.013505545735230124,
+      "pass": true
+    },
+    {
+      "height_m": 0.14,
+      "phase_fraction": 0.5,
+      "native_pass": true,
+      "normal_n": 8972.91457,
+      "energy64_n": 9191.75593731818,
+      "energy128_n": 9018.094846159891,
+      "solver_error": 0.023808439737797255,
+      "space_refinement_error": 0.0188931355817697,
+      "combined_error": 0.005009957971237105,
+      "pass": true
+    },
+    {
+      "height_m": 0.145,
+      "phase_fraction": 0,
+      "native_pass": false,
+      "normal_n": 3750.72752,
+      "energy64_n": 3889.2872862930526,
+      "energy128_n": 3767.58149780695,
+      "solver_error": 0.03562600448194618,
+      "space_refinement_error": 0.03129256841350553,
+      "combined_error": 0.004473420897931587,
+      "pass": false
+    },
+    {
+      "height_m": 0.145,
+      "phase_fraction": 0.5,
+      "native_pass": false,
+      "normal_n": 3643.04878,
+      "energy64_n": 3903.136189480375,
+      "energy128_n": 3741.509661105926,
+      "solver_error": 0.06663549434461329,
+      "space_refinement_error": 0.04140940016647648,
+      "combined_error": 0.02631581634799859,
+      "pass": false
+    }
+  ],
+  "fine_sha256": "9AC530B99A190A637590A8B7834D75AE72F5C8EE04E39191C68D742C41713098",
+  "scope": "Fixed hub, flat frictionless plane, 5/10 mm indentation, two phases; not real-rubber calibration or full operating-envelope qualification.",
+  "native_sha256": "F441CF97E593FAE03CB7F389B74904F88039926EDAD1BE7E0A1B4867EACBF091",
+  "model": "cohesive-ring-v1",
+  "complete": true,
+  "recorded_date": "2026-10-27",
+  "qualification_pass": false,
+  "static_cases": [
+    {
+      "count": 64,
+      "height_m": 0.14,
+      "phase_fraction": 0,
+      "fps": 60,
+      "pass": true,
+      "normal_n": 9163.31657,
+      "oracle": {
+        "count": 64,
+        "height_m": 0.14,
+        "phase_fraction": 0.0,
+        "normal_n": 9215.599330436464,
+        "compression_m": 0.009999999999999983,
+        "rotation_rad": 0.11999971690398593,
+        "energy_j": 41.054585223156955,
+        "minimum_gap_m": -1.3877787807814457e-17,
+        "success": true,
+        "equilibrium_residual_n": 0.0008307023276821583,
+        "iterations": 127
+      },
+      "result": "[2026.10.26-16.07.58:127][720]LogTemp: Display: TREAD_REFERENCE count=64 height_m=0.14000 phase_fraction=0.00000 coupled=1 probe=0 neighbor_response_m=0.00000000 normal_n=9163.31657 analytic_n=9215.59933 continuum_n=0.00000 force_error=0.0056733 continuum_error=0.0000000 input_work_j=1.3333333 excess_gain_j=0.0000000 final_delta_j=0.0000006 max_compression_m=0.0099426 shear_m=0.0018877 rotation_rad=0.1338225 link_j=6.1537243 PASS",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\CoupledTread-20261027-010637-910\\ring-64-0.14000000000000001-0.log"
+    },
+    {
+      "count": 64,
+      "height_m": 0.14,
+      "phase_fraction": 0.5,
+      "fps": 60,
+      "pass": true,
+      "normal_n": 8972.91457,
+      "oracle": {
+        "count": 64,
+        "height_m": 0.14,
+        "phase_fraction": 0.5,
+        "normal_n": 9191.75593731818,
+        "compression_m": 0.009846477379424456,
+        "rotation_rad": 0.12101540596636527,
+        "energy_j": 41.19704135716217,
+        "minimum_gap_m": -6.938893903907228e-18,
+        "success": true,
+        "equilibrium_residual_n": 0.001115144631975845,
+        "iterations": 132
+      },
+      "result": "[2026.10.26-16.09.19:747][720]LogTemp: Display: TREAD_REFERENCE count=64 height_m=0.14000 phase_fraction=0.50000 coupled=1 probe=0 neighbor_response_m=0.00000000 normal_n=8972.91457 analytic_n=9191.75594 continuum_n=0.00000 force_error=0.0238084 continuum_error=0.0000000 input_work_j=1.3333333 excess_gain_j=0.0000000 final_delta_j=0.0000128 max_compression_m=0.0097794 shear_m=0.0018924 rotation_rad=0.1366898 link_j=6.5507882 PASS",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\CoupledTread-20261027-010637-910\\ring-64-0.14000000000000001-0.5.log"
+    },
+    {
+      "count": 64,
+      "height_m": 0.145,
+      "phase_fraction": 0,
+      "fps": 60,
+      "pass": false,
+      "normal_n": 3750.72752,
+      "oracle": {
+        "count": 64,
+        "height_m": 0.145,
+        "phase_fraction": 0.0,
+        "normal_n": 3889.2872862930526,
+        "compression_m": 0.004999999999999998,
+        "rotation_rad": 0.05564526211501568,
+        "energy_j": 8.989083689193171,
+        "minimum_gap_m": -1.0408340855860843e-17,
+        "success": true,
+        "equilibrium_residual_n": 0.0010605238438370324,
+        "iterations": 109
+      },
+      "result": "[2026.10.26-16.10.44:706][720]LogTemp: Display: TREAD_REFERENCE count=64 height_m=0.14500 phase_fraction=0.00000 coupled=1 probe=0 neighbor_response_m=0.00000000 normal_n=3750.72752 analytic_n=3889.28729 continuum_n=0.00000 force_error=0.0356260 continuum_error=0.0000000 input_work_j=1.3333333 excess_gain_j=0.0000000 final_delta_j=0.0000003 max_compression_m=0.0049443 shear_m=0.0007504 rotation_rad=0.0615722 link_j=1.9012666 FAIL",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\CoupledTread-20261027-010637-910\\ring-64-0.14499999999999999-0.log"
+    },
+    {
+      "count": 64,
+      "height_m": 0.145,
+      "phase_fraction": 0.5,
+      "fps": 60,
+      "pass": false,
+      "normal_n": 3643.04878,
+      "oracle": {
+        "count": 64,
+        "height_m": 0.145,
+        "phase_fraction": 0.5,
+        "normal_n": 3903.136189480375,
+        "compression_m": 0.004891988341623004,
+        "rotation_rad": 0.05634265732946916,
+        "energy_j": 9.054961052689235,
+        "minimum_gap_m": -3.469446951953614e-18,
+        "success": true,
+        "equilibrium_residual_n": 0.0006860421295403453,
+        "iterations": 113
+      },
+      "result": "[2026.10.26-16.12.12:101][720]LogTemp: Display: TREAD_REFERENCE count=64 height_m=0.14500 phase_fraction=0.50000 coupled=1 probe=0 neighbor_response_m=0.00000000 normal_n=3643.04878 analytic_n=3903.13619 continuum_n=0.00000 force_error=0.0666355 continuum_error=0.0000000 input_work_j=1.3333333 excess_gain_j=0.0000000 final_delta_j=0.0000017 max_compression_m=0.0048450 shear_m=0.0007310 rotation_rad=0.0624490 link_j=2.0771685 FAIL",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\CoupledTread-20261027-010637-910\\ring-64-0.14499999999999999-0.5.log"
+    }
+  ],
+  "propagation": [
+    {
+      "count": 64,
+      "height_m": 0.14,
+      "phase_fraction": 0,
+      "fps": 60,
+      "pass": true,
+      "normal_n": 9163.31658,
+      "oracle": {
+        "count": 64,
+        "height_m": 0.14,
+        "phase_fraction": 0.0,
+        "normal_n": 9215.599330436464,
+        "compression_m": 0.009999999999999983,
+        "rotation_rad": 0.11999971690398593,
+        "energy_j": 41.054585223156955,
+        "minimum_gap_m": -1.3877787807814457e-17,
+        "success": true,
+        "equilibrium_residual_n": 0.0008307023276821583,
+        "iterations": 127
+      },
+      "result": "[2026.10.26-16.18.36:531][720]LogTemp: Display: TREAD_REFERENCE count=64 height_m=0.14000 phase_fraction=0.00000 coupled=1 probe=1 neighbor_response_m=0.00060094 normal_n=9163.31658 analytic_n=9215.59933 continuum_n=0.00000 force_error=0.0056733 continuum_error=0.0000000 input_work_j=0.4489206 excess_gain_j=0.0000000 final_delta_j=0.0000017 max_compression_m=0.0099426 shear_m=0.0018877 rotation_rad=0.1338225 link_j=6.1537256 PASS",
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\CoupledTread-20261027-011707-917\\ring-64-0.14000000000000001-0.log"
+    }
+  ],
+  "loaded_halfstep": [
+    {
+      "case": "halfstep",
+      "fps": 60,
+      "pass": false,
+      "result": [
+        "[2026.10.26-16.21.15:102][920]LogTemp: Display: TREAD_CHECK swerve_components_halfstep count=64 static_s=12.0167 mean_compression_m=0.0095002 spread_m=0.0291326 closure_n=0.00000000 coast_start_mps=0.000000 coast_delta_j=0.000000 coast_peak_j=0.000000",
+        "[2026.10.26-16.21.15:102][920]LogTemp: Display: CONTACT_CHECK swerve_components_halfstep edge_refinements=0 peak_points=46 band_closure_ns=0.000000000 point_vs_pair_peak_n=0.00070 peak_normal_n=21789.719 peak_compression_mm=24.702 x_m=9.1207 max_tilt_deg=1.1530",
+        "[2026.10.26-16.21.15:102][920]LogTemp: Display: COMPONENT_CHECK swerve_components_halfstep mass_kg=3140.000 fork_m=0.43832 pallet_m=0.33154 mast_m=0.22223 chain_error_m=0.006143 tension_n=6092.157 oil_c=39.6911 pump_pa=6200592.39 cylinder_pa=6203321.56 line_peak_pa=6990240.25 deflection_mm=2.64024/2.66428 hold_s=0.000 drift_m=0.000000 FAIL"
+      ],
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Components-20261027-010709-919\\halfstep-60.log"
+    }
+  ],
+  "baseline_carry": [
+    {
+      "case": "carry",
+      "fps": 60,
+      "pass": true,
+      "result": [
+        "[2026.10.26-16.24.43:824][920]LogTemp: Display: CONTACT_CHECK swerve_components_carry edge_refinements=0 peak_points=4 band_closure_ns=0.000000000 point_vs_pair_peak_n=0.00134 peak_normal_n=16270.254 peak_compression_mm=17.366 x_m=4.7502 max_tilt_deg=0.4468",
+        "[2026.10.26-16.24.43:824][920]LogTemp: Display: COMPONENT_CHECK swerve_components_carry mass_kg=3140.000 fork_m=0.43819 pallet_m=0.31638 mast_m=0.22213 chain_error_m=0.006062 tension_n=6062.418 oil_c=39.6896 pump_pa=6209592.69 cylinder_pa=6209582.67 line_peak_pa=7000923.92 deflection_mm=2.69616/2.72801 hold_s=0.000 drift_m=0.000000 PASS"
+      ],
+      "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Components-20261027-012409-812\\carry-60.log"
+    }
+  ],
+  "manifest": {
+    "configs": [
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Drivetrain.json",
+        "Hash": "EA1FF21E8F3FDC305AA68E5EB6302FD9FD4B830C17356FED3C1D1C0D6AEAE907"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkliftLab.json",
+        "Hash": "EE9979A6BC61948737215223B98756588F58B559C2D5124B38631E4B8A0EE837"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkStructure.json",
+        "Hash": "7B348A4629FC4F591304DDFF5464CDA9060324686688A0C94EBF53C5AF033601"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Hydraulics.json",
+        "Hash": "95CA490D12D7FEC3A32000DCA4E3F7FE4D71A76AE76BEA5FEFE3B2CA184B7A31"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Payload.json",
+        "Hash": "5E0596CD9C28A6B0F9D548ED47069D070EBAC0C47842DE646D665CF94647618B"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PhysicsReference.json",
+        "Hash": "B8CB64D93A61986EB862A69C452F4BAF964540804F2A3C0AC05A6A07A0EAE7AC"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RealComponents.json",
+        "Hash": "5A488DDFAD2D52051BD5F74E405089381C148AB3DEA66EAB14EA2AFAE8055AAE"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Tyres.json",
+        "Hash": "9291028B1B4D1334D6EE0EC3AF7C8CC9CAE637A572367047B77D536CB16E5524"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Vehicle3D.json",
+        "Hash": "BB376391EC3868C70AD9CBD8822A87ACB33428B7CC7CA49A71B1BFB540EBA61A"
+      },
+      {
+        "Path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WheelLab.json",
+        "Hash": "679BE15650B66154A087F53CA228CBCC5512A95802DCB43928D601AF4F6A599E"
+      }
+    ],
+    "dll_sha256": "B24E490CEBF0E937F082B49B03F96A1C65ADCF04B3A2150C357C4ADB73D3DB6E",
+    "heights_m": [
+      0.14,
+      0.145
+    ],
+    "fps": 60,
+    "phase_fractions": [
+      0,
+      0.5
+    ],
+    "oracle_sha256": "0BCB85802A00F40F25F9FAA9C3F290E1DDCD6D6DD102502A52295270392CD144",
+    "probe": false,
+    "model": "cohesive-ring-v1",
+    "schema": 1,
+    "counts": [
+      64
+    ]
+  },
+  "dll_matches_current": true,
+  "batch": "1+2 implementation and retest; not full qualification. 3+4 numerical/material calibration and 5 device detail remain."
+}

@@ -1,0 +1,23 @@
+{
+  "profile": "eks215a-2019-reference-mecanum-prototype",
+  "source": "Jungheinrich EKS 215a 01/2019 drawing, not a replica. Four mecanum wheels, their track and component mass distribution remain custom engineering choices.",
+  "source_url": "https://www.logisnextamericas.com/globalassets/migration-blocks/jungheinrich/product-listing/walkie-stackers/eks-215a/eks_215a_spec_sheet-english.pdf",
+  "headlength_m": 1.405,
+  "overall_width_m": 0.985,
+  "fork_length_m": 1.2,
+  "fork_width_m": 0.12,
+  "fork_thickness_m": 0.05,
+  "carriage_width_m": 0.88,
+  "lowered_mast_height_m": 2.475,
+  "fork_travel_m": 2.1,
+  "stroke_source": "Custom 2.1 m carriage travel for two-tier handling, not EKS rated mast reproduction. 2:1 mast stage travels 1.05 m; roof clearance must be verified.",
+  "wheelbase_m": 0.938,
+  "custom_mecanum_track_m": 0.7,
+  "body_mesh": "/Game/ForkliftModel/SM_AGVBody.SM_AGVBody",
+  "fixed_mast_mesh": "/Game/ForkliftModel/SM_FixedMast.SM_FixedMast",
+  "moving_mast_mesh": "/Game/ForkliftModel/SM_MovingMast.SM_MovingMast",
+  "carriage_mesh": "/Game/ForkliftModel/SM_Carriage.SM_Carriage",
+  "fork_segment_mesh": "/Game/ForkliftModel/SM_ForkSegment.SM_ForkSegment",
+  "warehouse_map": "/Game/Maps/WarehouseLab",
+  "warehouse_source": "ScansMatter Warehouse Environment, owned Fab library asset. Local use; original licensed assets excluded from public source uploads."
+}

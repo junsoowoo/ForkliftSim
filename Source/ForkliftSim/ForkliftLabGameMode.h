@@ -11,6 +11,7 @@ class FORKLIFTSIM_API AForkliftLabGameMode : public AGameModeBase
     GENERATED_BODY()
 public:
     AForkliftLabGameMode();
+    virtual void InitGame(const FString& MapName,const FString& Options,FString& ErrorMessage) override;
     virtual void BeginPlay() override;
 };
 

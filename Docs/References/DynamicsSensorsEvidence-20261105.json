@@ -1,0 +1,584 @@
+{
+  "date": "2026-11-05",
+  "dll_sha256": "43e5f468c44375d079ae3942681430e9f1e8861f316f18bf44e46e0fd3d0b611",
+  "unit_tests": {
+    "passed": 48,
+    "failed": 0,
+    "pending": 0
+  },
+  "native_conditions": 9,
+  "native_manifest_paths": [
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-003414-263-a9390e6f\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-003923-369-f4cc4ea4\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-004010-863-9240f8c1\\manifest.json",
+    "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-004051-657-81c140c5\\manifest.json"
+  ],
+  "web_actual_frames": 538,
+  "web_csv_columns": 21,
+  "web_csv_rows": 2152,
+  "camera_gpu_regression_pass": true,
+  "previous_build_physics_comparisons": 3,
+  "scope": "Read-only virtual dynamics sensors; configuration assumptions; no automatic control or hardware/safety qualification. Native manifests match all current source/config files and DLL. No new FPS qualification.",
+  "files": [
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\DynamicsSensorsValidation-20261105.json",
+      "sha256": "f112b0c7ea2314e0d2c6454370af701a199e4912989008f035430a7daa1e7cb4"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\DynamicsSensorsWeb-20261105.json",
+      "sha256": "d87b1e8fd8eacd14ff2233502fa6782fdbbf3c531f0de99ae855d5f5b5bba13a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\References\\DynamicsSensorsPhysicsParity-20261105.json",
+      "sha256": "431bb4d606856b5985c2d1b8ca39713420badbb9a58b53c410b94be5a4a1fbae"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\DynamicsSensors-Unit\\index.json",
+      "sha256": "daea24dda0ba6ce5dbc3bf0f4811a94698a6c8426ff95f8b9283ef73c93705d2"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Cameras-20261105-004304\\cameras.json",
+      "sha256": "75578ed500aad87a5fa05c47d9577b5727479edb1ca4a8c12408406ff45eb481"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Docs\\DynamicsSensors.md",
+      "sha256": "59948f2d35f27251eefcb898926e42c4c4a89959fda9bcb1c357fd1e3a23b964"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\validate_dynamics_sensors.py",
+      "sha256": "0a8109f7b50d862ac69052e5f8a0f01abd2bb56ac0f92ef5b6302da841162d45"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\Test-DynamicsSensors.ps1",
+      "sha256": "5a9418a1e2a523341278cead5c8101974aeb63736ff119a97b6d7639c3f30b3d"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Scripts\\Test-Mecanum.ps1",
+      "sha256": "a0d3689c55ed3410b8a7a36a27b478f839452f065fcb17751fd7055efd3e50ca"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\build.mjs",
+      "sha256": "d582cc99c7474d11c1a9117f93135b492065a81674c32f97851931fe814d424e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\verify-dynamics-sensors-live.mjs",
+      "sha256": "1ea08e3fb1861d868d1fc4ed20b998dbd3cd68bc9a58a9dcb14fefafdb94b662"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dynamics-sensors-test.mjs",
+      "sha256": "57d976804c70b655bd00dde887409fd72933416d9d853a5eaa4e87b505e79148"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\dynamics-sensors.mjs",
+      "sha256": "e867dae7e7c8a0593cafd4a9d9a771d1a378310b6cc60052066ad82920c7d27a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\live.mjs",
+      "sha256": "d82a4a32f41add75062def1186629f95efd1e28f556fbdeee37644b911a3d6a5"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\live.html",
+      "sha256": "5c71c4b63b93449f16105dc0f80c2cbe61c6e358cb49bfdd343bd586b90a4722"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\index.html",
+      "sha256": "5c71c4b63b93449f16105dc0f80c2cbe61c6e358cb49bfdd343bd586b90a4722"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\styles.css",
+      "sha256": "0df43272da87b8fb3abc3138b43603f95262a4201adb5f42a2b78051b4e28b44"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Web\\PhysicsLab\\dist\\data.mjs",
+      "sha256": "a518274bf834aaacd32844e84e2e7c4d4b4eec62bb353b7aaf3d4a9f8dceda23"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CameraMounts.h",
+      "sha256": "59d29ba7fabbeaaff2ba7aace6aa8e440ee1755c1ab2ad36bbd72bb0e48262da"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CameraSensors.cpp",
+      "sha256": "8aee030d5c71255670d8192f2c07fc1eeb6b602563b70b08649db136dbc95061"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CameraSensors.h",
+      "sha256": "8c7dda4c4ffad6cb47de6d52c4cb8117d72b1f2889efcf56dd77c7035f604e9e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CameraSensorTests.cpp",
+      "sha256": "e478c15c5e746f19ae8cf5ae66aad3fbfb127b99e46bb4c4097c1f37d04a4421"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CameraViews.cpp",
+      "sha256": "fd3304a3010bc0873863bb44258a8bf11afabfdbbba491120c2fbab03074be34"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoContactData.h",
+      "sha256": "1234dd0c6055e57cee262e519acd4026f60ae334e70de2541932293936e60f6a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoGeometry.h",
+      "sha256": "6bf5f2ebc97a269ac789bd7d112ba89f6edadebcac48bb70ea116e9cffc03eb2"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\CargoLab.cpp",
+      "sha256": "658677667c87caccde2dddf3d34e13261bbbf747865710c3244be164136843a4"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChainConstitutive.h",
+      "sha256": "f1a88e2b779495597445b250dae12721696084eba551e687c41adaa6375405be"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.cpp",
+      "sha256": "8fbb56d26645c22d19867c52dd1e2d30346e5b9b3278720fbdbf987c83caaa80"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ChassisActor.h",
+      "sha256": "95bc6527bb6d197b0bf184708d2b67d324dd354483b4fd532d717a8964210c5a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.cpp",
+      "sha256": "06da55fe00820615d0ece52a6482779b634ebc20111af0479431f7bfa06f6527"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentDetail.h",
+      "sha256": "d330e7cfd6805501dd946ad68023c421d9a1b22f19f7398e106b368853295643"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentLab.cpp",
+      "sha256": "99df544bde16a1f35f8b0720bcd4e0161b5be4cf03eb9d247765563c7d45114f"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ComponentTests.cpp",
+      "sha256": "fdf40c3f39e8dbdc2abfb492aac423603c65626beeed607198010e723bdfef3a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactEnergyAudit.cpp",
+      "sha256": "266ca93b59fa7f66f51753d10860edb6162585dbb507b8ad42e9cc22f094af07"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.cpp",
+      "sha256": "0ff33a63ba6c77896a796f98e3ef5620a1c734df22a4ea7e09b273c3ef6fabce"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ContactLoadSampler.h",
+      "sha256": "eada554e10ab5f9f98fb8fd88a1f23e5b5a85ad40348b18bc8bd07cd35fe3d4e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainLab.cpp",
+      "sha256": "ce5ba2301ccce39558e31294e48f121b5e7afb7da402eae2824d47e0d143df79"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainModel.h",
+      "sha256": "79ab032e14e561818f4ce4e30e79b8f631025e444490fe8e729d394631e7b6f0"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainSettings.cpp",
+      "sha256": "f01c6c259e0630fa33645394ad6e59a91c1274b4a127fba4161c677d642a13f4"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DrivetrainTests.cpp",
+      "sha256": "862fbb6b80c33165e31c246378ddc205539efebb043874e8ba45ec38e93dd3ef"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DynamicsSensors.cpp",
+      "sha256": "a142ddf4bd90fa286703cc2e114330b1be8811a920d786c71a8f1c16606500b0"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DynamicsSensors.h",
+      "sha256": "61e8dabfae891c4ec74e6c03dab707eec99576a447704e9fa7b7df942ea6e96b"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\DynamicsSensorTests.cpp",
+      "sha256": "31f7d621ac21ffd53c201db83a2c3ac8d4be215451944a322d1eb62758e890c5"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\EnergyAudit.cpp",
+      "sha256": "d052d0f9ead5f8cc49640b7b9f85faa91f2081a63cb3720bbff44e8f7ff18364"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.cpp",
+      "sha256": "a70037e167e39c5b94c674f721a4f8020394a42b3c7008e2cd8aee9ffadbf7df"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkActor.h",
+      "sha256": "fd8e9660169e3cde3f3e73470be7904189f4a5e205b3922c1fe0e52ac1812bc8"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.cpp",
+      "sha256": "ef0a96342fc32bae965930add3cfbc8ad7db0f04905e2bbf6679838ff74e9c7f"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftLabGameMode.h",
+      "sha256": "59475bd4625b834c6e1d0c6dde3219317744bb9d82fe72a0072e823677a6327e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.Build.cs",
+      "sha256": "3372f6d7306def67f86eda2dd37092d1a9331c7663d8cdd4956ff3b9803e45dc"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ForkliftSim.cpp",
+      "sha256": "d5c403c86ef482ea16887978c7df9f08d5e572c9174ef47ab6221fe068ff76f5"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.cpp",
+      "sha256": "06a1533a30684deff45c3f618de5ae024f4d65f024b87d23df5b6d949f401c39"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicCallback.h",
+      "sha256": "1eb0c5aaa5881c6af16cc7245e0324ee513248915f5547e8f6289f946ba0c71f"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicDetail.cpp",
+      "sha256": "a84c255c0d9ab09ab9223f3d14f9c8410d80704da008e90b488c597bfb08eb31"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLab.cpp",
+      "sha256": "d4d51d741566ed491942e4a9dc16849bbd6fb1aedf09ee54743cb7ee0b064211"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.cpp",
+      "sha256": "6a61633615f1d304d87df743b5aff8d28c5a79ea11531359de94501576dab64d"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicLift.h",
+      "sha256": "80a69ca1289f3e678ad39b7a4638f66bf05b4e3e01e83073d001164f517570f5"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\HydraulicTests.cpp",
+      "sha256": "55e19a4d5f0c877815b1eaff8ea0aa6500f830ec0bf02f445f4a6b4ed41cd3eb"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\JointSensors.cpp",
+      "sha256": "38ca6141b4ee0f644400d879e3b88cb085d2ee012c0d6051333be1f4b23319af"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\JointSensors.h",
+      "sha256": "838e4ed04107dda8cef33570a0944502c1d6ac976dcf8fc82d7d6ccb96b5bcc9"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\JointSensorSampling.cpp",
+      "sha256": "4c7f3a3fcf961ac65bc59e764a79153c29adce69e93b8b279328e6c92a984b41"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\JointSensorTests.cpp",
+      "sha256": "31ee91011eaf291d7dbb06f47433e7b4a8d5f47e1681c626f709c65707316626"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.cpp",
+      "sha256": "a9c6d92f185281e08fbb321e3dabb696852d9c72dcbce3909dcdb4efbd0fcbdd"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftBench.h",
+      "sha256": "0173bd86c2f1cbdc9fbb55c98d316c2d3ba36ba6e8df67528e9529384c0ecc31"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.cpp",
+      "sha256": "99cb22fd7ef0f66e646760af00e79669ceea041b6e1f820c15999750f3930537"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModel.h",
+      "sha256": "1a59b2412f34ee445f1a03d1ab10cb525e1ab8df45c4bfef7141deb56e228a76"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\LiftModelTests.cpp",
+      "sha256": "7066b6aa29d79e2e673ddd15e55e01b7445dae963b9b60913edc4e7f11bbeb42"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\MecanumLab.cpp",
+      "sha256": "d56065cafcd86ad7f870e622ef21d2ca5e59d922f43fe0ae1a48ee5f5fc679ee"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\MecanumModel.cpp",
+      "sha256": "6d08be4272e271f785da3f54f554360a2f70268f43179d9b165dddc8ccb88f8a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\MecanumModel.h",
+      "sha256": "5695b0f31bf95d51e99963ec038812c320ed84f0cedfb7d60d4ec49df3913c14"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\MecanumTests.cpp",
+      "sha256": "f80d0896d068cdae5ffa84a379143e4dbbb0d2218f22ecceee405b374a1c109c"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Modeling.cpp",
+      "sha256": "f2cb936aff56bc876189a599a9d3c00ecbe25d4df1cf86ddb31414446036557e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Modeling.h",
+      "sha256": "15abf96755d33b1da676e66043290a8430e9ea1dbcfc7b2b149dec81ae354fd2"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.cpp",
+      "sha256": "b0d04fa77154cb80acb1af3366c84e75b575c73d62d5a8d6c989a6bec0d159c2"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PalletLoadActor.h",
+      "sha256": "8c8e77c5e2d15e8e2b98c18e500db1e44b9f4e74c50f192191b445e46fa90948"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadLab.cpp",
+      "sha256": "eaaa0ff11c01acb90d6fe30c7f3603d71ed219df9d44186407dd8dddbf710379"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PayloadTests.cpp",
+      "sha256": "89aa46e875c80c01c00af2f8b9b7130e5ee7f4270d719bfdc4f0c82b81ace342"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PerformanceReport.cpp",
+      "sha256": "43dbf87ac25e32eaaf2b3e3de0771711985c03c4510db49f19f73aad6ab12a5a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\PhysicsReferenceTests.cpp",
+      "sha256": "4729ad8737bddd7397bfb188d63df51da919f944b31b337440998ef72dfa864a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RackHandling.cpp",
+      "sha256": "0bf1e75c0c513f94d9cc9ef6d519994d02889762ff7f7f808530ec4d407ef931"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RackHandling.h",
+      "sha256": "f0f2fc74b5ed5fa0746f5ba75e014dae670c6922a8aae7fd625d8da5643ccf46"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ReducedMecanum.cpp",
+      "sha256": "30ded706055b4cbb39ba4fcc30489f2ec58414009d2166b75c61a45dc27bf41b"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ReducedMecanum.h",
+      "sha256": "34634c93affe4d694da0fc37d27b8ea120612a1147f45e52b80b4d341398312b"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RigidSpin.h",
+      "sha256": "9d3234df33cfa719e12da0d5d85ea4f0580f2b29ffa378fbae73a0e4fede7c0b"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.cpp",
+      "sha256": "cf6b83c9203ca3f1d840243547f5285d035176aa8098a1c9b899a995f0001c79"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\RollingReference.h",
+      "sha256": "635b24c94e0412d79962174adc79b220a95acfef7342a765797a6f2cb6db5794"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.cpp",
+      "sha256": "a57ad3d2496eba18100fa6e08efc270c94d73cb063c9b3b86dc9a0b25e965475"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\StabilityLab.h",
+      "sha256": "545547c173e4acc4c93fb7400d16b7143295f4bd3eaab7afe6a76b0fe82e3d1d"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveKinematics.h",
+      "sha256": "55b59c6b0bc0e1ec939479b4cc4ac8164c16bc0db850c1be31b586770cc228f3"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\SwerveTests.cpp",
+      "sha256": "08afd51376197abb3b1e3f3e100b6e0e8fc2593b56622968610a2c773e266a77"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.cpp",
+      "sha256": "682dab2e34df2bf3381172d2bf5aad4506a13a219ee9be1932bf377e7d4e3357"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TerrainCourse.h",
+      "sha256": "d99064b37818a474f62be375bb7e31b866e93975a3680d729a863173fcd37ebb"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.cpp",
+      "sha256": "d755bb2a1136753fa986a2b47e9a601d6118a5f113ddfa98549be60308232cd0"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadModel.h",
+      "sha256": "e93c8c21a6fdee0fc9e282e403dcc751be839cc34e1a190f6038c2896fe428a9"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.cpp",
+      "sha256": "7baf50066304276325c8df5053210b77f091718784c42eadecea1982c18fc40e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadReference.h",
+      "sha256": "c8b2ec4041fc771673b537b35895ac42de56976e309571d72b98eb7eae662ba4"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TreadTests.cpp",
+      "sha256": "be162d014b2b9c08810fc09b3337b482cf251aeb9c7ea899f742d256726ed8fb"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreCompliance.h",
+      "sha256": "c08a41ecc3bc315ef508db3e46193accb1f32db4fa37cdebca21e81154822152"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreLab.cpp",
+      "sha256": "68bce1359697ea4e8040316ca4b95696b9f181008cf70bb0f0724470cd3f4cc4"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreSettings.cpp",
+      "sha256": "7b8efe9d562ee4acb7bb22c9444f04e42f5143f5a215f3b481d80daa04a61271"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\TyreTests.cpp",
+      "sha256": "b8af96433d7fd9bcb406dcca07cf6a40b7e38ec691d9eefbc85ef8049c35a1a0"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationLab.cpp",
+      "sha256": "b1b265b45c0e71f81562a87b9bb29c9cd3a506c54e0fb2e60cd2aa72349e0ed5"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\ValidationMath.h",
+      "sha256": "7a21953419de3f40d9d9c5d49bd2800d56a229b23b44ee2ad72986ad15fdb648"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DHelpers.h",
+      "sha256": "195d84905d50d0275e44b2362b2b3abdc06f48ddc0318d543a41f3a6f022010a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.cpp",
+      "sha256": "73dbe76d7bb34e19659206b609b4d59a85cd8052bfe9ca21df2ed832a7a294c3"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\Vehicle3DSettings.h",
+      "sha256": "3b96d46e9c5094af87261f1f90ff6182fd669a7c2b3b0b7aa4b94729e876730d"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.cpp",
+      "sha256": "a846853203a43f5947dc66c32277c7bba147b0a30878767054d94978d81dd795"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WebTelemetry.h",
+      "sha256": "3e3f57b424919c43e2a62fb66c59ea2ce1814e86f6abfe014b15293588551faf"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.cpp",
+      "sha256": "dea41f765bd241b051441b52805993d0a814a2b366b9ffa35e7706a926f395fa"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelActor.h",
+      "sha256": "d89d7022b340affaf99e7b4122f61e8b69b16fabe4f775d1f55170a9d35af9ae"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactData.h",
+      "sha256": "f24c699b4cc1bd22de360e3bbb8c7354041ca5956818ec45ba94ae7fb036d5ea"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactGeometry.h",
+      "sha256": "c9d6e0bb21031e378a118255b8a86d4fcbb6293df5c8ec1ae643f4d617fa41ab"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelContactTests.cpp",
+      "sha256": "e0461f6d2f837255e1257e674e20a59c670a779a7ed065e17f9463d5a85917c9"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.cpp",
+      "sha256": "ec907f4a80a81afb5c1f830943654a650c5092ca250e9241f70870cd3fc85efc"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelLab.h",
+      "sha256": "ce77b85bd904f62221c16f526ded18dcfc0b2b86702074fef0b2907a871cb441"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.cpp",
+      "sha256": "532827e09e1d7c4d12d3e8810bf71d409cbd59b7aef9597c32e438743dbafa3e"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModel.h",
+      "sha256": "19cf875d993fca07b8e5ba6d483db8d284e2825b3157175ff36886da9f5547ca"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelModelTests.cpp",
+      "sha256": "a5abdbe83c842c2ef85e4fb8db782d20dbf4ca41c07e85345137c662326ff0c0"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistance.h",
+      "sha256": "73488ee509ca39e115c62f5160aac7f693fc0212b0a3e1f9cf4c30847b2430b3"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Source\\ForkliftSim\\WheelResistanceTests.cpp",
+      "sha256": "7e20c1df02b340dd6170fe69fe5b8d3657a36a2d341e1a2a1de0cebeed5f6d46"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Cameras.json",
+      "sha256": "05fcfa306aa2a428c4fc6e0aa7260aeed48c9990a218e99636a089a82255daf1"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\DefaultEngine.ini",
+      "sha256": "1560e132d73380aa79cdfe7e3b4c642e3b08d1529a83eacd7b08642c437ec1f8"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\DefaultGame.ini",
+      "sha256": "ea4cfee89afdbdd14db2fb0a2591970c15c7a1bea3adc3f7d667ffee26124f76"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\DefaultInput.ini",
+      "sha256": "11ebdcaedd0b429bcee9d84aa1e038f545217718a7c43c062fa260431c3a2209"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Drivetrain.json",
+      "sha256": "ea1ff21e8f3fdc305aa68e5eb6302fd9fd4b830c17356fed3c1d1c0d6aeae907"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\DynamicsSensors.json",
+      "sha256": "46b116670aa2b17d7b304161a28118b9c54f1b242c6be79a090cca03a8fbe4c5"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkliftLab.json",
+      "sha256": "ee9979a6bc61948737215223b98756588f58b559c2d5124b38631e4b8a0ee837"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\ForkStructure.json",
+      "sha256": "7b348a4629fc4f591304ddff5464cda9060324686688a0c94ebf53c5af033601"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Hydraulics.json",
+      "sha256": "95ca490d12d7fec3a32000dca4e3f7fe4d71a76ae76bea5fefe3b2ca184b7a31"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\JointSensors.json",
+      "sha256": "fa64f927c011006fac91d0761880ba878a23a651462aa2bb4aa9a4d0403dec14"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Mecanum.json",
+      "sha256": "076cad78c9172ab7e8e12da2cda2ac418b0dc9a0faa8544d877d6b2c5366fe5b"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Modeling.json",
+      "sha256": "f9c325f3ec86d851309517b00b87f3436e30b35a582b1d8718808ec85c983e12"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Payload.json",
+      "sha256": "5e0596cd9c28a6b0f9d548ed47069d070ebac0c47842de646d665cf94647618b"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PhysicsReference.json",
+      "sha256": "b8cb64d93a61986eb862a69c452f4baf964540804f2a3c0ac05a6a07a0eae7ac"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\PublicCalibration.json",
+      "sha256": "176e681049f780b8f49e2fd73153b76b130497de5d43970edf8d5bee08a89b9a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RackHandling.json",
+      "sha256": "f3a84dec3e76008af084d2a3869c7a476c555838757dec238c06deb98ca5a181"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\RealComponents.json",
+      "sha256": "38bac35208b63e6a0f6a3ad8d11993dee11827893fc4dc0fed26ab4bbde8a898"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Tyres.json",
+      "sha256": "9291028b1b4d1334d6ee0ec3af7c8cc9cae637a572367047b77d536cb16e5524"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\Vehicle3D.json",
+      "sha256": "bb376391ec3868c70ad9cbd8822a87acb33428b7cc7ca49a71b1bfb540eba61a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WarehousePayload.json",
+      "sha256": "04cf2f8239640d2310f283ab904d8310de56cf6f87cbc1cda631311f43993925"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Config\\WheelLab.json",
+      "sha256": "679be15650b66154a087f53ca228cbcc5512a95802dcb43928d601af4f6a599e"
+    }
+  ]
+}

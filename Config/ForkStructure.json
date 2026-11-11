@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "length_m": 1.2,
+  "width_m": 0.12,
+  "thickness_m": 0.05,
+  "young_modulus_pa": 210000000000,
+  "yield_strength_pa": 825000000,
+  "failure_stress_pa": 1100000000,
+  "damping_ratio": 0.08,
+  "segments": 4,
+  "failure_plastic_rotation_deg": 10,
+  "hardening_ratio": 0.05,
+  "geometry_source": "Jungheinrich EKS 215a manufacturer technical sheet, 01/2019, row 4.22; rectangular untapered surrogate",
+  "strength_source": "Cascade ITA forks: minimum yield 825 MPa. Component material reference, NOT proof of EKS OEM supplier",
+  "assumptions": "E=210 GPa, density=7850 kg/m3, failure=1100 MPa, plastic rotation failure=10 deg, isotropic hardening ratio=0.05, damping and uniform section are design assumptions, not OEM calibration"
+}

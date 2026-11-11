@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-05",
+  "comparisons": [
+    {
+      "case": "carry",
+      "pass": true,
+      "baseline_dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "sensor_dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261031-192850-05112C0A.csv",
+      "sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-003455-67E0C758.csv",
+      "baseline_csv_sha256": "8faff7840d312a78affce9f488eb0f5fd3e72a6484837f91ac23904a206a61a3",
+      "sensor_csv_sha256": "b681c9afa4276e93902f31a514c46bd1856a3028a5aa612d9edc434e8131ca34"
+    },
+    {
+      "case": "halfstep",
+      "pass": true,
+      "baseline_dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "sensor_dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_halfstep-20261031-193059-C9066AC2.csv",
+      "sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_halfstep-20261105-003723-00160378.csv",
+      "baseline_csv_sha256": "9f39e29b5f38afea9d5c8437042ff5d726ba0b91c66aeab9c001beb3e0564f3f",
+      "sensor_csv_sha256": "64f980f71d4c3c4ab50284bb7855cda84a79f834c557e1c5e23ec6955edee815"
+    },
+    {
+      "case": "ramp_brake",
+      "pass": true,
+      "baseline_dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "sensor_dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261031-192939-B5219EAE.csv",
+      "sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_ramp_brake-20261105-003815-9172AE4D.csv",
+      "baseline_csv_sha256": "dcf429937ea52aeed9381ee7d1aa47d5204c3699f65bbd9d9bbec36a4b5658aa",
+      "sensor_csv_sha256": "0313143128221d0530188e922f11c704d6326a1a5ac9d5789125e0a3e13a6be5"
+    }
+  ],
+  "scope": "Equality at logged CSV precision for these matched conditions; not universal invariance."
+}

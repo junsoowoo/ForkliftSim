@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "date": "2026-10-31",
+  "scope": "Public specifications, independent physical checks and numerical qualification of the custom compact four-mecanum design. No measured hardware calibration claim.",
+  "sources": [
+    {
+      "id": "EKS2019",
+      "url": "https://www.logisnextamericas.com/globalassets/migration-blocks/jungheinrich/product-listing/walkie-stackers/eks-215a/eks_215a_spec_sheet-english.pdf",
+      "page": 3,
+      "facts": {
+        "service_mass_kg": 3140,
+        "width_m": 0.985,
+        "wheelbase_m": 0.938,
+        "fork_length_m": 1.2,
+        "fork_width_m": 0.12,
+        "fork_thickness_m": 0.05,
+        "loaded_lift_speed_mps": 0.29,
+        "unloaded_lift_speed_mps": 0.31,
+        "rated_load_kg": 1500
+      },
+      "applied": [
+        "mass design target",
+        "body envelope",
+        "wheelbase",
+        "fork dimensions"
+      ],
+      "excluded": [
+        "2/1x drivetrain",
+        "OEM payload rating for our custom chassis",
+        "OEM lifting speeds as a matching test at a different payload",
+        "inconsistent axle split 1480+1800 !=3140"
+      ]
+    },
+    {
+      "id": "HIT305",
+      "url": "https://www.hit1994.com/en-US/p104-12-in-mecanum-wheel",
+      "catalogue_url": "https://www.hit1994.com/pdfimages/2025HIT_pdfc_2608302_264417_5083344.pdf",
+      "catalogue_page": 4,
+      "facts": {
+        "diameter_m": 0.305,
+        "width_m": 0.156,
+        "mass_kg": 40,
+        "rollers": 8,
+        "web_load_kg": 3000,
+        "catalogue_single_wheel_load_kg": 750
+      },
+      "applied": [
+        "comparison geometry only",
+        "load ratio disabled after conflicting manufacturer values"
+      ],
+      "excluded": [
+        "rating",
+        "mass split",
+        "inertia",
+        "friction",
+        "bearing coefficients"
+      ]
+    },
+    {
+      "id": "BLICKLE_PU",
+      "url": "https://www.blickle.us/en-us/-/media/project/blickle/global-web/service/mediathek/prospekte/pdf/us/competence_in_polyurethane_240923_en_us.pdf?fh=d84b7ddc2d5702224c25dde9e3e7828d#page=15",
+      "page": 15,
+      "retrieval": "Manufacturer indexed PDF text verified through web tool; live download unavailable (TLS / HTML response). No raw PDF claimed archived.",
+      "conditions": {
+        "diameter_m": 0.2,
+        "load_kg": 300,
+        "bracket": "identical swivel bracket",
+        "state": "new, laboratory"
+      },
+      "facts": {
+        "rolling_force_fraction": {
+          "Softhane": 0.01,
+          "Extrathane": 0.009,
+          "Vulkollan": 0.009,
+          "Besthane_Soft": 0.008,
+          "Besthane": 0.007
+        }
+      },
+      "applied": [
+        ".007 and .009 material-proxy coast sensitivity tests, bearing disabled to avoid double counting"
+      ],
+      "excluded": [
+        "direct transfer to 300 mm mecanum",
+        "PU friction coefficient",
+        "Shore hardness to measured stiffness conversion"
+      ]
+    }
+  ],
+  "default_assumptions_preserved": {
+    "crr": 0.015,
+    "tyre_mu": 0.9,
+    "road_mu": 0.8,
+    "hub_bearing_coulomb_nm": 1.0,
+    "hub_bearing_viscous_nms": 0.05,
+    "roller_bearing_coulomb_nm": 0.03,
+    "roller_bearing_viscous_nms": 0.002
+  },
+  "acceptance": {
+    "static_weight_relative": 0.03,
+    "frame_endpoint_distance_m": 0.1,
+    "frame_endpoint_speed_mps": 0.05,
+    "physics_endpoint_distance_m": 0.1,
+    "physics_endpoint_speed_mps": 0.05,
+    "inner_clock_error_s": 1e-07,
+    "rack_final_xy_error_m": 0.1,
+    "rack_weight_relative": 0.03,
+    "coast_reference_speed_relative": 0.03,
+    "energy_positive_bound_base_j": 20,
+    "energy_positive_bound_work_fraction": 0.05
+  },
+  "calibration_complete": false,
+  "missing_hardware_data": [
+    "custom mecanum load/inertia/friction/rolling tests",
+    "actual motor and pump maps",
+    "assembled COM/inertia",
+    "hydraulic force/flow versus temperature"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "source": "Uncalibrated discrete radial tread or 3-axis rim/belt reference; no continuum rubber FEA or resolved pressure map. See RealComponents.json.",
+  "tread_enabled": false,
+  "tread_segments": 16,
+  "tread_depth_m": 0.05,
+  "tread_travel_m": 0.025,
+  "tread_mass_kg": 6,
+  "tread_foundation_n_per_m3": 100000000,
+  "tread_foundation_damping_ns_per_m3": 200000,
+  "tread_poisson_ratio": 0.49,
+  "enabled": true,
+  "vertical_stiffness_n_per_m": 600000,
+  "vertical_damping_ns_per_m": 8000,
+  "max_relative_travel_m": 0.05,
+  "detailed_enabled": true,
+  "cubic_stiffness_n_per_m3": 1000000000,
+  "shear_stiffness_n_per_m": 800000,
+  "shear_damping_ns_per_m": 4000,
+  "shear_travel_m": 0.005,
+  "material_reference": "Blickle GVUN 304/60H7 Vulkollan 92 Shore A; wheel geometry and speed/load ratings in RealComponents.json",
+  "coefficient_status": "Foundation stiffness/damping, tread depth/mass, aggregate radial and shear coefficients are explicit design assumptions. Shore hardness is not converted into a measured wheel stiffness. Local tread replaces the aggregate radial spring."
+}

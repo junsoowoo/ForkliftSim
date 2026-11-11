@@ -1,0 +1,24 @@
+{
+  "scope": "Same A/B comparison DLL (an earlier build; original hash retained), same initial rack/pallet/cargo state. Console override 3 position / 2 velocity shock iterations versus default 0 / 0. Compare before any insertion. No material tuning.",
+  "dll_sha256": "0b727615c41a5a7f897c53159daf1acbd0af769fdb939a7e31d3cbb73c34cd5a",
+  "shock_3_2": {
+    "csv": "Saved\\Telemetry\\Stability-mecanum_rack_pick_low-20261031-075025-BCF4B230.csv",
+    "sha256": "2d736cc6dd666891e2e6a541f1dd7195e0c30ebf9840b992693fcd725043d6ac",
+    "samples": 30,
+    "mean_support_n": 4013.7801031253334,
+    "expected_n": 4169.25,
+    "relative_error": 0.037289655663408694,
+    "pallet_physics_mass_kg": 25.0,
+    "cargo_physics_mass_kg": 399.99996948
+  },
+  "shock_0_0": {
+    "csv": "Saved\\Telemetry\\Stability-mecanum_rack_pick_low-20261031-074739-D5742B40.csv",
+    "sha256": "dbaedb727ddd37244380dd5e36787220e0e847846d2f13f0f4e77b97fb750f37",
+    "samples": 30,
+    "mean_support_n": 4169.249383313333,
+    "expected_n": 4169.25,
+    "relative_error": 1.4791309399520003e-07,
+    "pallet_physics_mass_kg": 25.0,
+    "cargo_physics_mass_kg": 399.99996948
+  }
+}

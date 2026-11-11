@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "url": "http://127.0.0.1:4174",
+  "world_id": "2F86F341400DED1B128EAEA09AA42344",
+  "actual_frames": 325,
+  "obstacle_hold_frames": 67,
+  "clear_but_held_frames": 23,
+  "acknowledged_release_frames": 8,
+  "measured_points": 19498,
+  "csv_columns": 18,
+  "csv_sha256": "dde1cedcb7d58aac4ff88dd577cddeb91d0c769357556849d9d00e74040ed31f",
+  "dll_sha256": "53CF1E25617B5B592D449E99CA661F0331CCBC0426C24EF84DA22247623AA6EF",
+  "assets_http200": 10,
+  "scope": "Existing batch 1 revalidated on separated port 4174 using actual Unreal frames. No new features or braking changes; no new full qualification, DOM operation or FPS benchmark.",
+  "native_report_folder": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261105-183625-072-72971bda",
+  "native_case": "vehicle_guard_front",
+  "native_fps_parameter": 30,
+  "date": "2026-11-05"
+}

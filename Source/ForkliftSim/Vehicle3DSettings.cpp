@@ -14,6 +14,14 @@ bool FVehicle3DSettings::Load(FString& Error)
     J->TryGetNumberField(TEXT("swerve_yaw_rate_deg_s"),YawRateDegS);
     J->TryGetNumberField(TEXT("swerve_acceleration_mps2"),AccelerationLimitMps2);
     J->TryGetNumberField(TEXT("swerve_speed_gain_nm_per_mps"),WheelSpeedGain);
+    // Missing optional fields preserve compatibility with older config files;
+    // present but non-numeric fields are errors, not silently ignored tuning.
+    auto OptionalNumber=[&](const TCHAR* Key,double& Value)
+    { if(!J->HasField(Key) || (J->TryGetNumberField(Key,Value) && FMath::IsFinite(Value))) return true; Error=FString::Printf(TEXT("Invalid setting %s"),Key); return false; };
+    if(!OptionalNumber(TEXT("swerve_wheel_surface_speed_limit_mps"),WheelSurfaceSpeedLimitMps)
+        || !OptionalNumber(TEXT("rolling_resistance_coefficient"),RollingResistance)
+        || !OptionalNumber(TEXT("bearing_coulomb_nm"),BearingCoulombNm)
+        || !OptionalNumber(TEXT("bearing_viscous_nm_per_rad_s"),BearingViscousNms)) return false;
     auto Read = [&](const TCHAR* Key, double& Value)
     { if (J->TryGetNumberField(Key, Value) && FMath::IsFinite(Value)) return true; Error = FString::Printf(TEXT("Invalid setting %s"), Key); return false; };
     if (!(Read(TEXT("chassis_mass_kg"),ChassisMassKg) && Read(TEXT("wheel_mass_kg"),WheelMassKg)
@@ -28,6 +36,10 @@ bool FVehicle3DSettings::Load(FString& Error)
         && Read(TEXT("fork_travel_m"),ForkTravelM) && Read(TEXT("fork_speed_mps"),ForkSpeedMps)
         && Read(TEXT("fork_force_limit_n"),ForkForceN))) return false;
     if (!FMath::IsFinite(YawRateDegS) || YawRateDegS<=0 || YawRateDegS>120
+        || !FMath::IsFinite(WheelSurfaceSpeedLimitMps) || WheelSurfaceSpeedLimitMps<.5 || WheelSurfaceSpeedLimitMps>12
+        || !FMath::IsFinite(RollingResistance) || RollingResistance<0 || RollingResistance>.1
+        || !FMath::IsFinite(BearingCoulombNm) || BearingCoulombNm<0 || BearingCoulombNm>20
+        || !FMath::IsFinite(BearingViscousNms) || BearingViscousNms<0 || BearingViscousNms>5
         || !FMath::IsFinite(AccelerationLimitMps2) || AccelerationLimitMps2<=0 || AccelerationLimitMps2>5
         || !FMath::IsFinite(WheelSpeedGain) || WheelSpeedGain<=0 || WheelSpeedGain>2000
         || ChassisMassKg < 250 || WheelMassKg < 5 || KnuckleMassKg < 1 || ForkMassKg < 10
@@ -41,5 +53,13 @@ bool FVehicle3DSettings::Load(FString& Error)
         || SteeringTorqueNm <= 0 || SteeringTorqueNm > 10000 || ForkForceN <= 0 || ForkForceN > 30000
         || ChassisComOffsetM < 0 || ChassisComOffsetM > 1.2 || ForkTravelM <= 0 || ForkTravelM > 2 || ForkSpeedMps <= 0 || ForkSpeedMps > .5)
     { Error = TEXT("3D settings outside prototype geometry/actuator bounds"); return false; }
+    if(!Actuators.Load(Error)) return false;
+    if(!Tyres.Load(Error)) return false;
+    if(Tyres.Tread.bEnabled && (Tyres.Tread.DepthM>=RadiusM*.8 || Tyres.Tread.MassKg>=WheelMassKg-1))
+    { Error=TEXT("Tread depth/mass must fit inside the wheel radius/mass budget"); return false; }
+    if(!Hydraulics.Load(Error)) return false;
+    if(!Structure.Load(Error)) return false;
+    if(ForkMassKg <= (Structure.bEnabled?2*Structure.BladeMassKg():ForkMassKg*.4)+(Hydraulics.bChainMast?Hydraulics.MastMassKg:0)+1)
+    { Error=TEXT("Fork assembly mass must include both blades, carriage and movable mast"); return false; }
     Error.Empty(); return true;
 }

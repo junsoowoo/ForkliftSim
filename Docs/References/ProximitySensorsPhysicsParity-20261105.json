@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "case": "carry",
+  "baseline_dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+  "sensor_dll_sha256": "BF61226324743133E6FED2F2463F77000C46360EB0109D3698FDF77B2C52E40E",
+  "max_absolute_differences": {
+    "time_s": 0.0,
+    "chassis_x_m": 0.0,
+    "chassis_y_m": 0.0,
+    "speed_mps": 0.0,
+    "lateral_mps": 0.0,
+    "yaw_deg_s": 0.0,
+    "fork_actual_m": 0.0,
+    "normal_sum_n": 0.0,
+    "energy_unresolved_j": 0.0
+  },
+  "baseline_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-003455-67E0C758.csv",
+  "sensor_csv": "C:/Users/user/Desktop/공부/ForkliftSim/Saved/Telemetry/Stability-mecanum_carry-20261105-135632-87266E75.csv",
+  "baseline_csv_sha256": "b681c9afa4276e93902f31a514c46bd1856a3028a5aa612d9edc434e8131ca34",
+  "sensor_csv_sha256": "5b6f820d6342844b35932ea8b2347493b4ea0f93cc9e5f0fc6898a0fea202ef6",
+  "scope": "Matched carried-load trace equality at CSV precision; not universal physical invariance."
+}

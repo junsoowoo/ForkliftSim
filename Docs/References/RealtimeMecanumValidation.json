@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-29",
+  "default_model": "equivalent-directional-contact-v1",
+  "physics_hz": 960,
+  "position_iterations": 16,
+  "velocity_iterations": 16,
+  "motion_cases": 9,
+  "load_cases": 6,
+  "unit_cases": 33,
+  "web_node_tests": 4,
+  "web_protocol_checks": 23,
+  "detailed_reaction_pass": true,
+  "performance_log": "Saved/Validation/Performance/Final-Cameras-30s.log",
+  "performance": {
+    "model": "reduced",
+    "physics_hz": 960,
+    "samples": 2684,
+    "camera_views": true,
+    "camera_hz_each": 8,
+    "front_mount_error_cm": 8.379058453350832E-15,
+    "rear_mount_error_cm": 2.131628207535142E-14,
+    "fork_height_m": 0.0019179704170166191,
+    "front_camera_world_height_m": 0.04691502575720628,
+    "rear_camera_world_height_m": 1.189993496913377,
+    "tail_120_mean_fps": 71.5784132349866,
+    "mean_frame_ms": 11.501330402075977,
+    "mean_fps": 86.94646315173253,
+    "median_frame_ms": 8.715599775314331,
+    "p95_frame_ms": 30.391398817300797,
+    "actual_realtime_ratio": 0.9719322896594985,
+    "benchmark": false,
+    "scope": "World game-tick wall intervals after first simulation second; not GPU timing or a long-running editor PIE guarantee."
+  },
+  "native_web": {
+    "native_frames": 537,
+    "unreal_source": true,
+    "reduced_metadata": true,
+    "unavailable_roller_states": true,
+    "four_actual_wheels": true,
+    "fps_present": true
+  },
+  "physical_test_runs": [
+    "Mecanum-20261029-180404-176",
+    "Mecanum-20261029-180417-313",
+    "Mecanum-20261029-182125-497"
+  ],
+  "scope": "Desktop PC, 1280x800 offscreen, 30 simulation seconds, actual Unreal telemetry, two 320x180 cameras at up to 8 Hz each. Not a presented display FPS or editor PIE guarantee."
+}

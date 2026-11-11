@@ -1,0 +1,11 @@
+{
+  "filter_s": 0.05,
+  "calibration_s": 0.4,
+  "healthy_dwell_s": 0.3,
+  "command_lease_s": 0.1,
+  "wheel_kp_nm_per_mps": 350,
+  "wheel_ki_nm_per_m": 120,
+  "integral_limit_nm": 100,
+  "torque_limit_nm": 450,
+  "source": "Virtual sampled encoder/IMU controller; gains are design assumptions, not identified hardware values. Planar localization uses a surveyed static map and a known starting bay."
+}

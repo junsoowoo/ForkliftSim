@@ -1,0 +1,18 @@
+{
+  "source": "Virtual shaft encoders, carriage height transducer and two position-actuated switches. All parameters are design assumptions, not a calibrated commercial product. No navigation or safety interlock consumes them yet.",
+  "encoder_counts_per_turn": 4096,
+  "encoder_hz": 100,
+  "height_hz": 50,
+  "limit_hz": 100,
+  "encoder_phase_noise_counts": 0.1,
+  "height_sigma_m": 0.0005,
+  "height_bias_m": 0.0005,
+  "height_quantum_m": 0.001,
+  "latency_s": 0.02,
+  "packet_dropout": 0.001,
+  "stale_s": 0.25,
+  "limit_trip_m": 0.010,
+  "limit_release_m": 0.015,
+  "limit_debounce_s": 0.02,
+  "seed": 4217
+}

@@ -1,0 +1,22 @@
+{
+  "id": "virtual-swerve-hydraulic-v1",
+  "provenance": "Design assumptions frozen in FVehicle3DSettings/FPayloadSettings constructors; no real-machine measurements",
+  "dry_mass_kg": 2170,
+  "pallet_kg": 25,
+  "cargo_kg": 400,
+  "wheel_radius_m": 0.3,
+  "wheelbase_m": 1.6,
+  "track_m": 1.3,
+  "integrated_lift_target_m": 0.45,
+  "ramp_deg": 6,
+  "step_m": 0.025,
+  "tolerances": {
+    "static_weight_relative": 0.03,
+    "static_load_fraction_absolute": 0.03,
+    "coast_speed_relative": 0.01,
+    "coast_energy_gain_relative": 0.01,
+    "tyre_force_relative": 0.06,
+    "hydraulic_speed_relative": 0.05,
+    "timestep_relative_or_fraction": 0.03
+  }
+}

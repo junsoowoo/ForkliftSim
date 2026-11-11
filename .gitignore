@@ -13,3 +13,16 @@
 *.log
 *.tmp
 /.env
+# Keep locally downloaded manufacturer originals out of source uploads.
+/Docs/References/*.pdf
+/Docs/References/MecanumSources-20261029/*
+!/Docs/References/MecanumSources-20261029/*.json
+# Owned Fab library source assets stay local; project-owned models/maps remain tracked.
+/Content/Warehouse/
+/Content/.plastic/
+/Documentation.pdf
+/Warehouse.png
+
+# Local authoring caches and Blender backup versions.
+**/__pycache__/
+*.blend1

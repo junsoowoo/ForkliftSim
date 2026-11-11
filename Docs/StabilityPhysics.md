@@ -2,10 +2,10 @@
 
 > 이 문서는 이전 0.3 뒷바퀴 조향 구조의 기록입니다. 현재 기본 실행은 [0.4 독립 조향·구동](SwerveDrive.md)입니다.
 
-`Start-StabilityLab.bat`로 실행합니다. `Config/Vehicle3D.json`이 설정 파일입니다.
+현재 수동 시험장은 `Start.bat -Mode stability` → Play로 실행합니다. `Config/Vehicle3D.json`이 설정 파일입니다.
 Unreal 5.6.1 / Chaos 강체·접촉·관절을 사용합니다. 기존 평면 주행 모델과 별도입니다.
 현재 0.3.1은 조향 시 차체–타이어 내부 충돌로 정지하던 문제를 수정한 버전입니다.
-`Start-RolloverDemo.bat`를 실행하면 고중심 급조향 시험을 화면으로 재생하고 12초 뒤 종료합니다.
+`Start.bat -Mode rollover`를 실행하면 당시 후륜 조향 모델의 고중심 급조향 시험을 재생하고 12초 뒤 종료합니다.
 이 데모는 마찰계수 1.5 / 1.5, 무게중심 +1.2 m, 초기 속도 8 m/s, 조향 120 deg/s를 사용합니다.
 
 ## 구성

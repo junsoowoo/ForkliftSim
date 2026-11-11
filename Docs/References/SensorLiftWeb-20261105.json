@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "actual_frames": 788,
+  "fault_frames": 106,
+  "fresh_but_latched_frames": 73,
+  "acknowledged_hold_frames": 42,
+  "invalid_height_frames": 25,
+  "csv_columns": 19,
+  "csv_rows": 788,
+  "csv_sha256": "ff6f5c0204ef1686c5de63bb566e56f42138796ceccd4216ef35776c28175192",
+  "stream_sha256": "0f0b89b092c733d24253f63640341f419f031606a4fdfc856852b4671c8ab8e1",
+  "scope": "Real Unreal sensor lift controller stream and shared CSV exporter; no DOM click automation or full vehicle autonomy."
+}

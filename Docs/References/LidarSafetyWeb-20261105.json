@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "actual_frames": 302,
+  "obstacle_frames": 64,
+  "clear_but_held_frames": 22,
+  "acknowledged_ready_frames": 6,
+  "measured_points_projected": 18671,
+  "csv_columns": 18,
+  "csv_rows": 302,
+  "csv_sha256": "22f9aa169b653f862067ffd7fea37fcf3ffebf11e28d46d526ca9feb870b1b42",
+  "stream_sha256": "a114870a02f23bb80b4a0d4013096509c5e050e9aa5ef34e7b42741624220275",
+  "scope": "Actual received dual-LiDAR data, measured-only point projection and state CSV. DOM click not automated; no localization or map output."
+}

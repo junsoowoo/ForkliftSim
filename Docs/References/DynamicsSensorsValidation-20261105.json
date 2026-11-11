@@ -1,0 +1,348 @@
+{
+  "date": "2026-11-05",
+  "pass": true,
+  "scope": "Virtual IMU, cylinder pressure and ideal fork contact instrument pads; not calibrated hardware, payload scale, safety interlocks or automation.",
+  "native_cases": [
+    {
+      "case": "settle",
+      "fps": 60,
+      "physics_hz": 960,
+      "fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-003432-3D16BCFE.csv",
+      "csv_sha256": "8967f786bc15636318168dc9bfa902da8f0e1954b92c006612288529ef5ea274",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 239,
+          "observed_capture_hz": 99.99999478151288,
+          "max_unclipped_bias_removed_error": 0.06182300899999999
+        },
+        "lift_pressure": {
+          "valid_snapshots": 239,
+          "observed_capture_hz": 99.99999478151288,
+          "max_unclipped_bias_removed_error": 8872.520175616955
+        },
+        "fork_load_left": {
+          "valid_snapshots": 239,
+          "observed_capture_hz": 99.99999478151288,
+          "max_unclipped_bias_removed_error": 6.0
+        },
+        "fork_load_right": {
+          "valid_snapshots": 239,
+          "observed_capture_hz": 99.99999478151288,
+          "max_unclipped_bias_removed_error": 9.0
+        }
+      },
+      "clipped_snapshot_count": 0
+    },
+    {
+      "case": "carry",
+      "fps": 60,
+      "physics_hz": 960,
+      "fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-003455-EB2B0983.csv",
+      "csv_sha256": "63d4018264645d37e1d21f850d6061cbb9b8c8d2fd1aede1b232e8ab28f5975f",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 0.06956380600000002
+        },
+        "lift_pressure": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 9996.703599363565
+        },
+        "fork_load_left": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 5.809661945999778
+        },
+        "fork_load_right": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 8.477728471999853
+        }
+      },
+      "clipped_snapshot_count": 0
+    },
+    {
+      "case": "eccentric_lift",
+      "fps": 60,
+      "physics_hz": 960,
+      "fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-003534-BA52B9C1.csv",
+      "csv_sha256": "6a56de8be40413d179ead6f66963c25f9a71fb20c43ca2f31a7b24c244017614",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 0.06946911500000001
+        },
+        "lift_pressure": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 10123.41686577443
+        },
+        "fork_load_left": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 5.559989650000034
+        },
+        "fork_load_right": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 8.71447315100022
+        }
+      },
+      "clipped_snapshot_count": 0
+    },
+    {
+      "case": "joint_sensors",
+      "fps": 60,
+      "physics_hz": 960,
+      "fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-003609-330713E3.csv",
+      "csv_sha256": "e524337176c4a8d7311371b278428292206db4f56e571333991d654b2dce1649",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 1399,
+          "observed_capture_hz": 99.99999478397739,
+          "max_unclipped_bias_removed_error": 0.06997198
+        },
+        "lift_pressure": {
+          "valid_snapshots": 1399,
+          "observed_capture_hz": 99.99999478397739,
+          "max_unclipped_bias_removed_error": 9871.986276648007
+        },
+        "fork_load_left": {
+          "valid_snapshots": 1399,
+          "observed_capture_hz": 99.99999478397739,
+          "max_unclipped_bias_removed_error": 6.0
+        },
+        "fork_load_right": {
+          "valid_snapshots": 1399,
+          "observed_capture_hz": 99.99999478397739,
+          "max_unclipped_bias_removed_error": 9.0
+        }
+      },
+      "clipped_snapshot_count": 0
+    },
+    {
+      "case": "halfstep",
+      "fps": 60,
+      "physics_hz": 960,
+      "fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-003723-C0DDE132.csv",
+      "csv_sha256": "07e4aa3d2f69a7d0395a8daa0fe2f9753737b20011f8d40e2814945124a18542",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 0.07026506299999992
+        },
+        "lift_pressure": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 10036.678077255376
+        },
+        "fork_load_left": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 5.809661945999778
+        },
+        "fork_load_right": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 8.477728471999853
+        }
+      },
+      "clipped_snapshot_count": 0
+    },
+    {
+      "case": "ramp_brake",
+      "fps": 60,
+      "physics_hz": 960,
+      "fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-003815-418435EB.csv",
+      "csv_sha256": "49b13282d7f862db1a38d7e708ba184320bb311d95cfeed99c69361d0fad93d1",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 1199,
+          "observed_capture_hz": 99.99999478464134,
+          "max_unclipped_bias_removed_error": 0.06953593500000001
+        },
+        "lift_pressure": {
+          "valid_snapshots": 1199,
+          "observed_capture_hz": 99.99999478464134,
+          "max_unclipped_bias_removed_error": 10182.841962796636
+        },
+        "fork_load_left": {
+          "valid_snapshots": 1199,
+          "observed_capture_hz": 99.99999478464134,
+          "max_unclipped_bias_removed_error": 6.29961847200002
+        },
+        "fork_load_right": {
+          "valid_snapshots": 1199,
+          "observed_capture_hz": 99.99999478464134,
+          "max_unclipped_bias_removed_error": 8.477728471999853
+        }
+      },
+      "clipped_snapshot_count": 0
+    },
+    {
+      "case": "carry",
+      "fps": 60,
+      "physics_hz": 960,
+      "fault": "all",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-003935-0C287747.csv",
+      "csv_sha256": "884ca40662424a425bc15d139c07d758a7d5fa55e7a693f6763875e7382cb132",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 602,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 0.06410919000000014
+        },
+        "lift_pressure": {
+          "valid_snapshots": 602,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 8887.03831076622
+        },
+        "fork_load_left": {
+          "valid_snapshots": 602,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 6.410174388000087
+        },
+        "fork_load_right": {
+          "valid_snapshots": 602,
+          "observed_capture_hz": 99.99999478369932,
+          "max_unclipped_bias_removed_error": 8.477728471999853
+        }
+      },
+      "clipped_snapshot_count": 0
+    },
+    {
+      "case": "carry",
+      "fps": 30,
+      "physics_hz": 960,
+      "fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-004021-1FC0628B.csv",
+      "csv_sha256": "c492d0be488cffc63e170ad65f83c715a9f63c8a6eb04ce0067f2d070f3eed36",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 479,
+          "observed_capture_hz": 100.0006484855357,
+          "max_unclipped_bias_removed_error": 0.06506538899999999
+        },
+        "lift_pressure": {
+          "valid_snapshots": 479,
+          "observed_capture_hz": 100.0006484855357,
+          "max_unclipped_bias_removed_error": 11034.00221455656
+        },
+        "fork_load_left": {
+          "valid_snapshots": 479,
+          "observed_capture_hz": 100.0006484855357,
+          "max_unclipped_bias_removed_error": 6.0
+        },
+        "fork_load_right": {
+          "valid_snapshots": 479,
+          "observed_capture_hz": 100.0006484855357,
+          "max_unclipped_bias_removed_error": 7.702828277000208
+        }
+      },
+      "clipped_snapshot_count": 0
+    },
+    {
+      "case": "carry",
+      "fps": 60,
+      "physics_hz": 1920,
+      "fault": "",
+      "csv": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Telemetry\\DynamicsSensors-20261105-004103-2D0C340E.csv",
+      "csv_sha256": "82521dabdac6eeb8c95c5d97580ce1fb26c0604d62da172d8db5f25752797619",
+      "dll_sha256": "43E5F468C44375D079AE3942681430E9F1E8861F316F18BF44E46E0FD3D0B611",
+      "metrics": {
+        "imu": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478683412,
+          "max_unclipped_bias_removed_error": 0.07002178599999988
+        },
+        "lift_pressure": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478683412,
+          "max_unclipped_bias_removed_error": 9973.392202481627
+        },
+        "fork_load_left": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478683412,
+          "max_unclipped_bias_removed_error": 5.789708946999781
+        },
+        "fork_load_right": {
+          "valid_snapshots": 639,
+          "observed_capture_hz": 99.99999478683412,
+          "max_unclipped_bias_removed_error": 8.218409916999917
+        }
+      },
+      "clipped_snapshot_count": 0
+    }
+  ],
+  "stationary_imu_means": [
+    0.009441340782122906,
+    0.01111731843575419,
+    9.819296089385475,
+    0.00041396648044692735,
+    0.0005770949720670391,
+    0.0004782122905027933
+  ],
+  "loaded_fork_forces_n": [
+    2087.1,
+    2084.0333333333333
+  ],
+  "eccentric_fork_forces_n": [
+    1711.9666666666667,
+    2459.1666666666665
+  ],
+  "pressure_empty_loaded_pa": [
+    2045620.1117318436,
+    6215766.666666667
+  ],
+  "fault_physics_max_difference": {
+    "time_s": 0.0,
+    "chassis_x_m": 0.0,
+    "chassis_y_m": 0.0,
+    "speed_mps": 0.0,
+    "lateral_mps": 0.0,
+    "yaw_deg_s": 0.0,
+    "fork_actual_m": 0.0,
+    "normal_sum_n": 0.0,
+    "energy_unresolved_j": 0.0
+  },
+  "static_time_grid_comparisons": [
+    {
+      "fps": 30,
+      "hz": 960,
+      "fork_forces_n": [
+        2087.608695652174,
+        2082.8695652173915
+      ],
+      "pressure_pa": 6215000.0
+    },
+    {
+      "fps": 60,
+      "hz": 1920,
+      "fork_forces_n": [
+        2083.5666666666666,
+        2087.6
+      ],
+      "pressure_pa": 6215766.666666667
+    }
+  ],
+  "spin_gyro_max_nearest_physics_error_rad_s": 0.04561766017294312,
+  "spin_gyro_peak_rad_s": 0.3448
+}

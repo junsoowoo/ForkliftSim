@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "earliest_start_ms": 1793423466344,
+  "actual_frames": 600,
+  "columns": 57,
+  "worlds": [
+    "EC45746E45A0586A2F4C5EB313D25EEA",
+    "68D646B643DFBA0F29200D9E6F133988",
+    "EE17938344AD146EFBA5568269962B94"
+  ],
+  "scenarios": [
+    "mecanum_carry",
+    "mecanum_eccentric_lift",
+    "mecanum_shallow_lift"
+  ],
+  "csv_sha256": "b6460ac41534174323501a362bc5a9accf0cabfd8151bf392f493b5d0e013300",
+  "full_energy_closure": false,
+  "scope": "Actual Unreal frames and UI CSV construction verified. DOM download click not automated."
+}

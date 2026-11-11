@@ -1,0 +1,56 @@
+{
+  "comparisons": [
+    {
+      "case": "carry",
+      "baseline_dll_sha256": "A88FF8E887C10F1160569FD3C6CDB918D3BE4C3E96B60B4F4717F44EE53977B2",
+      "sensor_dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "pass": true
+    },
+    {
+      "case": "ramp_brake",
+      "baseline_dll_sha256": "A88FF8E887C10F1160569FD3C6CDB918D3BE4C3E96B60B4F4717F44EE53977B2",
+      "sensor_dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "pass": true
+    },
+    {
+      "case": "halfstep",
+      "baseline_dll_sha256": "A88FF8E887C10F1160569FD3C6CDB918D3BE4C3E96B60B4F4717F44EE53977B2",
+      "sensor_dll_sha256": "30E07457C1387CAB59F7D2E11322C14123641AFB2C8A949994148157280F3784",
+      "max_absolute_differences": {
+        "time_s": 0.0,
+        "chassis_x_m": 0.0,
+        "chassis_y_m": 0.0,
+        "speed_mps": 0.0,
+        "lateral_mps": 0.0,
+        "yaw_deg_s": 0.0,
+        "fork_actual_m": 0.0,
+        "normal_sum_n": 0.0,
+        "energy_unresolved_j": 0.0
+      },
+      "pass": true
+    }
+  ],
+  "pass": true
+}
