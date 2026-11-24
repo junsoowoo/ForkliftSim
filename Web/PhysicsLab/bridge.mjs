@@ -1,11 +1,12 @@
 import http from 'node:http';
+import {TaskBroker} from './task-broker.mjs';
 import {readFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const folder=fileURLToPath(new URL('.',import.meta.url));
 const projectRoot=path.resolve(folder,'../..');
 const allowed=new Map([['/','live.html'],['/index.html','live.html'],['/styles.css','styles.css'],['/live.mjs','live.mjs'],['/live-state.mjs','live-state.mjs'],['/data.mjs','data.mjs']]);
-for(const name of ['joint-sensors.mjs','dynamics-sensors.mjs','proximity-sensors.mjs','lift-control.mjs','lidar-safety.mjs','drive-estimator.mjs','pallet-perception.mjs','handling-control.mjs','mission.mjs'])allowed.set('/'+name,name);
+for(const name of ['joint-sensors.mjs','dynamics-sensors.mjs','proximity-sensors.mjs','lift-control.mjs','lidar-safety.mjs','drive-estimator.mjs','pallet-perception.mjs','handling-control.mjs','mission.mjs','fleet.mjs','tasks.mjs'])allowed.set('/'+name,name);
 export const SERVICE='forkliftsim-live-bridge';
 export function validateFrame(frame){
  if(!frame||frame.schema!==1||frame.source?.kind!=='unreal')throw new Error('Expected Unreal schema 1');
@@ -14,10 +15,15 @@ export function validateFrame(frame){
  if(!Number.isFinite(frame.sim_time_s)||frame.sim_time_s<0||!Number.isFinite(frame.measurement_interval_s)||frame.measurement_interval_s<0||typeof frame.contact_sample_valid!=='boolean')throw new Error('Invalid sampling metadata');
  if(!frame.vehicle||!frame.fork||!frame.hydraulic||!frame.settings||!Array.isArray(frame.wheels)||frame.wheels.length!==4||!Array.isArray(frame.fork.tines)||frame.fork.tines.length>2)throw new Error('Missing telemetry components');
  if(new Set(frame.wheels.map(w=>w.id)).size!==4||frame.wheels.some(w=>!['FL','FR','RL','RR'].includes(w.id)||!Number.isFinite(w.normal_n)))throw new Error('Invalid wheel measurements');
- let nodes=0;function visit(v,depth){if(++nodes>10000||depth>12)throw new Error('Telemetry object too complex');if(typeof v==='number'&&!Number.isFinite(v))throw new Error('Non-finite value');if(typeof v==='string'&&v.length>4096)throw new Error('Text too long');if(v&&typeof v==='object')for(const value of Object.values(v))visit(value,depth+1);}
+ if(frame.fleet){
+  const f=frame.fleet;if(f.kind!=='campus_fleet_v1'||!Array.isArray(f.vehicles)||f.vehicles.length<1||f.vehicles.length>8||new Set(f.vehicles.map(v=>v.vehicle_id)).size!==f.vehicles.length||!Array.isArray(f.slots)||f.slots.length>512)throw new Error('Invalid fleet envelope');
+  for(const v of f.vehicles)if(!/^AGV-[0-9]{2}$/.test(v.vehicle_id)||!Array.isArray(v.wheels)||v.wheels.length!==4||!Number.isFinite(v.sim_time_s)||!v.vehicle||!v.fork||!v.hydraulic)throw new Error('Invalid fleet vehicle');
+ }
+ let nodes=0;function visit(v,depth){if(++nodes>(frame.fleet?100000:10000)||depth>(frame.fleet?20:12))throw new Error('Telemetry object too complex');if(typeof v==='number'&&!Number.isFinite(v))throw new Error('Non-finite value');if(typeof v==='string'&&v.length>4096)throw new Error('Text too long');if(v&&typeof v==='object')for(const value of Object.values(v))visit(value,depth+1);}
  visit(frame,0);return frame;
 }
 export function createTelemetryServer({port=4174,historyLimit=600}={}){
+ const taskBroker=new TaskBroker();
  let latest=null,nextId=0;const clients=new Set(),history=[],sequences=new Map();
  const state=()=>({status:!latest?'waiting':latest.frame.source.state==='stopped'?'stopped':Date.now()-latest.received_at_ms>1500?'stale':'running',age_ms:latest?Date.now()-latest.received_at_ms:null,world_id:latest?.frame.source.world_id??null,last_sequence:latest?.frame.source.sequence??null});
  const send=(client,event,value)=>{if(!client.destroyed&&!client.writableEnded){if(client.writableLength>512*1024){client.destroy();clients.delete(client);return;}client.write(`event: ${event}\ndata: ${JSON.stringify(value)}\n\n`);}};
@@ -28,7 +34,17 @@ export function createTelemetryServer({port=4174,historyLimit=600}={}){
   res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Cache-Control','no-store');
   res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'");
   const url=new URL(req.url,origin),json=(status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(data));};
-  if(req.method==='GET'&&url.pathname==='/api/health'){json(200,{service:SERVICE,schema:1,project_root:projectRoot,pid:process.pid,...state()});return;}
+  if(req.method==='GET'&&url.pathname==='/api/health'){json(200,{service:SERVICE,schema:1,bridge_version:4,capabilities:['campus_fleet_v1','campus_tasks_v1','campus_energy_v1'],project_root:projectRoot,pid:process.pid,...state()});return;}
+  if(req.method==='GET'&&url.pathname==='/api/commands'){json(200,{commands:taskBroker.poll(url.searchParams.get('world_id'),url.searchParams.get('run_id'),latest)});return;}
+  if(req.method==='GET'&&url.pathname==='/api/task-requests'){json(200,{requests:taskBroker.list(latest)});return;}
+  if(req.method==='POST'&&['/api/tasks','/api/tasks/cancel'].includes(url.pathname)){
+   if(![origin,origin.replace('127.0.0.1','localhost')].includes(req.headers.origin)){json(403,{error:'Same-origin task submission required'});return;}
+   if(!/^application\/json(?:;|$)/i.test(req.headers['content-type']??'')){json(415,{error:'application/json required'});return;}
+   let bytes=0;const chunks=[];try{for await(const chunk of req){bytes+=chunk.length;if(bytes>16384){json(413,{error:'Task request too large'});return;}chunks.push(chunk);}
+    const r=taskBroker.submit(JSON.parse(Buffer.concat(chunks).toString('utf8')),latest,state().status,url.pathname.endsWith('/cancel')?'cancel_pending':'enqueue');
+    json(202,{request_id:r.request_id,status:r.status,reason:r.reason,task_ids:r.task_ids});
+   }catch(error){json(error.status??400,{error:error.message});}return;
+  }
   if(req.method==='GET'&&url.pathname==='/api/snapshot'){json(200,{...state(),latest});return;}
   if(req.method==='GET'&&url.pathname==='/api/history'){json(200,{...state(),frames:history});return;}
   if(req.method==='GET'&&url.pathname==='/events'){
@@ -40,16 +56,16 @@ export function createTelemetryServer({port=4174,historyLimit=600}={}){
    if(req.headers.origin&&req.headers.origin!==origin&&req.headers.origin!==origin.replace('127.0.0.1','localhost')){json(403,{error:'Origin rejected'});return;}
    if(!/^application\/json(?:;|$)/i.test(req.headers['content-type']??'')){json(415,{error:'application/json required'});return;}
    let bytes=0;const chunks=[];try{
-    for await(const chunk of req){bytes+=chunk.length;if(bytes>262144){json(413,{error:'Telemetry too large'});req.resume();return;}chunks.push(chunk);}
+    for await(const chunk of req){bytes+=chunk.length;if(bytes>1048576){json(413,{error:'Telemetry too large'});req.resume();return;}chunks.push(chunk);}
     const frame=validateFrame(JSON.parse(Buffer.concat(chunks).toString('utf8'))),s=frame.source,previous=sequences.get(s.world_id);
     if(previous&&(s.sequence<=previous.sequence||previous.stopped)){json(409,{error:'Old or stopped world sequence'});return;}
     if(latest&&s.world_id!==latest.frame.source.world_id&&s.started_at_ms<=latest.frame.source.started_at_ms){json(409,{error:'An older world cannot replace the active world'});return;}
     sequences.set(s.world_id,{sequence:s.sequence,stopped:s.state==='stopped'});if(sequences.size>128)sequences.delete(sequences.keys().next().value);
-    const envelope={event_id:++nextId,received_at_ms:Date.now(),frame};latest=envelope;history.push(envelope);if(history.length>historyLimit)history.shift();
+    const envelope={event_id:++nextId,received_at_ms:Date.now(),frame};latest=envelope;taskBroker.observe(frame);history.push(envelope);if(history.length>historyLimit)history.shift();
     publish('frame',envelope);publish('status',state());json(202,{accepted_sequence:s.sequence,event_id:nextId});
    }catch(error){if(!res.writableEnded)json(400,{error:error.message});}return;
   }
-  if(req.method!=='GET'&&req.method!=='HEAD'){json(405,{error:'Read-only dashboard; POST is only for Unreal telemetry'});return;}
+  if(req.method!=='GET'&&req.method!=='HEAD'){json(405,{error:'Unsupported operation; task requests require current Unreal acknowledgement'});return;}
   const name=allowed.get(url.pathname);if(!name){res.writeHead(404);res.end('Not found');return;}
   try{const data=await readFile(path.join(folder,'dist',name));const mime=name.endsWith('.css')?'text/css':name.endsWith('.mjs')?'text/javascript':'text/html';res.writeHead(200,{'Content-Type':`${mime}; charset=utf-8`});res.end(req.method==='HEAD'?undefined:data);}catch{res.writeHead(404);res.end('Not found');}
  });

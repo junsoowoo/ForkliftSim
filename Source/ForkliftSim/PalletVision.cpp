@@ -1,4 +1,5 @@
 #include "PalletPerception.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
 #include "Misc/Paths.h"
 #include "Misc/FileHelper.h"
 #include "Serialization/JsonSerializer.h"
@@ -42,6 +43,7 @@ bool PalletPerception::FSpec::Load(FString& Error)
 }
 PalletPerception::FDetection PalletPerception::Detect(const DepthCamera::FFrame& Frame,const FSpec& Spec)
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_PalletDetect);
     FDetection Best;Best.Sequence=Frame.Sequence;Best.CaptureS=Frame.CaptureS;Best.DeliveryS=Frame.DeliveryS;
     if(Frame.Spec.Width<32||Frame.Spec.Height<24||Frame.DepthM.Num()!=Frame.Spec.Width*Frame.Spec.Height||Frame.Validity.Num()!=Frame.DepthM.Num())return Best;
     FDepthEvidenceImage Image(Frame,Spec);TArray<FVector> Cloud;
@@ -61,7 +63,8 @@ PalletPerception::FDetection PalletPerception::Detect(const DepthCamera::FFrame&
     // A weak pallet face need not be a local histogram maximum when the cargo
     // face dominates. Inspect the nearby depth layers without declaring them
     // occupied; every candidate still needs all measured structural evidence.
-    for(auto Seed:Seeds)for(double Shift:{0.,-.02,.02,-.04,.04}){auto P=Seed;P.D+=Shift;if(P.D>.3)Selected.Add(P);}
+    TArray<double> Shifts={0};for(double D=.02;D<=FMath::Clamp(Spec.LayerSearchM,.04,.16)+1e-6;D+=.02){Shifts.Add(-D);Shifts.Add(D);}
+    for(auto Seed:Seeds)for(double Shift:Shifts){auto P=Seed;P.D+=Shift;if(P.D>.3)Selected.Add(P);}
     Best.PlaneCandidates=Selected.Num();
     for(auto Plane:Selected)
     {
@@ -85,7 +88,7 @@ PalletPerception::FDetection PalletPerception::Detect(const DepthCamera::FFrame&
             const FVector RefN(FMath::Cos(FitYaw),FMath::Sin(FitYaw),0),RefT(-RefN.Y,RefN.X,0);
             Best.Valid=Confidence>=Spec.MinConfidence;Best.Confidence=Confidence;Best.DistanceM=(MeanX-Slope*MeanY)*RefN.X;Best.CenterZ=(RoofEdges[0]+RoofEdges[1])*.5-Spec.OpeningHeight*.5;Best.Yaw=FitYaw;Best.Rms=FMath::Sqrt(Errors/3);Best.FaceEvidence=Faces+Roof;Best.GapEvidence=Far;Best.CensoredEvidence=Censored;
             for(int H=0;H<2;++H){Best.HoleWidth[H]=(Right[H]-Left[H])*FVector::DotProduct(T,RefT);Best.HoleY[H]=FVector::DotProduct(N*Plane.D+T*(Y+(Right[H]+Left[H])*.5),RefT);}Best.CenterY=(Best.HoleY[0]+Best.HoleY[1])*.5;
-            if(Best.Confidence>=.999&&Best.Rms<.02)return Best;
+            if((Best.Confidence>=.999||(Spec.LayerSearchM>.04&&Best.Confidence>=.94&&Best.GapEvidence>=14))&&Best.Rms<.02)return Best;
         }
     }
     return Best;

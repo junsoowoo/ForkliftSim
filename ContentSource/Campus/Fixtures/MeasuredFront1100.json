@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "source": "Actual Unreal DX11 GPU depth frame from the four-way pallet fixture, after configured range/noise/quantization/dropout and latency. Captured in CampusFoundation-Vision2.log. No actor ID or pose is included in the detector input.",
+  "width": 320,
+  "height": 180,
+  "fov_deg": 85,
+  "mount_pitch_deg": -10,
+  "format": [
+    {
+      "offset": 0,
+      "count": 57600,
+      "type": "float32 little endian optical Z metres"
+    },
+    {
+      "offset": 230400,
+      "count": 57600,
+      "type": "uint8 validity: 0 valid, 1 no-return, 2 too-close, 3 too-far, 4 dropout"
+    }
+  ],
+  "sha256": "224f0a9a7c4c455f81aabee0c69a36e60574eb3da159755325db0eb2d5f4dc4b",
+  "assertion_only_front_distance_m": 1.4275,
+  "assertion_scope": "Distance is test-fixture truth used only by the regression assertion, never recognition input. Family dimensions are calibrated geometric priors."
+}

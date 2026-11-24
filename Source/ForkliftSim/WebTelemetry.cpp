@@ -9,7 +9,9 @@
 #include "PalletPerception.h"
 #include "HandlingControl.h"
 #include "MissionNavigation.h"
+#include "CampusOperations.h"
 #include "StabilityLab.h"
+#include "SimulationPlayback.h"
 #include "ChassisActor.h"
 #include "WheelActor.h"
 #include "ForkActor.h"
@@ -48,7 +50,7 @@ TSharedPtr<FWebTelemetryPublisher,ESPMode::ThreadSafe> FWebTelemetryPublisher::C
 {
     FString Url;
     if(!FParse::Value(FCommandLine::Get(),TEXT("WebTelemetry="),Url))
-    { if(!FParse::Param(FCommandLine::Get(),TEXT("WebTelemetry"))) return nullptr; Url=TEXT("http://127.0.0.1:4173/api/telemetry"); }
+    { if(!FParse::Param(FCommandLine::Get(),TEXT("WebTelemetry"))) return nullptr; Url=TEXT("http://127.0.0.1:4174/api/telemetry"); }
     FString Port;
     const FString Prefix=TEXT("http://127.0.0.1:");
     if(Url.StartsWith(Prefix) && Url.EndsWith(TEXT("/api/telemetry"))) Port=Url.Mid(Prefix.Len(),Url.Len()-Prefix.Len()-14);
@@ -96,9 +98,8 @@ void FWebTelemetryPublisher::Stop()
     if(Pending) { Pending->OnProcessRequestComplete().Unbind(); Pending->CancelRequest(); Pending.Reset(); }
     if(LastFrame) Dispatch(LastFrame.ToSharedRef(),true);
 }
-void AStabilityLab::PublishWebTelemetry()
+TSharedRef<FJsonObject> AStabilityLab::BuildWebFrame()
 {
-    if(!WebTelemetry || !WebTelemetry->IsDue() || !Chassis || !Fork || Wheels.Num()!=4) return;
     auto Frame=MakeShared<FJsonObject>();
     if(CameraSensors)Frame->SetObjectField(TEXT("camera_sensors"),CameraSensors->Telemetry(TimeS,bCameraViews));
     if(JointSensors){auto J=JointSensors->Telemetry(TimeS);J->SetBoolField(TEXT("controller_connected"),SensorLift.IsValid());J->SetBoolField(TEXT("lift_controller_connected"),SensorLift.IsValid());Frame->SetObjectField(TEXT("joint_sensors"),J);}
@@ -110,6 +111,16 @@ void AStabilityLab::PublishWebTelemetry()
     {
         auto J=VehicleGuard->Telemetry(TimeS);const bool Nav=MissionControl&&MissionControl->NavField(TimeS);J->SetStringField(TEXT("protection_mode"),Nav?TEXT("mission_fixed_heading_sweep"):TEXT("full_padding"));
         if(Nav){const auto& M=MissionControl->Model;const double V=M.Velocity.Size(),Extra=.12+.35*V+V*V;const auto D=M.Velocity.GetSafeNormal()*Extra;J->SetNumberField(TEXT("field_front_m"),M.Spec.Front+M.Spec.Margin+FMath::Max(0.,D.X));J->SetNumberField(TEXT("field_rear_m"),M.Spec.Rear+M.Spec.Margin-FMath::Min(0.,D.X));J->SetNumberField(TEXT("field_half_width_m"),M.Spec.HalfWidth+M.Spec.Margin+FMath::Abs(D.Y));}
+        if(bCampusVehicle&&Campus)if(const auto* Job=Campus->Job(VehicleId))
+        {
+            if(HandlingControl&&HandlingControl->Model.Active&&HandlingControl->Model.Permit)
+            {auto V=HandlingControl->Model.Velocity;const auto Ground=DriveSensors->MeasuredVelocity(TimeS);if(FVector2D(Ground).Size()>V.Size())V=FVector2D(Ground);const auto D=CampusFleet::DockingStopOffset(V);J->SetStringField(TEXT("protection_mode"),TEXT("campus_low_speed_docking_sweep"));J->SetNumberField(TEXT("field_front_m"),Settings.ForkFaceXM()+Settings.Structure.LengthM+.12+FMath::Max(0.,D.X));J->SetNumberField(TEXT("field_rear_m"),Settings.BodyLengthM*.5+.12-FMath::Min(0.,D.X));J->SetNumberField(TEXT("field_half_width_m"),FMath::Max(.55,Settings.BodyWidthM*.5)+.07+FMath::Abs(D.Y));}
+            else if(Job->Travelling())
+            {auto V=Job->Velocity;const auto Ground=DriveSensors->MeasuredVelocity(TimeS);if(FVector2D(Ground).Size()>V.Size())V=FVector2D(Ground);const auto D=V.GetSafeNormal()*(.18+.35*V.Size()+V.SizeSquared());J->SetStringField(TEXT("protection_mode"),TEXT("campus_travel_sweep"));J->SetNumberField(TEXT("field_front_m"),2.2+FMath::Max(0.,D.X));J->SetNumberField(TEXT("field_rear_m"),.95-FMath::Min(0.,D.X));J->SetNumberField(TEXT("field_half_width_m"),.8+FMath::Abs(D.Y));}
+            else if(Job->State.StartsWith(TEXT("align_")))
+            {const double Front=Settings.ForkFaceXM()+Settings.Structure.LengthM,Side=PayloadSettings.ForkSpacingM*.5+Settings.Structure.WidthM*.5;double Radius=FMath::Sqrt(Front*Front+Side*Side)+.15;if(Job->Carrying){const double Edge=Job->CarrierBack-.12;Radius=FMath::Max(Radius,FMath::Sqrt(Edge*Edge+.55*.55)+.15);}J->SetStringField(TEXT("protection_mode"),TEXT("campus_rotation_circle"));J->SetNumberField(TEXT("field_radius_m"),Radius);J->SetNumberField(TEXT("field_front_m"),Radius);J->SetNumberField(TEXT("field_rear_m"),Radius);J->SetNumberField(TEXT("field_half_width_m"),Radius);}
+            J->SetBoolField(TEXT("measured_carrier_self_filter"),Campus->FleetPermit(*this,FVector2D((Job->CarrierFront+Job->CarrierBack)*.5,0)));
+        }
         Frame->SetObjectField(TEXT("lidar_safety"),J);
     }
     if(DriveSensors)Frame->SetObjectField(TEXT("drive_estimator"),DriveSensors->Telemetry(TimeS));
@@ -125,7 +136,7 @@ void AStabilityLab::PublishWebTelemetry()
     Number(Frame,TEXT("physics_inner_clock_error_s"),MaxInnerClockErrorS);
     Frame->SetStringField(TEXT("bearing_integrator"),Settings.Mecanum.bReduced?TEXT("roller_coordinates_eliminated"):Settings.bMecanum && Settings.Mecanum.bBearingIntegrator && !FParse::Param(FCommandLine::Get(),TEXT("MecanumLegacyIntegration"))?TEXT("symmetric_spin_verlet"):TEXT("legacy"));
     Number(Frame,TEXT("game_max_frame_s"),ValidationState.MaxGameStepS);
-    Number(Frame,TEXT("playback_rate"),GetWorld()->GetWorldSettings()->TimeDilation);
+    Number(Frame,TEXT("playback_rate"),GetWorld()->GetWorldSettings()->TimeDilation);Number(Frame,TEXT("playback_frame_limit_fps"),SimulationPlayback::RenderLimit());Number(Frame,TEXT("playback_step_cap_s"),SimulationPlayback::StepCap(GetWorld()));Frame->SetBoolField(TEXT("playback_performance_limited"),SimulationPlayback::Limited(GetWorld(),FrameWallSmoothedS));Frame->SetStringField(TEXT("playback_policy"),TEXT("bounded_world_step; actual speed limited by processing capacity"));
     Frame->SetStringField(TEXT("drive_update"),Settings.bMecanum?TEXT("physics_inner_step"):TEXT("game_frame"));
     Frame->SetBoolField(TEXT("contact_sample_valid"),PreviousPhysicsDt>0);
     auto Energy=MakeShared<FJsonObject>(); const auto& A=EnergyAudit; const auto& EH=Fork->HydraulicState;
@@ -304,5 +315,9 @@ void AStabilityLab::PublishWebTelemetry()
         Cargo->SetBoolField(TEXT("fell"),CargoState.bFell); Cargo->SetBoolField(TEXT("tipped"),CargoState.bTipped); Cargo->SetBoolField(TEXT("lost_support"),CargoState.bLostSupport);
         Frame->SetObjectField(TEXT("cargo"),Cargo);
     }
-    WebTelemetry->Send(Frame);
+    return Frame;
+}
+void AStabilityLab::PublishWebTelemetry()
+{
+    if(WebTelemetry && WebTelemetry->IsDue() && Chassis && Fork && Wheels.Num()==4)WebTelemetry->Send(BuildWebFrame());
 }

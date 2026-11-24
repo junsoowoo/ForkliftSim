@@ -1,4 +1,5 @@
 #include "SensorDrive.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
 namespace
 {
     bool Solve(double H[3][3],double B[3],double X[3],double& Quality)
@@ -11,7 +12,18 @@ namespace
 }
 SensorDrive::FMatch SensorDrive::Match(const TArray<FVector2D>& Points,const TArray<FSegment>& Map,FPose Initial)
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_ScanMatch);
     FMatch R;R.Pose=Initial;if(Points.Num()<24||Map.Num()<3)return R;
+    // Exact candidate index: every segment is inserted into all one-metre
+    // cells touched by its 0.35 m expanded bounds. The original projection,
+    // rejection thresholds and map-order tie breaking remain unchanged.
+    TMap<FIntPoint,TArray<int>> Cells;TArray<int> LongLines;
+    for(int I=0;I<Map.Num();++I)
+    {
+        const auto& L=Map[I];const int X0=FMath::FloorToInt(FMath::Min(L.A.X,L.B.X)-.35),X1=FMath::FloorToInt(FMath::Max(L.A.X,L.B.X)+.35),Y0=FMath::FloorToInt(FMath::Min(L.A.Y,L.B.Y)-.35),Y1=FMath::FloorToInt(FMath::Max(L.A.Y,L.B.Y)+.35);
+        if(int64(X1-X0+1)*(Y1-Y0+1)>4096){LongLines.Add(I);continue;}
+        for(int X=X0;X<=X1;++X)for(int Y=Y0;Y<=Y1;++Y)Cells.FindOrAdd(FIntPoint(X,Y)).Add(I);
+    }
     for(int Iter=0;Iter<7;++Iter)
     {
         double H[3][3]={},B[3]={},Error=0;int Count=0;const double C=FMath::Cos(R.Pose.Yaw),S=FMath::Sin(R.Pose.Yaw);
@@ -19,7 +31,8 @@ SensorDrive::FMatch SensorDrive::Match(const TArray<FVector2D>& Points,const TAr
         {
             const FVector2D Rot(C*Local.X-S*Local.Y,S*Local.X+C*Local.Y),P=Rot+FVector2D(R.Pose.X,R.Pose.Y);
             double Best=.35*.35;FVector2D N=FVector2D::ZeroVector,Q=FVector2D::ZeroVector;
-            for(const auto& Line:Map){const auto V=Line.B-Line.A;const double L=V.SizeSquared();if(L<1e-8)continue;const double T=FVector2D::DotProduct(P-Line.A,V)/L;if(T<0||T>1)continue;const FVector2D Foot=Line.A+V*T;const double D=(P-Foot).SizeSquared();if(D<Best){Best=D;Q=Foot;N=FVector2D(-V.Y,V.X)/FMath::Sqrt(L);}}
+            TArray<int,TInlineAllocator<64>> Candidates;Candidates.Append(LongLines);if(const auto* Indices=Cells.Find(FIntPoint(FMath::FloorToInt(P.X),FMath::FloorToInt(P.Y))))Candidates.Append(*Indices);if(!LongLines.IsEmpty())Candidates.Sort();
+            for(int Index:Candidates){const auto& Line=Map[Index];const auto V=Line.B-Line.A;const double L=V.SizeSquared();if(L<1e-8)continue;const double T=FVector2D::DotProduct(P-Line.A,V)/L;if(T<0||T>1)continue;const FVector2D Foot=Line.A+V*T;const double D=(P-Foot).SizeSquared();if(D<Best){Best=D;Q=Foot;N=FVector2D(-V.Y,V.X)/FMath::Sqrt(L);}}
             if(N.IsNearlyZero())continue;const double E=FVector2D::DotProduct(P-Q,N),W=FMath::Abs(E)>.05?.05/FMath::Abs(E):1;
             const double J[3]={N.X,N.Y,-N.X*Rot.Y+N.Y*Rot.X};for(int I=0;I<3;++I){B[I]-=W*J[I]*E;for(int K=0;K<3;++K)H[I][K]+=W*J[I]*J[K];}Error+=E*E;++Count;
         }

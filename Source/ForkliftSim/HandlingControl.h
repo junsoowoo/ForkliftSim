@@ -11,6 +11,8 @@ namespace Handling
         double Speed=.12,Strafe=.06,Yaw=.08,Depth=1.075,Withdraw=1.50,Carry=.25,Clear=.15;
         double StageTimeout=45,JobTimeout=140,Dwell=.4,Stale=.35,MaxApproach=2.5;
         double RackX=6.95,RackY=-2.5,Low=.35,High=1.95,RackDepth=1.45,RackWidth=1.8,ForkCenter=1.4104257;
+        double PalletLength=1.2158514,PalletHalfWidth=.6079257,UnloadOffset=.035;
+        bool SurveyRack=false;double BeamX=-.67,BeamLeft=0,BeamRight=0,WheelFront=.619;
         bool Load(FString& Error);
     };
     // Only measured/fused sensor values and surveyed dimensions. No actor or plant state.
@@ -24,7 +26,7 @@ namespace Handling
     struct FModel
     {
         FSpec Spec;FString State=TEXT("idle"),Reason,FailedStage;bool Active=false,Faulted=false,Place=false,Receipt=false,FullSeen=false,TransferSeen=false;
-        double StartS=0,StageS=0,StableS=0,Tier=0,HeightTarget=0,ReferenceLoad=0,VisionLostS=-1,AlignmentSince=-1;
+        double StartS=0,StageS=0,StableS=0,Tier=0,HeightTarget=0,ReferenceLoad=0,VisionLostS=-1,AlignmentSince=-1,InsertionHeight=0;
         SensorDrive::FPose StartPose,WithdrawPose;FVector2D Velocity=FVector2D::ZeroVector;double YawRate=0;
         bool Brake=true,Permit=false;FInput Last;
         bool Working() const{return Active||Faulted;}
@@ -35,6 +37,7 @@ namespace Handling
 }
 struct FHandlingRig
 {
+    bool SurveyFrame=false;SensorDrive::FPose Station;double SurveyCarryCenterM=0,SurveyUnloadOffsetM=.015;FVector2D SurveyBeamSides=FVector2D::ZeroVector;
     Handling::FModel Model;Handling::ERequest Request=Handling::ERequest::None;bool Cancel=false,GuardReleased=false;uint64 JobSequence=0;
     TUniquePtr<FArchive> Csv;FString CsvPath;double NextCsv=0,NextFlush=0,AckUntilS=-1;
     ~FHandlingRig();static TSharedPtr<FHandlingRig> Create(FString& Error);

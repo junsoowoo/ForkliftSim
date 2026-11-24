@@ -1,4 +1,5 @@
 #include "StabilityLab.h"
+#include "CampusOperations.h"
 #include "ChassisActor.h"
 #include "WheelActor.h"
 #include "ForkActor.h"
@@ -60,7 +61,8 @@ bool AStabilityLab::ConfigurePayload()
         PayloadSettings=FPayloadSettings(); PayloadSettings.InitialDepthM=1.1;
         // Overload uses a lower relief setting, not a dangerously tipping mass.
     }
-    if(Settings.bReferenceGeometry && !PayloadSettings.UseWarehouseGeometry(Error))return false;
+    if(bCampusVehicle){if(!PayloadSettings.UseCampusGeometry(Error))return false;if(Campus)PayloadSettings.CargoMassKg=Campus->PayloadSpec.CargoMassKg;}
+    else if(Settings.bReferenceGeometry && !PayloadSettings.UseWarehouseGeometry(Error))return false;
     if(IsPalletPerceptionTest()||IsHandlingTest()||IsMissionTest())PayloadSettings.InitialDepthM=-.25;
     if(IsHandlingTest()&&TestMode.Contains(TEXT("place")))PayloadSettings.InitialDepthM=1.1;
     return PayloadSettings.Validate(Error);
@@ -113,8 +115,10 @@ void AStabilityLab::UpdatePayload(double Dt,double PhysicsDt)
     {
         // Geometric overlap is NOT proof of contact or successful insertion.
         const auto Local=[&](FVector W) { return Pallet->Deck->GetComponentQuat().UnrotateVector(W-Pallet->GetActorLocation())/100.; };
-        const double A=Local(Fork->Tines[I]->Heel()).X;
-        const double B=Local(Fork->Tines[I]->Tip()).X;
+        const FVector Heel=Local(Fork->Tines[I]->Heel())+(PayloadSettings.bFourWay?PayloadSettings.PalletDatumM:FVector::ZeroVector);
+        const FVector Tip=Local(Fork->Tines[I]->Tip())+(PayloadSettings.bFourWay?PayloadSettings.PalletDatumM:FVector::ZeroVector);
+        const int Axis=PayloadSettings.bFourWay&&FMath::Abs(Tip.Y-Heel.Y)>FMath::Abs(Tip.X-Heel.X)?1:0;
+        const double A=Heel[Axis],B=Tip[Axis];
         P.DepthM[I]=FMath::Max(0.,FMath::Min(FMath::Max(A,B),PayloadSettings.LengthM*.5)-FMath::Max(FMath::Min(A,B),-PayloadSettings.LengthM*.5));
         P.CopXM[I]=P.NormalN[I]>1e-8?RelativeToFork(P.PointWeighted[I]/P.NormalN[I]*100).X+(Settings.bReferenceGeometry?-.03:.05):0;
         if(PhysicsDt>0) { P.VerticalN[I]/=PhysicsDt; P.NormalN[I]/=PhysicsDt; P.FrictionN[I]/=PhysicsDt; }

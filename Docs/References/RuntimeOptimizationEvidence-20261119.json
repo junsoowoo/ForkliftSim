@@ -1,0 +1,450 @@
+{
+  "date": "2026-11-19",
+  "objective": "Reduce repeated computation while retaining physical and sensor functions.",
+  "dll": {
+    "path": "Binaries/Win64/UnrealEditor-ForkliftSim.dll",
+    "sha256": "1297d8c4b2b74bd5b9ba78d92b025635cf80439f560d5eb3f12f628feaa09ecd"
+  },
+  "original_dll_sha256": "50C17CBD252421A73318DBFA5F7F60BA18691E6978CC2D00F9176A3780CFA9F5",
+  "build": {
+    "path": "Saved/Validation/Optimization/Build-Final-02.log",
+    "sha256": "b19c66aa3d7960959389ce0f351e849bf84f20d75669ca852fb708232d797e66"
+  },
+  "changes": [
+    "Per-inner-step physics-thread particle lookup reused within each rig, with solver-order accumulation retained.",
+    "Early rejection of unrelated joints and contacts before detailed per-rig calculations.",
+    "One acquisition-local immutable physical geometry/pose snapshot shared by all proximity aperture rays.",
+    "Opt-in CPU trace scopes and reference/parity diagnostics."
+  ],
+  "preserved": {
+    "physics_hz_default": 480,
+    "position_iterations_default": 16,
+    "velocity_iterations_default": 16,
+    "vehicle_count_default": 3,
+    "camera_and_sensor_rates_changed": false,
+    "physics_coefficients_changed": false,
+    "drive_speed_caps_changed": false,
+    "threading_defaults_changed": false,
+    "startup_launcher": "Start.bat",
+    "new_start_batch_files": 0,
+    "gui_automation_used": false
+  },
+  "config_fingerprints": [
+    {
+      "path": "Config/DefaultEngine.ini",
+      "sha256": "1560e132d73380aa79cdfe7e3b4c642e3b08d1529a83eacd7b08642c437ec1f8"
+    },
+    {
+      "path": "Config/Vehicle3D.json",
+      "sha256": "bb376391ec3868c70ad9cbd8822a87acb33428b7cc7ca49a71b1bfb540eba61a"
+    },
+    {
+      "path": "Config/Mecanum.json",
+      "sha256": "076cad78c9172ab7e8e12da2cda2ac418b0dc9a0faa8544d877d6b2c5366fe5b"
+    },
+    {
+      "path": "Config/Hydraulics.json",
+      "sha256": "95ca490d12d7fec3a32000dca4e3f7fe4d71a76ae76bea5fefe3b2ca184b7a31"
+    },
+    {
+      "path": "Config/ForkStructure.json",
+      "sha256": "7b348a4629fc4f591304ddff5464cda9060324686688a0c94ebf53c5af033601"
+    },
+    {
+      "path": "Config/Cameras.json",
+      "sha256": "05fcfa306aa2a428c4fc6e0aa7260aeed48c9990a218e99636a089a82255daf1"
+    },
+    {
+      "path": "Config/LidarSafety.json",
+      "sha256": "eca147a22d5e67b17294a35bd47255b17b3e6eb8cfad06ad0d4dd8c7c6426738"
+    },
+    {
+      "path": "Config/ProximitySensors.json",
+      "sha256": "a63ff6a0202c1e5e35f3df5aa2da4a30b7dae43794c96b9f8cb6992c2eb765ae"
+    },
+    {
+      "path": "Config/HandlingControl.json",
+      "sha256": "a9d79107bcb7e76db8039f34b54c62cb40b153c164f84e27a5d8de243ac861d8"
+    },
+    {
+      "path": "Config/CampusOperations.json",
+      "sha256": "2291a8807cfc989601d4a1ea0b7d99e9c3162e46c8aff8461fddcd46f0755bfe"
+    }
+  ],
+  "source_fingerprints": [
+    {
+      "path": "Source/ForkliftSim/ContactLoadSampler.cpp",
+      "sha256": "0714b26ebc7d136dd055c160ad2a72102d4293161d16a3a320d61e15cd8c79f0"
+    },
+    {
+      "path": "Source/ForkliftSim/ContactLoadSampler.h",
+      "sha256": "7da86d3690233d83b92e3086259bb4990ea0b5a0027dd7027b706bb176bc1fc7"
+    },
+    {
+      "path": "Source/ForkliftSim/ContactEnergyAudit.cpp",
+      "sha256": "181abb2426f6adac44ac31a416266d9073def1bf1a91053637f4bb87169b70e8"
+    },
+    {
+      "path": "Source/ForkliftSim/JointSensorSampling.cpp",
+      "sha256": "cfc894816bde7d28f56d36d1f135e308e5cccb67a19f1052dfe07d9c7256431c"
+    },
+    {
+      "path": "Source/ForkliftSim/ReducedMecanum.cpp",
+      "sha256": "1da8763c6d415a310516d2e6357ff3726f7a1ae9dd598fd0ddbb3d1ea8ea0212"
+    },
+    {
+      "path": "Source/ForkliftSim/ProximitySampling.cpp",
+      "sha256": "ea11e9fca021e1bbee16dae2ccfc7b76526d28ec12cfd1cb3a223ac0be909085"
+    },
+    {
+      "path": "Source/ForkliftSim/StabilityLab.cpp",
+      "sha256": "525c5d700189508ad0a88c39dd898e5d87903c7694e746b9f67cf571157b087d"
+    },
+    {
+      "path": "Source/ForkliftSim/HydraulicCallback.cpp",
+      "sha256": "605cd939060abfe901b2a12d6a75211a23889f117e7282b4fa892a74019dcc68"
+    },
+    {
+      "path": "Source/ForkliftSim/LidarSafetySampling.cpp",
+      "sha256": "16bf34f5ce8f0a14bd8df545bd4b7caf6da395f1454f6c984015ab78fbb7a526"
+    },
+    {
+      "path": "Source/ForkliftSim/PlanarLocalization.cpp",
+      "sha256": "aa7c4c0cee010ff33ccf5fad93b6a744c09cd82299994ec348ee6f9974b37ad1"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorDriveIntegration.cpp",
+      "sha256": "dc21bd3da2372c6c98d4496fb8bf03682a26d35c4dfeb10975a34057a83dbb43"
+    },
+    {
+      "path": "Source/ForkliftSim/PalletVision.cpp",
+      "sha256": "826087c2b4649b6ed32f114163848300916a8cbe823a0acb1d24bb44f9e48664"
+    },
+    {
+      "path": "Source/ForkliftSim/CameraSensors.cpp",
+      "sha256": "2b36c8ed810b1af5ca5f6b634da4413ad5a6464bd7ecfea484e629db9d483025"
+    }
+  ],
+  "performance": {
+    "scope": "Separate sequential 12-simulated-second idle 3-vehicle native rendered runs, 1280x800 at 75% screen percentage, 480Hz/16+16, current cameras enabled. Same final DLL with reference tracing vs default batch. Not Editor PIE or a sustained throughput benchmark.",
+    "reference": {
+      "report": {
+        "path": "Saved/Validation/Optimization/ReferenceTrace/results.json",
+        "sha256": "5dfe8993370532f92ee0912c924eb7665125a284d0994e9f6d308e0efef6b1b2"
+      },
+      "timers": {
+        "Forklift_CameraUpdate": {
+          "count": 1575,
+          "inclusive_cpu_s": 0.466584,
+          "exclusive_cpu_s": 0.464795
+        },
+        "Forklift_VehicleTick": {
+          "count": 1572,
+          "inclusive_cpu_s": 2.709478,
+          "exclusive_cpu_s": 0.688608
+        },
+        "Forklift_LidarUpdate": {
+          "count": 1572,
+          "inclusive_cpu_s": 0.642621,
+          "exclusive_cpu_s": 0.353559
+        },
+        "Forklift_LocalizationCorrect": {
+          "count": 1572,
+          "inclusive_cpu_s": 0.023836,
+          "exclusive_cpu_s": 0.003966
+        },
+        "Forklift_ProximityUpdate": {
+          "count": 1572,
+          "inclusive_cpu_s": 1.304735,
+          "exclusive_cpu_s": 0.10183
+        },
+        "Forklift_ProximityTargets": {
+          "count": 723,
+          "inclusive_cpu_s": 0.053172,
+          "exclusive_cpu_s": 0.053172
+        },
+        "Forklift_ProximityTrace": {
+          "count": 52056,
+          "inclusive_cpu_s": 1.149733,
+          "exclusive_cpu_s": 1.072116
+        },
+        "Forklift_PalletDetect": {
+          "count": 62,
+          "inclusive_cpu_s": 0.978905,
+          "exclusive_cpu_s": 0.978905
+        },
+        "Forklift_ScanMatch": {
+          "count": 343,
+          "inclusive_cpu_s": 0.01987,
+          "exclusive_cpu_s": 0.01987
+        },
+        "Forklift_HydraulicPreIntegrate": {
+          "count": 18000,
+          "inclusive_cpu_s": 0.055265,
+          "exclusive_cpu_s": 0.055265
+        },
+        "Forklift_PhysicsPreIntegrate": {
+          "count": 18000,
+          "inclusive_cpu_s": 0.09763,
+          "exclusive_cpu_s": 0.042463
+        },
+        "Forklift_PhysicsParticleIndex": {
+          "count": 18000,
+          "inclusive_cpu_s": 0.055167,
+          "exclusive_cpu_s": 0.055167
+        },
+        "Forklift_PhysicsAuditCapture": {
+          "count": 18000,
+          "inclusive_cpu_s": 0.029053,
+          "exclusive_cpu_s": 0.029053
+        },
+        "Forklift_PhysicsContactModification": {
+          "count": 18000,
+          "inclusive_cpu_s": 0.195086,
+          "exclusive_cpu_s": 0.195086
+        },
+        "Forklift_PhysicsPostSolve": {
+          "count": 18000,
+          "inclusive_cpu_s": 0.659375,
+          "exclusive_cpu_s": 0.303113
+        },
+        "Forklift_PhysicsContactWork": {
+          "count": 18000,
+          "inclusive_cpu_s": 0.356262,
+          "exclusive_cpu_s": 0.356262
+        }
+      },
+      "trace": {
+        "path": "Saved/Validation/Optimization/ReferenceTrace/runtime.utrace",
+        "sha256": "0210cdaf8b35810d219a1714036f42ec2617c7f12e82d60186b9e5c366091554"
+      }
+    },
+    "optimized": {
+      "report": {
+        "path": "Saved/Validation/Optimization/BatchTrace/results.json",
+        "sha256": "5f61c6570d7eb8a027deb17bbcb3f4be75b89edaf9686af32c4e1986c51a3564"
+      },
+      "timers": {
+        "Forklift_CameraUpdate": {
+          "count": 1644,
+          "inclusive_cpu_s": 0.495928,
+          "exclusive_cpu_s": 0.493783
+        },
+        "Forklift_VehicleTick": {
+          "count": 1641,
+          "inclusive_cpu_s": 1.965616,
+          "exclusive_cpu_s": 0.785247
+        },
+        "Forklift_LidarUpdate": {
+          "count": 1641,
+          "inclusive_cpu_s": 0.723448,
+          "exclusive_cpu_s": 0.411291
+        },
+        "Forklift_LocalizationCorrect": {
+          "count": 1641,
+          "inclusive_cpu_s": 0.02553,
+          "exclusive_cpu_s": 0.004641
+        },
+        "Forklift_ProximityUpdate": {
+          "count": 1641,
+          "inclusive_cpu_s": 0.371669,
+          "exclusive_cpu_s": 0.122249
+        },
+        "Forklift_ProximityTargets": {
+          "count": 723,
+          "inclusive_cpu_s": 0.061602,
+          "exclusive_cpu_s": 0.061602
+        },
+        "Forklift_ProximitySnapshot": {
+          "count": 723,
+          "inclusive_cpu_s": 0.059005,
+          "exclusive_cpu_s": 0.059005
+        },
+        "Forklift_ProximityBatchTrace": {
+          "count": 52056,
+          "inclusive_cpu_s": 0.128812,
+          "exclusive_cpu_s": 0.053026
+        },
+        "Forklift_PalletDetect": {
+          "count": 60,
+          "inclusive_cpu_s": 0.993406,
+          "exclusive_cpu_s": 0.993406
+        },
+        "Forklift_ScanMatch": {
+          "count": 345,
+          "inclusive_cpu_s": 0.020889,
+          "exclusive_cpu_s": 0.020889
+        },
+        "Forklift_HydraulicPreIntegrate": {
+          "count": 18027,
+          "inclusive_cpu_s": 0.066167,
+          "exclusive_cpu_s": 0.066167
+        },
+        "Forklift_PhysicsPreIntegrate": {
+          "count": 18027,
+          "inclusive_cpu_s": 0.11078,
+          "exclusive_cpu_s": 0.049659
+        },
+        "Forklift_PhysicsParticleIndex": {
+          "count": 18027,
+          "inclusive_cpu_s": 0.061121,
+          "exclusive_cpu_s": 0.061121
+        },
+        "Forklift_PhysicsAuditCapture": {
+          "count": 18027,
+          "inclusive_cpu_s": 0.032262,
+          "exclusive_cpu_s": 0.032262
+        },
+        "Forklift_PhysicsContactModification": {
+          "count": 18027,
+          "inclusive_cpu_s": 0.208758,
+          "exclusive_cpu_s": 0.208758
+        },
+        "Forklift_PhysicsPostSolve": {
+          "count": 18027,
+          "inclusive_cpu_s": 0.719848,
+          "exclusive_cpu_s": 0.335246
+        },
+        "Forklift_PhysicsContactWork": {
+          "count": 18027,
+          "inclusive_cpu_s": 0.384601,
+          "exclusive_cpu_s": 0.384601
+        }
+      },
+      "trace": {
+        "path": "Saved/Validation/Optimization/BatchTrace/runtime.utrace",
+        "sha256": "fde6533ece2402e92ea160ed2a2a79a5f7b4d2d6e74a50f2f74b8a7a43f9cdbc"
+      }
+    },
+    "proximity_update_cpu_reduction_fraction": 0.7151383231077575,
+    "frame_comparison": {
+      "original": {
+        "steady_wall_window_s": 9,
+        "frames": 343,
+        "mean_frame_ms": 26.21447084548105,
+        "mean_fps": 38.14686956278516,
+        "median_frame_ms": 23.622,
+        "p95_frame_ms": 41.207100000000004
+      },
+      "same_dll_reference": {
+        "steady_wall_window_s": 9,
+        "frames": 377,
+        "mean_frame_ms": 23.838458620689654,
+        "mean_fps": 41.94902094601407,
+        "median_frame_ms": 21.5178,
+        "p95_frame_ms": 41.647400000000005
+      },
+      "optimized": {
+        "steady_wall_window_s": 9,
+        "frames": 409,
+        "mean_frame_ms": 21.980561858190708,
+        "mean_fps": 45.49474242067046,
+        "median_frame_ms": 19.3608,
+        "p95_frame_ms": 40.4857
+      }
+    },
+    "frame_comparison_report": {
+      "path": "Saved/Validation/Optimization/FrameComparison.json",
+      "sha256": "a02a0e4d6544e8a2d0687cd55f0cc3fb02578c14b3388c6d75cf8a3c078ed6cd"
+    },
+    "rejected_tuning": "Serial island solving was slower. MaxWorkers=3 varied between initial and traced repeat; original threading defaults retained."
+  },
+  "verification": {
+    "unit": {
+      "succeeded": 110,
+      "failed": 0,
+      "not_run": 0,
+      "report": {
+        "path": "Saved/Validation/Optimization/Unit/index.json",
+        "sha256": "4f25cf533a4ffde63746e68416e311f12f2a7aaccea8d27de8ef51cded130a4f"
+      }
+    },
+    "physics": {
+      "passed": 10,
+      "physics_hz": 480,
+      "iterations": 16,
+      "benchmark_fps": 30,
+      "cases": [
+        "settle",
+        "straight",
+        "strafe",
+        "diagonal",
+        "spin",
+        "brake",
+        "coast",
+        "reaction",
+        "carry",
+        "grip_low"
+      ],
+      "report": {
+        "path": "Saved/Validation/Mecanum-20261119-133656-672-2d390349/results.json",
+        "sha256": "3e8379f93792e361bb1d90c23d3b02518528b0123fd40b02344b9a66b8d1ac57"
+      }
+    },
+    "detailed_precision": {
+      "passed": 1,
+      "case": "reaction",
+      "physics_hz": 1920,
+      "iterations": 32,
+      "physical_rollers_main_rig": 48,
+      "report": {
+        "path": "Saved/Validation/Mecanum-20261119-134801-749-8876e2d8/results.json",
+        "sha256": "ad0a2f5a62d7849af91e97c37be209f5b1d49b9ee61e5f6d6b46f42440e61981"
+      }
+    },
+    "rendered_handling": {
+      "passed": 2,
+      "physics_hz": 960,
+      "iterations": 32,
+      "cases": [
+        {
+          "case": "handling_pick_high",
+          "pass": true,
+          "reference_rays_checked": 13864
+        },
+        {
+          "case": "handling_place_high",
+          "pass": true,
+          "reference_rays_checked": 16408
+        }
+      ],
+      "report": {
+        "path": "Saved/Validation/Forkman/Run-20261119-133940/results.json",
+        "sha256": "7595fa5466ac0f00e87404da760eb34e46c29269dde5febb421edcb43288ba29"
+      }
+    },
+    "campus": {
+      "passed": 4,
+      "physics_hz": 480,
+      "iterations": 16,
+      "realtime_clock": true,
+      "cases": [
+        "transfer",
+        "obstacle",
+        "resume",
+        "sensor_stop"
+      ],
+      "report": {
+        "path": "Saved/Validation/Campus/Fleet-20261119-134246-a0e15a4a/results.json",
+        "sha256": "fda2ba1c23678bebc9a32861eb0018355259067ae7e5a699bfb5b2b1862aae51"
+      }
+    },
+    "idle_proximity_parity": {
+      "checked_rays": 52056,
+      "mismatches": 0,
+      "distance_tolerance_m": 1e-09,
+      "report": {
+        "path": "Saved/Validation/Optimization/SensorParity/results.json",
+        "sha256": "02688c767756eaed15b2b3f095a75eab156243365832ae042630b90fc1fa2ba6"
+      }
+    },
+    "total_reference_rays_checked": 82328
+  },
+  "limits": [
+    "No real-time 2x/4x performance guarantee.",
+    "Short offscreen frame statistics do not establish Editor PIE or six-vehicle performance.",
+    "Actual virtual vehicle route speed limits remain unchanged.",
+    "World contact gathering is not yet a single shared multi-vehicle collector.",
+    "No OEM calibration or changed physical accuracy claim."
+  ]
+}

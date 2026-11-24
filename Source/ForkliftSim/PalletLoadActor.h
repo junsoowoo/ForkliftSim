@@ -3,6 +3,7 @@
 #include "GameFramework/Actor.h"
 #include "PalletLoadActor.generated.h"
 
+class UPrimitiveComponent;
 struct FPayloadSettings
 {
     double PalletMassKg=25, CargoMassKg=400, LengthM=1.2, WidthM=1.2, HoleHeightM=.18;
@@ -13,12 +14,13 @@ struct FPayloadSettings
     double PalletTopStaticMu=.6, PalletTopDynamicMu=.5, CargoStaticMu=.6, CargoDynamicMu=.5;
     bool bCargoSecured=false;
     // Local Fab presentation uses board-sized contact boxes, never one solid hull.
-    bool bWarehouseAssets=false;
+    bool bWarehouseAssets=false,bFourWay=false;
     FVector PalletDatumM=FVector::ZeroVector, CargoBoundsMinM=FVector::ZeroVector;
     double PalletTopM=0;
     FString PalletMeshPath,CargoMeshPath;
     TArray<FVector> BoardCentersM,BoardSizesM;
     bool UseWarehouseGeometry(FString& Error);
+    bool UseCampusGeometry(FString& Error);
     bool Load(FString& Error);
     bool Validate(FString& Error) const;
 };
@@ -29,6 +31,10 @@ class FORKLIFTSIM_API APalletLoadActor : public AActor
     GENERATED_BODY()
 public:
     APalletLoadActor();
+    double LastRackSupportS=-1,LastRackImpulseNs=0,LastVehicleSupportS=-1;FVector LastRackSupportPoint=FVector::ZeroVector,LastVehicleSupportPoint=FVector::ZeroVector;
+    FString InventoryPalletId,InventoryCargoId;
+    UFUNCTION() void OnStaticSupport(UPrimitiveComponent* Part,AActor* OtherActor,UPrimitiveComponent* OtherPart,FVector Impulse,const FHitResult& Hit);
+    bool HasRecentRackSupport() const;bool HasRecentVehicleSupport() const;
     void Configure(const FPayloadSettings& S);
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     FVector LoadCOM() const;

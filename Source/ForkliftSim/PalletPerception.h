@@ -9,6 +9,7 @@ namespace PalletPerception
     struct FSpec
     {
         double Spacing=.45,OpeningWidth=.354,OpeningHeight=.093,SupportHalfWidth=.45,Width=1.011;
+        double LayerSearchM=.04;
         double FrameStaleS=.5,TrackMaxS=4,TrackMaxDistanceM=.7,MinConfidence=.65,FullDepthM=1.02,DwellS=.15;
         double ForkLength=1.2,ForkWidth=.12,ForkThickness=.05,ForkSpacing=.45;
         FVector CameraOffsetM=FVector(.05,-.1,.1);double CameraPitchDeg=-10;
@@ -37,7 +38,7 @@ namespace PalletPerception
 struct FPalletPerceptionRig
 {
     PalletPerception::FSpec Spec;PalletPerception::FDetection Detection;PalletPerception::FDecision Decision;
-    DepthCamera::FFrame LastFrame;uint64 LastSequence=0;bool Tracked=false,Aligned=false,SignalsFresh=false,CameraEnabled=false,RangeFused=false;
+    DepthCamera::FFrame LastFrame;uint64 LastSequence=0;bool Tracked=false,Aligned=false,SignalsFresh=false,CameraEnabled=false,RangeFused=false,TerminalRanges=false,TerminalLocked=false;double TerminalUntil=-1;
     double NextDetectionS=0;
     double Depth[2]={},OffsetY=0,OffsetZ=0,UncertaintyM=0,NextCsvS=0,NextFlushS=0;
     bool Locked=false;FVector LockedPoint=FVector::ZeroVector;double LockedYaw=0;

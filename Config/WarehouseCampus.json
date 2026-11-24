@@ -1,0 +1,5304 @@
+{
+  "schema": 1,
+  "map": "/Game/Maps/WarehouseCampus",
+  "stage": "authored layout; runtime fleet physics, perception and dispatch are owned by CampusOperations",
+  "indoor_bounds_m": [
+    0,
+    0,
+    100,
+    50
+  ],
+  "indoor_area_m2": 5000,
+  "outdoor_bounds_m": [
+    -40,
+    0,
+    0,
+    50
+  ],
+  "outdoor_area_m2": 2000,
+  "access_road_bounds_m": [
+    -40,
+    -12,
+    0,
+    0
+  ],
+  "access_road_area_m2": 480,
+  "wall_height_m": 6,
+  "minimum_overhead_clearance_m": 5.79,
+  "future_floor_pitch_m": 7,
+  "floors_built": 1,
+  "initial_vehicles": 3,
+  "parking_capacity": 8,
+  "pallet_dimensions_m": [
+    1.1,
+    1.1,
+    0.12
+  ],
+  "rack_tiers_m": [
+    0.35,
+    1.95
+  ],
+  "zones": [
+    {
+      "id": "IN",
+      "name": "INBOUND / CHECK",
+      "bounds_m": [
+        2,
+        4,
+        12,
+        8
+      ],
+      "color": "Blue"
+    },
+    {
+      "id": "OUT",
+      "name": "OUTBOUND / DISPATCH",
+      "bounds_m": [
+        2,
+        28.5,
+        12,
+        33.5
+      ],
+      "color": "Green"
+    },
+    {
+      "id": "HOLD",
+      "name": "HOLD / DAMAGED",
+      "bounds_m": [
+        24,
+        2.5,
+        36,
+        6.5
+      ],
+      "color": "Orange"
+    },
+    {
+      "id": "EMPTY",
+      "name": "EMPTY PALLETS",
+      "bounds_m": [
+        40,
+        2.5,
+        52,
+        6.5
+      ],
+      "color": "Blue"
+    },
+    {
+      "id": "SERVICE",
+      "name": "SERVICE / RECOVERY",
+      "bounds_m": [
+        -13,
+        43,
+        -2,
+        49
+      ],
+      "color": "Orange"
+    },
+    {
+      "id": "LIFT",
+      "name": "FUTURE GOODS LIFT",
+      "bounds_m": [
+        2,
+        42,
+        8,
+        49
+      ],
+      "color": "Purple"
+    },
+    {
+      "id": "STAIR",
+      "name": "FUTURE STAIR / LOBBY",
+      "bounds_m": [
+        9,
+        42,
+        13,
+        49
+      ],
+      "color": "Purple"
+    },
+    {
+      "id": "RESERVE",
+      "name": "FUTURE FLOOR SERVICES",
+      "bounds_m": [
+        16,
+        46,
+        22,
+        49
+      ],
+      "color": "Purple"
+    }
+  ],
+  "parking": [
+    {
+      "id": "P01",
+      "center_m": [
+        -32,
+        5
+      ],
+      "bounds_m": [
+        -36,
+        3,
+        -28,
+        7
+      ],
+      "initial_display": true,
+      "charging_reserved": true
+    },
+    {
+      "id": "P02",
+      "center_m": [
+        -32,
+        11
+      ],
+      "bounds_m": [
+        -36,
+        9,
+        -28,
+        13
+      ],
+      "initial_display": true,
+      "charging_reserved": true
+    },
+    {
+      "id": "P03",
+      "center_m": [
+        -32,
+        17
+      ],
+      "bounds_m": [
+        -36,
+        15,
+        -28,
+        19
+      ],
+      "initial_display": true,
+      "charging_reserved": true
+    },
+    {
+      "id": "P04",
+      "center_m": [
+        -32,
+        23
+      ],
+      "bounds_m": [
+        -36,
+        21,
+        -28,
+        25
+      ],
+      "initial_display": false,
+      "charging_reserved": true
+    },
+    {
+      "id": "P05",
+      "center_m": [
+        -32,
+        29
+      ],
+      "bounds_m": [
+        -36,
+        27,
+        -28,
+        31
+      ],
+      "initial_display": false,
+      "charging_reserved": true
+    },
+    {
+      "id": "P06",
+      "center_m": [
+        -32,
+        35
+      ],
+      "bounds_m": [
+        -36,
+        33,
+        -28,
+        37
+      ],
+      "initial_display": false,
+      "charging_reserved": true
+    },
+    {
+      "id": "P07",
+      "center_m": [
+        -32,
+        41
+      ],
+      "bounds_m": [
+        -36,
+        39,
+        -28,
+        43
+      ],
+      "initial_display": false,
+      "charging_reserved": true
+    },
+    {
+      "id": "P08",
+      "center_m": [
+        -32,
+        47
+      ],
+      "bounds_m": [
+        -36,
+        45,
+        -28,
+        49
+      ],
+      "initial_display": false,
+      "charging_reserved": true
+    }
+  ],
+  "racks": [
+    {
+      "id": "S01",
+      "bounds_m": [
+        26,
+        10.6,
+        38,
+        13.4
+      ],
+      "bays": 4,
+      "tier_heights_m": [
+        0.35,
+        1.95
+      ],
+      "back_to_back": true
+    },
+    {
+      "id": "S02",
+      "bounds_m": [
+        43,
+        10.6,
+        55,
+        13.4
+      ],
+      "bays": 4,
+      "tier_heights_m": [
+        0.35,
+        1.95
+      ],
+      "back_to_back": true
+    },
+    {
+      "id": "S03",
+      "bounds_m": [
+        60,
+        10.6,
+        72,
+        13.4
+      ],
+      "bays": 4,
+      "tier_heights_m": [
+        0.35,
+        1.95
+      ],
+      "back_to_back": true
+    },
+    {
+      "id": "S04",
+      "bounds_m": [
+        77,
+        10.6,
+        89,
+        13.4
+      ],
+      "bays": 4,
+      "tier_heights_m": [
+        0.35,
+        1.95
+      ],
+      "back_to_back": true
+    },
+    {
+      "id": "N01",
+      "bounds_m": [
+        26,
+        36.6,
+        38,
+        39.4
+      ],
+      "bays": 4,
+      "tier_heights_m": [
+        0.35,
+        1.95
+      ],
+      "back_to_back": true
+    },
+    {
+      "id": "N02",
+      "bounds_m": [
+        43,
+        36.6,
+        55,
+        39.4
+      ],
+      "bays": 4,
+      "tier_heights_m": [
+        0.35,
+        1.95
+      ],
+      "back_to_back": true
+    },
+    {
+      "id": "N03",
+      "bounds_m": [
+        60,
+        36.6,
+        72,
+        39.4
+      ],
+      "bays": 4,
+      "tier_heights_m": [
+        0.35,
+        1.95
+      ],
+      "back_to_back": true
+    },
+    {
+      "id": "N04",
+      "bounds_m": [
+        77,
+        36.6,
+        89,
+        39.4
+      ],
+      "bays": 4,
+      "tier_heights_m": [
+        0.35,
+        1.95
+      ],
+      "back_to_back": true
+    }
+  ],
+  "slots": [
+    {
+      "id": "S01-B1-S-L1-1",
+      "rack_id": "S01",
+      "center_m": [
+        26.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        26.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S01-B1-S-L1-2",
+      "rack_id": "S01",
+      "center_m": [
+        28.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        28.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B1-S-L2-1",
+      "rack_id": "S01",
+      "center_m": [
+        26.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        26.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B1-S-L2-2",
+      "rack_id": "S01",
+      "center_m": [
+        28.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        28.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B1-N-L1-1",
+      "rack_id": "S01",
+      "center_m": [
+        26.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        26.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S01-B1-N-L1-2",
+      "rack_id": "S01",
+      "center_m": [
+        28.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        28.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B1-N-L2-1",
+      "rack_id": "S01",
+      "center_m": [
+        26.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        26.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B1-N-L2-2",
+      "rack_id": "S01",
+      "center_m": [
+        28.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        28.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B2-S-L1-1",
+      "rack_id": "S01",
+      "center_m": [
+        29.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        29.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B2-S-L1-2",
+      "rack_id": "S01",
+      "center_m": [
+        31.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        31.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B2-S-L2-1",
+      "rack_id": "S01",
+      "center_m": [
+        29.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        29.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B2-S-L2-2",
+      "rack_id": "S01",
+      "center_m": [
+        31.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        31.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B2-N-L1-1",
+      "rack_id": "S01",
+      "center_m": [
+        29.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        29.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B2-N-L1-2",
+      "rack_id": "S01",
+      "center_m": [
+        31.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        31.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B2-N-L2-1",
+      "rack_id": "S01",
+      "center_m": [
+        29.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        29.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B2-N-L2-2",
+      "rack_id": "S01",
+      "center_m": [
+        31.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        31.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B3-S-L1-1",
+      "rack_id": "S01",
+      "center_m": [
+        32.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        32.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S01-B3-S-L1-2",
+      "rack_id": "S01",
+      "center_m": [
+        34.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        34.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B3-S-L2-1",
+      "rack_id": "S01",
+      "center_m": [
+        32.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        32.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B3-S-L2-2",
+      "rack_id": "S01",
+      "center_m": [
+        34.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        34.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B3-N-L1-1",
+      "rack_id": "S01",
+      "center_m": [
+        32.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        32.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S01-B3-N-L1-2",
+      "rack_id": "S01",
+      "center_m": [
+        34.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        34.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B3-N-L2-1",
+      "rack_id": "S01",
+      "center_m": [
+        32.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        32.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B3-N-L2-2",
+      "rack_id": "S01",
+      "center_m": [
+        34.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        34.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B4-S-L1-1",
+      "rack_id": "S01",
+      "center_m": [
+        35.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        35.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B4-S-L1-2",
+      "rack_id": "S01",
+      "center_m": [
+        37.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        37.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B4-S-L2-1",
+      "rack_id": "S01",
+      "center_m": [
+        35.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        35.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B4-S-L2-2",
+      "rack_id": "S01",
+      "center_m": [
+        37.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        37.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B4-N-L1-1",
+      "rack_id": "S01",
+      "center_m": [
+        35.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        35.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B4-N-L1-2",
+      "rack_id": "S01",
+      "center_m": [
+        37.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        37.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B4-N-L2-1",
+      "rack_id": "S01",
+      "center_m": [
+        35.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        35.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S01-B4-N-L2-2",
+      "rack_id": "S01",
+      "center_m": [
+        37.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        37.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B1-S-L1-1",
+      "rack_id": "S02",
+      "center_m": [
+        43.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        43.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S02-B1-S-L1-2",
+      "rack_id": "S02",
+      "center_m": [
+        45.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        45.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B1-S-L2-1",
+      "rack_id": "S02",
+      "center_m": [
+        43.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        43.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B1-S-L2-2",
+      "rack_id": "S02",
+      "center_m": [
+        45.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        45.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B1-N-L1-1",
+      "rack_id": "S02",
+      "center_m": [
+        43.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        43.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S02-B1-N-L1-2",
+      "rack_id": "S02",
+      "center_m": [
+        45.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        45.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B1-N-L2-1",
+      "rack_id": "S02",
+      "center_m": [
+        43.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        43.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B1-N-L2-2",
+      "rack_id": "S02",
+      "center_m": [
+        45.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        45.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B2-S-L1-1",
+      "rack_id": "S02",
+      "center_m": [
+        46.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        46.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B2-S-L1-2",
+      "rack_id": "S02",
+      "center_m": [
+        48.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        48.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B2-S-L2-1",
+      "rack_id": "S02",
+      "center_m": [
+        46.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        46.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B2-S-L2-2",
+      "rack_id": "S02",
+      "center_m": [
+        48.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        48.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B2-N-L1-1",
+      "rack_id": "S02",
+      "center_m": [
+        46.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        46.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B2-N-L1-2",
+      "rack_id": "S02",
+      "center_m": [
+        48.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        48.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B2-N-L2-1",
+      "rack_id": "S02",
+      "center_m": [
+        46.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        46.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B2-N-L2-2",
+      "rack_id": "S02",
+      "center_m": [
+        48.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        48.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B3-S-L1-1",
+      "rack_id": "S02",
+      "center_m": [
+        49.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        49.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S02-B3-S-L1-2",
+      "rack_id": "S02",
+      "center_m": [
+        51.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        51.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B3-S-L2-1",
+      "rack_id": "S02",
+      "center_m": [
+        49.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        49.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B3-S-L2-2",
+      "rack_id": "S02",
+      "center_m": [
+        51.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        51.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B3-N-L1-1",
+      "rack_id": "S02",
+      "center_m": [
+        49.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        49.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S02-B3-N-L1-2",
+      "rack_id": "S02",
+      "center_m": [
+        51.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        51.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B3-N-L2-1",
+      "rack_id": "S02",
+      "center_m": [
+        49.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        49.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B3-N-L2-2",
+      "rack_id": "S02",
+      "center_m": [
+        51.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        51.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B4-S-L1-1",
+      "rack_id": "S02",
+      "center_m": [
+        52.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        52.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B4-S-L1-2",
+      "rack_id": "S02",
+      "center_m": [
+        54.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        54.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B4-S-L2-1",
+      "rack_id": "S02",
+      "center_m": [
+        52.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        52.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B4-S-L2-2",
+      "rack_id": "S02",
+      "center_m": [
+        54.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        54.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B4-N-L1-1",
+      "rack_id": "S02",
+      "center_m": [
+        52.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        52.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B4-N-L1-2",
+      "rack_id": "S02",
+      "center_m": [
+        54.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        54.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B4-N-L2-1",
+      "rack_id": "S02",
+      "center_m": [
+        52.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        52.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S02-B4-N-L2-2",
+      "rack_id": "S02",
+      "center_m": [
+        54.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        54.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B1-S-L1-1",
+      "rack_id": "S03",
+      "center_m": [
+        60.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        60.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S03-B1-S-L1-2",
+      "rack_id": "S03",
+      "center_m": [
+        62.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        62.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B1-S-L2-1",
+      "rack_id": "S03",
+      "center_m": [
+        60.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        60.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B1-S-L2-2",
+      "rack_id": "S03",
+      "center_m": [
+        62.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        62.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B1-N-L1-1",
+      "rack_id": "S03",
+      "center_m": [
+        60.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        60.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S03-B1-N-L1-2",
+      "rack_id": "S03",
+      "center_m": [
+        62.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        62.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B1-N-L2-1",
+      "rack_id": "S03",
+      "center_m": [
+        60.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        60.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B1-N-L2-2",
+      "rack_id": "S03",
+      "center_m": [
+        62.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        62.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B2-S-L1-1",
+      "rack_id": "S03",
+      "center_m": [
+        63.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        63.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B2-S-L1-2",
+      "rack_id": "S03",
+      "center_m": [
+        65.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        65.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B2-S-L2-1",
+      "rack_id": "S03",
+      "center_m": [
+        63.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        63.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B2-S-L2-2",
+      "rack_id": "S03",
+      "center_m": [
+        65.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        65.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B2-N-L1-1",
+      "rack_id": "S03",
+      "center_m": [
+        63.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        63.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B2-N-L1-2",
+      "rack_id": "S03",
+      "center_m": [
+        65.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        65.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B2-N-L2-1",
+      "rack_id": "S03",
+      "center_m": [
+        63.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        63.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B2-N-L2-2",
+      "rack_id": "S03",
+      "center_m": [
+        65.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        65.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B3-S-L1-1",
+      "rack_id": "S03",
+      "center_m": [
+        66.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        66.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S03-B3-S-L1-2",
+      "rack_id": "S03",
+      "center_m": [
+        68.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        68.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B3-S-L2-1",
+      "rack_id": "S03",
+      "center_m": [
+        66.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        66.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B3-S-L2-2",
+      "rack_id": "S03",
+      "center_m": [
+        68.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        68.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B3-N-L1-1",
+      "rack_id": "S03",
+      "center_m": [
+        66.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        66.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S03-B3-N-L1-2",
+      "rack_id": "S03",
+      "center_m": [
+        68.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        68.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B3-N-L2-1",
+      "rack_id": "S03",
+      "center_m": [
+        66.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        66.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B3-N-L2-2",
+      "rack_id": "S03",
+      "center_m": [
+        68.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        68.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B4-S-L1-1",
+      "rack_id": "S03",
+      "center_m": [
+        69.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        69.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B4-S-L1-2",
+      "rack_id": "S03",
+      "center_m": [
+        71.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        71.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B4-S-L2-1",
+      "rack_id": "S03",
+      "center_m": [
+        69.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        69.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B4-S-L2-2",
+      "rack_id": "S03",
+      "center_m": [
+        71.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        71.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B4-N-L1-1",
+      "rack_id": "S03",
+      "center_m": [
+        69.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        69.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B4-N-L1-2",
+      "rack_id": "S03",
+      "center_m": [
+        71.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        71.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B4-N-L2-1",
+      "rack_id": "S03",
+      "center_m": [
+        69.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        69.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S03-B4-N-L2-2",
+      "rack_id": "S03",
+      "center_m": [
+        71.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        71.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B1-S-L1-1",
+      "rack_id": "S04",
+      "center_m": [
+        77.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        77.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S04-B1-S-L1-2",
+      "rack_id": "S04",
+      "center_m": [
+        79.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        79.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B1-S-L2-1",
+      "rack_id": "S04",
+      "center_m": [
+        77.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        77.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B1-S-L2-2",
+      "rack_id": "S04",
+      "center_m": [
+        79.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        79.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B1-N-L1-1",
+      "rack_id": "S04",
+      "center_m": [
+        77.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        77.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S04-B1-N-L1-2",
+      "rack_id": "S04",
+      "center_m": [
+        79.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        79.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B1-N-L2-1",
+      "rack_id": "S04",
+      "center_m": [
+        77.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        77.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B1-N-L2-2",
+      "rack_id": "S04",
+      "center_m": [
+        79.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        79.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B2-S-L1-1",
+      "rack_id": "S04",
+      "center_m": [
+        80.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        80.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B2-S-L1-2",
+      "rack_id": "S04",
+      "center_m": [
+        82.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        82.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B2-S-L2-1",
+      "rack_id": "S04",
+      "center_m": [
+        80.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        80.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B2-S-L2-2",
+      "rack_id": "S04",
+      "center_m": [
+        82.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        82.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B2-N-L1-1",
+      "rack_id": "S04",
+      "center_m": [
+        80.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        80.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B2-N-L1-2",
+      "rack_id": "S04",
+      "center_m": [
+        82.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        82.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B2-N-L2-1",
+      "rack_id": "S04",
+      "center_m": [
+        80.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        80.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B2-N-L2-2",
+      "rack_id": "S04",
+      "center_m": [
+        82.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        82.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B3-S-L1-1",
+      "rack_id": "S04",
+      "center_m": [
+        83.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        83.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S04-B3-S-L1-2",
+      "rack_id": "S04",
+      "center_m": [
+        85.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        85.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B3-S-L2-1",
+      "rack_id": "S04",
+      "center_m": [
+        83.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        83.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B3-S-L2-2",
+      "rack_id": "S04",
+      "center_m": [
+        85.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        85.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B3-N-L1-1",
+      "rack_id": "S04",
+      "center_m": [
+        83.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        83.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "S04-B3-N-L1-2",
+      "rack_id": "S04",
+      "center_m": [
+        85.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        85.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B3-N-L2-1",
+      "rack_id": "S04",
+      "center_m": [
+        83.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        83.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B3-N-L2-2",
+      "rack_id": "S04",
+      "center_m": [
+        85.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        85.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B4-S-L1-1",
+      "rack_id": "S04",
+      "center_m": [
+        86.75,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        86.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B4-S-L1-2",
+      "rack_id": "S04",
+      "center_m": [
+        88.25,
+        11.27,
+        0.35
+      ],
+      "approach_m": [
+        88.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B4-S-L2-1",
+      "rack_id": "S04",
+      "center_m": [
+        86.75,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        86.75,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B4-S-L2-2",
+      "rack_id": "S04",
+      "center_m": [
+        88.25,
+        11.27,
+        1.95
+      ],
+      "approach_m": [
+        88.25,
+        8.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B4-N-L1-1",
+      "rack_id": "S04",
+      "center_m": [
+        86.75,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        86.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B4-N-L1-2",
+      "rack_id": "S04",
+      "center_m": [
+        88.25,
+        12.73,
+        0.35
+      ],
+      "approach_m": [
+        88.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B4-N-L2-1",
+      "rack_id": "S04",
+      "center_m": [
+        86.75,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        86.75,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "S04-B4-N-L2-2",
+      "rack_id": "S04",
+      "center_m": [
+        88.25,
+        12.73,
+        1.95
+      ],
+      "approach_m": [
+        88.25,
+        16.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B1-S-L1-1",
+      "rack_id": "N01",
+      "center_m": [
+        26.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        26.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N01-B1-S-L1-2",
+      "rack_id": "N01",
+      "center_m": [
+        28.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        28.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B1-S-L2-1",
+      "rack_id": "N01",
+      "center_m": [
+        26.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        26.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B1-S-L2-2",
+      "rack_id": "N01",
+      "center_m": [
+        28.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        28.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B1-N-L1-1",
+      "rack_id": "N01",
+      "center_m": [
+        26.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        26.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N01-B1-N-L1-2",
+      "rack_id": "N01",
+      "center_m": [
+        28.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        28.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B1-N-L2-1",
+      "rack_id": "N01",
+      "center_m": [
+        26.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        26.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B1-N-L2-2",
+      "rack_id": "N01",
+      "center_m": [
+        28.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        28.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B2-S-L1-1",
+      "rack_id": "N01",
+      "center_m": [
+        29.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        29.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B2-S-L1-2",
+      "rack_id": "N01",
+      "center_m": [
+        31.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        31.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B2-S-L2-1",
+      "rack_id": "N01",
+      "center_m": [
+        29.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        29.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B2-S-L2-2",
+      "rack_id": "N01",
+      "center_m": [
+        31.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        31.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B2-N-L1-1",
+      "rack_id": "N01",
+      "center_m": [
+        29.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        29.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B2-N-L1-2",
+      "rack_id": "N01",
+      "center_m": [
+        31.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        31.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B2-N-L2-1",
+      "rack_id": "N01",
+      "center_m": [
+        29.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        29.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B2-N-L2-2",
+      "rack_id": "N01",
+      "center_m": [
+        31.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        31.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B3-S-L1-1",
+      "rack_id": "N01",
+      "center_m": [
+        32.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        32.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N01-B3-S-L1-2",
+      "rack_id": "N01",
+      "center_m": [
+        34.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        34.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B3-S-L2-1",
+      "rack_id": "N01",
+      "center_m": [
+        32.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        32.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B3-S-L2-2",
+      "rack_id": "N01",
+      "center_m": [
+        34.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        34.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B3-N-L1-1",
+      "rack_id": "N01",
+      "center_m": [
+        32.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        32.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N01-B3-N-L1-2",
+      "rack_id": "N01",
+      "center_m": [
+        34.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        34.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B3-N-L2-1",
+      "rack_id": "N01",
+      "center_m": [
+        32.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        32.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B3-N-L2-2",
+      "rack_id": "N01",
+      "center_m": [
+        34.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        34.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B4-S-L1-1",
+      "rack_id": "N01",
+      "center_m": [
+        35.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        35.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B4-S-L1-2",
+      "rack_id": "N01",
+      "center_m": [
+        37.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        37.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B4-S-L2-1",
+      "rack_id": "N01",
+      "center_m": [
+        35.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        35.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B4-S-L2-2",
+      "rack_id": "N01",
+      "center_m": [
+        37.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        37.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B4-N-L1-1",
+      "rack_id": "N01",
+      "center_m": [
+        35.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        35.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B4-N-L1-2",
+      "rack_id": "N01",
+      "center_m": [
+        37.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        37.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B4-N-L2-1",
+      "rack_id": "N01",
+      "center_m": [
+        35.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        35.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N01-B4-N-L2-2",
+      "rack_id": "N01",
+      "center_m": [
+        37.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        37.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B1-S-L1-1",
+      "rack_id": "N02",
+      "center_m": [
+        43.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        43.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N02-B1-S-L1-2",
+      "rack_id": "N02",
+      "center_m": [
+        45.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        45.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B1-S-L2-1",
+      "rack_id": "N02",
+      "center_m": [
+        43.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        43.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B1-S-L2-2",
+      "rack_id": "N02",
+      "center_m": [
+        45.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        45.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B1-N-L1-1",
+      "rack_id": "N02",
+      "center_m": [
+        43.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        43.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N02-B1-N-L1-2",
+      "rack_id": "N02",
+      "center_m": [
+        45.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        45.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B1-N-L2-1",
+      "rack_id": "N02",
+      "center_m": [
+        43.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        43.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B1-N-L2-2",
+      "rack_id": "N02",
+      "center_m": [
+        45.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        45.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B2-S-L1-1",
+      "rack_id": "N02",
+      "center_m": [
+        46.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        46.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B2-S-L1-2",
+      "rack_id": "N02",
+      "center_m": [
+        48.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        48.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B2-S-L2-1",
+      "rack_id": "N02",
+      "center_m": [
+        46.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        46.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B2-S-L2-2",
+      "rack_id": "N02",
+      "center_m": [
+        48.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        48.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B2-N-L1-1",
+      "rack_id": "N02",
+      "center_m": [
+        46.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        46.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B2-N-L1-2",
+      "rack_id": "N02",
+      "center_m": [
+        48.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        48.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B2-N-L2-1",
+      "rack_id": "N02",
+      "center_m": [
+        46.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        46.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B2-N-L2-2",
+      "rack_id": "N02",
+      "center_m": [
+        48.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        48.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B3-S-L1-1",
+      "rack_id": "N02",
+      "center_m": [
+        49.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        49.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N02-B3-S-L1-2",
+      "rack_id": "N02",
+      "center_m": [
+        51.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        51.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B3-S-L2-1",
+      "rack_id": "N02",
+      "center_m": [
+        49.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        49.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B3-S-L2-2",
+      "rack_id": "N02",
+      "center_m": [
+        51.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        51.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B3-N-L1-1",
+      "rack_id": "N02",
+      "center_m": [
+        49.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        49.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N02-B3-N-L1-2",
+      "rack_id": "N02",
+      "center_m": [
+        51.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        51.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B3-N-L2-1",
+      "rack_id": "N02",
+      "center_m": [
+        49.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        49.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B3-N-L2-2",
+      "rack_id": "N02",
+      "center_m": [
+        51.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        51.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B4-S-L1-1",
+      "rack_id": "N02",
+      "center_m": [
+        52.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        52.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B4-S-L1-2",
+      "rack_id": "N02",
+      "center_m": [
+        54.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        54.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B4-S-L2-1",
+      "rack_id": "N02",
+      "center_m": [
+        52.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        52.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B4-S-L2-2",
+      "rack_id": "N02",
+      "center_m": [
+        54.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        54.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B4-N-L1-1",
+      "rack_id": "N02",
+      "center_m": [
+        52.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        52.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B4-N-L1-2",
+      "rack_id": "N02",
+      "center_m": [
+        54.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        54.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B4-N-L2-1",
+      "rack_id": "N02",
+      "center_m": [
+        52.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        52.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N02-B4-N-L2-2",
+      "rack_id": "N02",
+      "center_m": [
+        54.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        54.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B1-S-L1-1",
+      "rack_id": "N03",
+      "center_m": [
+        60.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        60.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N03-B1-S-L1-2",
+      "rack_id": "N03",
+      "center_m": [
+        62.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        62.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B1-S-L2-1",
+      "rack_id": "N03",
+      "center_m": [
+        60.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        60.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B1-S-L2-2",
+      "rack_id": "N03",
+      "center_m": [
+        62.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        62.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B1-N-L1-1",
+      "rack_id": "N03",
+      "center_m": [
+        60.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        60.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N03-B1-N-L1-2",
+      "rack_id": "N03",
+      "center_m": [
+        62.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        62.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B1-N-L2-1",
+      "rack_id": "N03",
+      "center_m": [
+        60.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        60.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B1-N-L2-2",
+      "rack_id": "N03",
+      "center_m": [
+        62.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        62.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B2-S-L1-1",
+      "rack_id": "N03",
+      "center_m": [
+        63.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        63.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B2-S-L1-2",
+      "rack_id": "N03",
+      "center_m": [
+        65.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        65.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B2-S-L2-1",
+      "rack_id": "N03",
+      "center_m": [
+        63.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        63.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B2-S-L2-2",
+      "rack_id": "N03",
+      "center_m": [
+        65.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        65.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B2-N-L1-1",
+      "rack_id": "N03",
+      "center_m": [
+        63.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        63.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B2-N-L1-2",
+      "rack_id": "N03",
+      "center_m": [
+        65.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        65.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B2-N-L2-1",
+      "rack_id": "N03",
+      "center_m": [
+        63.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        63.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B2-N-L2-2",
+      "rack_id": "N03",
+      "center_m": [
+        65.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        65.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B3-S-L1-1",
+      "rack_id": "N03",
+      "center_m": [
+        66.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        66.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N03-B3-S-L1-2",
+      "rack_id": "N03",
+      "center_m": [
+        68.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        68.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B3-S-L2-1",
+      "rack_id": "N03",
+      "center_m": [
+        66.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        66.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B3-S-L2-2",
+      "rack_id": "N03",
+      "center_m": [
+        68.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        68.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B3-N-L1-1",
+      "rack_id": "N03",
+      "center_m": [
+        66.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        66.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N03-B3-N-L1-2",
+      "rack_id": "N03",
+      "center_m": [
+        68.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        68.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B3-N-L2-1",
+      "rack_id": "N03",
+      "center_m": [
+        66.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        66.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B3-N-L2-2",
+      "rack_id": "N03",
+      "center_m": [
+        68.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        68.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B4-S-L1-1",
+      "rack_id": "N03",
+      "center_m": [
+        69.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        69.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B4-S-L1-2",
+      "rack_id": "N03",
+      "center_m": [
+        71.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        71.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B4-S-L2-1",
+      "rack_id": "N03",
+      "center_m": [
+        69.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        69.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B4-S-L2-2",
+      "rack_id": "N03",
+      "center_m": [
+        71.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        71.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B4-N-L1-1",
+      "rack_id": "N03",
+      "center_m": [
+        69.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        69.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B4-N-L1-2",
+      "rack_id": "N03",
+      "center_m": [
+        71.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        71.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B4-N-L2-1",
+      "rack_id": "N03",
+      "center_m": [
+        69.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        69.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N03-B4-N-L2-2",
+      "rack_id": "N03",
+      "center_m": [
+        71.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        71.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B1-S-L1-1",
+      "rack_id": "N04",
+      "center_m": [
+        77.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        77.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N04-B1-S-L1-2",
+      "rack_id": "N04",
+      "center_m": [
+        79.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        79.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B1-S-L2-1",
+      "rack_id": "N04",
+      "center_m": [
+        77.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        77.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B1-S-L2-2",
+      "rack_id": "N04",
+      "center_m": [
+        79.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        79.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B1-N-L1-1",
+      "rack_id": "N04",
+      "center_m": [
+        77.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        77.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N04-B1-N-L1-2",
+      "rack_id": "N04",
+      "center_m": [
+        79.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        79.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B1-N-L2-1",
+      "rack_id": "N04",
+      "center_m": [
+        77.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        77.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B1-N-L2-2",
+      "rack_id": "N04",
+      "center_m": [
+        79.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        79.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B2-S-L1-1",
+      "rack_id": "N04",
+      "center_m": [
+        80.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        80.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B2-S-L1-2",
+      "rack_id": "N04",
+      "center_m": [
+        82.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        82.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B2-S-L2-1",
+      "rack_id": "N04",
+      "center_m": [
+        80.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        80.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B2-S-L2-2",
+      "rack_id": "N04",
+      "center_m": [
+        82.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        82.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B2-N-L1-1",
+      "rack_id": "N04",
+      "center_m": [
+        80.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        80.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B2-N-L1-2",
+      "rack_id": "N04",
+      "center_m": [
+        82.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        82.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B2-N-L2-1",
+      "rack_id": "N04",
+      "center_m": [
+        80.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        80.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B2-N-L2-2",
+      "rack_id": "N04",
+      "center_m": [
+        82.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        82.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B3-S-L1-1",
+      "rack_id": "N04",
+      "center_m": [
+        83.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        83.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N04-B3-S-L1-2",
+      "rack_id": "N04",
+      "center_m": [
+        85.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        85.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B3-S-L2-1",
+      "rack_id": "N04",
+      "center_m": [
+        83.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        83.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B3-S-L2-2",
+      "rack_id": "N04",
+      "center_m": [
+        85.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        85.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B3-N-L1-1",
+      "rack_id": "N04",
+      "center_m": [
+        83.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        83.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": true
+    },
+    {
+      "id": "N04-B3-N-L1-2",
+      "rack_id": "N04",
+      "center_m": [
+        85.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        85.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B3-N-L2-1",
+      "rack_id": "N04",
+      "center_m": [
+        83.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        83.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B3-N-L2-2",
+      "rack_id": "N04",
+      "center_m": [
+        85.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        85.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B4-S-L1-1",
+      "rack_id": "N04",
+      "center_m": [
+        86.75,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        86.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B4-S-L1-2",
+      "rack_id": "N04",
+      "center_m": [
+        88.25,
+        37.27,
+        0.35
+      ],
+      "approach_m": [
+        88.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B4-S-L2-1",
+      "rack_id": "N04",
+      "center_m": [
+        86.75,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        86.75,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B4-S-L2-2",
+      "rack_id": "N04",
+      "center_m": [
+        88.25,
+        37.27,
+        1.95
+      ],
+      "approach_m": [
+        88.25,
+        34.0,
+        0
+      ],
+      "approach_yaw_deg": 90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B4-N-L1-1",
+      "rack_id": "N04",
+      "center_m": [
+        86.75,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        86.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B4-N-L1-2",
+      "rack_id": "N04",
+      "center_m": [
+        88.25,
+        38.73,
+        0.35
+      ],
+      "approach_m": [
+        88.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 1,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B4-N-L2-1",
+      "rack_id": "N04",
+      "center_m": [
+        86.75,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        86.75,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    },
+    {
+      "id": "N04-B4-N-L2-2",
+      "rack_id": "N04",
+      "center_m": [
+        88.25,
+        38.73,
+        1.95
+      ],
+      "approach_m": [
+        88.25,
+        42.0,
+        0
+      ],
+      "approach_yaw_deg": -90,
+      "tier": 2,
+      "initial_visual_stock": false
+    }
+  ],
+  "stations": [
+    {
+      "id": "PICK-01",
+      "kind": "surveyed_floor_pickup",
+      "center_m": [
+        7,
+        4.9,
+        0
+      ],
+      "entry_directions_deg": [
+        0,
+        90,
+        180,
+        270
+      ]
+    },
+    {
+      "id": "PICK-02",
+      "kind": "surveyed_floor_pickup",
+      "center_m": [
+        7,
+        6.1,
+        0
+      ],
+      "entry_directions_deg": [
+        0,
+        90,
+        180,
+        270
+      ]
+    },
+    {
+      "id": "PICK-03",
+      "kind": "surveyed_floor_pickup",
+      "center_m": [
+        7,
+        7.3,
+        0
+      ],
+      "entry_directions_deg": [
+        0,
+        90,
+        180,
+        270
+      ]
+    }
+  ],
+  "route_nodes": [
+    {
+      "id": "GATE-IN",
+      "xy_m": [
+        0,
+        12
+      ]
+    },
+    {
+      "id": "GATE-OUT",
+      "xy_m": [
+        0,
+        38
+      ]
+    },
+    {
+      "id": "PARK-ROAD",
+      "xy_m": [
+        -20,
+        25
+      ]
+    },
+    {
+      "id": "PARK-IN",
+      "xy_m": [
+        -20,
+        12
+      ]
+    },
+    {
+      "id": "PARK-OUT",
+      "xy_m": [
+        -20,
+        38
+      ]
+    },
+    {
+      "id": "ENTRY",
+      "xy_m": [
+        18,
+        12
+      ]
+    },
+    {
+      "id": "EXIT",
+      "xy_m": [
+        18,
+        38
+      ]
+    },
+    {
+      "id": "N18_7",
+      "xy_m": [
+        18,
+        7
+      ]
+    },
+    {
+      "id": "N18_17",
+      "xy_m": [
+        18,
+        17
+      ]
+    },
+    {
+      "id": "N18_25",
+      "xy_m": [
+        18,
+        25
+      ]
+    },
+    {
+      "id": "N18_33",
+      "xy_m": [
+        18,
+        33
+      ]
+    },
+    {
+      "id": "N18_43",
+      "xy_m": [
+        18,
+        43
+      ]
+    },
+    {
+      "id": "N40.5_7",
+      "xy_m": [
+        40.5,
+        7
+      ]
+    },
+    {
+      "id": "N40.5_17",
+      "xy_m": [
+        40.5,
+        17
+      ]
+    },
+    {
+      "id": "N40.5_25",
+      "xy_m": [
+        40.5,
+        25
+      ]
+    },
+    {
+      "id": "N40.5_33",
+      "xy_m": [
+        40.5,
+        33
+      ]
+    },
+    {
+      "id": "N40.5_43",
+      "xy_m": [
+        40.5,
+        43
+      ]
+    },
+    {
+      "id": "N57.5_7",
+      "xy_m": [
+        57.5,
+        7
+      ]
+    },
+    {
+      "id": "N57.5_17",
+      "xy_m": [
+        57.5,
+        17
+      ]
+    },
+    {
+      "id": "N57.5_25",
+      "xy_m": [
+        57.5,
+        25
+      ]
+    },
+    {
+      "id": "N57.5_33",
+      "xy_m": [
+        57.5,
+        33
+      ]
+    },
+    {
+      "id": "N57.5_43",
+      "xy_m": [
+        57.5,
+        43
+      ]
+    },
+    {
+      "id": "N74.5_7",
+      "xy_m": [
+        74.5,
+        7
+      ]
+    },
+    {
+      "id": "N74.5_17",
+      "xy_m": [
+        74.5,
+        17
+      ]
+    },
+    {
+      "id": "N74.5_25",
+      "xy_m": [
+        74.5,
+        25
+      ]
+    },
+    {
+      "id": "N74.5_33",
+      "xy_m": [
+        74.5,
+        33
+      ]
+    },
+    {
+      "id": "N74.5_43",
+      "xy_m": [
+        74.5,
+        43
+      ]
+    },
+    {
+      "id": "N96_7",
+      "xy_m": [
+        96,
+        7
+      ]
+    },
+    {
+      "id": "N96_17",
+      "xy_m": [
+        96,
+        17
+      ]
+    },
+    {
+      "id": "N96_25",
+      "xy_m": [
+        96,
+        25
+      ]
+    },
+    {
+      "id": "N96_33",
+      "xy_m": [
+        96,
+        33
+      ]
+    },
+    {
+      "id": "N96_43",
+      "xy_m": [
+        96,
+        43
+      ]
+    }
+  ],
+  "route_edges": [
+    {
+      "a": "N18_7",
+      "b": "N18_17",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N18_17",
+      "b": "N18_25",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N18_25",
+      "b": "N18_33",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N18_33",
+      "b": "N18_43",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_7",
+      "b": "N40.5_17",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_17",
+      "b": "N40.5_25",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_25",
+      "b": "N40.5_33",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_33",
+      "b": "N40.5_43",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_7",
+      "b": "N57.5_17",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_17",
+      "b": "N57.5_25",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_25",
+      "b": "N57.5_33",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_33",
+      "b": "N57.5_43",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_7",
+      "b": "N74.5_17",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_17",
+      "b": "N74.5_25",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_25",
+      "b": "N74.5_33",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_33",
+      "b": "N74.5_43",
+      "nominal_width_m": 5,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N96_7",
+      "b": "N96_17",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N96_17",
+      "b": "N96_25",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N96_25",
+      "b": "N96_33",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N96_33",
+      "b": "N96_43",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N18_7",
+      "b": "N40.5_7",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_7",
+      "b": "N57.5_7",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_7",
+      "b": "N74.5_7",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_7",
+      "b": "N96_7",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N18_17",
+      "b": "N40.5_17",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_17",
+      "b": "N57.5_17",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_17",
+      "b": "N74.5_17",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_17",
+      "b": "N96_17",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N18_25",
+      "b": "N40.5_25",
+      "nominal_width_m": 6,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_25",
+      "b": "N57.5_25",
+      "nominal_width_m": 6,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_25",
+      "b": "N74.5_25",
+      "nominal_width_m": 6,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_25",
+      "b": "N96_25",
+      "nominal_width_m": 6,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N18_33",
+      "b": "N40.5_33",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_33",
+      "b": "N57.5_33",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_33",
+      "b": "N74.5_33",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_33",
+      "b": "N96_33",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N18_43",
+      "b": "N40.5_43",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N40.5_43",
+      "b": "N57.5_43",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N57.5_43",
+      "b": "N74.5_43",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "N74.5_43",
+      "b": "N96_43",
+      "nominal_width_m": 4,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "GATE-IN",
+      "b": "ENTRY",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "GATE-OUT",
+      "b": "EXIT",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "PARK-ROAD",
+      "b": "PARK-IN",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "PARK-ROAD",
+      "b": "PARK-OUT",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "PARK-IN",
+      "b": "GATE-IN",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "GATE-OUT",
+      "b": "PARK-OUT",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "ENTRY",
+      "b": "N18_7",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "ENTRY",
+      "b": "N18_17",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "EXIT",
+      "b": "N18_33",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    },
+    {
+      "a": "EXIT",
+      "b": "N18_43",
+      "nominal_width_m": 8,
+      "source": "layout reservation; rack-end member extents reduce 5 m nominal crossing to 4.88 m; fleet route validation is next stage"
+    }
+  ]
+}

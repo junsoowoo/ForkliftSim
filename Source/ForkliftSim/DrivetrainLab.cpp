@@ -31,6 +31,7 @@ bool AStabilityLab::ConfigurePowerLab()
 }
 void AStabilityLab::SetupTerrain()
 {
+    if(bCampusVehicle)return;
     if(Course) { Course->Destroy(); Course=nullptr; }
     if(Road)
     {

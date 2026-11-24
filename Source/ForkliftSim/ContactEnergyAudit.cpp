@@ -1,4 +1,5 @@
 #include "ContactLoadSampler.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
 #include "PBDRigidsSolver.h"
 #include "Chaos/PBDRigidsEvolutionGBF.h"
 #include "Chaos/PBDCollisionConstraints.h"
@@ -13,17 +14,18 @@ bool FContactLoadSampler::AuditTracks(int32 Id) const
 }
 void FContactLoadSampler::CaptureAuditVelocities()
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_PhysicsAuditCapture);
     AuditVelocities.Reset();const auto* In=GetConsumerInput_Internal();if(!In || !In->bAuditWork)return;
-    auto* S=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
-    for(auto& P:S->GetParticles().GetNonDisabledDynamicView())if(AuditTracks(P.UniqueIdx().Idx))
+    for(const auto& P:StepParticles)if(AuditTracks(P.Id))
     {
-        auto* B=P.Handle()->CastToRigidParticle();if(!B)continue;
+        auto* B=P.Body;
         FAuditVelocity V;V.V=FVector(B->GetV())/100.;V.W=FVector(B->GetW());V.Com=(FVector(B->GetP())+FQuat(B->GetQ()).RotateVector(FVector(B->CenterOfMass())))/100.;V.Body=B;
-        AuditVelocities.Add(P.UniqueIdx().Idx,V);
+        AuditVelocities.Add(P.Id,V);
     }
 }
 void FContactLoadSampler::MeasureContactWork(double Dt)
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_PhysicsContactWork);
     const auto* In=GetConsumerInput_Internal();if(!In||!In->bAuditWork||Dt<=0)return;
     auto& Out=GetProducerOutputData_Internal();auto* S=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
     if(const auto* V=AuditVelocities.Find(In->PalletId))Out.PalletPhysicsMassKg=V->Body->M();

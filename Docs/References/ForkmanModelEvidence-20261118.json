@@ -1,0 +1,138 @@
+{
+  "date": "2026-11-18",
+  "model": {
+    "manifest": {
+      "path": "ContentSource/AllturnForkman/manifest.json",
+      "sha256": "ee06bb8a07f063fefe30f93fee518749e1d3b25b8734d83a6bfb777d5925d20f"
+    },
+    "native_import": {
+      "path": "Saved/Validation/Forkman/NativeImport.json",
+      "sha256": "0f3df62cddcd60588cfb75d257548201f9bee2d0c9088da87a81cf46ae276488"
+    },
+    "source": {
+      "path": "ContentSource/AllturnForkman/reference.json",
+      "sha256": "8fd2261997eb904dd6680a268f98ebc44660e750658d9b51db9530b9968c661b"
+    }
+  },
+  "oem_replica": false,
+  "authorization": "User selected FORKMAN reference virtual AGV with existing autonomy; no direct computer UI control.",
+  "sources": [
+    "https://allturnkorea.com/2-5",
+    "https://youtu.be/rNK2ramr-2M"
+  ],
+  "scope": {
+    "runtime_articulated_meshes": 5,
+    "active_vehicles_verified": 3,
+    "physics_numeric_configs_changed": false,
+    "public_example_specs_fully_applied": false,
+    "own_mass_oem_known": false,
+    "current_virtual_mass_kg": 3140,
+    "gui_automation_used": false
+  },
+  "build": {
+    "passed": true,
+    "dll": {
+      "path": "Binaries/Win64/UnrealEditor-ForkliftSim.dll",
+      "sha256": "50c17cbd252421a73318dbfa5f7f60ba18691e6978cc2d00f9176a3780cfa9f5"
+    },
+    "log": {
+      "path": "Saved/ForkmanSensorProxyBuild.log",
+      "sha256": "9a01926bd921aec067b1ade248bed4fef0a3e40a3afbb6421791c5d4a7cd1afa"
+    }
+  },
+  "unit_final": {
+    "succeeded": 110,
+    "failed": 0,
+    "not_run": 0,
+    "report": {
+      "path": "Saved/Validation/Forkman/UnitFinal/index.json",
+      "sha256": "e2e0af3756099f39378f81b2767b9515751633b75cb1106607bb73f4dc2106bf"
+    }
+  },
+  "handling_final": {
+    "report": {
+      "path": "Saved/Validation/Forkman/Run-20261118-203906/results.json",
+      "sha256": "9cd853fa8b9073ca3a510d300814747021acb5758547298e13d96d4f6fba75cf"
+    },
+    "rendered": true,
+    "physics_hz": 960,
+    "solver_iterations": 32,
+    "cases": [
+      {
+        "pass": true,
+        "physics_only_or_missing": false,
+        "physics_self_geometry": true,
+        "exit_code": 0,
+        "measured_handling_complete": true,
+        "case": "handling_pick_high",
+        "selected_model_visible": true,
+        "log": {
+          "path": "Saved/Validation/Forkman/Run-20261118-203906/handling_pick_high.log",
+          "sha256": "784828a8ab476d1ccc8826717917764b85bfb2805019884824bb1f3b98a17911"
+        }
+      },
+      {
+        "pass": true,
+        "physics_only_or_missing": false,
+        "physics_self_geometry": true,
+        "exit_code": 0,
+        "measured_handling_complete": true,
+        "case": "handling_place_high",
+        "selected_model_visible": true,
+        "log": {
+          "path": "Saved/Validation/Forkman/Run-20261118-203906/handling_place_high.log",
+          "sha256": "fad48eb169cbf8992cb12aef6f4e96818331b207bb1ad3a69c256cac74963caa"
+        }
+      }
+    ]
+  },
+  "camera_final": {
+    "passed": true,
+    "report": {
+      "path": "Saved/Validation/Cameras-20261118-204610/cameras.json",
+      "sha256": "35f08257c93c1f675c90c7a67bee4e029f008bfa62d7dd8f6c2e03bca65e45eb"
+    },
+    "log": {
+      "path": "Saved/Validation/Cameras-20261118-204610/CameraValidation.log",
+      "sha256": "ead7e7e641eb9a9b27e11ef09b3eba518f590a16b76f1a37bb5ef2d621e1b32e"
+    },
+    "checks": [
+      "real GPU optical depth",
+      "metric depth targets",
+      "invalid near/far returns",
+      "configured latency",
+      "same-exposure paired RGB-D"
+    ]
+  },
+  "campus_smoke": {
+    "passed": true,
+    "vehicles": 3,
+    "map": "/Game/Maps/WarehouseCampus",
+    "physics_hz": 480,
+    "solver_iterations": 16,
+    "single_threaded_physics": true,
+    "scope": "Spawn, new articulated appearance and sensor view rendering only; not a fleet mission or performance benchmark. Render HUD showed performance limitation; no real-time performance claim.",
+    "log": {
+      "path": "Saved/ForkmanCampusSmoke.log",
+      "sha256": "dbd013f4258358477fe94f6fbcbd28dd3eef1ae706b8777d6c1fcbf25d5a8bc5"
+    },
+    "image": {
+      "path": "Docs/Images/Forkman-Integrated.png",
+      "sha256": "5e87a7da7b8c1a96ee8dd76672711c7a3c46e03e75bde89049b9e2daf99b333d"
+    }
+  },
+  "regression_diagnosis": {
+    "initial_visible_upper_pick": "insertion_alignment_lost; cosmetic self geometry changed depth detection",
+    "matched_step_retry": "same fault at 960 Hz",
+    "physics_only_control": "upper pick passed",
+    "fix": "Scene captures use the moving/deforming physical self geometry. Decorative skin remains in main viewport. Environment/pallet/cargo GPU depth and existing tolerances/control unchanged.",
+    "remaining_limitation": "Sensor self image is simplified; rear RGB-D robot pixels do not match the decorative skin exactly."
+  },
+  "limits": [
+    "Published FORKMAN specifications are examples, not verified OEM configuration.",
+    "Existing virtual dimensions, mass, drivetrain, hydraulic coefficients and collision proxies retained.",
+    "No exact 3120 mm lift, mast tilt, 1000 kg rating, 750 W drive, 2000 W pump or battery model reproduction claim.",
+    "No real vehicle calibration, 6 vehicle performance or new full fleet mission validation claim."
+  ],
+  "model_name": "ALLTURN FORKMAN-inspired virtual autonomous forklift"
+}

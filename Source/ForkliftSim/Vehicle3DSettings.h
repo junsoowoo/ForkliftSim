@@ -22,6 +22,12 @@ struct FVehicle3DSettings
     double WheelSurfaceSpeedLimitMps = 4;
     double SweepRadiusM() const { return FMath::Sqrt(RadiusM*RadiusM+WidthM*WidthM*.25); }
     bool bReferenceGeometry=false;
+    // Articulated presentation is selected independently of calibrated physics.
+    FString BodyMeshPath=TEXT("/Game/ForkliftModel/SM_AGVBody.SM_AGVBody");
+    FString FixedMastMeshPath=TEXT("/Game/ForkliftModel/SM_FixedMast.SM_FixedMast");
+    FString MovingMastMeshPath=TEXT("/Game/ForkliftModel/SM_MovingMast.SM_MovingMast");
+    FString CarriageMeshPath=TEXT("/Game/ForkliftModel/SM_Carriage.SM_Carriage");
+    FString ForkSegmentMeshPath=TEXT("/Game/ForkliftModel/SM_ForkSegment.SM_ForkSegment");
     double BodyLengthM=1.405,BodyWidthM=.985,LoweredMastHeightM=2.475,CarriageWidthM=.88;
     double ForkFaceXM() const { return BodyLengthM*.5; }
     double MastXM() const { return bReferenceGeometry?ForkFaceXM()-.17:WheelbaseM*.5+SweepRadiusM()+.10; }

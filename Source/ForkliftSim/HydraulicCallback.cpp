@@ -1,9 +1,11 @@
 #include "HydraulicCallback.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
 #include "PBDRigidsSolver.h"
 #include "ChainConstitutive.h"
 
 void FHydraulicCallback::OnPreIntegrate_Internal()
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_HydraulicPreIntegrate);
     Bodies[0]=Bodies[1]=Bodies[2]=nullptr;
     const auto* In=GetConsumerInput_Internal();
     if(!In || In->ChassisId==INDEX_NONE || In->CarriageId==INDEX_NONE) return;

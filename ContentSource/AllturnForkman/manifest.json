@@ -1,0 +1,225 @@
+{
+  "model": "FORKMAN-inspired virtual autonomous forklift",
+  "oem_replica": false,
+  "reference": "reference.json",
+  "palette": {
+    "Orange": [
+      1,
+      0.16,
+      0.012,
+      1
+    ],
+    "Graphite": [
+      0.035,
+      0.044,
+      0.052,
+      1
+    ],
+    "Steel": [
+      0.23,
+      0.27,
+      0.3,
+      1
+    ],
+    "Rubber": [
+      0.015,
+      0.019,
+      0.021,
+      1
+    ],
+    "Silver": [
+      0.55,
+      0.6,
+      0.64,
+      1
+    ],
+    "White": [
+      0.86,
+      0.9,
+      0.93,
+      1
+    ],
+    "Red": [
+      0.67,
+      0.008,
+      0.015,
+      1
+    ],
+    "Cyan": [
+      0.005,
+      0.5,
+      0.7,
+      1
+    ],
+    "Amber": [
+      0.8,
+      0.32,
+      0.008,
+      1
+    ]
+  },
+  "coordinate_units": "m",
+  "parts": [
+    {
+      "name": "SM_AGVBody",
+      "dimensions_m": [
+        1.2899999618530273,
+        0.9936499893665314,
+        1.112391471862793
+      ],
+      "bounds_min_m": [
+        -0.7074999809265137,
+        -0.4981499910354614,
+        -0.39489150047302246
+      ],
+      "bounds_max_m": [
+        0.5824999809265137,
+        0.49549999833106995,
+        0.7174999713897705
+      ],
+      "triangles": 25988,
+      "material_slots": [
+        "Graphite",
+        "Silver",
+        "Steel",
+        "Rubber",
+        "White",
+        "Amber",
+        "Red",
+        "Cyan",
+        "Orange"
+      ]
+    },
+    {
+      "name": "SM_FixedMast",
+      "dimensions_m": [
+        0.2046370506286621,
+        0.7400000691413879,
+        2.275644302368164
+      ],
+      "bounds_min_m": [
+        0.40201300382614136,
+        -0.3700000047683716,
+        -0.2906442880630493
+      ],
+      "bounds_max_m": [
+        0.6066500544548035,
+        0.37000006437301636,
+        1.9850000143051147
+      ],
+      "triangles": 8464,
+      "material_slots": [
+        "Graphite",
+        "Silver",
+        "Steel",
+        "White",
+        "Rubber"
+      ]
+    },
+    {
+      "name": "SM_MovingMast",
+      "dimensions_m": [
+        0.11600000411272049,
+        0.6200000047683716,
+        1.8199999928474426
+      ],
+      "bounds_min_m": [
+        -0.07000000029802322,
+        -0.3100000023841858,
+        -0.3100000023841858
+      ],
+      "bounds_max_m": [
+        0.046000003814697266,
+        0.3100000023841858,
+        1.5099999904632568
+      ],
+      "triangles": 2520,
+      "material_slots": [
+        "Graphite",
+        "Steel",
+        "Silver"
+      ]
+    },
+    {
+      "name": "SM_Carriage",
+      "dimensions_m": [
+        0.08499999716877937,
+        0.8799999952316284,
+        0.9549999833106995
+      ],
+      "bounds_min_m": [
+        -0.03500000014901161,
+        -0.4399999976158142,
+        -0.17500001192092896
+      ],
+      "bounds_max_m": [
+        0.04999999701976776,
+        0.4399999976158142,
+        0.7799999713897705
+      ],
+      "triangles": 2444,
+      "material_slots": [
+        "Graphite",
+        "Steel",
+        "Silver"
+      ]
+    },
+    {
+      "name": "SM_ForkSegment",
+      "dimensions_m": [
+        0.30000001192092896,
+        0.11999999731779099,
+        0.050199998542666435
+      ],
+      "bounds_min_m": [
+        -0.15000000596046448,
+        -0.05999999865889549,
+        -0.02499999850988388
+      ],
+      "bounds_max_m": [
+        0.15000000596046448,
+        0.05999999865889549,
+        0.025200000032782555
+      ],
+      "triangles": 212,
+      "material_slots": [
+        "Silver",
+        "Steel"
+      ]
+    },
+    {
+      "name": "SM_ForkmanAssembly",
+      "dimensions_m": [
+        2.6100000143051147,
+        0.9936499893665314,
+        2.4749999046325684
+      ],
+      "bounds_min_m": [
+        -0.7074999809265137,
+        -0.4981499910354614,
+        0.0
+      ],
+      "bounds_max_m": [
+        1.902500033378601,
+        0.49549999833106995,
+        2.4749999046325684
+      ],
+      "triangles": 49544,
+      "material_slots": [
+        "Graphite",
+        "Silver",
+        "Steel",
+        "Rubber",
+        "White",
+        "Amber",
+        "Red",
+        "Cyan",
+        "Orange"
+      ],
+      "display_only": true
+    }
+  ],
+  "rig_geometry": "Existing tested custom rig: body headlength 1.405m, width .985m, fixed mast 2.475m, forks 1.2m, 2.1m travel; not the public FORKMAN example dimensions.",
+  "collision": "Existing simplified physics boxes retained; visible panel bevels and sloped covers are not engineering collision surfaces.",
+  "runtime_triangles": 39628
+}

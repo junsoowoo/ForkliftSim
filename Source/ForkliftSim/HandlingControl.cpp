@@ -7,6 +7,7 @@
 #include "SensorLiftControl.h"
 #include "LidarSafety.h"
 #include "MissionNavigation.h"
+#include "CampusOperations.h"
 #include "Serialization/Archive.h"
 #include "HAL/FileManager.h"
 #include "Misc/Paths.h"
@@ -33,7 +34,7 @@ void FHandlingRig::Update(AStabilityLab& L,double Dt)
         for(int K=0;K<4;++K){I.Presence[K]=P.MeasurementValid(K+4,I.Now)&&P.Channels[K+4].Last.Detected;}
         for(int K=0;K<2;++K){I.HeelValid&=P.MeasurementValid(K,I.Now);I.HeelDepth[K]=1.2-P.Spec.ForwardOffsetM-P.Channels[K].Last.RangeM;}
     }
-    if(L.DriveSensors){auto& D=L.DriveSensors->Model;I.Healthy&=D.Ready&&D.UnobservedS<.1;I.Pose=D.MapPose(I.Now);I.Velocity=D.Velocity;I.Fault|=D.Faulted;}
+    if(L.DriveSensors){auto& D=L.DriveSensors->Model;I.Healthy&=D.Ready&&D.UnobservedS<.1;I.Pose=D.MapPose(I.Now);I.Velocity=L.bCampusVehicle?L.DriveSensors->MeasuredVelocity(I.Now):D.Velocity;if(L.bCampusVehicle)I.Healthy&=L.DriveSensors->GroundFresh(I.Now);I.Fault|=D.Faulted;}
     if(L.SensorLift){I.Healthy&=L.SensorLift->Model.Armed;I.Fault|=L.SensorLift->Model.Faulted||L.SensorLift->Model.PressureLimited;}
     if(L.VehicleGuard)I.Fault|=L.VehicleGuard->Decision.Faulted||L.VehicleGuard->Decision.Emergency;
     if(L.PalletRecognition)
@@ -43,7 +44,8 @@ void FHandlingRig::Update(AStabilityLab& L,double Dt)
         for(int K=0;K<2;++K)I.Depth[K]=P.Depth[K];I.Uncertainty=P.UncertaintyM;I.Y=P.OffsetY;I.Z=P.OffsetZ;
         I.Yaw=P.Tracked&&L.DriveSensors?FMath::UnwindRadians(P.AnchorYaw-L.DriveSensors->Model.Predicted(I.Now).Yaw):P.Detection.Yaw;
     }
-    Model.Spec.RackX=L.RackSettings.X;Model.Spec.RackY=L.RackSettings.Y;Model.Spec.Low=L.RackSettings.Low;Model.Spec.High=L.RackSettings.High;Model.Spec.RackDepth=L.RackSettings.Depth;Model.Spec.RackWidth=L.RackSettings.Width;
+    if(SurveyFrame){I.Pose=SensorDrive::Compose(SensorDrive::Inverse(Station),I.Pose);Model.Spec.RackX=Model.Spec.RackY=0;Model.Spec.Low=.35;Model.Spec.High=1.95;Model.Spec.ForkCenter=Model.Place&&SurveyCarryCenterM>0?SurveyCarryCenterM:L.Settings.ForkFaceXM()+.6;Model.Spec.SurveyRack=true;Model.Spec.Withdraw=!Model.Place&&SurveyBeamSides.Y>SurveyBeamSides.X?1.75:1.5;Model.Spec.UnloadOffset=FMath::Clamp(SurveyUnloadOffsetM,.01,.025);Model.Spec.BeamLeft=SurveyBeamSides.X;Model.Spec.BeamRight=SurveyBeamSides.Y;Model.Spec.WheelFront=L.Settings.WheelbaseM*.5+L.Settings.RadiusM;Model.Spec.PalletLength=1.1;Model.Spec.PalletHalfWidth=.55;}
+    else {Model.Spec.RackX=L.RackSettings.X;Model.Spec.RackY=L.RackSettings.Y;Model.Spec.Low=L.RackSettings.Low;Model.Spec.High=L.RackSettings.High;Model.Spec.RackDepth=L.RackSettings.Depth;Model.Spec.RackWidth=L.RackSettings.Width;}
     if(I.Now<=AckUntilS&&!Model.Active&&Model.Faulted&&I.Healthy&&!I.Fault&&!I.Manual&&I.Velocity.Size2D()<.025){Model.Faulted=false;Model.State=TEXT("idle");Model.Reason.Empty();AckUntilS=-1;}
     const bool WasActive=Model.Active;const FString Before=Model.State;Model.Step(I);if(!WasActive&&Model.Active){GuardReleased=false;++JobSequence;}
     if(L.PalletRecognition)
@@ -62,7 +64,13 @@ void FHandlingRig::Apply(AStabilityLab& L)
 {
     auto& M=Model;
     if(M.Active&&M.Permit&&L.VehicleGuard&&L.VehicleGuard->Decision.Obstacle){
-        const auto& S=L.VehicleGuard->Sensor;int Count=0;for(int A=0;A<2;++A){const auto& Scan=S.Channels[A].Last;for(int K=0;K<Scan.States.Num();++K)if(Scan.States[K]==LidarSafety::EReturn::Valid){const double Angle=S.Spec.Angle(A,K);const FVector P=S.Spec.Mount(A)+FVector(FMath::Cos(Angle)*Scan.Ranges[K],FMath::Sin(Angle)*Scan.Ranges[K],0);if(P.X>=-S.Spec.Rear-S.Spec.Padding&&P.X<=S.Spec.Front+S.Spec.Padding&&FMath::Abs(P.Y)<=S.Spec.HalfWidth+S.Spec.Padding&&!M.TargetPoint(FVector2D(P.X,P.Y))&&Count++<5)UE_LOG(LogTemp,Display,TEXT("HANDLING_BLOCKED_POINT %.4f %.4f"),P.X,P.Y);}}
+        const auto& S=L.VehicleGuard->Sensor;int Count=0;
+        for(int A=0;A<2;++A){const auto& Scan=S.Channels[A].Last;for(int K=0;K<Scan.States.Num();++K){
+            const bool Close=Scan.States[K]==LidarSafety::EReturn::TooClose;if(!Close&&Scan.States[K]!=LidarSafety::EReturn::Valid)continue;
+            const double Angle=S.Spec.Angle(A,K);const FVector P=S.Spec.Mount(A)+FVector(FMath::Cos(Angle),FMath::Sin(Angle),0)*(Close?S.Spec.MinM:Scan.Ranges[K]);
+            if((Close||(L.bCampusVehicle&&L.Campus?L.Campus->FleetField(L,FVector2D(P.X,P.Y)):P.X>=-S.Spec.Rear-S.Spec.Padding&&P.X<=S.Spec.Front+S.Spec.Padding&&FMath::Abs(P.Y)<=S.Spec.HalfWidth+S.Spec.Padding))&&!M.TargetPoint(FVector2D(P.X,P.Y))&&Count++<8)
+                UE_LOG(LogTemp,Display,TEXT("HANDLING_BLOCKED_POINT %.4f %.4f close=%d pose=%.4f,%.4f,%.4f beam=%.3f,%.3f height=%.3f wheel=%.3f"),P.X,P.Y,Close,M.Last.Pose.X,M.Last.Pose.Y,M.Last.Pose.Yaw,M.Spec.BeamLeft,M.Spec.BeamRight,M.Last.Height,M.Spec.WheelFront);
+        }}
         M.Stop(TEXT("non_target_obstacle"));
     }
     if(M.Working()){L.Throttle=M.Velocity.X;L.Strafe=M.Velocity.Y;L.Steering=M.YawRate/.6;L.Brake=M.Brake?1:0;L.Lift=0;L.LiftTargetM=M.HeightTarget;}

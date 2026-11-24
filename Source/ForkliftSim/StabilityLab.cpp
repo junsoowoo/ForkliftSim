@@ -1,4 +1,7 @@
 #include "StabilityLab.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
+#include "SimulationPlayback.h"
+#include "CampusOperations.h"
 #include "ChassisActor.h"
 #include "WheelActor.h"
 #include "ForkActor.h"
@@ -36,6 +39,7 @@
 #include "SensorDrive.h"
 #include "PalletPerception.h"
 #include "HandlingControl.h"
+#include "CampusOperations.h"
 #include "MissionNavigation.h"
 
 namespace { AStabilityLab* Lab(UWorld* W) { for(TActorIterator<AStabilityLab> I(W);I;++I) return *I; return nullptr; } }
@@ -101,10 +105,10 @@ void AStabilityLab::BeginPlay()
         Settings.TyreMu=1.5; Settings.RoadMu=1.5; Settings.ChassisComOffsetM=1.2;
         Settings.SteerRateDegS=120; Settings.MaxSteerDeg=35;
     }
-    if(!ForkliftModel::Configure(Settings,Error,GetWorld()->GetMapName().Contains(TEXT("WarehouseLab"))))
+    if(!ForkliftModel::Configure(Settings,Error,(bCampusVehicle || GetWorld()->GetMapName().Contains(TEXT("WarehouseLab")))))
     {UE_LOG(LogTemp,Error,TEXT("MODELING_CONFIG %s"),*Error);FGenericPlatformMisc::RequestExitWithStatus(false,1);return;}
     for (TActorIterator<AStaticMeshActor> I(GetWorld());I;++I)
-        if (I->ActorHasTag(TEXT("StabilityRoad"))) Road=I->GetStaticMeshComponent();
+        if (I->ActorHasTag(bCampusVehicle?TEXT("CampusRoad"):TEXT("StabilityRoad"))) Road=I->GetStaticMeshComponent();
     if(Settings.bReferenceGeometry && !RackSettings.Load(Error)){UE_LOG(LogTemp,Error,TEXT("RACK_CONFIG %s"),*Error);return;}
     if(IsHandlingTest()&&(TestMode.Contains(TEXT("place"))||TestMode.EndsWith(TEXT("low"))||TestMode.EndsWith(TEXT("high")))){RackSettings.X=3.2;RackSettings.Y=0;}
     if(!ConfigurePayload()) { UE_LOG(LogTemp,Error,TEXT("PAYLOAD_CONFIG %s"),*Error); if(!TestMode.IsEmpty()) FGenericPlatformMisc::RequestExitWithStatus(false,1); return; }
@@ -124,15 +128,15 @@ void AStabilityLab::BeginPlay()
     if(Settings.bMecanum) Settings.MaxSpeedMps=FMath::Min(Settings.MaxSpeedMps,Settings.Mecanum.MaxTranslationMps);
     double Rate=Settings.Tyres.Tread.bEnabled && TestMode.IsEmpty()?(Settings.Tyres.Tread.Count>=32?.25:.5):1.;
     FParse::Value(FCommandLine::Get(),TEXT("PlaybackRate="),Rate);
-    if(!FMath::IsFinite(Rate) || Rate<.1 || Rate>1)
-    { Error=TEXT("PlaybackRate must be between 0.1 and 1.0"); UE_LOG(LogTemp,Error,TEXT("PLAYBACK_CONFIG %s"),*Error); return; }
-    GetWorld()->GetWorldSettings()->SetTimeDilation(Rate);
+    if(!SimulationPlayback::Valid(Rate))
+    { Error=TEXT("PlaybackRate must be 0.1..1.0, 2 or 4"); UE_LOG(LogTemp,Error,TEXT("PLAYBACK_CONFIG %s"),*Error); return; }
+    if(Settings.bMecanum||Rate>1)SimulationPlayback::Set(GetWorld(),Rate);else GetWorld()->GetWorldSettings()->SetTimeDilation(Rate);
     if(Settings.bMecanum)
     {
         // Limit the WORLD delta, before both physics and controllers consume it.
         // When rendering cannot keep up this is honest slow playback, never a
         // large controller step paired with a truncated physics step.
-        GetWorld()->GetWorldSettings()->MaxUndilatedFrameTime=Settings.Mecanum.MaxControlStepS;
+        GetWorld()->GetWorldSettings()->MaxUndilatedFrameTime=SimulationPlayback::UndilatedCap(Settings.Mecanum.MaxControlStepS,Rate);
         BasePhysicsStepS=SelectedPhysicsStepS=SmallestPhysicsStepS=UPhysicsSettings::Get()->MaxSubstepDeltaTime;
         SmallestObservedPhysicsStepS=BasePhysicsStepS;
         UE_LOG(LogTemp,Display,TEXT("MECANUM_CLOCK max_world_step_s=%.9f slow_frames=bounded_simulation_time"),Settings.Mecanum.MaxControlStepS);
@@ -152,7 +156,7 @@ void AStabilityLab::BeginPlay()
         UE_LOG(LogTemp,Display,TEXT("TREAD_SOLVER quality=%s position_iterations=%d velocity_iterations=%d"),Balanced?TEXT("rejected-candidate"):TEXT("production/reference"),Pos,Vel);
     }
     NormalMaxSpeed=Settings.MaxSpeedMps;
-    WebTelemetry=FWebTelemetryPublisher::Create();
+    if(!bCampusVehicle)WebTelemetry=FWebTelemetryPublisher::Create();
     ResetRig();
 }
 void AStabilityLab::ApplyMaterials()
@@ -168,6 +172,7 @@ void AStabilityLab::ApplyMaterials()
     }
     if (Road) Road->SetPhysMaterialOverride(RoadMaterial);
     if(Course) Course->SetMu(Settings.RoadMu);
+    for(UStaticMeshComponent* Surface:CampusSurfaces)if(Surface)Surface->SetPhysMaterialOverride(RoadMaterial);
     for (AWheelActor* W : Wheels) W->SetMu(TyreMaterial);
 }
 void AStabilityLab::ResetRig()
@@ -182,7 +187,7 @@ void AStabilityLab::ResetRig()
     if(WebTelemetry) WebTelemetry->NewRun();
     Flush();
     ReleaseLoadSampler();
-    if(Pallet) { Pallet->Destroy(); Pallet=nullptr; }
+    if(Pallet && !bCampusVehicle) { Pallet->Destroy(); Pallet=nullptr; }
     PayloadState=FPayloadState();
     CargoState=FCargoState();
     PowerState=FPowerState();
@@ -212,22 +217,23 @@ void AStabilityLab::ResetRig()
     WheelSpeedScale=1; AllocatedYawRadS=CoordinatedYawRadS=0;
     const double Z=Settings.RadiusM*100+4+(IsTyreTest() && TestMode.Contains(TEXT("drop"))?2:0);
     // Deck underside sits 8 cm above the wheel top at any steering angle.
-    Chassis=GetWorld()->SpawnActor<AChassisActor>(FVector(0,0,Z+(Settings.bSwerve?Settings.RadiusM*100+19:36)),FRotator::ZeroRotator);
+    const FTransform Placement=bCampusVehicle?CampusSpawn:FTransform::Identity;
+    Chassis=GetWorld()->SpawnActor<AChassisActor>(Placement.TransformPositionNoScale(FVector(0,0,Z+(Settings.bSwerve?Settings.RadiusM*100+19:36))),Placement.Rotator());
     Chassis->Configure(Settings);
     ApplyMaterials();
     for(int I=0;I<4;++I)
     {
         const FVector P((I<2?1:-1)*Settings.WheelbaseM*50,(I%2==0?-1:1)*Settings.TrackM*50,Z);
-        auto* W=GetWorld()->SpawnActor<AWheelActor>(P,FRotator::ZeroRotator);
+        auto* W=GetWorld()->SpawnActor<AWheelActor>(Placement.TransformPositionNoScale(P),Placement.Rotator());
         W->Configure(Chassis->Body,Settings,I>=2,TyreMaterial,I); Wheels.Add(W);
     }
     const bool ForkBench=IsComponentTest() && (TestMode.EndsWith(TEXT("plastic")) || TestMode.EndsWith(TEXT("fracture")));
     const double ForkZ=ForkBench?224.5:Settings.bReferenceGeometry?22.5:bPayload && Settings.Structure.bEnabled?24.5:Z+(bPayload?-9.5:16);
     const double ForkX=Settings.bReferenceGeometry?(Settings.ForkFaceXM()-.03)*100:Settings.bSwerve?(Settings.MastXM()+.28)*100:118;
-    Fork=GetWorld()->SpawnActor<AForkActor>(FVector(ForkX,0,ForkZ),FRotator::ZeroRotator);
+    Fork=GetWorld()->SpawnActor<AForkActor>(Placement.TransformPositionNoScale(FVector(ForkX,0,ForkZ)),Placement.Rotator());
     Fork->Configure(Chassis->Body,Settings,bPayload?&PayloadSettings:nullptr);
-    if(bPayload) SpawnPayload();
-    SetupHandlingRack();
+    if(bPayload && !bCampusVehicle) SpawnPayload();
+    if(!bCampusVehicle)SetupHandlingRack();
     ForkliftModel::Present(this);
     ConfigureCameraViews();
     if(bCameraViews)bHydraulicView=false;
@@ -274,12 +280,13 @@ void AStabilityLab::ResetRig()
         bVehicleSafetyRequested=TestMode.IsEmpty()||IsVehicleGuardTest()||IsSensorDriveTest()||IsPalletPerceptionTest()||IsHandlingTest()||IsMissionTest();
         if(bVehicleSafetyRequested){VehicleGuard=FLidarSafetyRig::Create(JointError);if(!VehicleGuard){UE_LOG(LogTemp,Warning,TEXT("LIDAR_SAFETY_CONFIG %s"),*JointError);if(!TestMode.IsEmpty())FGenericPlatformMisc::RequestExitWithStatus(false,1);}}
     }
-    if(TestMode.IsEmpty()||IsHandlingTest()||IsMissionTest()){FString E;HandlingControl=FHandlingRig::Create(E);if(!HandlingControl){Error=E;UE_LOG(LogTemp,Error,TEXT("HANDLING_CONFIG %s"),*E);}}
-    if(TestMode.IsEmpty()||IsMissionTest()){FString E;MissionControl=FMissionRig::Create(E);if(!MissionControl){Error=E;UE_LOG(LogTemp,Error,TEXT("MISSION_CONFIG %s"),*E);}}
+    if((bCampusVehicle&&!Campus->Validation)||( !bCampusVehicle&&(TestMode.IsEmpty()||IsHandlingTest()||IsMissionTest()))){FString E;HandlingControl=FHandlingRig::Create(E);if(!HandlingControl){Error=E;UE_LOG(LogTemp,Error,TEXT("HANDLING_CONFIG %s"),*E);}}
+    if(!bCampusVehicle&&(TestMode.IsEmpty()||IsMissionTest())){FString E;MissionControl=FMissionRig::Create(E);if(!MissionControl){Error=E;UE_LOG(LogTemp,Error,TEXT("MISSION_CONFIG %s"),*E);}}
     MassKg=Chassis->Body->GetMass()+Fork->Carriage->GetMass();
     for(AForkTineActor* T:Fork->Tines) for(UStaticMeshComponent* B:T->Sections) MassKg+=B->GetMass();
     if(Fork->MovingMast) MassKg+=Fork->MovingMast->GetMass();
     for(AWheelActor* W:Wheels) for(UStaticMeshComponent* B:W->PhysicalBodies()) MassKg+=B->GetMass();
+    if(bCampusVehicle)InitializeCampusRig();
     ForkHeightM=0;
     TyreState.EnergyReferenceJ=TyreMechanicalEnergyJ();
     Rows={TEXT("time_s,tyre_mu,road_mu,effective_mu,chassis_com_offset_m,speed_mps,lateral_mps,yaw_deg_s,roll_deg,pitch_deg,tilt_deg,near_floor_wheels,steer_command_deg,fork_target_m,fork_actual_m,FL_lateral_slip_mps,FR_lateral_slip_mps,RL_lateral_slip_mps,RR_lateral_slip_mps,FL_clearance_m,FR_clearance_m,RL_clearance_m,RR_clearance_m")};
@@ -443,6 +450,7 @@ void AStabilityLab::SeedSpeed(double Speed)
 }
 void AStabilityLab::Tick(float Dt)
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_VehicleTick);
     Super::Tick(Dt); if (!Chassis || !Error.IsEmpty() || bFinished) return;
     if(Settings.bMecanum) SelectMecanumStep();
     const double FrameNow=FPlatformTime::Seconds();
@@ -482,7 +490,7 @@ void AStabilityLab::Tick(float Dt)
             if(DriveSensors)DriveSensors->ActuatorExpired|=Output->bDriveCommandExpired;
             if(Output->bMecanumMotorValid) for(int I=0;I<4;++I)
             {
-                Wheels[I]->DriveMotor=Output->MecanumMotor[I];Wheels[I]->DriveTorqueNm=Output->MecanumMotor[I].OutputNm;
+                Wheels[I]->DcConsumedJ+=Output->MotorPositiveDcJ[I];Wheels[I]->DriveMotor=Output->MecanumMotor[I];Wheels[I]->DriveTorqueNm=Output->MecanumMotor[I].OutputNm;
                 Wheels[I]->DriveRequestNm=Output->MecanumRequestNm[I];Wheels[I]->RollingTorqueNm=Output->MecanumRollingNm[I];
             }
             if(Output->bBenchValid)
@@ -536,7 +544,7 @@ void AStabilityLab::Tick(float Dt)
         Input->TreadPhaseRad=Settings.Tyres.Tread.PhaseRad;
         Input->bTreadCoupled=Settings.Tyres.Tread.bCoupled;
         Input->bMecanum=Settings.bMecanum;
-        Input->bJointSensors=JointSensors.IsValid();Input->JointSamplePeriodS=JointSensors?1./JointSensors->Model.Spec.MaxHz():.01;Input->JointForkBaseM=ForkBaseZ/100.;
+        Input->bAllForkContacts=bCampusVehicle;Input->bJointSensors=JointSensors.IsValid();Input->JointSamplePeriodS=JointSensors?1./JointSensors->Model.Spec.MaxHz():.01;Input->JointForkBaseM=ForkBaseZ/100.;
         Input->bDynamicsSensors=DynamicsSensors.IsValid();Input->DynamicsPeriodS=DynamicsSensors?1./DynamicsSensors->Model.Spec.Hz:.01;
         Input->ImuOffsetM=DynamicsSensors?DynamicsSensors->Model.Spec.MountFromComM:FVector::ZeroVector;
         Input->SensorGravityMps2=FVector(0,0,GetWorld()->GetGravityZ()/100.);
@@ -575,6 +583,8 @@ void AStabilityLab::Tick(float Dt)
         if(Course) for(int I=0;I<Course->Surfaces.Num();++I)
         { Input->SurfaceIds[I]=Course->Surfaces[I]->BodyInstance.GetPhysicsActor()->GetGameThreadAPI().UniqueIdx().Idx;
           Input->ReducedSurfaceMu[I]=Course->Surfaces[I]->BodyInstance.GetSimplePhysicalMaterial()->Friction; }
+        if(bCampusVehicle)for(int I=0;I<CampusSurfaces.Num()&&I<8;++I)
+        {auto* B=CampusSurfaces[I].Get();if(B&&B->BodyInstance.IsValidBodyInstance()){Input->SurfaceIds[I]=B->BodyInstance.GetPhysicsActor()->GetGameThreadAPI().UniqueIdx().Idx;Input->ReducedSurfaceMu[I]=Settings.RoadMu;}}
         if(Pallet)
         {
             Input->PalletId=Pallet->Deck->BodyInstance.GetPhysicsActor()->GetGameThreadAPI().UniqueIdx().Idx;
@@ -720,11 +730,13 @@ void AStabilityLab::Tick(float Dt)
     if(JointSensors)JointSensors->Model.Deliver(TimeS);
     if(DynamicsSensors)DynamicsSensors->Model.Deliver(TimeS);
     if(DriveSensors)DriveSensors->Observe(*this,Dt);
+    if(bCampusVehicle&&Campus&&!Campus->Validation)Campus->UpdateVehicle(*this,Dt);
     if(MissionControl)MissionControl->Update(*this,Dt);
     if(HandlingControl)HandlingControl->Update(*this,Dt);
     if(VehicleGuard)VehicleGuard->Update(*this);
     if(HandlingControl)HandlingControl->Apply(*this);
     if(MissionControl)MissionControl->Apply(*this);
+    if(bCampusVehicle&&Campus&&!Campus->Validation)Campus->ApplyVehicle(*this);
     if(DriveSensors)DriveSensors->Correct(*this);
     UpdateSensorLiftControl(Dt);
     if(Settings.bSwerve) UpdateHydraulicLab(Dt);
@@ -909,7 +921,7 @@ void AStabilityLab::ReleaseLoadSampler()
         LoadSampler=nullptr;
     }
 }
-void AStabilityLab::EndPlay(const EEndPlayReason::Type R) { ShutdownCameraViews(); if(WebTelemetry) { WebTelemetry->Stop(); WebTelemetry.Reset(); } ReleaseLoadSampler(); JointSensors.Reset(); DynamicsSensors.Reset(); ProximitySensors.Reset(); SensorLift.Reset(); MissionControl.Reset(); HandlingControl.Reset(); PalletRecognition.Reset();if(PalletVisionDistractor){PalletVisionDistractor->Destroy();PalletVisionDistractor=nullptr;}ClearNavigationWalls();DriveSensors.Reset(); VehicleGuard.Reset(); if(GuardObstacle){GuardObstacle->Destroy();GuardObstacle=nullptr;} if(HandlingRack){HandlingRack->Destroy();HandlingRack=nullptr;} Flush(); Super::EndPlay(R); }
+void AStabilityLab::EndPlay(const EEndPlayReason::Type R) { ShutdownCameraViews(); if(WebTelemetry) { WebTelemetry->Stop(); WebTelemetry.Reset(); } ReleaseLoadSampler(); JointSensors.Reset(); DynamicsSensors.Reset(); ProximitySensors.Reset(); SensorLift.Reset(); MissionControl.Reset(); HandlingControl.Reset(); PalletRecognition.Reset();if(PalletVisionDistractor){PalletVisionDistractor->Destroy();PalletVisionDistractor=nullptr;}ClearNavigationWalls();DriveSensors.Reset(); VehicleGuard.Reset(); if(GuardObstacle){GuardObstacle->Destroy();GuardObstacle=nullptr;} if(HandlingRack){HandlingRack->Destroy();HandlingRack=nullptr;} Flush(); if(bCampusVehicle){if(IsValid(Fork))Fork->Destroy();for(AWheelActor* W:Wheels)if(IsValid(W))W->Destroy();if(IsValid(Chassis))Chassis->Destroy();} Super::EndPlay(R); }
 
 void AStabilityController::BeginPlay()
 {
@@ -963,6 +975,7 @@ void AStabilityController::PlayerTick(float Dt)
 void AStabilityController::SetupInputComponent()
 {
     Super::SetupInputComponent();
+    SimulationPlayback::Bind(InputComponent,GetWorld());
     InputComponent->BindKey(EKeys::R,IE_Pressed,this,&AStabilityController::Reset);
     InputComponent->BindKey(EKeys::One,IE_Pressed,this,&AStabilityController::TyreDown);
     InputComponent->BindKey(EKeys::Two,IE_Pressed,this,&AStabilityController::TyreUp);
@@ -1096,7 +1109,7 @@ void AStabilityHUD::DrawHUD()
     DrawRect(FLinearColor(.02f,.03f,.05f,.94f),16*S,16*S,395*S,680*S);
     float Y=32;
     auto Line=[&](const FString& T,FLinearColor C,float Size=1.f) { DrawText(T,C,32*S,Y*S,GEngine->GetSmallFont(),S*Size,false); Y+=25; };
-    Line(FString::Printf(TEXT("FORKLIFT | %.1f FPS | sim x%.2f"),B->GameFPS(),B->ProgressRatio()),Accent,1.35f); Line(B->Settings.bMecanum?(B->Settings.Mecanum.bReduced?TEXT("MECANUM / EQUIVALENT CONTACT"):TEXT("0.18 / MECANUM | PASSIVE ROLLERS")):B->Settings.Tyres.Tread.bEnabled?FString::Printf(TEXT("0.15 / %s | playback x%.2f"),B->Settings.Tyres.Tread.bCoupled?TEXT("COUPLED RING"):TEXT("TREAD LAB"),GetWorld()->GetWorldSettings()->TimeDilation):B->Settings.bSwerve?TEXT("0.15 / STANDARD TYRE CONTACT LAB"):TEXT("0.3.1 / LEGACY REAR STEER"),Dim);
+    Line(FString::Printf(TEXT("FORKLIFT | %.1f FPS | target %.0fx / actual %.2fx | F5/6/7 = 1/2/4x"),B->GameFPS(),GetWorld()->GetWorldSettings()->TimeDilation,B->ProgressRatio()),Accent,1.35f); Line(B->Settings.bMecanum?(B->Settings.Mecanum.bReduced?TEXT("MECANUM / EQUIVALENT CONTACT"):TEXT("0.18 / MECANUM | PASSIVE ROLLERS")):B->Settings.Tyres.Tread.bEnabled?FString::Printf(TEXT("0.15 / %s | playback x%.2f"),B->Settings.Tyres.Tread.bCoupled?TEXT("COUPLED RING"):TEXT("TREAD LAB"),GetWorld()->GetWorldSettings()->TimeDilation):B->Settings.bSwerve?TEXT("0.15 / STANDARD TYRE CONTACT LAB"):TEXT("0.3.1 / LEGACY REAR STEER"),Dim);
     if(!B->Error.IsEmpty()) { Line(B->Error,Warn); return; }
     Y+=10;
     Line(FString::Printf(TEXT("Tyre / road mu    %.2f / %.2f"),B->Settings.TyreMu,B->Settings.RoadMu),Ink);

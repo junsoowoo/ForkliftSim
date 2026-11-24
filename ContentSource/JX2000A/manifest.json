@@ -1,0 +1,438 @@
+{
+  "model": "JXAGV JX-2000A Chinese product 95 / 1940mm",
+  "units": "metres",
+  "forward_axis": "X",
+  "up_axis": "Z",
+  "palette": {
+    "Orange": {
+      "color": [
+        1.0,
+        0.105,
+        0.022,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 0.3,
+      "emissive": 0
+    },
+    "Graphite": {
+      "color": [
+        0.045,
+        0.052,
+        0.058,
+        1
+      ],
+      "metallic": 0.25,
+      "roughness": 0.36,
+      "emissive": 0
+    },
+    "Panel": {
+      "color": [
+        0.09,
+        0.097,
+        0.102,
+        1
+      ],
+      "metallic": 0.15,
+      "roughness": 0.43,
+      "emissive": 0
+    },
+    "Rubber": {
+      "color": [
+        0.014,
+        0.018,
+        0.022,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 0.76,
+      "emissive": 0
+    },
+    "Steel": {
+      "color": [
+        0.29,
+        0.32,
+        0.34,
+        1
+      ],
+      "metallic": 0.78,
+      "roughness": 0.34,
+      "emissive": 0
+    },
+    "Silver": {
+      "color": [
+        0.54,
+        0.58,
+        0.6,
+        1
+      ],
+      "metallic": 0.85,
+      "roughness": 0.29,
+      "emissive": 0
+    },
+    "White": {
+      "color": [
+        0.88,
+        0.91,
+        0.9,
+        1
+      ],
+      "metallic": 0.1,
+      "roughness": 0.38,
+      "emissive": 0
+    },
+    "Cyan": {
+      "color": [
+        0.015,
+        0.8,
+        0.9,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 0.27,
+      "emissive": 0.65
+    },
+    "Red": {
+      "color": [
+        0.65,
+        0.012,
+        0.012,
+        1
+      ],
+      "metallic": 0.1,
+      "roughness": 0.26,
+      "emissive": 0
+    },
+    "Lime": {
+      "color": [
+        0.5,
+        0.8,
+        0.01,
+        1
+      ],
+      "metallic": 0.1,
+      "roughness": 0.35,
+      "emissive": 0
+    },
+    "Glass": {
+      "color": [
+        0.008,
+        0.025,
+        0.035,
+        1
+      ],
+      "metallic": 0.3,
+      "roughness": 0.17,
+      "emissive": 0
+    }
+  },
+  "reference": "reference.json",
+  "parts": [
+    {
+      "name": "SM_JX_Body",
+      "dimensions_m": [
+        0.656000018119812,
+        0.7350000143051147,
+        0.6069999821484089
+      ],
+      "bounds_min_m": [
+        -0.33000001311302185,
+        -0.3675000071525574,
+        0.033000003546476364
+      ],
+      "bounds_max_m": [
+        0.32600000500679016,
+        0.3675000071525574,
+        0.6399999856948853
+      ],
+      "vertices": 14072,
+      "triangles": 22576,
+      "material_slots": [
+        "Rubber",
+        "Steel",
+        "Graphite",
+        "Orange",
+        "Panel",
+        "Silver",
+        "Lime",
+        "Red",
+        "Cyan",
+        "White"
+      ]
+    },
+    {
+      "name": "SM_JX_ForkFrame",
+      "dimensions_m": [
+        1.0230000019073486,
+        0.5900000333786011,
+        0.06100000441074371
+      ],
+      "bounds_min_m": [
+        0.25999999046325684,
+        -0.29500001668930054,
+        0.026000000536441803
+      ],
+      "bounds_max_m": [
+        1.2829999923706055,
+        0.29500001668930054,
+        0.08700000494718552
+      ],
+      "vertices": 2624,
+      "triangles": 5140,
+      "material_slots": [
+        "Steel",
+        "Lime",
+        "Silver"
+      ]
+    },
+    {
+      "name": "SM_JX_Tower",
+      "dimensions_m": [
+        0.19864999502897263,
+        0.32600000500679016,
+        1.3089999556541443
+      ],
+      "bounds_min_m": [
+        0.03784999996423721,
+        -0.16300000250339508,
+        0.6309999823570251
+      ],
+      "bounds_max_m": [
+        0.23649999499320984,
+        0.16300000250339508,
+        1.9399999380111694
+      ],
+      "vertices": 6872,
+      "triangles": 13056,
+      "material_slots": [
+        "Steel",
+        "Graphite",
+        "Silver",
+        "Rubber",
+        "Panel",
+        "Glass",
+        "Cyan",
+        "Red",
+        "White"
+      ]
+    },
+    {
+      "name": "SM_JX_DriveWheel",
+      "dimensions_m": [
+        0.20000001043081284,
+        0.11500000208616257,
+        0.23649999632640695
+      ],
+      "bounds_min_m": [
+        -0.27300000190734863,
+        -0.057500001043081284,
+        -1.333197108266404e-09
+      ],
+      "bounds_max_m": [
+        -0.0729999914765358,
+        0.057500001043081284,
+        0.23649999499320984
+      ],
+      "vertices": 1472,
+      "triangles": 2908,
+      "material_slots": [
+        "Rubber",
+        "Steel",
+        "Silver",
+        "Graphite"
+      ]
+    },
+    {
+      "name": "SM_JX_CasterL",
+      "dimensions_m": [
+        0.07199999690055847,
+        0.050999999046325684,
+        0.0834999995076533
+      ],
+      "bounds_min_m": [
+        -0.21400000154972076,
+        -0.30649998784065247,
+        -1.6534205116158773e-09
+      ],
+      "bounds_max_m": [
+        -0.1420000046491623,
+        -0.2554999887943268,
+        0.08349999785423279
+      ],
+      "vertices": 416,
+      "triangles": 820,
+      "material_slots": [
+        "Rubber",
+        "Steel",
+        "Graphite"
+      ]
+    },
+    {
+      "name": "SM_JX_LoadRollerL1",
+      "dimensions_m": [
+        0.06999993324279785,
+        0.07699999213218689,
+        0.07000000064010337
+      ],
+      "bounds_min_m": [
+        1.0450000762939453,
+        -0.2685000002384186,
+        -3.4208014199066383e-10
+      ],
+      "bounds_max_m": [
+        1.1150000095367432,
+        -0.1915000081062317,
+        0.07000000029802322
+      ],
+      "vertices": 448,
+      "triangles": 884,
+      "material_slots": [
+        "Lime",
+        "Steel"
+      ]
+    },
+    {
+      "name": "SM_JX_LoadRollerL2",
+      "dimensions_m": [
+        0.06999993324279785,
+        0.07699999213218689,
+        0.07000000064010337
+      ],
+      "bounds_min_m": [
+        1.125,
+        -0.2685000002384186,
+        -3.4208014199066383e-10
+      ],
+      "bounds_max_m": [
+        1.1949999332427979,
+        -0.1915000081062317,
+        0.07000000029802322
+      ],
+      "vertices": 448,
+      "triangles": 884,
+      "material_slots": [
+        "Lime",
+        "Steel"
+      ]
+    },
+    {
+      "name": "SM_JX_CasterR",
+      "dimensions_m": [
+        0.07199999690055847,
+        0.050999999046325684,
+        0.08350001219475711
+      ],
+      "bounds_min_m": [
+        -0.21400000154972076,
+        0.2554999887943268,
+        5.606368702615327e-10
+      ],
+      "bounds_max_m": [
+        -0.1420000046491623,
+        0.30649998784065247,
+        0.08350001275539398
+      ],
+      "vertices": 416,
+      "triangles": 820,
+      "material_slots": [
+        "Rubber",
+        "Steel",
+        "Graphite"
+      ]
+    },
+    {
+      "name": "SM_JX_LoadRollerR1",
+      "dimensions_m": [
+        0.06999993324279785,
+        0.07699999213218689,
+        0.07000001033518721
+      ],
+      "bounds_min_m": [
+        1.0450000762939453,
+        0.1915000081062317,
+        -2.5865833919169745e-09
+      ],
+      "bounds_max_m": [
+        1.1150000095367432,
+        0.2685000002384186,
+        0.07000000774860382
+      ],
+      "vertices": 448,
+      "triangles": 884,
+      "material_slots": [
+        "Lime",
+        "Steel"
+      ]
+    },
+    {
+      "name": "SM_JX_LoadRollerR2",
+      "dimensions_m": [
+        0.06999993324279785,
+        0.07699999213218689,
+        0.07000001033518721
+      ],
+      "bounds_min_m": [
+        1.125,
+        0.1915000081062317,
+        -2.5865833919169745e-09
+      ],
+      "bounds_max_m": [
+        1.1949999332427979,
+        0.2685000002384186,
+        0.07000000774860382
+      ],
+      "vertices": 448,
+      "triangles": 884,
+      "material_slots": [
+        "Lime",
+        "Steel"
+      ]
+    }
+  ],
+  "status": "dimensioned exterior, not a validated dynamics plant",
+  "assembled_bounds_m": {
+    "min": [
+      -0.33000001311302185,
+      -0.3675000071525574,
+      -2.5865833919169745e-09
+    ],
+    "max": [
+      1.2829999923706055,
+      0.3675000071525574,
+      1.9399999380111694
+    ],
+    "size": [
+      1.6130000054836273,
+      0.7350000143051147,
+      1.9399999405977528
+    ]
+  },
+  "triangles": 48856,
+  "pivots_m": {
+    "SM_JX_DriveWheel": [
+      -0.173,
+      0,
+      0.1
+    ],
+    "SM_JX_LoadRollerL1": [
+      1.08,
+      -0.23,
+      0.035
+    ],
+    "SM_JX_LoadRollerL2": [
+      1.16,
+      -0.23,
+      0.035
+    ],
+    "SM_JX_LoadRollerR1": [
+      1.08,
+      0.23,
+      0.035
+    ],
+    "SM_JX_LoadRollerR2": [
+      1.16,
+      0.23,
+      0.035
+    ]
+  }
+}

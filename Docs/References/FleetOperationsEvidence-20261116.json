@@ -1,0 +1,275 @@
+{
+  "date_local": "2026-11-16",
+  "timezone": "Asia/Seoul",
+  "scope": "Groups 3 and 4: atomic rolling graph-leg windows, retained measured occupancy, wait-cycle protective hold, selectable 3-6 physical vehicles and integrated energy/SOC plus sensed charging dispatch.",
+  "build": {
+    "log": "Saved/Validation/Performance/FleetOperations-Build5.txt",
+    "dll_sha256": "b1ac095d755066b716b62525510486ab1dfa5fbd34bcb08b2b29a30abe4a51e1"
+  },
+  "unit": {
+    "passed": 107,
+    "failed": 0,
+    "report": "Saved/Validation/Operations/Unit5/index.json",
+    "sha256": "7b36ee38922c83f50cbd69dca152bcfe8c13912da7fce5d2318ad6111612cd0b"
+  },
+  "native": [
+    {
+      "case": "ops_parallel_whole",
+      "passed": true,
+      "report": "Saved/Validation/Operations/Run-20261116-011855-642924d3/ops_parallel_whole.json",
+      "sha256": "3fd8800460ec56ec22804212f6b46be44451d67b4d5729db06c26f26694051a7",
+      "wall_s": 32.0935049,
+      "sim_s": 16.000000834465027,
+      "peak_measured_moving": 1,
+      "observed_game_fps": 26.706429232597575,
+      "sim_wall_ratio": 0.979402560630253,
+      "reason": "identical three-job physical fixture: compare concurrent measured motion under whole-job versus section-window reservation"
+    },
+    {
+      "case": "ops_parallel_sections",
+      "passed": true,
+      "report": "Saved/Validation/Operations/Run-20261116-011855-642924d3/ops_parallel_sections.json",
+      "sha256": "c6ff2e7a5417a398702739706add4410a9ce431ce9dbf01e10d04930899740e5",
+      "wall_s": 32.5920294,
+      "sim_s": 16.000000834465027,
+      "peak_measured_moving": 3,
+      "observed_game_fps": 25.970861490775317,
+      "sim_wall_ratio": 0.8994589149181282,
+      "reason": "identical three-job physical fixture: compare concurrent measured motion under whole-job versus section-window reservation"
+    },
+    {
+      "case": "ops_cross",
+      "passed": true,
+      "report": "Saved/Validation/Operations/Run-20261116-011855-642924d3/ops_cross.json",
+      "sha256": "40171d3bba6f40a0341100b6705b57a3a65c36f063c263bd8604c5c0e3fcb3cb",
+      "wall_s": 53.6527865,
+      "sim_s": 33.566668417304754,
+      "peak_measured_moving": 2,
+      "observed_game_fps": 26.900324708399484,
+      "sim_wall_ratio": 0.8785117666605345,
+      "reason": "crossing waits while occupied, then second real vehicle proceeds after first clears tail while first job remains active"
+    },
+    {
+      "case": "ops_six",
+      "passed": true,
+      "report": "Saved/Validation/Operations/Run-20261116-011855-642924d3/ops_six.json",
+      "sha256": "c86f2ee5fd7aa71ab7de65a2827ea85de4f38d3875c45bbba842c7f96aa5f96f",
+      "wall_s": 55.1475658,
+      "sim_s": 16.000000834465027,
+      "peak_measured_moving": 2,
+      "observed_game_fps": 13.019610163487293,
+      "sim_wall_ratio": 0.42123932830981076,
+      "reason": "six independent physical/sensor rigs, 24 driven wheels, six actual assignments and observed motion/energy; not six-vehicle long-run throughput"
+    },
+    {
+      "case": "ops_charge",
+      "passed": true,
+      "report": "Saved/Validation/Operations/Run-20261116-011855-642924d3/ops_charge.json",
+      "sha256": "a5d93743d043d643d29ebc12ebda873af78b85b77e829d258992a6d930aed6ed",
+      "wall_s": 36.1023178,
+      "sim_s": 17.800000928342342,
+      "peak_measured_moving": 1,
+      "observed_game_fps": 16.832276796825298,
+      "sim_wall_ratio": 0.8684428266192734,
+      "reason": "low-SOC vehicle drives to reserved charger, charges only at measured stationary dock, releases charger and receives queued transport"
+    },
+    {
+      "case": "ops_charge_interlock",
+      "passed": true,
+      "report": "Saved/Validation/Operations/Run-20261116-011855-642924d3/ops_charge_interlock.json",
+      "sha256": "f539d3bbd7e5d5c34fe29c14263a7ae7a16596066ad8344e0dbf52420976d7bf",
+      "wall_s": 32.0997023,
+      "sim_s": 14.766667436808348,
+      "peak_measured_moving": 1,
+      "observed_game_fps": 24.080603593337575,
+      "sim_wall_ratio": 0.8768805107501021,
+      "reason": "real sensor outage opens virtual charging contactor, holds charger/vehicle and prevents pending transport dispatch"
+    },
+    {
+      "case": "ops_critical",
+      "passed": true,
+      "report": "Saved/Validation/Operations/Run-20261116-011855-642924d3/ops_critical.json",
+      "sha256": "47d0a7e6f9276b83b110a192ffda8b8fe4e3a6fa5b26c9bb5b53734047465fab",
+      "wall_s": 22.6104351,
+      "sim_s": 6.000000312924385,
+      "peak_measured_moving": 0,
+      "observed_game_fps": 14.870098592335713,
+      "sim_wall_ratio": 0.7741539905793797,
+      "reason": "critical SOC latches drive hold and forbids both new transport and automatic fault recovery"
+    }
+  ],
+  "task_regression": {
+    "folder": "Saved/Validation/Tasks/Run-20261116-012319-aea4bcb9",
+    "results": [
+      {
+        "case": "board_cycle",
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Tasks\\Run-20261116-012319-aea4bcb9\\board_cycle.log",
+        "pass": true,
+        "wall_s": 423.1823686,
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Tasks\\board_cycle.json"
+      },
+      {
+        "case": "board_fault",
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Tasks\\Run-20261116-012319-aea4bcb9\\board_fault.log",
+        "pass": true,
+        "wall_s": 24.0761674,
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Tasks\\board_fault.json"
+      }
+    ],
+    "completed_transfers": 2,
+    "mean_cycle_s": 190.45000993274152
+  },
+  "legacy": {
+    "folder": "Saved/Validation/Campus/Fleet-20261116-013046-a325563b",
+    "cases": [
+      "obstacle"
+    ],
+    "passed": true
+  },
+  "comparison": {
+    "scope": "Identical initialization-only three-job fixture with shared future destination area; short concurrent-motion comparison, not completed-job throughput.",
+    "whole_job_peak": 1,
+    "section_windows_peak": 3,
+    "sim_s": 16.000000834465027
+  },
+  "energy": {
+    "capacity_wh": 22320,
+    "source_url": "https://jungheinrich.haein.com/jungheinrich/system/view.php?idx=92",
+    "source_scope": "48V/465Ah published EKS 215a variant; not all current model options.",
+    "assumptions": {
+      "enabled": true,
+      "nominal_voltage_v": 48,
+      "capacity_ah": 465,
+      "initial_soc": 0.8,
+      "charge_below_soc": 0.25,
+      "resume_soc": 0.8,
+      "critical_soc": 0.05,
+      "auxiliary_w": 180,
+      "charger_ac_w": 4000,
+      "charger_efficiency": 0.9
+    },
+    "max_ledger_error_wh": 7.312337402254343e-10,
+    "measured_motor_pump_excess_over_auxiliary_wh": [
+      1.1165092410995114,
+      1.1152260977661625,
+      1.0786403854633086
+    ],
+    "series": "Saved/Operations/95A4F1514D3759F986B57B8F10A6571E/energy.csv",
+    "series_sha256": "3a252d87314ef235391ee46b788fc95d166525031562eb5496e11396ce261dbb",
+    "charge_qualification": "Initialization SOC 0.24999, resume 0.25004, real nominal capacity and unchanged 4000W input/90% efficiency. No time/energy gain cheat."
+  },
+  "web": {
+    "actual": {
+      "pass": true,
+      "minimum_source_started_at_ms": 1794759545824,
+      "world_ids": [
+        "D3B3877C4F31F260997D2388EB3E9F03",
+        "416D5B4746021DE804522698B72231FE",
+        "7E76D0A343C28E13C72AF9BAAEDE5E91",
+        "8A50425247943A008BDD739B4CC38DB2",
+        "C5B5D34043FB0D21B109A59061096659",
+        "C4891C4449CD7F1F0D20E8BA9ECF4A10",
+        "4C2DF2B847D3F0E75EB056AF89EC15C8"
+      ],
+      "source": "Actual Unreal native operations suite HTTP frames; read-only verifier",
+      "flags": {
+        "six": true,
+        "charging": true,
+        "charge_complete": true,
+        "cross_wait": true,
+        "cross_overlap": true,
+        "whole": true,
+        "sections": true,
+        "critical": true,
+        "charge_fault": true
+      },
+      "samples": 119,
+      "six_vehicle_rows": 6,
+      "csv_columns": 29
+    },
+    "protocol_assertions": 80,
+    "protocol_log": "Saved/Validation/Performance/FleetOperations-WebTestsFinal.txt",
+    "six_frame": "Saved/Validation/Operations/WebSixFrame.json",
+    "six_frame_sha256": "225b5e92008fc2c603bf8a1e6febfcafb76310da379bdbdacc731ced2b085b4a",
+    "charge_frame_sha256": "8a530c6f9518f973ecca19cdfee63ad0baa9ec73f1262a17036780166fa5247a",
+    "samples_sha256": "335cee6cc57f2fcdff355e9081c4c24e66e9af597820611beee2c25b504a5acd",
+    "csv_sha256": "2d4e1029ab334f9baf03fa1659fa24f4d864c06b3266caaa3308888ebaeab4de",
+    "visual_qa": "Browser connection unavailable; visual layout and mouse interaction not qualified."
+  },
+  "static_checks": {
+    "powershell_parsers": true,
+    "six_vehicle_root_launcher_dry_run": true,
+    "launcher_convention": true,
+    "diff_whitespace": true
+  },
+  "rejected_trials": [
+    {
+      "folder": "Saved/Validation/Operations/Run-20261116-010147-6a22357b",
+      "reason": "One fixture station was unreachable and automatic candidate planning repeated expensive searches. Bounded planning/cache added; same shared destination region selected for comparison."
+    },
+    {
+      "folder": "Saved/Validation/Operations/Run-20261116-010711-89ebc483",
+      "case": "ops_cross",
+      "reason": "Second surveyed approach could not route around an actual bollard; initialization fixture adjusted, physical/static safety checks retained."
+    },
+    {
+      "folder": "Saved/Validation/Operations/Run-20261116-011150-dc71187a",
+      "case": "ops_charge",
+      "reason": "Charging succeeded but departing diagonal reservation incorrectly overlapped an idle parked peer via a large AABB. Section path split into <=1m boxes with same safety padding; positive departure and diagonal regression now pass."
+    }
+  ],
+  "limits": [
+    "Graph legs and exit legs reserved spatially, not optimal space-time multi-agent planning. Long shared legs can remain sequential.",
+    "Wait cycles trigger retained protective hold and manual recovery; no automatic deadlock back-out.",
+    "Six real rigs/assignments/motion and short three-rig concurrency qualified, not long-run six-vehicle throughput or real-time Editor FPS.",
+    "Battery is constant-voltage energy/SOC accounting, not cell/BMS/thermal/voltage-sag model; negative motor DC not recovered.",
+    "Auxiliary power, charger power/efficiency and SOC thresholds are scenario assumptions, not OEM identification.",
+    "Charging dock interlock uses existing measured pose/stop/fork/load/health; no physical electrical contact sensor or charger network protocol.",
+    "Existing body/wheel/fork/hydraulic plant and sensor safeguards retained; real-machine/safety certification not claimed."
+  ],
+  "source_sha256": {
+    "Config/FleetOperations.json": "2decfcb54292a2e6e2c0f59a233cbfe19cbda7d390232c89e0471164bbb756cc",
+    "Scripts/Start.ps1": "b82c0777f7759d03086eecb40045cb27eb1cfe86620b2ca6f7316d71330e8f15",
+    "Scripts/Run.ps1": "14dc740f889435be6a97959ae375cea96c1c22b4b210897858d1860c6d720d40",
+    "Scripts/WebDashboard.ps1": "dd3e93e5218447911a247678a3093db8b3d307815030fc7beb3f3fee619a1c3c",
+    "Scripts/Test-FleetOperations.ps1": "1afd7d8b03c158b87443e1de8c81aab24eb4f2bde18b6899ea262f0859ba10d4",
+    "Source/ForkliftSim/CampusFleet.h": "a07dc83937246ed5a6d1d1312b3299135660ebbda499722800823db2f14a941d",
+    "Source/ForkliftSim/CampusFleet.cpp": "b01b1787870fad7c771571436f91682ef9e9d52622e0cff419c045e6ae9e4e3f",
+    "Source/ForkliftSim/CampusOperations.h": "dd6c5b1c8bb286e52fd8af8cb55dc646c4c10c8852cf10922c0a49f9499527b8",
+    "Source/ForkliftSim/CampusOperations.cpp": "d03a4d36a6b0c9e8f340717ca11b2539d4c79b0a0561c7a274d451430a378cf3",
+    "Source/ForkliftSim/CampusFleetValidation.cpp": "d8d9578357ccaeec02ef12426e5c7a22c7d9f81c3b4503e2438c96cc96346244",
+    "Source/ForkliftSim/CampusDispatch.cpp": "fb78784182cd6fb5f127500f862c4d8e81562bce4dbedc746db79fb24692d335",
+    "Source/ForkliftSim/CampusTraffic.cpp": "e9d5ef26f59a8c5252c086f86942d29c1ca33e86a30b3e4b6b3f8116594c25a0",
+    "Source/ForkliftSim/CampusTasks.cpp": "5cf8c59cafec86d26a0d2a7ca229ff69db0926a490e67b408da6b00c9462d413",
+    "Source/ForkliftSim/CampusEnergy.cpp": "61b245ab33b2f7ef88f74583e1fb380dc64d8e37194b2a00abc22d7aa3808d2d",
+    "Source/ForkliftSim/CampusWeb.cpp": "80f79fc0ee22b75ebd19d4b868bc60a4a25b9f4e91b37f93d4bf36af14266ef1",
+    "Source/ForkliftSim/FleetBattery.h": "4c6fa9df0bd8f6afd680f15aea9d001e4237f0585dd798da3ad01352c8c5639d",
+    "Source/ForkliftSim/FleetBattery.cpp": "46066fbf163f74e428f13ba3113da4957968a9c5c670f3902959c17a35ad4ddb",
+    "Source/ForkliftSim/FleetOperationsTests.cpp": "e81d5be020024e741caae9b204aa53ec2e79096c27b0adb6f68ae7260200c07b",
+    "Source/ForkliftSim/OperationsValidation.cpp": "6e74e2047cc841c622cdb3978438e9cb4fc35721df5ed3b8fc9b135316f039b8",
+    "Source/ForkliftSim/TaskBoard.h": "8009477443e6d872c8c94314dd7469147514d8e82d58eee1852f48db6c1bd18a",
+    "Source/ForkliftSim/TaskBoard.cpp": "5a785e66c4d30d3140071d6546dd96ef0ad68e5e01bbd3ab53bb763ef213de38",
+    "Source/ForkliftSim/ContactLoadSampler.h": "43623f9c841cc4b8a0c5a72ce05b14e0484ac744b283c1b0f6032d9750ae51f4",
+    "Source/ForkliftSim/ContactLoadSampler.cpp": "e210aae28f9f75f5805815addd359534f077129d39335ddcb641efde0d555f3a",
+    "Source/ForkliftSim/WheelActor.h": "9e169e0539e155855e2db07f0a5b7ffd13ccc00df018b546bfb63aa6d2ba301a",
+    "Source/ForkliftSim/StabilityLab.cpp": "74c5c0ce58e79e92698a21618b794b02d54802c54d1efab7b284cdde663e34b7",
+    "Web/PhysicsLab/bridge.mjs": "33b3abd713975261c9c96d2e41a5adf217d969ea3b8871b9553a3f5ddaebc0c8",
+    "Web/PhysicsLab/dist/fleet.mjs": "217cc63921c62df9e31fb001b5547640db3294b230dfe89e63059c8ffe265f87",
+    "Web/PhysicsLab/dist/tasks.mjs": "5e8a89ab9ba3309e42faeb98fb93c3543831919f9b1fae891446c8e6294ba686",
+    "Web/PhysicsLab/dist/live.mjs": "3cef03fe7c16f831efbe7ec8a567c472041b1bc3848abc2d497b163bb0444ffe",
+    "Web/PhysicsLab/dist/live.html": "3f3c302c843231d7d5a835fda0be5b66b5e5665792a110a236cfc1aee2b0c1d2",
+    "Web/PhysicsLab/operations-test.mjs": "41904938e12cd49aa132eea5d1256147db76df79b6d31bf105d73d86557acb16",
+    "Web/PhysicsLab/verify-operations-live.mjs": "0c46c930f2e848b93d2132f1ad4b0d28884c95f9fa98092741d9b4821b1516d8"
+  },
+  "launcher_actual_startup": {
+    "bridge_version": 4,
+    "play_started_by_agent": false,
+    "startup_finished": true,
+    "default_vehicles": 3,
+    "map_loaded": true,
+    "responding": true,
+    "editor_pid": 36100,
+    "launcher": "Start.bat",
+    "dashboard": "http://127.0.0.1:4174"
+  }
+}

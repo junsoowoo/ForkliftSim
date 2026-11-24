@@ -1,4 +1,5 @@
 #include "LidarSafety.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
 #include "StabilityLab.h"
 #include "ChassisActor.h"
 #include "ForkActor.h"
@@ -8,9 +9,11 @@
 #include "SensorDrive.h"
 #include "HandlingControl.h"
 #include "MissionNavigation.h"
+#include "CampusOperations.h"
 #include "EngineUtils.h"
 #include "Components/PrimitiveComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "InstancePhysicsRays.h"
 #include "Physics/Experimental/PhysInterface_Chaos.h"
 #include "Physics/PhysicsInterfaceTypes.h"
 #include "PhysicsProxy/SingleParticlePhysicsProxy.h"
@@ -21,6 +24,7 @@
 
 void FLidarSafetyRig::Update(AStabilityLab& Lab)
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_LidarUpdate);
     const double Now=Lab.TimeS;const auto& S=Sensor.Spec;
     if(Now+1e-9>=NextScanS)
     {
@@ -29,25 +33,31 @@ void FLidarSafetyRig::Update(AStabilityLab& Lab)
         FVector Origins[2];TArray<FVector> Directions;TArray<double> Best;TArray<LidarSafety::EReturn> States;
         Directions.SetNum(S.Rays*2);Best.Init(S.MaxM*100,S.Rays*2);States.Init(LidarSafety::EReturn::NoReturn,S.Rays*2);
         for(int I=0;I<2;++I){Origins[I]=Pose.TransformPositionNoScale(S.Mount(I)*100);for(int K=0;K<S.Rays;++K){const int N=I*S.Rays+K;const double A=S.Angle(I,K);Directions[N]=Pose.TransformVectorNoScale(FVector(FMath::Cos(A),FMath::Sin(A),0));if(S.Masked(I,K))States[N]=LidarSafety::EReturn::SelfMasked;}}
+        FInstancePhysicsRays InstanceRays(Lab.GetWorld());
+        for(int N=0;N<Directions.Num();++N)if(States[N]!=LidarSafety::EReturn::SelfMasked)
+        {double Distance;if(InstanceRays.Trace(Origins[N/S.Rays],Origins[N/S.Rays]+Directions[N]*Best[N],Distance)){Best[N]=Distance;States[N]=LidarSafety::EReturn::Valid;}}
         // One physics read lock per body per scan, rather than per ray. Include
         // welded simulation shapes; no query-profile mutation or object labels.
+        TSet<const void*> VisitedPhysicsBodies;
         for(TActorIterator<AActor> It(Lab.GetWorld());It;++It)
         {
             if(!IsValid(*It)||!It->GetActorEnableCollision())continue;TInlineComponentArray<UPrimitiveComponent*> Components;It->GetComponents(Components);
             for(UPrimitiveComponent* B:Components)
             {
+                if(B->IsA<UInstancedStaticMeshComponent>())continue;
                 const auto Mode=B->GetCollisionEnabled();if(!B->IsRegistered()||(Mode!=ECollisionEnabled::PhysicsOnly&&Mode!=ECollisionEnabled::QueryAndPhysics)||!B->BodyInstance.IsValidBodyInstance())continue;
                 FPhysicsCommand::ExecuteRead(B->BodyInstance.GetPhysicsActor(),[&](const FPhysicsActorHandle& Actor)
                 {
-                    if(!Actor)return;const auto& API=Actor->GetGameThreadAPI();const FTransform BodyPose(API.R(),API.X());FVector LocalOrigins[2]={BodyPose.InverseTransformPositionNoScale(Origins[0]),BodyPose.InverseTransformPositionNoScale(Origins[1])};
+                    if(!Actor||VisitedPhysicsBodies.Contains(Actor))return;VisitedPhysicsBodies.Add(Actor);const auto& API=Actor->GetGameThreadAPI();const FTransform BodyPose(API.R(),API.X());FVector LocalOrigins[2]={BodyPose.InverseTransformPositionNoScale(Origins[0]),BodyPose.InverseTransformPositionNoScale(Origins[1])};
                     PhysicsInterfaceTypes::FInlineShapeArray Shapes;FPhysicsInterface::GetAllShapes_AssumedLocked(Actor,Shapes);
                     FBox BodyBox(ForceInit);for(const auto& Ref:Shapes)if(Ref.Shape->GetSimEnabled()&&!Ref.Shape->GetIsProbe()&&Ref.Shape->GetGeometry()->HasBoundingBox()){const auto A=Ref.Shape->GetGeometry()->BoundingBox();BodyBox+=FBox(FVector(A.Min()),FVector(A.Max()));}
                     for(int N=0;N<Directions.Num();++N)
                     {
-                        if(States[N]==LidarSafety::EReturn::SelfMasked)continue;const FVector Start=LocalOrigins[N/S.Rays],Dir=BodyPose.InverseTransformVectorNoScale(Directions[N]);
+                        if(States[N]==LidarSafety::EReturn::SelfMasked||Best[N]<=UE_SMALL_NUMBER)continue;const FVector Start=LocalOrigins[N/S.Rays],Dir=BodyPose.InverseTransformVectorNoScale(Directions[N]);
                         if(BodyBox.IsValid&&!FMath::LineBoxIntersection(BodyBox.ExpandBy(.01),Start,Start+Dir*Best[N],Dir*Best[N]))continue;
                         for(const auto& Ref:Shapes)
                         {
+                            if(Best[N]<=UE_SMALL_NUMBER)break;
                             const auto* Shape=Ref.Shape;if(!Shape->GetSimEnabled()||Shape->GetIsProbe())continue;const auto* G=Shape->GetGeometry();if(!G)continue;
                             if(G->HasBoundingBox()){const auto A=G->BoundingBox();if(!FMath::LineBoxIntersection(FBox(FVector(A.Min()),FVector(A.Max())).ExpandBy(.01),Start,Start+Dir*Best[N],Dir*Best[N]))continue;}
                             Chaos::FReal D;Chaos::FVec3 P,Normal;int32 Face;if(G->Raycast(Start,Dir,Best[N],0,D,P,Normal,Face)&&D<=Best[N]){Best[N]=FMath::Max(0.,double(D));States[N]=LidarSafety::EReturn::Valid;}
@@ -68,8 +78,8 @@ void FLidarSafetyRig::Update(AStabilityLab& Lab)
     const bool Neutral=FMath::Abs(Lab.Throttle)<.01&&FMath::Abs(Lab.Strafe)<.01&&FMath::Abs(Lab.Steering)<.01&&FMath::Abs(Lab.Lift)<.01;
     const bool WasHold=Decision.DriveHold,WasLift=Decision.LiftHold;
     const auto* Controller=Lab.GetWorld()->GetFirstPlayerController();
-    const bool Creep=!(Lab.MissionControl&&Lab.MissionControl->Model.Engaged)&&!(Lab.HandlingControl&&Lab.HandlingControl->Model.Working())&&((Controller&&(Controller->IsInputKeyDown(EKeys::LeftShift)||Controller->IsInputKeyDown(EKeys::RightShift)))||(Lab.IsPalletPerceptionTest()&&Lab.TestMode.EndsWith(TEXT("insert"))&&Now>=2&&Now<12)||(Lab.TestMode.EndsWith(TEXT("vehicle_guard_creep"))&&Now>=10&&Now<11));
-    Decision.Step(Sensor,Now,Critical,Lab.SensorLift&&Lab.SensorLift->Model.Faulted,Neutral,EstopRequested,AckRequested,Creep,Lab.DriveSensors&&Lab.DriveSensors->Model.Faulted,[&](FVector2D P){return (Lab.HandlingControl&&Lab.HandlingControl->Model.TargetPoint(P))||(Lab.MissionControl&&Lab.MissionControl->CarriedPoint(P,Now));},Lab.MissionControl&&Lab.MissionControl->NavField(Now)?TFunction<bool(FVector2D)>([&](FVector2D P){return Lab.MissionControl->GuardPoint(P);}):TFunction<bool(FVector2D)>());EstopRequested=AckRequested=false;
+    const bool Creep=!(Lab.bCampusVehicle&&Lab.Campus&&Lab.Campus->VehicleEngaged(Lab)&&!Lab.Campus->Job(Lab.VehicleId)->Held())&&!(Lab.MissionControl&&Lab.MissionControl->Model.Engaged)&&!(Lab.HandlingControl&&Lab.HandlingControl->Model.Working())&&(Lab.bCampusTestCreep||(Controller&&(!Lab.bCampusVehicle||Lab.bCampusSelected)&&(Controller->IsInputKeyDown(EKeys::LeftShift)||Controller->IsInputKeyDown(EKeys::RightShift)))||(Lab.IsPalletPerceptionTest()&&Lab.TestMode.EndsWith(TEXT("insert"))&&Now>=2&&Now<12)||(Lab.TestMode.EndsWith(TEXT("vehicle_guard_creep"))&&Now>=10&&Now<11));
+    Decision.Step(Sensor,Now,Critical,Lab.SensorLift&&Lab.SensorLift->Model.Faulted,Neutral,EstopRequested,AckRequested,Creep,Lab.DriveSensors&&Lab.DriveSensors->Model.Faulted,[&](FVector2D P){return (Lab.bCampusVehicle&&Lab.Campus&&Lab.Campus->FleetPermit(Lab,P))||(Lab.HandlingControl&&Lab.HandlingControl->Model.TargetPoint(P))||(Lab.MissionControl&&Lab.MissionControl->CarriedPoint(P,Now));},Lab.bCampusVehicle&&Lab.Campus&&Lab.Campus->Job(Lab.VehicleId)&&(Lab.Campus->Job(Lab.VehicleId)->Travelling()||Lab.Campus->Job(Lab.VehicleId)->State.StartsWith(TEXT("align_"))||(Lab.HandlingControl&&Lab.HandlingControl->Model.Active&&Lab.HandlingControl->Model.Permit))?TFunction<bool(FVector2D)>([&](FVector2D P){return Lab.Campus->FleetField(Lab,P);}):Lab.MissionControl&&Lab.MissionControl->NavField(Now)?TFunction<bool(FVector2D)>([&](FVector2D P){return Lab.MissionControl->GuardPoint(P);}):TFunction<bool(FVector2D)>());EstopRequested=AckRequested=false;
     SawObstacle|=Decision.Obstacle;SawFault|=Decision.Faulted;
     if(WasHold&&!Decision.DriveHold)SawRecovered=true;
     if(WasLift&&!Decision.LiftHold&&Lab.JointSensors&&Lab.JointSensors->Model.Usable(4,Now))

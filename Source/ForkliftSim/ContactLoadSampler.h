@@ -8,6 +8,7 @@
 
 struct FContactLoadInput : Chaos::FSimCallbackInput
 {
+    bool bAllForkContacts=false;
     bool bJointSensors=false;double JointSamplePeriodS=.01,JointForkBaseM=0;
     bool bDynamicsSensors=false;double DynamicsPeriodS=.01;FVector ImuOffsetM=FVector(0,0,.4),SensorGravityMps2=FVector(0,0,-9.81);
     int32 WheelIds[4]={INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE};
@@ -61,7 +62,7 @@ struct FContactLoadInput : Chaos::FSimCallbackInput
     int32 SurfaceIds[8]={INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE};
     // Up to eight physical sections per fork; aggregate every section contact.
     int32 TineIds[16]={INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE,INDEX_NONE}, PalletId=INDEX_NONE, CargoId=INDEX_NONE;
-    void Reset() { bMecanumSensorTorque=false;MecanumLeaseUntilS=0;for(double& T:MecanumSensorTorqueNm)T=0;bDynamicsSensors=false;DynamicsPeriodS=.01;ImuOffsetM=FVector(0,0,.4);SensorGravityMps2=FVector(0,0,-9.81);bJointSensors=false;JointSamplePeriodS=.01;JointForkBaseM=0;ForkCarriageId=MastStageId=INDEX_NONE;ForkDampingCount=0;RackIds[0]=RackIds[1]=INDEX_NONE;bReducedMecanum=false;bExactRollerSpin=false;bBearingPredictor=false;BenchHubId=INDEX_NONE;BenchRollerCount=0;bMecanumControl=false;bMecanumPowered=false;bMecanumResistance=true; BenchCount=0; bMecanum=false; CalibrationBodyId=INDEX_NONE; CalibrationForceN=CalibrationTorqueNm=FVector::ZeroVector; bAuditWork=false; for(FVector& T:DriveTorqueNm) T=FVector::ZeroVector; for(FVector& T:RollingTorqueNm) T=FVector::ZeroVector; TreadShearC=TreadRotC=TreadLinkC=TreadBendC=0; bTreadCoupled=false; for(auto& Row:TreadIds) for(int32& Id:Row) Id=INDEX_NONE; for(int32& Count:TreadCounts) Count=0; TreadPadC=TreadRestRadiusM=TreadPhaseRad=0; for(bool& Holding:bBrakeHolding) Holding=false; for(int32& Id:WheelIds) Id=INDEX_NONE; for(int32& Id:CarrierIds) Id=INDEX_NONE; for(int32& Id:KnuckleIds) Id=INDEX_NONE; for(int32& Id:SurfaceIds) Id=INDEX_NONE; for(int32& Id:TineIds) Id=INDEX_NONE; RoadId=PalletId=CargoId=ChassisId=INDEX_NONE; TyreDampingNsPm=0; bTyreEnabled=bSmoothTyreContacts=bSmoothTyreEdges=false; TyreRadiusCm=30; TyreHalfWidthCm=9; }
+    void Reset() { bAllForkContacts=false;bMecanumSensorTorque=false;MecanumLeaseUntilS=0;for(double& T:MecanumSensorTorqueNm)T=0;bDynamicsSensors=false;DynamicsPeriodS=.01;ImuOffsetM=FVector(0,0,.4);SensorGravityMps2=FVector(0,0,-9.81);bJointSensors=false;JointSamplePeriodS=.01;JointForkBaseM=0;ForkCarriageId=MastStageId=INDEX_NONE;ForkDampingCount=0;RackIds[0]=RackIds[1]=INDEX_NONE;bReducedMecanum=false;bExactRollerSpin=false;bBearingPredictor=false;BenchHubId=INDEX_NONE;BenchRollerCount=0;bMecanumControl=false;bMecanumPowered=false;bMecanumResistance=true; BenchCount=0; bMecanum=false; CalibrationBodyId=INDEX_NONE; CalibrationForceN=CalibrationTorqueNm=FVector::ZeroVector; bAuditWork=false; for(FVector& T:DriveTorqueNm) T=FVector::ZeroVector; for(FVector& T:RollingTorqueNm) T=FVector::ZeroVector; TreadShearC=TreadRotC=TreadLinkC=TreadBendC=0; bTreadCoupled=false; for(auto& Row:TreadIds) for(int32& Id:Row) Id=INDEX_NONE; for(int32& Count:TreadCounts) Count=0; TreadPadC=TreadRestRadiusM=TreadPhaseRad=0; for(bool& Holding:bBrakeHolding) Holding=false; for(int32& Id:WheelIds) Id=INDEX_NONE; for(int32& Id:CarrierIds) Id=INDEX_NONE; for(int32& Id:KnuckleIds) Id=INDEX_NONE; for(int32& Id:SurfaceIds) Id=INDEX_NONE; for(int32& Id:TineIds) Id=INDEX_NONE; RoadId=PalletId=CargoId=ChassisId=INDEX_NONE; TyreDampingNsPm=0; bTyreEnabled=bSmoothTyreContacts=bSmoothTyreEdges=false; TyreRadiusCm=30; TyreHalfWidthCm=9; }
 };
 struct FContactLoadOutput : Chaos::FSimCallbackOutput
 {
@@ -86,7 +87,7 @@ struct FContactLoadOutput : Chaos::FSimCallbackOutput
     FVector AxleImpulseNs[4]={FVector::ZeroVector,FVector::ZeroVector,FVector::ZeroVector,FVector::ZeroVector};
     double TyreDissipatedJ=0, TyrePeakCompressionM=0;
     ElectricDrive::FResult MecanumMotor[4];
-    double MecanumRequestNm[4]={},MecanumRollingNm[4]={};
+    double MecanumRequestNm[4]={},MecanumRollingNm[4]={},MotorPositiveDcJ[4]={};
     bool bMecanumMotorValid=false;
     bool bDriveCommandExpired=false;
     double BearingPredictorWorkJ=0,BenchPredictorWorkJ=0;
@@ -104,7 +105,7 @@ struct FContactLoadOutput : Chaos::FSimCallbackOutput
     FVector ForkPointWeighted[2]={FVector::ZeroVector,FVector::ZeroVector};
     FCargoContactData Cargo;
     FContactLoadOutput() {for(auto& Row:TreadPointMNs) for(FVector& P:Row) P=FVector::ZeroVector;}
-    void Reset() { bDriveCommandExpired=false;DynamicsSamples.Reset();JointSamples.Reset();PalletPhysicsMassKg=CargoPhysicsMassKg=0;ContactNormalWorkJ=ContactTangentWorkJ=ContactCorrectionPseudoJ=ForkDampingEstimateJ=0;ContactWorkPoints=0;PalletRackNs=0;for(double& V:ReducedLossJ)V=0;for(double& V:ReducedElasticJ)V=0;bMecanumMotorValid=false; BenchL=FVector::ZeroVector;BenchEnergyJ=0;bBenchValid=false;for(int I=0;I<4;++I) SlipAlongM2Ns[I]=SlipAcrossM2Ns[I]=SlipWeightNs[I]=FrictionUsedNs[I]=0; for(auto& Row:RollerBearingImpulseNms) for(double& V:Row) V=0; for(double& V:RollerBearingWorkJ) V=0; BearingPredictorWorkJ=BenchPredictorWorkJ=ShaftJointWorkJ=0;DriveWorkJ=RollingWorkJ=SteeringJointWorkJ=0; for(double& J:ImpulseNs) J=0; for(int32& N:Contacts) N=0; for(FVector& M:WheelMomentNs) M=FVector::ZeroVector; for(FVector& M:SteerImpulseNms) M=FVector::ZeroVector; for(FVector& M:AxleImpulseNs) M=FVector::ZeroVector; for(double& M:WheelMuNs) M=0; InnerSteps=0; IntervalS=CompletedInnerS=MaxInnerDt=PalletGroundNs=TyreDissipatedJ=TyrePeakCompressionM=0;
+    void Reset() { bDriveCommandExpired=false;DynamicsSamples.Reset();JointSamples.Reset();PalletPhysicsMassKg=CargoPhysicsMassKg=0;ContactNormalWorkJ=ContactTangentWorkJ=ContactCorrectionPseudoJ=ForkDampingEstimateJ=0;ContactWorkPoints=0;PalletRackNs=0;for(double& V:ReducedLossJ)V=0;for(double& V:ReducedElasticJ)V=0;bMecanumMotorValid=false;for(double& E:MotorPositiveDcJ)E=0; BenchL=FVector::ZeroVector;BenchEnergyJ=0;bBenchValid=false;for(int I=0;I<4;++I) SlipAlongM2Ns[I]=SlipAcrossM2Ns[I]=SlipWeightNs[I]=FrictionUsedNs[I]=0; for(auto& Row:RollerBearingImpulseNms) for(double& V:Row) V=0; for(double& V:RollerBearingWorkJ) V=0; BearingPredictorWorkJ=BenchPredictorWorkJ=ShaftJointWorkJ=0;DriveWorkJ=RollingWorkJ=SteeringJointWorkJ=0; for(double& J:ImpulseNs) J=0; for(int32& N:Contacts) N=0; for(FVector& M:WheelMomentNs) M=FVector::ZeroVector; for(FVector& M:SteerImpulseNms) M=FVector::ZeroVector; for(FVector& M:AxleImpulseNs) M=FVector::ZeroVector; for(double& M:WheelMuNs) M=0; InnerSteps=0; IntervalS=CompletedInnerS=MaxInnerDt=PalletGroundNs=TyreDissipatedJ=TyrePeakCompressionM=0;
         for(int I=0;I<2;++I) { ForkVerticalNs[I]=ForkNormalNs[I]=ForkFrictionNs[I]=0; ForkPointWeighted[I]=FVector::ZeroVector; } Cargo=FCargoContactData();
         for(auto& Row:TreadNormalNs) for(double& N:Row) N=0; for(auto& Row:TreadPointMNs) for(FVector& P:Row) P=FVector::ZeroVector; for(int I=0;I<4;++I) { PeakNormalN[I]=0; MinNormalN[I]=1e30; WheelFrictionImpulseNs[I]=FVector::ZeroVector; WheelContact[I]=FWheelContactData(); } RefinedContacts=RefinedEdgeContacts=0; }
 };
@@ -114,6 +115,14 @@ struct FContactLoadOutput : Chaos::FSimCallbackOutput
 // when the useful work is done only in PostSolve.
 class FContactLoadSampler : public Chaos::TSimCallbackObject<FContactLoadInput,FContactLoadOutput,Chaos::ESimCallbackOptions::Presimulate | Chaos::ESimCallbackOptions::PreIntegrate | Chaos::ESimCallbackOptions::PostIntegrate | Chaos::ESimCallbackOptions::PostSolve | Chaos::ESimCallbackOptions::ContactModification>
 {
+    // Rebuilt on the physics thread before EVERY inner step. Handles never
+    // survive a topology update between steps; ID changes/reset/load handover
+    // are reflected immediately. Preserve solver order for summation parity.
+    struct FStepParticle {int32 Id;Chaos::FPBDRigidParticleHandle* Body;};
+    TArray<FStepParticle> StepParticles;
+    TMap<int32,Chaos::FPBDRigidParticleHandle*> StepBodies;
+    void RefreshStepParticles();
+    Chaos::FPBDRigidParticleHandle* StepBody(int32 Id) const {return StepBodies.FindRef(Id);}
     void CaptureJointSensors(double Dt);
     void CaptureDynamicsSensors(double Dt,const FVector* ForkImpulseNs);
     double DynamicsClockS=0,NextDynamicsS=0,PreviousImuS=0,LoadWindowS=0,LoadImpulseNs[2]={};

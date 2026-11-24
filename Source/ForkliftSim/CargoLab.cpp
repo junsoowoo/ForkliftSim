@@ -51,7 +51,7 @@ void AStabilityLab::UpdateCargo(double Dt,double PhysicsDt)
     for(const FVector& Corner:Corners)
     {
         const FVector Local=Q.UnrotateVector(Body->GetComponentTransform().TransformPosition(Corner)-Deck->GetComponentLocation())/100.;
-        Footprint.Add(FVector2D(Local.X,Local.Y));
+        Footprint.Add(FVector2D(Local.X,Local.Y)+(S.bFourWay?FVector2D(S.PalletDatumM.X,S.PalletDatumM.Y):FVector2D::ZeroVector));
     }
     C.Overlap=CargoGeometry::OverlapFraction(MoveTemp(Footprint),FVector2D(S.LengthM,S.WidthM)*.5);
     const double Weight=Body->GetMass()*9.81;

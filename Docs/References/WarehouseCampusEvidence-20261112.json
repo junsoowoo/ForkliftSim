@@ -1,0 +1,161 @@
+{
+  "date_local": "2026-11-12",
+  "engine": "Unreal Engine 5.6.1",
+  "scope": "Authored one-floor map preview. Three parked appearance displays, no fleet physics/sensors/autonomy. Not upper-floor structural, charging, pallet load-rating or fleet-capacity qualification.",
+  "build": "Campus-Build3 native build success; Campus-Create5 Python map build success",
+  "layout": {
+    "date": "2026-11-12",
+    "pass": true,
+    "checks": [
+      "Clear indoor area is 5000 m2",
+      "One floor and 3 initial displays, 8 parking bays",
+      "Parking contained and separated",
+      "Eight separated rack islands",
+      "256 unique two-tier slot IDs",
+      "Slot pallet footprint contained",
+      "Approaches outside rack bodies",
+      "Reserved circulation graph connected",
+      "Image overall pallet dimensions",
+      "Assumed box geometry has four-direction tine corridors"
+    ],
+    "indoor_m2": 5000,
+    "parking_bays": 8,
+    "rack_slots": 256,
+    "minimum_rack_end_gap_m": 4.88,
+    "scope": "Authored layout, assumed pallet prism geometry and reserved graph only. Not forklift motion, multi-vehicle throughput, load rating, charging or four-way sensing qualification."
+  },
+  "native_unit": {
+    "succeeded": 89,
+    "succeededWithWarnings": 0,
+    "failed": 0,
+    "notRun": 0
+  },
+  "render_conditions": {
+    "resolution": [
+      1600,
+      1000
+    ],
+    "RHI": "DX11",
+    "render_offscreen": true,
+    "screen_percentage": 75,
+    "shadows": 1,
+    "postprocess": 1,
+    "note": "Short map-only wall-clock mean frame interval samples. Excludes active forklift physics/cameras and does not qualify Editor PIE or three/six vehicle performance."
+  },
+  "build_counts": {
+    "hism_groups": 27,
+    "instances": 1578,
+    "rack_slots": 256,
+    "parked_displays": 3,
+    "parking_bays": 8
+  },
+  "launcher_checks": [
+    "Default integrated selects WarehouseCampus",
+    "Explicit -Map lab selects WarehouseLab",
+    "Website.bat dry run remains loopback 4174"
+  ],
+  "captures": {
+    "Overview": {
+      "image": "Docs/Images/WarehouseCampusOverview.png",
+      "sha256": "3c997a185797d72d28b249cc5e723032423482fc92debc8a09e9f0e55ea06f55",
+      "performance": {
+        "scope": "map-only rendered walkthrough; no fleet physics or autonomy",
+        "groups": 27,
+        "instances": 1578,
+        "mean_fps": 193.652,
+        "samples": 969
+      },
+      "log": "Saved/Validation/Performance/Campus-Overview-Final3.log",
+      "log_sha256": "96540c74f57b549c74a2b1097ec05ee5846dc174a920213a491fc20e40fd5e1b",
+      "native_geometry": "PASS: five floor heights, two vehicle portal clearance traces, one wall hit"
+    },
+    "Yard": {
+      "image": "Docs/Images/WarehouseCampusYard.png",
+      "sha256": "38e671b80dec28b4969c893dcdce1fd7523ea3eb773a24c1b74b70c4a7bb0225",
+      "performance": {
+        "scope": "map-only rendered walkthrough; no fleet physics or autonomy",
+        "groups": 27,
+        "instances": 1578,
+        "mean_fps": 194.456,
+        "samples": 973
+      },
+      "log": "Saved/Validation/Performance/Campus-Yard-Final3.log",
+      "log_sha256": "2b6243b323cfab792de0363609af0776726c0c726d575055eb8fbbe749405dff",
+      "native_geometry": "PASS: five floor heights, two vehicle portal clearance traces, one wall hit"
+    },
+    "Interior": {
+      "image": "Docs/Images/WarehouseCampusInterior.png",
+      "sha256": "4ea6812d30e2a764de407a3d089359eb3ac9f702ebe91b0e1177f44f1957e7ce",
+      "performance": {
+        "scope": "map-only rendered walkthrough; no fleet physics or autonomy",
+        "groups": 27,
+        "instances": 1578,
+        "mean_fps": 180.545,
+        "samples": 904
+      },
+      "log": "Saved/Validation/Performance/Campus-Interior-Final3.log",
+      "log_sha256": "84a1c974435564562dfd430f7c021def297daaeb06eff3598da855d077c7c21c",
+      "native_geometry": "PASS: five floor heights, two vehicle portal clearance traces, one wall hit"
+    },
+    "Rack": {
+      "image": "Docs/Images/WarehouseCampusRack.png",
+      "sha256": "20883feece3eb5c71858598daca9d405577d11c24d237bece8207a4a71028f57",
+      "performance": {
+        "scope": "map-only rendered walkthrough; no fleet physics or autonomy",
+        "groups": 27,
+        "instances": 1578,
+        "mean_fps": 161.623,
+        "samples": 809
+      },
+      "log": "Saved/Validation/Performance/Campus-Rack-Final3.log",
+      "log_sha256": "50c08089a197b5a97eb533c204864cdba4b627d57ab31fce702d7e55d5244b74",
+      "native_geometry": "PASS: five floor heights, two vehicle portal clearance traces, one wall hit"
+    }
+  },
+  "hashes_sha256": {
+    "Source/ForkliftSim/WarehouseCampus.h": "180ffc9c3908de865c02eae7e3def9bc42b6b3f9635c49d224e191dd1128ca9b",
+    "Source/ForkliftSim/WarehouseCampus.cpp": "ca82ff131d26ec5cbef1acb5115c877a271c74e681d50c02a8dace6e7c2c8c5e",
+    "Source/ForkliftSim/ForkliftSim.Build.cs": "9df61885bda72e172e5af18cb085f254504613292f77a528656ada363ea35dc9",
+    "Binaries/Win64/UnrealEditor-ForkliftSim.dll": "83bc657d2e3c8509c941bfcf327febbcea06ed1833f6738c42b681f415d86c8d",
+    "Config/WarehouseCampus.json": "52bf3bcfd5fc8e2b17447001cfcc836ae03ffbd58f360690a2ff1c3da7362255",
+    "Content/Maps/WarehouseCampus.umap": "1cbde000529a56b681962ac33ed707952c2da771ef4c21902e99c123634d0a4b",
+    "Scripts/CreateWarehouseCampus.py": "b28126c886b683527e825ad715766391d167a7ebc0b096893f691249f1ca6259",
+    "Scripts/campus_layout.py": "a3eae36708fa75dee32ce3f69ddf1a740b42dc0164ce680123e8ac84eaca712f",
+    "Scripts/validate_campus.py": "3424c1f810788e435733af69a09eb62af89d7a1c52e1eb2cff5eadefc50b8cce",
+    "Scripts/create_campus_pallet.py": "2137148d4d3eff25ce6a11202260cc880459a9190b2c58120a68e75844324b39",
+    "Scripts/plot_campus.py": "917949b737b867f087b805e66cb410d13dc89b7df24c73d5d6ec07e4ae55e0cb",
+    "Scripts/Start.ps1": "7a3b3ba8e550c65cebfe5be61d5c3cb1ef2a76835e4cd2f4b14f8e4bd9b3fc13",
+    "Scripts/Run.ps1": "204683786adff63a24528f12a18a57c60f9fff6a3d6d62f2fa654d1b829edd02",
+    "Content/Campus/SM_PalletFourWay1100.uasset": "69e261fbed888a177577e370c0e8af16af07433eaff12320283a4e026fa26e54",
+    "Content/Campus/Materials/M_Asphalt.uasset": "3cac80a30e89645638737872117610593962174e769017c1f931686f9a37b9c2",
+    "Content/Campus/Materials/M_Blue.uasset": "bdefc4c071968cf698792876d696cbd5b152a9d885aec5db0a14f911b35e4805",
+    "Content/Campus/Materials/M_Concrete.uasset": "5f61780dda0f12dcb3786c717b4dae61969e41ea88fb67b9930f74bd9c759629",
+    "Content/Campus/Materials/M_Context.uasset": "999f0b3cce48b1946adf575b3e6f55acc456819667de986584f83edc281e1d15",
+    "Content/Campus/Materials/M_Dark.uasset": "07a375db4c9272d00aa366e8f8172dbacbe0b126e902b2de14e8d3f625f079c0",
+    "Content/Campus/Materials/M_Green.uasset": "caa31576ba356cd88aa6f3f253be080ae4afdcd64637ae439b7b4e2aff5c7934",
+    "Content/Campus/Materials/M_Orange.uasset": "b78de3d2abdb8d27d09d44b2aebf3c5a1156b2f15fd493b2d17d8298975978f7",
+    "Content/Campus/Materials/M_Polymer.uasset": "8d6164f0cbdb3f0bc094875b5f5e43e8f912af1473354c334fce041c02d2cd77",
+    "Content/Campus/Materials/M_Purple.uasset": "ea7e6a0d8e026f077dc01ada3fa9f323832fc60cc540ee513adb588a44e717dc",
+    "Content/Campus/Materials/M_Steel.uasset": "6c9a462abd9cf7a32b6c0a7b883829200570b3864fd701d058ebc8c712be3ddb",
+    "Content/Campus/Materials/M_White.uasset": "c81ce355ccfc9f92cad2f0be03106e62b3460c6d94daca8975988971d5818c6f",
+    "Content/Campus/Materials/M_Yellow.uasset": "79812b0ce467a118f4e6d9c49f23abefebbe429afb8683f3152744d4fbac4f48",
+    "ContentSource/Campus/PalletFourWay1100.blend": "bcb14715bfb09f5b650d2298101b97c39ed99053af5c30c46214a7554dc23503",
+    "ContentSource/Campus/PalletFourWay1100.json": "9e48384d7e388cbc3e8dae3a5fe276260804cb347d9934fbba1c4431f26d9b00",
+    "ContentSource/Campus/SM_PalletFourWay1100.fbx": "9d86fc2d198c5f9d5381cd7562595a1915923d3ac6b10ca5b9912faa390b1c1c"
+  },
+  "known_limits": [
+    "Native units are existing single-vehicle/module tests, not multi-vehicle mission tests.",
+    "Pallet outer dimensions follow user image; foot/grid/opening details are design assumptions.",
+    "Static inventory envelope proxies must be replaced for manipulable loads.",
+    "Reserved route graph is not connected to the current single-vehicle planner; coarse/local planning and per-vehicle sensor ownership remain next stage.",
+    "Fab Warehouse original assets remain local and are excluded from repository."
+  ],
+  "interactive_launch": {
+    "entrypoint": "Start.bat",
+    "map_loaded": "/Game/Maps/WarehouseCampus",
+    "editor_responding": true,
+    "dashboard_http_status": 200,
+    "dashboard_url": "http://127.0.0.1:4174",
+    "note": "Editor startup/log and process command verified; interactive PIE is left for user. Native gameplay render/geometry is qualified separately above."
+  }
+}

@@ -83,7 +83,7 @@ void Handling::FModel::Step(const FInput& I)
             Velocity.X=FMath::Clamp((Spec.Depth-Depth)*.8,0.,Spec.Speed);Brake=Depth>=Spec.Depth;
             if(Brake)Velocity.X=0;
             if(!I.Full)StableS=0;
-            if(I.Full){FullSeen=true;if(Stable(Still&&Depth>=Spec.Depth-.006,I.Dt)){HeightTarget=Tier+Spec.Clear;Transition(TEXT("pick_lift"),I.Now);}}
+            if(I.Full){FullSeen=true;if(Stable(Still&&Depth>=Spec.Depth-.006,I.Dt)){InsertionHeight=I.Height;HeightTarget=Tier+Spec.Clear;Transition(TEXT("pick_lift"),I.Now);}}
         }
     }
     else if(State==TEXT("pick_lift"))
@@ -97,11 +97,11 @@ void Handling::FModel::Step(const FInput& I)
     {
         Permit=true;const bool Pick=State==TEXT("pick_withdraw");
         if(Pick&&(I.Load[0]+I.Load[1]<ReferenceLoad*.55)){Stop(TEXT("carried_load_lost"));return;}
-        if(!Pick&&I.Load[0]+I.Load[1]>FMath::Max(100.,ReferenceLoad*.15)){Stop(TEXT("load_recontact_during_withdrawal"));return;}
+        if(!Pick&&I.Load[0]+I.Load[1]>(Spec.SurveyRack?100.:FMath::Max(100.,ReferenceLoad*.15))){Stop(TEXT("load_recontact_during_withdrawal"));return;}
         if(Move(WithdrawPose.X-Spec.Withdraw*FMath::Cos(WithdrawPose.Yaw),WithdrawPose.Y-Spec.Withdraw*FMath::Sin(WithdrawPose.Yaw),WithdrawPose.Yaw,Spec.Speed))Transition(TEXT("lower_to_carry"),I.Now);
     }
     else if(State==TEXT("lower_to_carry"))
-    {if(Receipt&&I.Load[0]+I.Load[1]<ReferenceLoad*.55){Stop(TEXT("carried_load_lost"));return;}if(Stable(HeightAt(Spec.Carry)&&Still,I.Dt)){Active=false;Transition(TEXT("complete"),I.Now);}}
+    {if(Receipt&&I.Load[0]+I.Load[1]<ReferenceLoad*.55){Stop(TEXT("carried_load_lost"));return;}if(Stable(HeightAt(Spec.SurveyRack&&Place?0:Spec.Carry)&&Still,I.Dt)){Active=false;Transition(TEXT("complete"),I.Now);}}
     else if(State==TEXT("place_raise"))
     {
         if(I.Load[0]+I.Load[1]<ReferenceLoad*.55){Stop(TEXT("carried_load_lost"));return;}
@@ -115,8 +115,8 @@ void Handling::FModel::Step(const FInput& I)
     }
     else if(State==TEXT("place_lower"))
     {
-        Permit=true;HeightTarget=Tier+.035;
-        const bool Unloaded=I.Load[0]+I.Load[1]<FMath::Max(50.,ReferenceLoad*.03);
+        Permit=true;HeightTarget=Tier+(Spec.SurveyRack?Spec.UnloadOffset:.035);
+        const bool Unloaded=I.Load[0]+I.Load[1]<(Spec.SurveyRack?50.:FMath::Max(50.,ReferenceLoad*.03));
         if(Stable(HeightAt(HeightTarget)&&Unloaded&&Still,I.Dt)){Receipt=false;TransferSeen=true;WithdrawPose=I.Pose;Transition(TEXT("place_withdraw"),I.Now);}
     }
     if(I.Obstacle&&State!=TEXT("pick_height")&&State!=TEXT("acquire")&&State!=TEXT("place_raise")){HeightTarget=I.Height;Stop(TEXT("non_target_obstacle"));}
@@ -128,19 +128,29 @@ bool Handling::FModel::TargetPoint(FVector2D P) const
     // pallet envelope / surveyed rack posts remain protected. Not safety-rated.
     if(!Place&&Last.Geometry&&Last.Camera)
     {
-        const double X=Spec.ForkCenter+1.1-.6079257-FMath::Min(Last.Depth[0],Last.Depth[1]);
-        if(P.X>=X-.12&&P.X<=X+1.34&&FMath::Abs(P.Y-Last.Y)<.62)return true;
+        const double X=Spec.ForkCenter+1.1-Spec.PalletHalfWidth-FMath::Min(Last.Depth[0],Last.Depth[1]);
+        if(P.X>=X-.12&&P.X<=X+(Spec.SurveyRack?Spec.PalletLength+.12:1.34)&&FMath::Abs(P.Y-Last.Y)<.62)return true;
     }
     if(Receipt||(State==TEXT("pick_lift")&&FullSeen)||State==TEXT("place_withdraw"))
     {
         if(State!=TEXT("place_withdraw")&&Last.HeelValid&&FMath::Min(Last.HeelDepth[0],Last.HeelDepth[1])>.99&&FMath::Abs(Last.HeelDepth[0]-Last.HeelDepth[1])<.08)
         {
             const double Front=Spec.ForkCenter+.6-(Last.HeelDepth[0]+Last.HeelDepth[1])*.5;
-            if(P.X>=Front-.12&&P.X<=Front+1.2158514+.12&&FMath::Abs(P.Y)<.62)return true;
+            if(P.X>=Front-.12&&P.X<=Front+Spec.PalletLength+.12&&FMath::Abs(P.Y)<.62)return true;
         }
         if(P.X>=Spec.ForkCenter-.64&&P.X<=Spec.ForkCenter+.64&&FMath::Abs(P.Y)<.62)return true;
     }
-    if(Place||Tier>0)
+    if(Spec.SurveyRack&&Spec.BeamRight>Spec.BeamLeft&&Last.Height>.36&&P.X>Spec.WheelFront+.04)
+    {
+        // Reserve each 120 mm upright plus 25 mm range/pose allowance.
+        // A surveyed low shelf cross-beam is below the raised blades and main
+        // deck. Keep wheel stopping clearance and NEVER include the uprights.
+        const double C=FMath::Cos(Last.Pose.Yaw),S=FMath::Sin(Last.Pose.Yaw);const FVector2D W(Last.Pose.X+C*P.X-S*P.Y,Last.Pose.Y+S*P.X+C*P.Y);
+        // Include the complete unresolved 50 mm minimum-range segment around
+        // the surveyed 65 mm beam, plus the measured pose/range tolerance.
+        if((FMath::Abs(W.X-Spec.BeamX)<.11||FMath::Abs(W.X-(Spec.BeamX+1.4))<.11)&&W.Y>Spec.BeamLeft+.085&&W.Y<Spec.BeamRight-.085)return true;
+    }
+    if(!Spec.SurveyRack&&(Place||Tier>0))
     {
         const double C=FMath::Cos(Last.Pose.Yaw),S=FMath::Sin(Last.Pose.Yaw);
         const FVector2D W(Last.Pose.X+C*P.X-S*P.Y,Last.Pose.Y+S*P.X+C*P.Y);

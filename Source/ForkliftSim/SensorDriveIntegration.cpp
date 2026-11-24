@@ -1,4 +1,5 @@
 #include "SensorDrive.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
 #include "NavigationLandmarks.h"
 #include "StabilityLab.h"
 #include "JointSensors.h"
@@ -53,12 +54,29 @@ void FSensorDriveRig::Observe(AStabilityLab& Lab,double Dt)
 }
 void FSensorDriveRig::Correct(AStabilityLab& Lab)
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_LocalizationCorrect);
     if(!Lab.VehicleGuard||!Model.Ready)return;const auto& S=Lab.VehicleGuard->Sensor;
     if(!S.Fresh(0,Lab.TimeS)||!S.Fresh(1,Lab.TimeS)||S.Channels[0].Last.Sequence==Model.LastScanSequence[0]||S.Channels[1].Last.Sequence==Model.LastScanSequence[1])return;
     const double Stamp=S.Channels[0].Last.CaptureS;if(FMath::Abs(Stamp-S.Channels[1].Last.CaptureS)>.03)return;
-    TArray<FVector2D> Points;
-    for(int I=0;I<2;++I){Model.LastScanSequence[I]=S.Channels[I].Last.Sequence;const auto& C=S.Channels[I].Last;const auto Mount=S.Spec.Mount(I);for(int K=0;K<S.Spec.Rays;K+=3)if(C.States[K]==LidarSafety::EReturn::Valid){const double A=S.Spec.Angle(I,K),D=C.Ranges[K];Points.Add(FVector2D(Mount.X+D*FMath::Cos(A),Mount.Y+D*FMath::Sin(A)));}}
-    Model.Correct(Points,Stamp,Lab.TimeS);
+    TArray<FVector2D> Points;const int Stride=Lab.bCampusVehicle?1:3;
+    for(int I=0;I<2;++I){Model.LastScanSequence[I]=S.Channels[I].Last.Sequence;const auto& C=S.Channels[I].Last;const auto Mount=S.Spec.Mount(I);for(int K=0;K<S.Spec.Rays;K+=Stride)if(C.States[K]==LidarSafety::EReturn::Valid){const double A=S.Spec.Angle(I,K),D=C.Ranges[K];Points.Add(FVector2D(Mount.X+D*FMath::Cos(A),Mount.Y+D*FMath::Sin(A)));}}
+    if(Lab.bCampusVehicle)
+    {
+        const auto Pose=Model.MapPose(Lab.TimeS);const FVector2D Center(Pose.X,Pose.Y);TArray<SensorDrive::FSegment> Whole=MoveTemp(Model.Map);
+        const double Range=Lab.VehicleGuard->Sensor.Spec.MaxM+1;for(const auto& Segment:Whole){const FVector2D A=Segment.A-Center,B=Segment.B-Center;if(FMath::Min(A.X,B.X)<=Range&&FMath::Max(A.X,B.X)>=-Range&&FMath::Min(A.Y,B.Y)<=Range&&FMath::Max(A.Y,B.Y)>=-Range)Model.Map.Add(Segment);}
+        Model.Correct(Points,Stamp,Lab.TimeS);Model.Map=MoveTemp(Whole);
+    }
+    else Model.Correct(Points,Stamp,Lab.TimeS);
+    if(Lab.bCampusVehicle&&Model.Registration.Accepted&&Stamp>GroundStamp)
+    {
+        const auto P=Model.Registration.Pose;const double Dt=Stamp-GroundStamp;
+        if(GroundStamp>=0&&Dt>.02&&Dt<.5){const FVector2D V((P.X-GroundPose.X)/Dt,(P.Y-GroundPose.Y)/Dt);if(V.Size()<2){GroundVelocityWorld+=(V-GroundVelocityWorld)*FMath::Clamp(Dt/(.12+Dt),0.,1.);GroundValid=true;}else GroundValid=false;}else GroundValid=false;
+        GroundPose=P;GroundStamp=Stamp;
+    }
+}
+FVector FSensorDriveRig::MeasuredVelocity(double Now) const
+{
+    if(!GroundFresh(Now))return Model.Velocity;const auto P=Model.MapPose(Now);const double C=FMath::Cos(P.Yaw),S=FMath::Sin(P.Yaw);return FVector(C*GroundVelocityWorld.X+S*GroundVelocityWorld.Y,-S*GroundVelocityWorld.X+C*GroundVelocityWorld.Y,Model.Velocity.Z);
 }
 void FSensorDriveRig::Drive(AStabilityLab& Lab,double Dt,FContactLoadSampler* Sampler)
 {
@@ -94,7 +112,7 @@ void FSensorDriveRig::Record(AStabilityLab& Lab)
 TSharedRef<FJsonObject> FSensorDriveRig::Telemetry(double Now) const
 {
     const auto& M=Model;auto J=MakeShared<FJsonObject>();const bool Valid=M.Ready,Located=Valid&&M.Localized&&Now-M.LastMatchS<.75;const auto O=M.Predicted(Now),P=M.MapPose(Now);
-    J->SetStringField(TEXT("source"),TEXT("encoder_imu_surveyed_map_v1"));J->SetStringField(TEXT("state"),M.State);J->SetStringField(TEXT("reason"),M.Reason);J->SetStringField(TEXT("map_id"),M.MapId);J->SetBoolField(TEXT("fault_latched"),M.Faulted);J->SetBoolField(TEXT("data_healthy"),M.DataHealthy);J->SetBoolField(TEXT("calibrated"),M.Calibrated);J->SetBoolField(TEXT("localized"),Located);J->SetBoolField(TEXT("ground_truth_feedback"),false);
+    J->SetStringField(TEXT("source"),TEXT("encoder_imu_surveyed_map_v1"));J->SetStringField(TEXT("state"),M.State);J->SetStringField(TEXT("reason"),M.Reason);J->SetStringField(TEXT("map_id"),M.MapId);J->SetBoolField(TEXT("fault_latched"),M.Faulted);J->SetBoolField(TEXT("data_healthy"),M.DataHealthy);J->SetBoolField(TEXT("calibrated"),M.Calibrated);J->SetBoolField(TEXT("localized"),Located);J->SetBoolField(TEXT("ground_truth_feedback"),false);J->SetBoolField(TEXT("map_velocity_fresh"),GroundFresh(Now));const auto Ground=MeasuredVelocity(Now);Number(J,TEXT("ground_vx_mps"),Ground.X,GroundFresh(Now));Number(J,TEXT("ground_vy_mps"),Ground.Y,GroundFresh(Now));
     Number(J,TEXT("vx_mps"),M.Velocity.X,Valid);Number(J,TEXT("vy_mps"),M.Velocity.Y,Valid);Number(J,TEXT("yaw_rad_s"),M.Velocity.Z,Valid);Number(J,TEXT("gyro_bias_rad_s"),M.GyroBias,M.Calibrated);
     Number(J,TEXT("odom_x_m"),O.X,Valid);Number(J,TEXT("odom_y_m"),O.Y,Valid);Number(J,TEXT("odom_yaw_rad"),O.Yaw,Valid);Number(J,TEXT("map_x_m"),P.X,Located);Number(J,TEXT("map_y_m"),P.Y,Located);Number(J,TEXT("map_yaw_rad"),P.Yaw,Located);
     Number(J,TEXT("match_age_s"),Now-M.LastMatchS,M.LastMatchS>=0);Number(J,TEXT("match_rms_m"),M.Registration.Rms,M.Registration.Accepted);Number(J,TEXT("match_points"),M.Registration.Points);Number(J,TEXT("unobserved_motion_s"),M.UnobservedS);Number(J,TEXT("command_lease_s"),M.Spec.LeaseS);

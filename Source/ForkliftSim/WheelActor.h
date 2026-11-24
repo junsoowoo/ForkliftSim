@@ -84,6 +84,7 @@ public:
     double DriveTorqueNm=0, BrakeLimitNm=0;
     double BrakeElasticJ=0,BrakePlasticWorkJ=0;
     ElectricDrive::FResult DriveMotor;
+    double DcConsumedJ=0;
     double DriveRequestNm=0, SteerAvailableNm=0, SteerMeasuredNm=0, SteerOmegaRadS=0, SteerMotorRpm=0;
     double SteerFilteredDeg=0, SteerGearDeg=0, ContactMu=0, ContactSteerNm=0;
     FTyreComplianceSettings Compliance;

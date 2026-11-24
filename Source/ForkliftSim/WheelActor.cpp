@@ -64,7 +64,7 @@ void AWheelActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSettin
     Compliance.Tread.bEnabled &= S.bSwerve && Compliance.bEnabled && Compliance.bDetailed;
     Compliance.Tread.bCoupled &= Compliance.Tread.bEnabled;
     const bool LocalTread=Compliance.Tread.bEnabled;
-    bRear=Rear; bSteerable=!bMecanum && (Rear || S.bSwerve); MotorStator=Chassis; const FVector P=GetActorLocation();
+    bRear=Rear; bSteerable=!bMecanum && (Rear || S.bSwerve); MotorStator=Chassis; const FVector P=GetActorLocation();const FQuat Q=Chassis->GetComponentQuat();
     // Tune the position servo for the loaded swerve tyre's scrub moment. Motor
     // torque/power limits stay unchanged; do not hide lag by changing friction.
     SteeringPositionGain=S.bSwerve?200000000:50000000;
@@ -73,11 +73,11 @@ void AWheelActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSettin
     // proxy made the articulated axle needlessly stiff relative to the wheel.
     Knuckle->SetWorldScale3D(FVector(.20)); Vehicle3D::Dynamic(Knuckle,S.KnuckleMassKg*.8);
     Knuckle->SetCollisionResponseToAllChannels(ECR_Ignore); Knuckle->SetVisibility(false);
-    BeltCarrier->SetWorldLocation(P); BeltCarrier->SetWorldScale3D(FVector(.20));
+    BeltCarrier->SetWorldLocationAndRotation(P,Q); BeltCarrier->SetWorldScale3D(FVector(.20));
     Vehicle3D::Dynamic(BeltCarrier,S.KnuckleMassKg*.2);
     BeltCarrier->SetCollisionResponseToAllChannels(ECR_Ignore); BeltCarrier->SetVisibility(false);
     const double CoreRadius=bMecanum && !S.Mecanum.bReduced?S.Mecanum.HubRadiusM:S.RadiusM-(LocalTread?Compliance.Tread.DepthM:0);
-    Tyre->SetWorldLocationAndRotation(P,FRotator(0,0,90)); Tyre->SetWorldScale3D(FVector(CoreRadius*2,CoreRadius*2,bMecanum?S.Mecanum.HubWidthM:S.WidthM));
+    Tyre->SetWorldLocationAndRotation(P,Q*FRotator(0,0,90).Quaternion()); Tyre->SetWorldScale3D(FVector(CoreRadius*2,CoreRadius*2,bMecanum?S.Mecanum.HubWidthM:S.WidthM));
     CastChecked<UWheelTyreComponent>(Tyre)->BuildRollingCollision(S.bSwerve?256:128);
     Vehicle3D::Dynamic(Tyre,S.WheelMassKg-(bMecanum && !S.Mecanum.bReduced?S.Mecanum.Count*S.Mecanum.RollerMassKg:LocalTread?Compliance.Tread.MassKg:0)); SetMu(Material); Tyre->SetAngularDamping(.02f);
     TreadChannel=static_cast<ECollisionChannel>(ECC_GameTraceChannel1+FMath::Clamp(WheelSlot,0,3));
@@ -91,11 +91,11 @@ void AWheelActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSettin
     {
         auto* Mark=NewObject<UStaticMeshComponent>(this); Mark->SetStaticMesh(Knuckle->GetStaticMesh());
         Mark->SetMobility(EComponentMobility::Movable); Mark->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-        Mark->RegisterComponent(); Mark->SetWorldLocation(P+FVector(0,Side*((bMecanum?S.Mecanum.HubWidthM:S.WidthM)*50+.5),0));
+        Mark->RegisterComponent(); Mark->SetWorldLocationAndRotation(P+Q.RotateVector(FVector(0,Side*((bMecanum?S.Mecanum.HubWidthM:S.WidthM)*50+.5),0)),Q);
         Mark->SetWorldScale3D(FVector((bMecanum?CoreRadius:S.RadiusM)*1.5,.015,.035));
         Mark->AttachToComponent(Tyre,FAttachmentTransformRules::KeepWorldTransform); Vehicle3D::Color(Mark,FLinearColor(.75f,.85f,.9f));
     }
-    SteeringJoint->SetWorldLocationAndRotation(P,FRotator(90,0,0));
+    SteeringJoint->SetWorldLocationAndRotation(P,Q*FRotator(90,0,0).Quaternion());
     SteeringJoint->AttachToComponent(Chassis,FAttachmentTransformRules::KeepWorldTransform);
     Vehicle3D::Lock(SteeringJoint);
     if (!bMecanum && S.bSwerve) SteeringJoint->SetAngularTwistLimit(ACM_Free,0);
@@ -106,7 +106,7 @@ void AWheelActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSettin
     SteeringJoint->SetAngularVelocityDriveTwistAndSwing(bSteerable,false);
     SteeringJoint->SetAngularVelocityTarget(FVector::ZeroVector);
     SteeringJoint->SetAngularDriveParams(SteeringPositionGain,SteeringVelocityGain,S.SteeringTorqueNm*10000);
-    Axle->SetWorldLocationAndRotation(P,FRotator(0,90,0)); Axle->AttachToComponent(bMecanum?Chassis:BeltCarrier.Get(),FAttachmentTransformRules::KeepWorldTransform);
+    Axle->SetWorldLocationAndRotation(P,Q*FRotator(0,90,0).Quaternion()); Axle->AttachToComponent(bMecanum?Chassis:BeltCarrier.Get(),FAttachmentTransformRules::KeepWorldTransform);
     Vehicle3D::Lock(Axle); Axle->SetAngularTwistLimit(ACM_Free,0);
     // Mecanum has a rigid mount: connect the axle to the actual load-bearing
     // chassis rather than routing tyre load through a 1 kg virtual carrier.
@@ -117,14 +117,14 @@ void AWheelActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSettin
     // Routing its implicit velocity drive through the 1 kg belt carrier loses
     // braking authority in the iterative solver. This joint has NO position or
     // angular limits, so it adds no parallel support/spring and permits travel.
-    BrakeJoint->SetWorldLocationAndRotation(P,FRotator(0,90,0));
+    BrakeJoint->SetWorldLocationAndRotation(P,Q*FRotator(0,90,0).Quaternion());
     BrakeJoint->AttachToComponent(bMecanum?Chassis:Knuckle.Get(),FAttachmentTransformRules::KeepWorldTransform);
     Vehicle3D::Lock(BrakeJoint);
     BrakeJoint->SetLinearXLimit(LCM_Free,0); BrakeJoint->SetLinearYLimit(LCM_Free,0); BrakeJoint->SetLinearZLimit(LCM_Free,0);
     BrakeJoint->SetAngularTwistLimit(ACM_Free,0); BrakeJoint->SetAngularSwing1Limit(ACM_Free,0); BrakeJoint->SetAngularSwing2Limit(ACM_Free,0);
     BrakeJoint->SetConstrainedComponents(bMecanum?Chassis:Knuckle.Get(),NAME_None,Tyre,NAME_None);
     BrakeJoint->SetAngularDriveMode(EAngularDriveMode::TwistAndSwing);
-    ComplianceGuide->SetWorldLocation(P); Vehicle3D::Lock(ComplianceGuide);
+    ComplianceGuide->SetWorldLocationAndRotation(P,Q); Vehicle3D::Lock(ComplianceGuide);
     ComplianceGuide->SetConstrainedComponents(Knuckle,NAME_None,BeltCarrier,NAME_None);
     Compliance.bEnabled &= S.bSwerve;
     if(S.bSwerve && Compliance.bEnabled)
@@ -144,7 +144,7 @@ void AWheelActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSettin
             // UE has ONE shared linear limit radius. Setting a free axis with
             // radius zero also overwrites the existing limited-axis radius.
             ComplianceGuide->SetLinearZLimit(LCM_Limited,Compliance.TravelM*100);
-            ShearGuide->SetWorldLocation(P); Vehicle3D::Lock(ShearGuide);
+            ShearGuide->SetWorldLocationAndRotation(P,Q); Vehicle3D::Lock(ShearGuide);
             ShearGuide->SetLinearXLimit(LCM_Limited,Compliance.ShearTravelM*100);
             ShearGuide->SetLinearYLimit(LCM_Limited,Compliance.ShearTravelM*100); ShearGuide->SetLinearZLimit(LCM_Free,0);
             ShearGuide->SetLinearXLimit(LCM_Limited,Compliance.ShearTravelM*100);

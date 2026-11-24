@@ -1,0 +1,1834 @@
+{
+  "date_local": "2026-11-12",
+  "timezone": "Asia/Seoul",
+  "status": "groups_5_6_functional_qualification_with_explicit_limits",
+  "scope": "Three independent physical forklifts, authored single-floor survey, conservative whole-job reservations, sensed pickup/unload/return and actual Unreal fleet web. No 3D SLAM, six-vehicle throughput or OEM/safety qualification.",
+  "final_dll_sha256": "73e947e7f6af0f2237cba5f4c88ba82882f42174a568d54a2e6a4e8601730926",
+  "final_build_log": "Saved/Validation/Performance/CampusFleet-Build33.txt",
+  "staged_build_note": "Production autonomy/sensors last changed in build30. Builds31-33 only corrected foundation operator validation inputs and applied the existing production presence aperture to foundation validation; normal runtime is unchanged. Native results retain their actual per-build DLL hashes, rather than being presented as a single identical build.",
+  "default_profile": {
+    "physics_hz": 480,
+    "solver_iterations": 16,
+    "parallel_physics": true,
+    "rendering": "DX11 balanced",
+    "precision_option": "Start.bat -CampusPrecision: 960Hz/32 serial"
+  },
+  "unit": {
+    "passed": 98,
+    "failed": 0,
+    "not_run": 0,
+    "report": "Saved/Validation/Campus/FleetUnit33/index.json"
+  },
+  "native_stages": [
+    {
+      "folder": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960",
+      "dll_sha256": "737ED7109C0B89B9338288B5D90D027020AA4CC63FF47F7E286B4881B04760A1",
+      "physics_hz": 480,
+      "solver_iterations": 16,
+      "parallel_physics": true,
+      "realtime_clock": false,
+      "cases": [
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/transfer.json",
+          "report_sha256": "bf8098e40376f6ac8a4022ca480d4bf4ff9f4571a6f5e53262d4cd5f32248c89",
+          "case": "transfer",
+          "pass": true,
+          "reason": "sensor-controlled pickup, transfer, shelf unload, withdrawal and return",
+          "sim_s": 179.93334271758795,
+          "observed_game_fps": 20.27991836162367,
+          "sim_wall_ratio": 0.7204833373013683,
+          "max_fork_load_n": 4397.825060485541,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": true,
+          "saw_measured_full": true
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/gate.json",
+          "report_sha256": "8f361366a9fc905f3a79775aabb88617ce1a0494deb36704f28fbd47017a41d3",
+          "case": "gate",
+          "pass": true,
+          "reason": "measured route from outdoor bay through actual warehouse portal; estimated pose checked against truth only for qualification",
+          "sim_s": 87.40000455826521,
+          "observed_game_fps": 18.142918468066327,
+          "sim_wall_ratio": 0.74600437426675,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/obstacle.json",
+          "report_sha256": "7348124a8aa9aa11b1aa4a30f421581a5342f93eba228f35d4a961c7e7f132da",
+          "case": "obstacle",
+          "pass": true,
+          "reason": "actual physical obstacle causes stop and retained corridor",
+          "sim_s": 9.100000474601984,
+          "observed_game_fps": 21.97432277893432,
+          "sim_wall_ratio": 0.6274981773212874,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0.10636987519143745,
+          "minimum_obstacle_clearance_m": 0.6436096219446981,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/resume.json",
+          "report_sha256": "a9e2315ca9c17eb98437571558173bb062134f095ad2712b12f165cf72116204",
+          "case": "resume",
+          "pass": true,
+          "reason": "explicit acknowledgement, measured obstacle replan and resumed torque motion",
+          "sim_s": 11.300000589340925,
+          "observed_game_fps": 18.514710110747345,
+          "sim_wall_ratio": 0.6326675169804777,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0.10636987519143745,
+          "minimum_obstacle_clearance_m": 0.6436096219446981,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/detour.json",
+          "report_sha256": "3e4066f3f219371b5b2f9ce0e7de204adbcc816e5b29ea8673af77596eff1a28",
+          "case": "detour",
+          "pass": true,
+          "reason": "actual sensed obstacle causes local full-footprint detour before protective field",
+          "sim_s": 10.500000547617674,
+          "observed_game_fps": 19.334210455359933,
+          "sim_wall_ratio": 0.6072412819754435,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/sensor_stop.json",
+          "report_sha256": "52a6e4d78e49eef733969f0d2c9f1d4ec0a03713d1751bd28631642254501848",
+          "case": "sensor_stop",
+          "pass": true,
+          "reason": "bounded stable physical stop; motion lease/sensor fault latched and corridor quarantined",
+          "sim_s": 9.20000047981739,
+          "observed_game_fps": 20.01232279486173,
+          "sim_wall_ratio": 0.6290379497909894,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0.14865996697220807,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/watchdog.json",
+          "report_sha256": "a7bc3662a1260460ed39bd885c7ce6d7af242e0aa73a38d11eec0375a4b2bd93",
+          "case": "watchdog",
+          "pass": true,
+          "reason": "bounded stable physical stop; motion lease/sensor fault latched and corridor quarantined",
+          "sim_s": 9.100000474601984,
+          "observed_game_fps": 21.664193182364233,
+          "sim_wall_ratio": 0.6285154386208838,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0.10656098252654704,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/performance.json",
+          "report_sha256": "a7ebd209ba9338a06265c2978f2d73113ccfeacfa00b51f3a70b360df1b2c860",
+          "case": "performance",
+          "pass": true,
+          "reason": "idle 3-vehicle rendered measurement; report FPS and sim/wall separately",
+          "sim_s": 12.00000062584877,
+          "observed_game_fps": 22.29252510305876,
+          "sim_wall_ratio": 0.7075085536367278,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960/dispatch.json",
+          "report_sha256": "562389726b73e200c507e659637a7d89d1c0d7f2a03dc0d953c94ed4b963d256",
+          "case": "dispatch",
+          "pass": true,
+          "reason": "three real jobs; exclusive intersecting corridor and measured path progress",
+          "sim_s": 10.466667212545872,
+          "observed_game_fps": 18.028642736898664,
+          "sim_wall_ratio": 0.6419714506023333,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        }
+      ]
+    },
+    {
+      "folder": "Saved/Validation/Campus/Fleet-20261112-205351-4397af60",
+      "dll_sha256": "44EA292871EC741B2BFB9A7315BFA3D6554295101F094EE6F1D8D0A6B19949FA",
+      "physics_hz": 480,
+      "solver_iterations": 16,
+      "parallel_physics": true,
+      "realtime_clock": false,
+      "cases": [
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-205351-4397af60/full_transfer.json",
+          "report_sha256": "e40eb1e1775e4244d3329efb53d747e2de863f34c2246eff344377c3e4e18bd4",
+          "case": "full_transfer",
+          "pass": true,
+          "reason": "sensor-controlled pickup, transfer, shelf unload, withdrawal and return",
+          "sim_s": 581.4333636574447,
+          "observed_game_fps": 15.86450003022307,
+          "sim_wall_ratio": 0.716757288177771,
+          "max_fork_load_n": 4383.584340801295,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": true,
+          "saw_measured_full": true
+        }
+      ]
+    },
+    {
+      "folder": "Saved/Validation/Campus/Fleet-20261112-211113-ac2c2d64",
+      "dll_sha256": "39099F608F32D07AB2C37F6D67727B5BEF6050BFBE68DBF805FA2EAF13258305",
+      "physics_hz": 480,
+      "solver_iterations": 16,
+      "parallel_physics": true,
+      "realtime_clock": false,
+      "cases": [
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-211113-ac2c2d64/rack_transfer.json",
+          "report_sha256": "50d0bab43aa622323e8fcf10394e5770c9bb9c96ca2f6ffbd59a17267dfeba06",
+          "case": "rack_transfer",
+          "pass": true,
+          "reason": "sensor-controlled pickup, transfer, shelf unload, withdrawal and return",
+          "sim_s": 197.8333436511457,
+          "observed_game_fps": 20.33021726969194,
+          "sim_wall_ratio": 0.6668858941120441,
+          "max_fork_load_n": 4402.181125333916,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": true,
+          "saw_measured_full": true
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-211113-ac2c2d64/upper.json",
+          "report_sha256": "6b1fcb23ff740ffc2122768570860c1656083e627f8083be529f8a29e4ceaa38",
+          "case": "upper",
+          "pass": true,
+          "reason": "sensor-controlled pickup, transfer, shelf unload, withdrawal and return",
+          "sim_s": 214.23334450647235,
+          "observed_game_fps": 19.413386845629933,
+          "sim_wall_ratio": 0.7447779309319977,
+          "max_fork_load_n": 4378.763479380736,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": true,
+          "saw_measured_full": true
+        }
+      ]
+    },
+    {
+      "folder": "Saved/Validation/Campus/Fleet-20261112-212200-768ef23e",
+      "dll_sha256": "39099F608F32D07AB2C37F6D67727B5BEF6050BFBE68DBF805FA2EAF13258305",
+      "physics_hz": 480,
+      "solver_iterations": 16,
+      "parallel_physics": true,
+      "realtime_clock": true,
+      "cases": [
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-212200-768ef23e/performance.json",
+          "report_sha256": "af7a082126462c9d084edf3a8d73948ee7eb52e6efa9abc5be29a580fd9e01e6",
+          "case": "performance",
+          "pass": true,
+          "reason": "idle 3-vehicle rendered measurement; report FPS and sim/wall separately",
+          "sim_s": 12.02336810529232,
+          "observed_game_fps": 21.375541948738626,
+          "sim_wall_ratio": 0.6635225907659799,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        },
+        {
+          "report": "Saved/Validation/Campus/Fleet-20261112-212200-768ef23e/dispatch.json",
+          "report_sha256": "2ce166ab72ae6a0beb920a4727f8f8304e1197e8a285026068a96e880fa688b8",
+          "case": "dispatch",
+          "pass": true,
+          "reason": "three real jobs; exclusive intersecting corridor and measured path progress",
+          "sim_s": 10.47434788197279,
+          "observed_game_fps": 20.676074676418917,
+          "sim_wall_ratio": 0.621530057891186,
+          "max_fork_load_n": 0,
+          "braking_displacement_m": 0,
+          "max_vehicle_tilt_deg": 0.31196783178404847,
+          "saw_measured_vision": false,
+          "saw_measured_full": false
+        }
+      ]
+    }
+  ],
+  "foundation": {
+    "report": "Saved/Validation/Campus/Foundation-20261112-232020-e57819cd/results.json",
+    "results": [
+      {
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-20261112-232020-e57819cd\\smoke.log",
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-smoke-0.json",
+        "wall_s": 19.6763357,
+        "pass": true,
+        "case": "smoke"
+      },
+      {
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-20261112-232020-e57819cd\\inventory.log",
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-inventory-0.json",
+        "wall_s": 18.6736695,
+        "pass": true,
+        "case": "inventory"
+      },
+      {
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-20261112-232020-e57819cd\\rackvision.log",
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-rackvision-90.json",
+        "wall_s": 23.1540321,
+        "pass": true,
+        "case": "rackvision"
+      },
+      {
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-20261112-232020-e57819cd\\0.log",
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-handling-0.json",
+        "wall_s": 56.7226979,
+        "pass": true,
+        "case": "0"
+      },
+      {
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-20261112-232020-e57819cd\\90.log",
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-handling-90.json",
+        "wall_s": 56.6937624,
+        "pass": true,
+        "case": "90"
+      },
+      {
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-20261112-232020-e57819cd\\180.log",
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-handling-180.json",
+        "wall_s": 58.6523572,
+        "pass": true,
+        "case": "180"
+      },
+      {
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-20261112-232020-e57819cd\\270.log",
+        "report": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Campus\\Foundation-handling-270.json",
+        "wall_s": 57.2632221,
+        "pass": true,
+        "case": "270"
+      }
+    ],
+    "operator_fixture": "Measured fresh camera height alignment, captured sensor target lock, then measured confirmed-full insertion before lifting. Truth depth is a test assertion/scripted operator stopping condition, not autonomous feedback.",
+    "presence_aperture_m": 0.04
+  },
+  "precision_comparison": {
+    "scope": "Same DLL, sensed target-lock operator fixture, 480Hz/16 parallel vs 960Hz/32 serial. This is a numerical profile comparison, not OEM calibration.",
+    "profiles": {
+      "default": "Foundation-20261112-232020-e57819cd",
+      "precision": "Foundation-20261112-232511-8af31547"
+    },
+    "metrics": {
+      "sim_s": {
+        "default": 40.733335457742214,
+        "precision": 41.16666881367564,
+        "delta": -0.4333333559334278
+      },
+      "idle_peer_drift_m": {
+        "default": 0.0005514635227385413,
+        "precision": 8.780000459506804e-05,
+        "delta": 0.0004636635181434733
+      },
+      "max_fork_load_n": {
+        "default": 4327.674321408775,
+        "precision": 4331.5086748427575,
+        "delta": -3.8343534339828693
+      },
+      "max_wheel_load_n": {
+        "default": 103458.19110245982,
+        "precision": 92696.8936176051,
+        "delta": 10761.297484854716
+      },
+      "final_pallet_rise_m": {
+        "default": -0.0019870427313639196,
+        "precision": -0.001999649315200491,
+        "delta": 1.2606583836571612e-05
+      },
+      "truth_depth_m": {
+        "default": 0.009969217071294167,
+        "precision": 0.009827601469926561,
+        "delta": 0.0001416156013676062
+      }
+    }
+  },
+  "legacy": {
+    "folder": "Saved/Validation/Mecanum-20261112-232643-327-a74b62fc",
+    "cases": [
+      {
+        "case": "handling_pick",
+        "pass": true,
+        "behaviour_pass": true,
+        "step_pass": true,
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261112-232643-327-a74b62fc\\handling_pick.log"
+      },
+      {
+        "case": "drive_sensor_straight",
+        "pass": true,
+        "behaviour_pass": true,
+        "step_pass": true,
+        "log": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\Saved\\Validation\\Mecanum-20261112-232643-327-a74b62fc\\drive_sensor_straight.log"
+      }
+    ]
+  },
+  "web": {
+    "actual": {
+      "pass": true,
+      "source": "actual Unreal fleet HTTP frames; no synthetic ingest",
+      "frames": 80,
+      "vehicle_rows": 240,
+      "columns": 23,
+      "saw_lift": true,
+      "saw_independent_heights": true,
+      "saw_physical_load": true,
+      "saw_measured_load": true,
+      "max_physical_load_n": 4176.375229315701,
+      "max_measured_load_n": 4184,
+      "stopped": false,
+      "worlds": [
+        "94AB1FDF4D7E6113CBE91C9F5F2C1A69"
+      ]
+    },
+    "frames": "Saved/Validation/Campus/FleetLiveFrames.json",
+    "frames_sha256": "94993e944b7bb92acb90622e083134d2885e6ee6c8b3ab7080e349a4e67ec4a5",
+    "csv": "Saved/Validation/Campus/FleetLive.csv",
+    "csv_sha256": "4e6ba5a80852900c9a674a19e2bae32d203f917e0ef5801258918d2a9a2c2cce",
+    "protocol_fixture_assertions": 14,
+    "existing_bridge_fixture_assertions": 32,
+    "protocol_log": "Saved/Validation/Performance/CampusFleet-WebProtocolFinal.txt",
+    "browser_visual_qa": {
+      "status": "blocked",
+      "reason": "Computer-use tool could not determine current browser URL and stopped browser interaction. Not retried through another UI tool."
+    }
+  },
+  "layout": {
+    "date": "2026-11-12",
+    "pass": true,
+    "checks": [
+      "Clear indoor area is 5000 m2",
+      "One floor and 3 initial displays, 8 parking bays",
+      "Parking contained and separated",
+      "Eight separated rack islands",
+      "256 unique two-tier slot IDs",
+      "Slot pallet footprint contained",
+      "Approaches outside rack bodies",
+      "Reserved circulation graph connected",
+      "Image overall pallet dimensions",
+      "Assumed box geometry has four-direction tine corridors"
+    ],
+    "indoor_m2": 5000,
+    "parking_bays": 8,
+    "rack_slots": 256,
+    "minimum_rack_end_gap_m": 4.88,
+    "scope": "Authored layout, assumed pallet prism geometry and reserved graph only. Not forklift motion, multi-vehicle throughput, load rating, charging or four-way sensing qualification."
+  },
+  "limits": [
+    "Observed FPS values are end-of-case smoothed readings, not average FPS or an Editor Play real-time guarantee.",
+    "480Hz/16 profile peak total wheel contact force differs by about 11.6% from 960Hz/32 in the compared operator fixture; use precision mode for impact/load comparisons.",
+    "Reservation policy favors conservative sequential access over throughput; only three vehicles qualified.",
+    "Known surveyed stations and approaches, no arbitrary pallet identity/orientation optimization or overhead 3D safety classification.",
+    "Numerical/specification assumptions remain distinct from measured real-vehicle calibration."
+  ],
+  "rejected_trials": [
+    {
+      "folder": "Saved/Validation/Campus/Fleet-20261112-203510-706e8960",
+      "case": "rack_transfer",
+      "reason": "Conservative docking fringe hit; corrected compact docking sweep."
+    },
+    {
+      "folder": "Saved/Validation/Campus/Fleet-20261112-205351-4397af60",
+      "case": "rack_transfer",
+      "reason": "Loaded rotation envelope too close to rack after withdrawal; rack pickup withdrawal extended by 0.25m."
+    },
+    {
+      "folder": "Saved/Validation/Campus/Foundation-20261112-212308-c93eab32",
+      "case": "180",
+      "reason": "Manual fixture did not confirm measured full insertion; updated sensed alignment/target-lock operator fixture, without weakening final full/lift/support assertions."
+    },
+    {
+      "folder": "Saved/Validation/Campus/Foundation-20261112-231159-50f3803e",
+      "case": "0",
+      "reason": "Validation alignment input freshness was incomplete; corrected exact camera sequence check."
+    },
+    {
+      "folder": "Saved/Validation/Campus/Foundation-20261112-231610-00c58b3f",
+      "case": "0",
+      "reason": "Validation insertion did not retain sensed target; added same measured target lock used by production docking and full confirmation before lift."
+    }
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "6e9c15bcce5cf038cec0b38e3f3ae541af4ca1d965d452f78b8134041cec1cc5"
+    },
+    {
+      "path": "Config/Cameras.json",
+      "sha256": "05fcfa306aa2a428c4fc6e0aa7260aeed48c9990a218e99636a089a82255daf1"
+    },
+    {
+      "path": "Config/CampusSurvey.json",
+      "sha256": "eb8fbd4a05f25ea409f670d4efb8685675233c1cd7aea093450ddc444e943e1e"
+    },
+    {
+      "path": "Config/DefaultEngine.ini",
+      "sha256": "1560e132d73380aa79cdfe7e3b4c642e3b08d1529a83eacd7b08642c437ec1f8"
+    },
+    {
+      "path": "Config/DefaultGame.ini",
+      "sha256": "ea4cfee89afdbdd14db2fb0a2591970c15c7a1bea3adc3f7d667ffee26124f76"
+    },
+    {
+      "path": "Config/DefaultInput.ini",
+      "sha256": "11ebdcaedd0b429bcee9d84aa1e038f545217718a7c43c062fa260431c3a2209"
+    },
+    {
+      "path": "Config/Drivetrain.json",
+      "sha256": "ea1ff21e8f3fdc305aa68e5eb6302fd9fd4b830c17356fed3c1d1c0d6aeae907"
+    },
+    {
+      "path": "Config/DynamicsSensors.json",
+      "sha256": "46b116670aa2b17d7b304161a28118b9c54f1b242c6be79a090cca03a8fbe4c5"
+    },
+    {
+      "path": "Config/ForkliftLab.json",
+      "sha256": "ee9979a6bc61948737215223b98756588f58b559c2d5124b38631e4b8a0ee837"
+    },
+    {
+      "path": "Config/ForkStructure.json",
+      "sha256": "7b348a4629fc4f591304ddff5464cda9060324686688a0c94ebf53c5af033601"
+    },
+    {
+      "path": "Config/HandlingControl.json",
+      "sha256": "a9d79107bcb7e76db8039f34b54c62cb40b153c164f84e27a5d8de243ac861d8"
+    },
+    {
+      "path": "Config/Hydraulics.json",
+      "sha256": "95ca490d12d7fec3a32000dca4e3f7fe4d71a76ae76bea5fefe3b2ca184b7a31"
+    },
+    {
+      "path": "Config/JointSensors.json",
+      "sha256": "fa64f927c011006fac91d0761880ba878a23a651462aa2bb4aa9a4d0403dec14"
+    },
+    {
+      "path": "Config/LidarSafety.json",
+      "sha256": "eca147a22d5e67b17294a35bd47255b17b3e6eb8cfad06ad0d4dd8c7c6426738"
+    },
+    {
+      "path": "Config/Mecanum.json",
+      "sha256": "076cad78c9172ab7e8e12da2cda2ac418b0dc9a0faa8544d877d6b2c5366fe5b"
+    },
+    {
+      "path": "Config/Mission.json",
+      "sha256": "8c7b332072fc68d2fb51fc636fdea4e36902373b0107dc54cf8f4511de9dcf10"
+    },
+    {
+      "path": "Config/Modeling.json",
+      "sha256": "f9c325f3ec86d851309517b00b87f3436e30b35a582b1d8718808ec85c983e12"
+    },
+    {
+      "path": "Config/NavigationLandmarks.json",
+      "sha256": "c37750f569245ff3e42f864ba6b5cfa324bcde2daa38d3b40a27283516405ae5"
+    },
+    {
+      "path": "Config/NavigationMap.json",
+      "sha256": "f525e6555adf930ef6c8459c0c4e8ff7c1fa2bd8fb1ff6f184f24592b2ad65bc"
+    },
+    {
+      "path": "Config/NavigationMissionTestMap.json",
+      "sha256": "87b5e18a6b2ae90864ac4eb92ca692ecc14a751cbc68e8a385750ec85f2f9bfb"
+    },
+    {
+      "path": "Config/NavigationTestMap.json",
+      "sha256": "29cd193fb7877850accfdd416afdaa467da4f145b9663dd0a19263c293f3dfb4"
+    },
+    {
+      "path": "Config/PalletPerception.json",
+      "sha256": "61d2ee423e4b9d511c1f70425e88709d8201aecb376d731cd62f0b51c019a24c"
+    },
+    {
+      "path": "Config/Payload.json",
+      "sha256": "5e0596cd9c28a6b0f9d548ed47069d070ebac0c47842de646d665cf94647618b"
+    },
+    {
+      "path": "Config/PhysicsReference.json",
+      "sha256": "b8cb64d93a61986eb862a69c452f4baf964540804f2a3c0ac05a6a07a0eae7ac"
+    },
+    {
+      "path": "Config/ProximitySensors.json",
+      "sha256": "a63ff6a0202c1e5e35f3df5aa2da4a30b7dae43794c96b9f8cb6992c2eb765ae"
+    },
+    {
+      "path": "Config/PublicCalibration.json",
+      "sha256": "176e681049f780b8f49e2fd73153b76b130497de5d43970edf8d5bee08a89b9a"
+    },
+    {
+      "path": "Config/RackHandling.json",
+      "sha256": "f3a84dec3e76008af084d2a3869c7a476c555838757dec238c06deb98ca5a181"
+    },
+    {
+      "path": "Config/RealComponents.json",
+      "sha256": "38bac35208b63e6a0f6a3ad8d11993dee11827893fc4dc0fed26ab4bbde8a898"
+    },
+    {
+      "path": "Config/SensorDrive.json",
+      "sha256": "845b7de4aa101109e75847f00a4d5b9594b1b60948b3637228e689f2d547a373"
+    },
+    {
+      "path": "Config/SensorLiftControl.json",
+      "sha256": "d444787c91df56749020b1a5c24af897da751bd689f2b4b4c16f64ff8f4a6468"
+    },
+    {
+      "path": "Config/Tyres.json",
+      "sha256": "9291028b1b4d1334d6ee0ec3af7c8cc9cae637a572367047b77d536cb16e5524"
+    },
+    {
+      "path": "Config/Vehicle3D.json",
+      "sha256": "bb376391ec3868c70ad9cbd8822a87acb33428b7cc7ca49a71b1bfb540eba61a"
+    },
+    {
+      "path": "Config/WarehouseCampus.json",
+      "sha256": "cb4dddae7766f0a0a547269d44cb8dddf01750fc71eed8d40a370cca522050ca"
+    },
+    {
+      "path": "Config/WarehousePayload.json",
+      "sha256": "04cf2f8239640d2310f283ab904d8310de56cf6f87cbc1cda631311f43993925"
+    },
+    {
+      "path": "Config/WheelLab.json",
+      "sha256": "679be15650b66154a087f53ca228cbcc5512a95802dcb43928d601af4f6a599e"
+    },
+    {
+      "path": "Content/Maps/WarehouseCampus.umap",
+      "sha256": "1a6bf08c14445a58342b25918e9d0828cae1c4083cca25471bd858b61de5ceac"
+    },
+    {
+      "path": "ContentSource/Campus/Fixtures/MeasuredFront1100.json",
+      "sha256": "e0c37e9f3b2a9d17e4f64727dc08db126be86184644e910154a20d62f2090eed"
+    },
+    {
+      "path": "ContentSource/Campus/PalletFourWay1100.json",
+      "sha256": "9e48384d7e388cbc3e8dae3a5fe276260804cb347d9934fbba1c4431f26d9b00"
+    },
+    {
+      "path": "ForkliftSim.uproject",
+      "sha256": "e060563c7056d5063657f2a76e45a5bf39d1e6cab88ea2ba363eb2f74bc419d1"
+    },
+    {
+      "path": "Scripts/audit_mecanum_properties.py",
+      "sha256": "c076938e14b501aebdb2ab3d1f2cf9a21b188386ade8546db9708d971f8b550d"
+    },
+    {
+      "path": "Scripts/Build.ps1",
+      "sha256": "033976fdd237eb4cf2589b106c7fb9b90cdb1630119ace812b4869d8c004eb95"
+    },
+    {
+      "path": "Scripts/BuildModelingScene.py",
+      "sha256": "09a7a5e2e56f52222331db1c8e11efee4583c066f2376fd3d1854a6a4bd90ec8"
+    },
+    {
+      "path": "Scripts/calibrate_tyre.py",
+      "sha256": "fcc8254c6f410e91d0f1f44e869f148a66450c9bf2ee2b37a2cc18c270c3b077"
+    },
+    {
+      "path": "Scripts/campus_layout.py",
+      "sha256": "30f0c2e4ffe415b66ed3dcf9c3cc7022fd50b233d0315af820d2dec38d9074b5"
+    },
+    {
+      "path": "Scripts/Compare-PhysicsCalibration.ps1",
+      "sha256": "8e42f82c640e76dd7387e7ba93c5abe2e16190b47513f965002f7562950cc4f3"
+    },
+    {
+      "path": "Scripts/create_campus_pallet.py",
+      "sha256": "2137148d4d3eff25ce6a11202260cc880459a9190b2c58120a68e75844324b39"
+    },
+    {
+      "path": "Scripts/create_forklift_model.py",
+      "sha256": "8698c42bdcabb980c9bd894037e7420bb8d4a7bfc260fce803919b757b30536e"
+    },
+    {
+      "path": "Scripts/CreateAssets.py",
+      "sha256": "9aa66abb7f257f3d28393a55cadfa510214677d36625c6ec1f6526804e471b4f"
+    },
+    {
+      "path": "Scripts/CreateWarehouseCampus.py",
+      "sha256": "eb00ffed5309b4df6a2ef1dd11dfaa87cf209d090379b03d78353948507e3075"
+    },
+    {
+      "path": "Scripts/CreateWarehouseLab.py",
+      "sha256": "029ad7ae2cab9794fee9914da4dd6742306ebe4d3d41a2b44785cc5154bc4106"
+    },
+    {
+      "path": "Scripts/ExportNavigationMap.py",
+      "sha256": "f8dd022af04599f9199436fa7e936f235309da7f733efa696a5b4f8be7d7bc42"
+    },
+    {
+      "path": "Scripts/ImportForkliftModel.py",
+      "sha256": "0c3636e70463769e9bf7777cd3e7325f75d8f466c6e371247945a8a2f92e10dd"
+    },
+    {
+      "path": "Scripts/InspectWarehouseContacts.py",
+      "sha256": "36155b3419337a06944be2ae2acbc807598a5ee2cb1d8ab969cc7d40d0edaa1e"
+    },
+    {
+      "path": "Scripts/InventoryWarehouse.py",
+      "sha256": "bdd79d239d72ef481e6b1a3b6c4b3657693966e4cd211ef2622c45cf621d5c6b"
+    },
+    {
+      "path": "Scripts/Measure-CoupledResolution.ps1",
+      "sha256": "2e36df658f6c92dddfefb55d13ef813be38e36d7e10efcced906460a94eb6b50"
+    },
+    {
+      "path": "Scripts/Measure-TreadResolution.ps1",
+      "sha256": "bfb9bad418dd1dbfae972e8ae954c0f0abba4ec6b6d27a0f4e2838aea19df3dd"
+    },
+    {
+      "path": "Scripts/measure_energy_audit.py",
+      "sha256": "5b703d0c709ba8f26260f375753524e1ba170d36bc2308fb40df641fe42c3708"
+    },
+    {
+      "path": "Scripts/measure_mecanum_batch.py",
+      "sha256": "da35dbe2267c31de360ae12ac4ab4a06ea52ce1fbf5d04bae4bb3e583394ef78"
+    },
+    {
+      "path": "Scripts/measure_mecanum_conservation.py",
+      "sha256": "3c78107c2e9635973a284a2d3c43759f73cbd992b3f34885e3cc07c127652d93"
+    },
+    {
+      "path": "Scripts/measure_property_energy.py",
+      "sha256": "92fa9fd5156e4bae7b84ad313a57c2db00783261d50e3497dfbb90a45e26a312"
+    },
+    {
+      "path": "Scripts/plot_campus.py",
+      "sha256": "917949b737b867f087b805e66cb410d13dc89b7df24c73d5d6ec07e4ae55e0cb"
+    },
+    {
+      "path": "Scripts/plot_energy_audit.py",
+      "sha256": "e203e88597c1407a0f8c4b7ca4830a1d1567b44c8c861ab2aa25ea0e344e7d18"
+    },
+    {
+      "path": "Scripts/plot_handling.py",
+      "sha256": "3c859d0cc22211a740cd0efc1cb50dcccad73b2259aa3ce10a8003f83c3079d1"
+    },
+    {
+      "path": "Scripts/plot_mecanum_batch.py",
+      "sha256": "0bd1fdac5b06aaa84837d6215c2913a6e162e2a249b3c64834c02e8b222a65e8"
+    },
+    {
+      "path": "Scripts/plot_mecanum_conservation.py",
+      "sha256": "f8af13bf541c4dc670ba3d0811bc423cafc0bfa44483f100e8e911ada252e0df"
+    },
+    {
+      "path": "Scripts/plot_mecanum_validation.py",
+      "sha256": "a1b67eb8184a0d724655a751b016397bbc9deb09033df3ecbeeb81dd7dd06222"
+    },
+    {
+      "path": "Scripts/plot_mission.py",
+      "sha256": "4135fe12f12ff6f9f4892405988636659056b4fc443daaeee78c9721ae1d4897"
+    },
+    {
+      "path": "Scripts/plot_pallet_perception.py",
+      "sha256": "33f03a08cb28e58ec8ea8f27b83a876391c9f0d2e74a363344227c216cbde58d"
+    },
+    {
+      "path": "Scripts/plot_sensor_drive.py",
+      "sha256": "24d29f966003aad3e7d064a01c1392a8eb8b21aec0946ba43679ca1c26ccd61f"
+    },
+    {
+      "path": "Scripts/plot_sensor_lift.py",
+      "sha256": "b3dd9b38e5ae30aee00d62ab9c265c0189b57552f9408d4f1350964e7aea77ba"
+    },
+    {
+      "path": "Scripts/PrepareModelingAssets.py",
+      "sha256": "f07f0d8e6d8c99730aa017be7faedbe990da41c9f590627b1356ef37154ff071"
+    },
+    {
+      "path": "Scripts/qualify_current_physics.py",
+      "sha256": "314b1e476dc3f9fb64d0798f6576a2d18f90ec66a54bb9db55ee356ddc5976c3"
+    },
+    {
+      "path": "Scripts/Run.ps1",
+      "sha256": "8b0c9e172f088e91a15a6db646e8d1cd43dc7e774011bf245e5421c22ffe5c5e"
+    },
+    {
+      "path": "Scripts/Start.ps1",
+      "sha256": "cce7165b598dd8c0d22edf6e4a15ff1dfb83413990bd43a09860a9d8b863316c"
+    },
+    {
+      "path": "Scripts/Test-Cameras.ps1",
+      "sha256": "65d731746ac540f8fc218cbe297b5d90374bc14acea92ec5e7e4712419bb5d62"
+    },
+    {
+      "path": "Scripts/Test-CampusFleet.ps1",
+      "sha256": "d95f9356b6e602e331d581114b3afa69f2eb6a37a751617a554f36be377648a2"
+    },
+    {
+      "path": "Scripts/Test-CampusFoundation.ps1",
+      "sha256": "c3c8ca1ec507ac63e61dc0b62179c4ef5500b2c94c9b3c46e851801d2607fe89"
+    },
+    {
+      "path": "Scripts/Test-Cargo.ps1",
+      "sha256": "b541bfb34e6a7fe98940ca61a308ae3d8691d7e8c413a413f710256a76ee73b7"
+    },
+    {
+      "path": "Scripts/Test-Components.ps1",
+      "sha256": "345c59cee9ae65eee4e438ce75f7c79965114d14730d3bed1a3eb6882bdb0395"
+    },
+    {
+      "path": "Scripts/Test-CoupledTread.ps1",
+      "sha256": "f7fa834a2ffa8c57c8cb71fd0a21beaaf7d392ed85f986ea4a66e80d5770c337"
+    },
+    {
+      "path": "Scripts/Test-CurrentPhysics.ps1",
+      "sha256": "83cdb3a9c0c5e09f3e024016e1b699660bd728d3e4fd3868140ca47622bdb9d8"
+    },
+    {
+      "path": "Scripts/Test-Drivetrain.ps1",
+      "sha256": "77d6b680e219a17a7eb1c35ecd07b0602c95ffe5f7b2dddd8b2bad27811e3c73"
+    },
+    {
+      "path": "Scripts/Test-DynamicsSensors.ps1",
+      "sha256": "5a9418a1e2a523341278cead5c8101974aeb63736ff119a97b6d7639c3f30b3d"
+    },
+    {
+      "path": "Scripts/Test-Handling.ps1",
+      "sha256": "f859ec0b27ad4f75665902be46dcb175c6e30be2a90f5b644e7cf964b4fa1c46"
+    },
+    {
+      "path": "Scripts/Test-Hydraulics.ps1",
+      "sha256": "fb4448cd2f60fa30fb4aa1cdfdb457dbfd6127f6f5a529b407b0947cefb79c09"
+    },
+    {
+      "path": "Scripts/Test-IntegratedPhysics.ps1",
+      "sha256": "db366b7f1564e0383e230d5c271d4c5a53db017984a33e4e1ee6f3faba6cfa84"
+    },
+    {
+      "path": "Scripts/Test-JointSensors.ps1",
+      "sha256": "1679066b42ab6bd33b84cfdf15514011975d1af365614600ea41330abca421f7"
+    },
+    {
+      "path": "Scripts/Test-LidarSafety.ps1",
+      "sha256": "074063555a715bc4c94b732b7987f05929d4276183afe2b3b92559cd731201cd"
+    },
+    {
+      "path": "Scripts/Test-Mecanum.ps1",
+      "sha256": "28c6d92ea485b29dc83a921232cf7b986eaa60eb42e234a1dc32d4851c59ba02"
+    },
+    {
+      "path": "Scripts/Test-Mission.ps1",
+      "sha256": "fb33a3bcb21cad1b4f4df4d62225e45db62e1b015d5e32c576bda0f588cd0fa4"
+    },
+    {
+      "path": "Scripts/Test-MissionRealtime.ps1",
+      "sha256": "d51802a9584c25834444fd81fb7cc3295f4b08dfaef328fd769d117d6788d6c2"
+    },
+    {
+      "path": "Scripts/Test-PalletPerception.ps1",
+      "sha256": "8e4561b1e049be122be8504d47421c82c199b64a760a77f96495ef986578bdea"
+    },
+    {
+      "path": "Scripts/Test-Payload.ps1",
+      "sha256": "f8449b43adf3e51d2ad0c93d14b7319b7f620e93c2461ce4dc4e556819423d61"
+    },
+    {
+      "path": "Scripts/Test-PhysicsCalibration.ps1",
+      "sha256": "927778ce6036432cfb6af7f35a39c9a4b7bbf02eabc99dce2e17b6a77771343e"
+    },
+    {
+      "path": "Scripts/Test-ProximitySensors.ps1",
+      "sha256": "73a6ad5322e46caedb755a5990c38e1383e3d95da65d275c616631933149c9b1"
+    },
+    {
+      "path": "Scripts/Test-RollingReference.ps1",
+      "sha256": "d8101cc60ca22e6920228a3fa8e82558945257dde7cb79264f0216df475cac36"
+    },
+    {
+      "path": "Scripts/Test-SensorDrive.ps1",
+      "sha256": "51c279a68311a707986f3dc3b00d61a0fed6087860e0face52f3514f73ac9be0"
+    },
+    {
+      "path": "Scripts/Test-SensorLift.ps1",
+      "sha256": "d428e678ad8ee21f45285625e44e2a0d9a6590f340e3ae05b49e2589140e7637"
+    },
+    {
+      "path": "Scripts/Test-Stability.ps1",
+      "sha256": "8f0d78a995df61a49c01a02b16aaffa7241ddefe7a959a416100bed8929e3bb0"
+    },
+    {
+      "path": "Scripts/Test-Swerve.ps1",
+      "sha256": "4ffa7078b6c2ddad0265f7b7e4babd69b04ccd93811943dd849b4707018605a8"
+    },
+    {
+      "path": "Scripts/Test-TreadConstitutive.ps1",
+      "sha256": "0488bed406fef37e41863e5ccadc540ea0eba40d74e0438c85e79cd2ddf54a49"
+    },
+    {
+      "path": "Scripts/Test-TreadReference.ps1",
+      "sha256": "730a9d2178bb222404c288da205ec327bab30be522acf2c26944a4cf8de88086"
+    },
+    {
+      "path": "Scripts/Test-Tyres.ps1",
+      "sha256": "c90618552ec10051f90b6879f836c6d68c3088b7793a24fb20b0038b4055d9fa"
+    },
+    {
+      "path": "Scripts/Test-ValidationReports.ps1",
+      "sha256": "763a22a3cdf86aa3a2d9f1782975b0d765d85ea2aa81d426a45c8687aff05534"
+    },
+    {
+      "path": "Scripts/Test-WebTelemetry.ps1",
+      "sha256": "36925b9a44028fb537a853a2f4c327e3892f3c12d33e07cef22658e4c00d8eb5"
+    },
+    {
+      "path": "Scripts/Test-WheelResistance.ps1",
+      "sha256": "f995f2b82b10ab3e1e628e61047b86cfa1d899ebaf6e1e390b301c1ab8fcb56c"
+    },
+    {
+      "path": "Scripts/Test-Wheels.ps1",
+      "sha256": "5a784c0c775889e11de870b0ed03bee1c419a6adf9eecc7cdd843157a488ab10"
+    },
+    {
+      "path": "Scripts/Test.ps1",
+      "sha256": "e7852c5efa0fcf7a3504d2befc2ba35d77fd9bb51e0cd522c843d1df946caee1"
+    },
+    {
+      "path": "Scripts/tread_ring_reference.py",
+      "sha256": "0bcb85802a00f40f25f9faa9c3f290e1ddcd6d6dd102502a52295270392cd144"
+    },
+    {
+      "path": "Scripts/validate_campus.py",
+      "sha256": "3424c1f810788e435733af69a09eb62af89d7a1c52e1eb2cff5eadefc50b8cce"
+    },
+    {
+      "path": "Scripts/validate_dynamics_sensors.py",
+      "sha256": "0a8109f7b50d862ac69052e5f8a0f01abd2bb56ac0f92ef5b6302da841162d45"
+    },
+    {
+      "path": "Scripts/validate_handling.py",
+      "sha256": "fdbdb5f4ff868bd3b0d150170c9e607f74defca32d491ec85299ede6118be093"
+    },
+    {
+      "path": "Scripts/validate_joint_sensors.py",
+      "sha256": "943da3d5c931f627c0cedf2b32c5703e6647eaaafc88d713405a3fdd49820613"
+    },
+    {
+      "path": "Scripts/validate_lidar_safety.py",
+      "sha256": "8df255de60da0ecb6e312e45ae5f05904e959f54480021ddf09f0c8f59b0970e"
+    },
+    {
+      "path": "Scripts/validate_mission.py",
+      "sha256": "9c9e96bec740b3b81e203bb84977eeac09172abe49993c24bf01f642b7c14de9"
+    },
+    {
+      "path": "Scripts/validate_pallet_perception.py",
+      "sha256": "e9857fd28bc6f26230ac7e7414f5a289e9c76f5374c7578d9a107c038ce397b4"
+    },
+    {
+      "path": "Scripts/validate_proximity_sensors.py",
+      "sha256": "1fd998b274960e4da243a7ea5819bf3429bf208efac607c49975f674e3594c62"
+    },
+    {
+      "path": "Scripts/validate_sensor_drive.py",
+      "sha256": "d30e074c7aad49c241bfe3edf11802a83bbe4053bd62f4ac157c50563cb5ff55"
+    },
+    {
+      "path": "Scripts/validate_sensor_lift.py",
+      "sha256": "f464f3190b5ed77436ebb0e7944f987b8d5906f2e166de442116bee2f496d655"
+    },
+    {
+      "path": "Scripts/verify_mecanum_geometry.py",
+      "sha256": "914ad2016be3d979c43e57ad99a9144ae9faf4efe3996f73aa86cc7c27519e50"
+    },
+    {
+      "path": "Scripts/WebDashboard.ps1",
+      "sha256": "0419387b3313f40d92ebc137796818fa409c62b0017f4e1b8d7445d460fed44d"
+    },
+    {
+      "path": "Scripts/write_mission_evidence.py",
+      "sha256": "d51884738fa645a2f9653d1a4f8cde66e3afe488f0bbde49f9ed8cd8de59ad68"
+    },
+    {
+      "path": "Source/ForkliftSim/CameraMounts.h",
+      "sha256": "137f628b14f4ace8acaf6196479466dadbe2990364b65f7127673eefa4f3cc04"
+    },
+    {
+      "path": "Source/ForkliftSim/CameraSensors.cpp",
+      "sha256": "66e636c1d718869ce4ca01e37a33bbcfe49cd151d3d5146f2630724d3b2aeb52"
+    },
+    {
+      "path": "Source/ForkliftSim/CameraSensors.h",
+      "sha256": "e7dad41fa12be70b53e848f071ed06e3f54c04e48be8fa12108a99f40f4aba64"
+    },
+    {
+      "path": "Source/ForkliftSim/CameraSensorTests.cpp",
+      "sha256": "e478c15c5e746f19ae8cf5ae66aad3fbfb127b99e46bb4c4097c1f37d04a4421"
+    },
+    {
+      "path": "Source/ForkliftSim/CameraViews.cpp",
+      "sha256": "426fb243589b703cfb9b2fc07583ad07b550621f955929d2be28292bf44c526c"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusDispatch.cpp",
+      "sha256": "5189f138ee02469f15c3cc8897650982d1d9a185c250708033da6cfb135d4a71"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusFleet.cpp",
+      "sha256": "15a3ce5840f95c8eceace0c5890d80708bf3117e4d48c395c7f843d80efe79af"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusFleet.h",
+      "sha256": "36ed33b5292909210107c5a7c6885faed59e17b33e1946f35c3b7c3185b7bfbc"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusFleetTests.cpp",
+      "sha256": "60631b03d6a5dc90a5c2b118a686d9637ba64939b0d8dc6b1ebe0e4f72d8c527"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusFleetValidation.cpp",
+      "sha256": "3c3d82505d36d5b8a885793c3064fa5a1aa89ccb722b0fce77ec26078618c1b7"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusInventory.cpp",
+      "sha256": "cec47ddd33dd977d41b750e4bc91a2297dbbb0b848d435d11e3e04697d145fa5"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusInventory.h",
+      "sha256": "0dc7d4bbf7df9f4ec70e2ff9fa122e7c3d11907a17a3d92df9b5c0d17508db36"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusOperations.cpp",
+      "sha256": "8e4a0770724186284becafa4824be5b11a875d19388297ac1a321bdfb57e1d53"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusOperations.h",
+      "sha256": "0898d272a49167599488bdcc5dbb2c3ad661b62ccdf52b791ba11790ad845a56"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusTests.cpp",
+      "sha256": "1fdfc4df40f4cc5e68f31818c74fc13b316eb3ffb8b1367c6af621763ea2439d"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusValidation.cpp",
+      "sha256": "f0ae46934c908b525c5221482ededa4ed6addc70e526521b52378f39b07b0d0f"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusVehicle.cpp",
+      "sha256": "19dc3c87aaca4280bd35ddb416db502b84a51e50b9b737ad0229623a743360b3"
+    },
+    {
+      "path": "Source/ForkliftSim/CampusWeb.cpp",
+      "sha256": "98a1810a6e697442edf0317ac58b24b7f2c89e72b4ab9661e7b3bc6dfff7c752"
+    },
+    {
+      "path": "Source/ForkliftSim/CargoContactData.h",
+      "sha256": "1234dd0c6055e57cee262e519acd4026f60ae334e70de2541932293936e60f6a"
+    },
+    {
+      "path": "Source/ForkliftSim/CargoGeometry.h",
+      "sha256": "6bf5f2ebc97a269ac789bd7d112ba89f6edadebcac48bb70ea116e9cffc03eb2"
+    },
+    {
+      "path": "Source/ForkliftSim/CargoLab.cpp",
+      "sha256": "0ee3159bd684e46b287121b0a2a12389bad3ea8e208ed1b343a4e585525eaea7"
+    },
+    {
+      "path": "Source/ForkliftSim/ChainConstitutive.h",
+      "sha256": "f1a88e2b779495597445b250dae12721696084eba551e687c41adaa6375405be"
+    },
+    {
+      "path": "Source/ForkliftSim/ChassisActor.cpp",
+      "sha256": "becc20372ee784cad0bd79f7388318bbd20b72df526948b1784d3a096c835f83"
+    },
+    {
+      "path": "Source/ForkliftSim/ChassisActor.h",
+      "sha256": "95bc6527bb6d197b0bf184708d2b67d324dd354483b4fd532d717a8964210c5a"
+    },
+    {
+      "path": "Source/ForkliftSim/ComponentDetail.cpp",
+      "sha256": "06da55fe00820615d0ece52a6482779b634ebc20111af0479431f7bfa06f6527"
+    },
+    {
+      "path": "Source/ForkliftSim/ComponentDetail.h",
+      "sha256": "d330e7cfd6805501dd946ad68023c421d9a1b22f19f7398e106b368853295643"
+    },
+    {
+      "path": "Source/ForkliftSim/ComponentLab.cpp",
+      "sha256": "99df544bde16a1f35f8b0720bcd4e0161b5be4cf03eb9d247765563c7d45114f"
+    },
+    {
+      "path": "Source/ForkliftSim/ComponentTests.cpp",
+      "sha256": "fdf40c3f39e8dbdc2abfb492aac423603c65626beeed607198010e723bdfef3a"
+    },
+    {
+      "path": "Source/ForkliftSim/ContactEnergyAudit.cpp",
+      "sha256": "266ca93b59fa7f66f51753d10860edb6162585dbb507b8ad42e9cc22f094af07"
+    },
+    {
+      "path": "Source/ForkliftSim/ContactLoadSampler.cpp",
+      "sha256": "008b5301282171be1974d2c3bd764ffbb1e5d910464ca75e5aef92451b5fd01b"
+    },
+    {
+      "path": "Source/ForkliftSim/ContactLoadSampler.h",
+      "sha256": "5383c858a2f6e1cb17d91ed626aaae4a1e85b5d41fa79aa31de370bfeb2f2654"
+    },
+    {
+      "path": "Source/ForkliftSim/DrivetrainLab.cpp",
+      "sha256": "501916bd816ca5cca8d3c4c2519820d04843bcd3e4b2ae8b79c95adb2f86777a"
+    },
+    {
+      "path": "Source/ForkliftSim/DrivetrainModel.h",
+      "sha256": "79ab032e14e561818f4ce4e30e79b8f631025e444490fe8e729d394631e7b6f0"
+    },
+    {
+      "path": "Source/ForkliftSim/DrivetrainSettings.cpp",
+      "sha256": "f01c6c259e0630fa33645394ad6e59a91c1274b4a127fba4161c677d642a13f4"
+    },
+    {
+      "path": "Source/ForkliftSim/DrivetrainTests.cpp",
+      "sha256": "862fbb6b80c33165e31c246378ddc205539efebb043874e8ba45ec38e93dd3ef"
+    },
+    {
+      "path": "Source/ForkliftSim/DynamicsSensors.cpp",
+      "sha256": "a142ddf4bd90fa286703cc2e114330b1be8811a920d786c71a8f1c16606500b0"
+    },
+    {
+      "path": "Source/ForkliftSim/DynamicsSensors.h",
+      "sha256": "61e8dabfae891c4ec74e6c03dab707eec99576a447704e9fa7b7df942ea6e96b"
+    },
+    {
+      "path": "Source/ForkliftSim/DynamicsSensorTests.cpp",
+      "sha256": "31f7d621ac21ffd53c201db83a2c3ac8d4be215451944a322d1eb62758e890c5"
+    },
+    {
+      "path": "Source/ForkliftSim/EnergyAudit.cpp",
+      "sha256": "d052d0f9ead5f8cc49640b7b9f85faa91f2081a63cb3720bbff44e8f7ff18364"
+    },
+    {
+      "path": "Source/ForkliftSim/ForkActor.cpp",
+      "sha256": "9400cd458b932fec4530f3f5d62e57da021d8e33252c7ef7183eee1c811bfc92"
+    },
+    {
+      "path": "Source/ForkliftSim/ForkActor.h",
+      "sha256": "45a1630b5a053a2cd6083a6e2f1a426f0f206be2edfd48b067878e9b9cfc1d30"
+    },
+    {
+      "path": "Source/ForkliftSim/ForkliftLabGameMode.cpp",
+      "sha256": "ef0a96342fc32bae965930add3cfbc8ad7db0f04905e2bbf6679838ff74e9c7f"
+    },
+    {
+      "path": "Source/ForkliftSim/ForkliftLabGameMode.h",
+      "sha256": "59475bd4625b834c6e1d0c6dde3219317744bb9d82fe72a0072e823677a6327e"
+    },
+    {
+      "path": "Source/ForkliftSim/ForkliftSim.Build.cs",
+      "sha256": "9df61885bda72e172e5af18cb085f254504613292f77a528656ada363ea35dc9"
+    },
+    {
+      "path": "Source/ForkliftSim/ForkliftSim.cpp",
+      "sha256": "d5c403c86ef482ea16887978c7df9f08d5e572c9174ef47ab6221fe068ff76f5"
+    },
+    {
+      "path": "Source/ForkliftSim/HandlingControl.cpp",
+      "sha256": "9c30f166097d45e9db191d7f83712dc7dfd940588bed433c768495fe4d2c01cd"
+    },
+    {
+      "path": "Source/ForkliftSim/HandlingControl.h",
+      "sha256": "3d14f39ace955bb81e1bb9d439de0f4dac9550979982125d1931fff79a489790"
+    },
+    {
+      "path": "Source/ForkliftSim/HandlingLab.cpp",
+      "sha256": "2294db049c57cb7a659f5c9bbe0cf8a72606128dbe2e5561326932a6c25a21d8"
+    },
+    {
+      "path": "Source/ForkliftSim/HandlingModel.cpp",
+      "sha256": "8d2e81fe0c1db498966528ec6effa7cb3c2f15783074e8e71ec8f640adc295c7"
+    },
+    {
+      "path": "Source/ForkliftSim/HandlingTests.cpp",
+      "sha256": "b8f4df16e278bb2aa5eacfe0fe566b26499b1769ccb61ea53d0add5698a4271b"
+    },
+    {
+      "path": "Source/ForkliftSim/HydraulicCallback.cpp",
+      "sha256": "20983190174db62663054f8bd5c597c827940435c83b0c6fd5013d7fa1afe971"
+    },
+    {
+      "path": "Source/ForkliftSim/HydraulicCallback.h",
+      "sha256": "bdbf08657db23d454777713fd031504ff46260dbdcc2ee41c6b80d82b4768340"
+    },
+    {
+      "path": "Source/ForkliftSim/HydraulicDetail.cpp",
+      "sha256": "f2b17915bb6979ac159cedfd0d4b73891b3f9aeec5592ca9818ae37561bbc830"
+    },
+    {
+      "path": "Source/ForkliftSim/HydraulicLab.cpp",
+      "sha256": "d4d51d741566ed491942e4a9dc16849bbd6fb1aedf09ee54743cb7ee0b064211"
+    },
+    {
+      "path": "Source/ForkliftSim/HydraulicLift.cpp",
+      "sha256": "74d6f29cc7244a2766a21dc6e2be194f55e68fbcfbe0d75ccc3b3922f88156af"
+    },
+    {
+      "path": "Source/ForkliftSim/HydraulicLift.h",
+      "sha256": "45b5883ec332bcc7700b32a703b0b32017fafaf334cc18e4e903c04d66edb1fa"
+    },
+    {
+      "path": "Source/ForkliftSim/HydraulicTests.cpp",
+      "sha256": "55e19a4d5f0c877815b1eaff8ea0aa6500f830ec0bf02f445f4a6b4ed41cd3eb"
+    },
+    {
+      "path": "Source/ForkliftSim/InstancePhysicsRays.h",
+      "sha256": "edfddaa4ac054a13f8c503f4a7dfc7e345a04e6c1d643f2d254b7be987ce782e"
+    },
+    {
+      "path": "Source/ForkliftSim/JointSensors.cpp",
+      "sha256": "149105e51b7c9008470244b19e364368eb8446f3d6397979828b1ae750d144ce"
+    },
+    {
+      "path": "Source/ForkliftSim/JointSensors.h",
+      "sha256": "838e4ed04107dda8cef33570a0944502c1d6ac976dcf8fc82d7d6ccb96b5bcc9"
+    },
+    {
+      "path": "Source/ForkliftSim/JointSensorSampling.cpp",
+      "sha256": "4c7f3a3fcf961ac65bc59e764a79153c29adce69e93b8b279328e6c92a984b41"
+    },
+    {
+      "path": "Source/ForkliftSim/JointSensorTests.cpp",
+      "sha256": "31ee91011eaf291d7dbb06f47433e7b4a8d5f47e1681c626f709c65707316626"
+    },
+    {
+      "path": "Source/ForkliftSim/LidarSafety.cpp",
+      "sha256": "4d8dbd50f133fbcca987aca8edd5ceb76cd42f6ca4a5bd536fb9dc32ffd1ad51"
+    },
+    {
+      "path": "Source/ForkliftSim/LidarSafety.h",
+      "sha256": "94fe1f9c34def11b39169287c6846e306e4d2845be6dda42cc0587c82c98c371"
+    },
+    {
+      "path": "Source/ForkliftSim/LidarSafetySampling.cpp",
+      "sha256": "2b25a9485547fe483b717137b6c8b813c6896e97e608071f3a80a4b5066ef211"
+    },
+    {
+      "path": "Source/ForkliftSim/LidarSafetyTests.cpp",
+      "sha256": "74d0bd9071f76c8d66ba5632b2eb531300c049499ec556112a080477777d9781"
+    },
+    {
+      "path": "Source/ForkliftSim/LiftBench.cpp",
+      "sha256": "a9c6d92f185281e08fbb321e3dabb696852d9c72dcbce3909dcdb4efbd0fcbdd"
+    },
+    {
+      "path": "Source/ForkliftSim/LiftBench.h",
+      "sha256": "0173bd86c2f1cbdc9fbb55c98d316c2d3ba36ba6e8df67528e9529384c0ecc31"
+    },
+    {
+      "path": "Source/ForkliftSim/LiftModel.cpp",
+      "sha256": "99cb22fd7ef0f66e646760af00e79669ceea041b6e1f820c15999750f3930537"
+    },
+    {
+      "path": "Source/ForkliftSim/LiftModel.h",
+      "sha256": "1a59b2412f34ee445f1a03d1ab10cb525e1ab8df45c4bfef7141deb56e228a76"
+    },
+    {
+      "path": "Source/ForkliftSim/LiftModelTests.cpp",
+      "sha256": "7066b6aa29d79e2e673ddd15e55e01b7445dae963b9b60913edc4e7f11bbeb42"
+    },
+    {
+      "path": "Source/ForkliftSim/MecanumLab.cpp",
+      "sha256": "9117d6467b503c13b717c6cd0fb2020e3d445352baa1b35b010e32ee9b7486be"
+    },
+    {
+      "path": "Source/ForkliftSim/MecanumModel.cpp",
+      "sha256": "6d08be4272e271f785da3f54f554360a2f70268f43179d9b165dddc8ccb88f8a"
+    },
+    {
+      "path": "Source/ForkliftSim/MecanumModel.h",
+      "sha256": "5695b0f31bf95d51e99963ec038812c320ed84f0cedfb7d60d4ec49df3913c14"
+    },
+    {
+      "path": "Source/ForkliftSim/MecanumTests.cpp",
+      "sha256": "f80d0896d068cdae5ffa84a379143e4dbbb0d2218f22ecceee405b374a1c109c"
+    },
+    {
+      "path": "Source/ForkliftSim/MissionControl.cpp",
+      "sha256": "33d4556b574665bc1f85fbf6a6ae9be0baafb06fe5fe184e1732978c56f3cde2"
+    },
+    {
+      "path": "Source/ForkliftSim/MissionLab.cpp",
+      "sha256": "8ed6429ace0eda4a180c04b7a6c529daf35e8bd3695091d643aa7d4d649eff43"
+    },
+    {
+      "path": "Source/ForkliftSim/MissionModel.cpp",
+      "sha256": "7e261492b702b4c9b07c25510bdd5d7a8460d9bb286a28f5de359d792b6ca7e9"
+    },
+    {
+      "path": "Source/ForkliftSim/MissionNavigation.h",
+      "sha256": "c9175f3e941cee29a6e56adc1896217978f7ed8233d5400d8daf3f2bbbf4eb1f"
+    },
+    {
+      "path": "Source/ForkliftSim/MissionPlanner.cpp",
+      "sha256": "458744abdee19ae8cbb8159b3ad0dbb5a3287edb9995d56b2eacdc33ba538f76"
+    },
+    {
+      "path": "Source/ForkliftSim/MissionTests.cpp",
+      "sha256": "f3243db38300f8cefa6fb27f8ebcbdd630ecf3d24ac73f43969295c03fa85a62"
+    },
+    {
+      "path": "Source/ForkliftSim/Modeling.cpp",
+      "sha256": "f2cb936aff56bc876189a599a9d3c00ecbe25d4df1cf86ddb31414446036557e"
+    },
+    {
+      "path": "Source/ForkliftSim/Modeling.h",
+      "sha256": "15abf96755d33b1da676e66043290a8430e9ea1dbcfc7b2b149dec81ae354fd2"
+    },
+    {
+      "path": "Source/ForkliftSim/NavigationLandmarks.cpp",
+      "sha256": "31e02946e066fdb0d396dee99b3b844d54165ac14b74cdcf37765b43d03c3b9a"
+    },
+    {
+      "path": "Source/ForkliftSim/NavigationLandmarks.h",
+      "sha256": "5b89e34cbc093e0a9eecea71c399f5058c1a2a201877a8fbfc6cf32a79968b67"
+    },
+    {
+      "path": "Source/ForkliftSim/PalletLoadActor.cpp",
+      "sha256": "59fbb30a79cae588b573190fefd2e924a2a6f2523c05187c30ec5f43cc9ae32e"
+    },
+    {
+      "path": "Source/ForkliftSim/PalletLoadActor.h",
+      "sha256": "d260044f7bd637c5d7affdcbad95388e60426d65630423e879693a62fa5075b9"
+    },
+    {
+      "path": "Source/ForkliftSim/PalletPerception.cpp",
+      "sha256": "27fb1b9db868120f5c98165ee9eb1abc81b741d31963d68d46ba51f67777ef09"
+    },
+    {
+      "path": "Source/ForkliftSim/PalletPerception.h",
+      "sha256": "f47d9742e02891b965f0803765ad1c1890bc8a5f1436d12be9d98383fdb22973"
+    },
+    {
+      "path": "Source/ForkliftSim/PalletPerceptionLab.cpp",
+      "sha256": "377234abdbce02bcd813e09c4d7b6fd61657917ca160862632af2c5ebec15b56"
+    },
+    {
+      "path": "Source/ForkliftSim/PalletPerceptionTests.cpp",
+      "sha256": "b0d96188a5809e7abbced681b2561b37692bd9ba3950535f88455f2fe33ad9ff"
+    },
+    {
+      "path": "Source/ForkliftSim/PalletVision.cpp",
+      "sha256": "ca7a3b5ce32b4966372bbc4388d42f9c55150785b1fd5e9f3821f1393efc88f7"
+    },
+    {
+      "path": "Source/ForkliftSim/PayloadLab.cpp",
+      "sha256": "b130177210be6c210fd4c81782bfd601bf429f07abd59abd70b11d014fb4bb7f"
+    },
+    {
+      "path": "Source/ForkliftSim/PayloadTests.cpp",
+      "sha256": "89aa46e875c80c01c00af2f8b9b7130e5ee7f4270d719bfdc4f0c82b81ace342"
+    },
+    {
+      "path": "Source/ForkliftSim/PerformanceReport.cpp",
+      "sha256": "43dbf87ac25e32eaaf2b3e3de0771711985c03c4510db49f19f73aad6ab12a5a"
+    },
+    {
+      "path": "Source/ForkliftSim/PhysicsReferenceTests.cpp",
+      "sha256": "4729ad8737bddd7397bfb188d63df51da919f944b31b337440998ef72dfa864a"
+    },
+    {
+      "path": "Source/ForkliftSim/PlanarLocalization.cpp",
+      "sha256": "31bdd9f0eefe15e36639bcf136a65e74f3f2855b9657739f643f77b74547403d"
+    },
+    {
+      "path": "Source/ForkliftSim/ProximitySampling.cpp",
+      "sha256": "1a15418c56cc00712ef69fae216704015addabaee58448c9b36ce8d6fbc3dc15"
+    },
+    {
+      "path": "Source/ForkliftSim/ProximitySensors.cpp",
+      "sha256": "753deb06f07ffe917d176f1b209f7679f5583a37821585a2fa7bbcedda206d98"
+    },
+    {
+      "path": "Source/ForkliftSim/ProximitySensors.h",
+      "sha256": "fcf44aba1ecb4348fbfff5861fd4a4b0ece6746f3654e76e7d90af0fa4611263"
+    },
+    {
+      "path": "Source/ForkliftSim/ProximitySensorTests.cpp",
+      "sha256": "9438daf88eabab7e2ad3d85c296e86cc9ad93833bb3263065394006ae0ae2a29"
+    },
+    {
+      "path": "Source/ForkliftSim/ProximityValidation.cpp",
+      "sha256": "86b62bb76e0fbea2fb443dad79fab39b68a21a84a5618395df10add59f545169"
+    },
+    {
+      "path": "Source/ForkliftSim/RackHandling.cpp",
+      "sha256": "7776ce1f375563788922a8186d787ec930c642ec02503d716ff1255e565c736a"
+    },
+    {
+      "path": "Source/ForkliftSim/RackHandling.h",
+      "sha256": "f0f2fc74b5ed5fa0746f5ba75e014dae670c6922a8aae7fd625d8da5643ccf46"
+    },
+    {
+      "path": "Source/ForkliftSim/ReducedMecanum.cpp",
+      "sha256": "30ded706055b4cbb39ba4fcc30489f2ec58414009d2166b75c61a45dc27bf41b"
+    },
+    {
+      "path": "Source/ForkliftSim/ReducedMecanum.h",
+      "sha256": "34634c93affe4d694da0fc37d27b8ea120612a1147f45e52b80b4d341398312b"
+    },
+    {
+      "path": "Source/ForkliftSim/RigidSpin.h",
+      "sha256": "9d3234df33cfa719e12da0d5d85ea4f0580f2b29ffa378fbae73a0e4fede7c0b"
+    },
+    {
+      "path": "Source/ForkliftSim/RollingReference.cpp",
+      "sha256": "cf6b83c9203ca3f1d840243547f5285d035176aa8098a1c9b899a995f0001c79"
+    },
+    {
+      "path": "Source/ForkliftSim/RollingReference.h",
+      "sha256": "635b24c94e0412d79962174adc79b220a95acfef7342a765797a6f2cb6db5794"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorDrive.h",
+      "sha256": "1f5a684f845b2f893e1bb5d5095ca9a2f53cf05c5813a5570a35995bb21fde27"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorDriveIntegration.cpp",
+      "sha256": "c260d04fefe9fc7ceeb822494b2eaf2b3c409f1291fc909ac5de55787405da9e"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorDriveLab.cpp",
+      "sha256": "e6f18ba084d78e9510b377e29025418ba94bb782ad293564a8db7130fd8a215d"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorDriveModel.cpp",
+      "sha256": "89bc239bdbb29cc5e7ce341ca272f7e9770553567c10b1a3cc5768ef1dd51321"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorDriveTests.cpp",
+      "sha256": "e11e88c8d3cd5faecd06174008d38e7774dcb31804bd7e8a70062d2e0ae8b596"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorLiftControl.cpp",
+      "sha256": "4a5d6190707baedd26cc05c5af845335c272f4bea568142d436de245b9ffddce"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorLiftControl.h",
+      "sha256": "c4b29000dcb896799be4d82555399ccaf8c4fb7ed84ada4daa721b34d8b34843"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorLiftIntegration.cpp",
+      "sha256": "13a7bd86c4a5868bef271b1515e3f434b9a22ee3386b25a8f048c19494de3351"
+    },
+    {
+      "path": "Source/ForkliftSim/SensorLiftTests.cpp",
+      "sha256": "ee02a4fdb2ab1721a6d6f9773e236592416add8381a9be512362b7385a73718d"
+    },
+    {
+      "path": "Source/ForkliftSim/StabilityLab.cpp",
+      "sha256": "c34eed5fb0a5f64538b48e1b7da86e8589bba47338dbcf11f0cbfa4113f571ed"
+    },
+    {
+      "path": "Source/ForkliftSim/StabilityLab.h",
+      "sha256": "48e54107c8e1576c2449b2fb1495d529628979e0142e4c353661cce9d053d188"
+    },
+    {
+      "path": "Source/ForkliftSim/SwerveKinematics.h",
+      "sha256": "55b59c6b0bc0e1ec939479b4cc4ac8164c16bc0db850c1be31b586770cc228f3"
+    },
+    {
+      "path": "Source/ForkliftSim/SwerveTests.cpp",
+      "sha256": "08afd51376197abb3b1e3f3e100b6e0e8fc2593b56622968610a2c773e266a77"
+    },
+    {
+      "path": "Source/ForkliftSim/TerrainCourse.cpp",
+      "sha256": "682dab2e34df2bf3381172d2bf5aad4506a13a219ee9be1932bf377e7d4e3357"
+    },
+    {
+      "path": "Source/ForkliftSim/TerrainCourse.h",
+      "sha256": "d99064b37818a474f62be375bb7e31b866e93975a3680d729a863173fcd37ebb"
+    },
+    {
+      "path": "Source/ForkliftSim/TreadModel.cpp",
+      "sha256": "d755bb2a1136753fa986a2b47e9a601d6118a5f113ddfa98549be60308232cd0"
+    },
+    {
+      "path": "Source/ForkliftSim/TreadModel.h",
+      "sha256": "e93c8c21a6fdee0fc9e282e403dcc751be839cc34e1a190f6038c2896fe428a9"
+    },
+    {
+      "path": "Source/ForkliftSim/TreadReference.cpp",
+      "sha256": "7baf50066304276325c8df5053210b77f091718784c42eadecea1982c18fc40e"
+    },
+    {
+      "path": "Source/ForkliftSim/TreadReference.h",
+      "sha256": "c8b2ec4041fc771673b537b35895ac42de56976e309571d72b98eb7eae662ba4"
+    },
+    {
+      "path": "Source/ForkliftSim/TreadTests.cpp",
+      "sha256": "be162d014b2b9c08810fc09b3337b482cf251aeb9c7ea899f742d256726ed8fb"
+    },
+    {
+      "path": "Source/ForkliftSim/TyreCompliance.h",
+      "sha256": "c08a41ecc3bc315ef508db3e46193accb1f32db4fa37cdebca21e81154822152"
+    },
+    {
+      "path": "Source/ForkliftSim/TyreLab.cpp",
+      "sha256": "68bce1359697ea4e8040316ca4b95696b9f181008cf70bb0f0724470cd3f4cc4"
+    },
+    {
+      "path": "Source/ForkliftSim/TyreSettings.cpp",
+      "sha256": "7b8efe9d562ee4acb7bb22c9444f04e42f5143f5a215f3b481d80daa04a61271"
+    },
+    {
+      "path": "Source/ForkliftSim/TyreTests.cpp",
+      "sha256": "b8af96433d7fd9bcb406dcca07cf6a40b7e38ec691d9eefbc85ef8049c35a1a0"
+    },
+    {
+      "path": "Source/ForkliftSim/ValidationLab.cpp",
+      "sha256": "b1b265b45c0e71f81562a87b9bb29c9cd3a506c54e0fb2e60cd2aa72349e0ed5"
+    },
+    {
+      "path": "Source/ForkliftSim/ValidationMath.h",
+      "sha256": "7a21953419de3f40d9d9c5d49bd2800d56a229b23b44ee2ad72986ad15fdb648"
+    },
+    {
+      "path": "Source/ForkliftSim/Vehicle3DHelpers.h",
+      "sha256": "f389caefdf80ec26c962adfb4b24718d81e43c01bdfc803d6fb0d5232113318d"
+    },
+    {
+      "path": "Source/ForkliftSim/Vehicle3DSettings.cpp",
+      "sha256": "73dbe76d7bb34e19659206b609b4d59a85cd8052bfe9ca21df2ed832a7a294c3"
+    },
+    {
+      "path": "Source/ForkliftSim/Vehicle3DSettings.h",
+      "sha256": "3b96d46e9c5094af87261f1f90ff6182fd669a7c2b3b0b7aa4b94729e876730d"
+    },
+    {
+      "path": "Source/ForkliftSim/VehicleGuardLab.cpp",
+      "sha256": "5f0dc7d1345ec918626a644aa1e5e6a7bd75aa2101a7d1195c1f5d6262a7d135"
+    },
+    {
+      "path": "Source/ForkliftSim/WarehouseCampus.cpp",
+      "sha256": "f4b2df492bd9e2b5b3bdc94fee378fd4b8757e515e738729f3edb996f7769528"
+    },
+    {
+      "path": "Source/ForkliftSim/WarehouseCampus.h",
+      "sha256": "f559492579d01a156e24778895b33b4bf92461842262c6b4e1fff2115bf8dc6a"
+    },
+    {
+      "path": "Source/ForkliftSim/WebTelemetry.cpp",
+      "sha256": "1c671168dabdc29b98c1996c3c4fd28e38122e0257f946fc915ac41919ff92bc"
+    },
+    {
+      "path": "Source/ForkliftSim/WebTelemetry.h",
+      "sha256": "3e3f57b424919c43e2a62fb66c59ea2ce1814e86f6abfe014b15293588551faf"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelActor.cpp",
+      "sha256": "fb9c7f57a3878a4cb04e8fedb8c4e6a81cdfa9ec96a287193724288aa6938862"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelActor.h",
+      "sha256": "d89d7022b340affaf99e7b4122f61e8b69b16fabe4f775d1f55170a9d35af9ae"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelContactData.h",
+      "sha256": "f24c699b4cc1bd22de360e3bbb8c7354041ca5956818ec45ba94ae7fb036d5ea"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelContactGeometry.h",
+      "sha256": "c9d6e0bb21031e378a118255b8a86d4fcbb6293df5c8ec1ae643f4d617fa41ab"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelContactTests.cpp",
+      "sha256": "e0461f6d2f837255e1257e674e20a59c670a779a7ed065e17f9463d5a85917c9"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelLab.cpp",
+      "sha256": "ec907f4a80a81afb5c1f830943654a650c5092ca250e9241f70870cd3fc85efc"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelLab.h",
+      "sha256": "ce77b85bd904f62221c16f526ded18dcfc0b2b86702074fef0b2907a871cb441"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelModel.cpp",
+      "sha256": "532827e09e1d7c4d12d3e8810bf71d409cbd59b7aef9597c32e438743dbafa3e"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelModel.h",
+      "sha256": "19cf875d993fca07b8e5ba6d483db8d284e2825b3157175ff36886da9f5547ca"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelModelTests.cpp",
+      "sha256": "a5abdbe83c842c2ef85e4fb8db782d20dbf4ca41c07e85345137c662326ff0c0"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelResistance.h",
+      "sha256": "73488ee509ca39e115c62f5160aac7f693fc0212b0a3e1f9cf4c30847b2430b3"
+    },
+    {
+      "path": "Source/ForkliftSim/WheelResistanceTests.cpp",
+      "sha256": "7e20c1df02b340dd6170fe69fe5b8d3657a36a2d341e1a2a1de0cebeed5f6d46"
+    },
+    {
+      "path": "Source/ForkliftSim.Target.cs",
+      "sha256": "a3171531f9c491ff91c08555be82d88387b76244fb732c45398e6cf6c0d9b866"
+    },
+    {
+      "path": "Source/ForkliftSimEditor.Target.cs",
+      "sha256": "2ad2d90da44e1d50117edaa5dce11f94401424d52de20bf5378ca9ffc9c15b86"
+    },
+    {
+      "path": "Start.bat",
+      "sha256": "e7064f581a6906d8ee45d689b9c04697e717e378b1a39c83294c9e869fe2f1c2"
+    },
+    {
+      "path": "Web/PhysicsLab/bridge-test.mjs",
+      "sha256": "ddf9917d678207103dfca4941180dea95123f14a6affe32d87f1fd95e80668ea"
+    },
+    {
+      "path": "Web/PhysicsLab/bridge.mjs",
+      "sha256": "60d5cd7419f5c0e95fa0538c4c12f782a8a32d05a88bf3b3f84f83e98e3c13a6"
+    },
+    {
+      "path": "Web/PhysicsLab/build.mjs",
+      "sha256": "87b08e9be74bb8a5abb180f24e881e286700501346ae505837829515779c17e5"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/app.mjs",
+      "sha256": "12cce0f91754949cc7e2dc390b09465ea7466f03b4586fa6b37b0e2a4b4eca1b"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/data.mjs",
+      "sha256": "494e559cfedc7a7eb27a1143e5177f84598cf95c638bf7088dd1bdbce2f8d559"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/drive-estimator.mjs",
+      "sha256": "19078b425cb71c1964bd457a8e402451a0069d78a53dbd2f9cf5a481f703fc39"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/dynamics-sensors.mjs",
+      "sha256": "e867dae7e7c8a0593cafd4a9d9a771d1a378310b6cc60052066ad82920c7d27a"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/fleet.mjs",
+      "sha256": "0c41da4e84a4651751e9b040774a2f83896ff396b5759dde1ddf6d2f3c73d5c4"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/handling-control.mjs",
+      "sha256": "c76c2f293860a5eff56ce9c3feb77b51f1226cbd4e424acacacc6c746c106b5d"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/index.html",
+      "sha256": "d5d092070dd11e1cd4f2da5496350365d03b1c03967941b2b1598f5b8e999500"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/joint-sensors.mjs",
+      "sha256": "7df102027bf6bb84ba54557d01a837aeccf1975112daea4c64e6aa37902dd82b"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/lidar-safety.mjs",
+      "sha256": "3bb9c3182b4cdbb6d000df91e423bfc7dfafc4eef20c62fb6a0b98ba5f5df7ed"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/lift-control.mjs",
+      "sha256": "340353cc0e682963a72229c8927f8d2c6b2cc6114a33583e65966f400973f975"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/live-state.mjs",
+      "sha256": "26b6f54335081fa4d741269e7c9ab10466b706450cbb52da7dcc74e23aeade4f"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/live.html",
+      "sha256": "d5d092070dd11e1cd4f2da5496350365d03b1c03967941b2b1598f5b8e999500"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/live.mjs",
+      "sha256": "5d3af4fecce198c26342a02da46d86f9da3ead6ce68499ade7e82c797f766443"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/mission.mjs",
+      "sha256": "3adf283ff3e672de9d3b25e93a7286ba746ceac16f8a96c5b7a721cca737b05f"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/offline.html",
+      "sha256": "41529d28a3a2e78983410092135f9a70e2137d2913a57d30e2da1c4b609af8f9"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/pallet-perception.mjs",
+      "sha256": "d47c6843374937d6b093cc4f0b01e45491f8c85d2e107c33f1d198f37919c794"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/physics.mjs",
+      "sha256": "810ad7a191429bac55d90959f1de9090a2313aeb0a0e03ecb2624b72531eea3b"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/proximity-sensors.mjs",
+      "sha256": "23124addfe2618830b2a38a9dd2f994fa0d459f383c1f89bc0c777615b8936af"
+    },
+    {
+      "path": "Web/PhysicsLab/dist/styles.css",
+      "sha256": "2a63746621f28fe18b1c41e5553d237fd360efdf15d3c56f2c08ab3d6a77fb5a"
+    },
+    {
+      "path": "Web/PhysicsLab/drive-estimator-test.mjs",
+      "sha256": "49185dc6d4a091cce2cf1224a287ad39be5927e23fbd51cd02b968d233758d96"
+    },
+    {
+      "path": "Web/PhysicsLab/dynamics-sensors-test.mjs",
+      "sha256": "57d976804c70b655bd00dde887409fd72933416d9d853a5eaa4e87b505e79148"
+    },
+    {
+      "path": "Web/PhysicsLab/fleet-test.mjs",
+      "sha256": "a8f105548b6d22ddff0531a08ec3f222d78a809cc35454c1113ddef76babce4c"
+    },
+    {
+      "path": "Web/PhysicsLab/handling-control-test.mjs",
+      "sha256": "d7e976662d94a8adc8c2f9b3d8e2ae9fc0ae490d2282b3f48f28416fbf1f73af"
+    },
+    {
+      "path": "Web/PhysicsLab/joint-sensors-test.mjs",
+      "sha256": "e39a25015774cdd634e0550c2f30c12970c66f39dcab72d189689b3bd4665253"
+    },
+    {
+      "path": "Web/PhysicsLab/lidar-safety-test.mjs",
+      "sha256": "a3790d78096cbdf2d69b58b47fe2741a3aa1d8fc3c0aa94e6ee8db7a62141bb8"
+    },
+    {
+      "path": "Web/PhysicsLab/lift-control-test.mjs",
+      "sha256": "8aaefa92c0e29ba4a1aa0ec0cdbdca0adda0f84cb5e59f35b49ec3ae35877cb3"
+    },
+    {
+      "path": "Web/PhysicsLab/live-state-test.mjs",
+      "sha256": "9df9b55f27ab7a567b8e09cc89ac9422158a96fb453e5d32e9f5d0c5356231f2"
+    },
+    {
+      "path": "Web/PhysicsLab/mission-test.mjs",
+      "sha256": "735e9b9f50e2a1e8a5d29a69d4ac9ead50847ad91c0de3cf33dfa37e92b6adf7"
+    },
+    {
+      "path": "Web/PhysicsLab/offline-notice.html",
+      "sha256": "41529d28a3a2e78983410092135f9a70e2137d2913a57d30e2da1c4b609af8f9"
+    },
+    {
+      "path": "Web/PhysicsLab/pallet-perception-test.mjs",
+      "sha256": "606545dceecd123681577c447e8b761c55491f2f684da42bdd5eb7b8d3555c69"
+    },
+    {
+      "path": "Web/PhysicsLab/proximity-sensors-test.mjs",
+      "sha256": "66d6f254773e4a83680d683e589d6c6d36cd1590c5483ed982b0bcac2e100456"
+    },
+    {
+      "path": "Web/PhysicsLab/server.mjs",
+      "sha256": "6e2ba789364bb440259d26ddba7ab09ec82e46a9ce98fd84957872ac6b36bc7f"
+    },
+    {
+      "path": "Web/PhysicsLab/test.mjs",
+      "sha256": "7aafad15cbed0ffb753b60fc394fe5944aedb6b00289f42a87a1cc142b998c35"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-components.mjs",
+      "sha256": "197d49c9c62b64ff387a6f2dba0a73a56092de91e29847798e0c7bd0b27e2e43"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-conservation.mjs",
+      "sha256": "7e06b462ca2b57645ebc9256fdd229c9e373f26d4ca00f89cae73918b6124558"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-current-physics.mjs",
+      "sha256": "7197abe85981ca74804b99209fa5576f40f8bf18b63fd1139a49ab3cfef12af0"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-dynamics-sensors-live.mjs",
+      "sha256": "1ea08e3fb1861d868d1fc4ed20b998dbd3cd68bc9a58a9dcb14fefafdb94b662"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-energy.mjs",
+      "sha256": "9398981eb1c89fd4f4dc348495fc44df02183b9ec11c3577b79f890c4a03f870"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-fleet-live.mjs",
+      "sha256": "26e8269ed5a17940bfe7487a0a8938f0778b4ea8a89119c5348169bc9cbf4f9f"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-handling-live.mjs",
+      "sha256": "ece7d61b8d25d79ce0a064f909210c2e3683be117ada3c7baf6025deb7fb1646"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-joint-sensors-live.mjs",
+      "sha256": "47d4d27945eaef6f145d23731db6734d0798f087b38769b2eeb249e0893ef0af"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-lidar-safety-live.mjs",
+      "sha256": "503dbc8b14ccc7ffe4c45154893b121de88a8f3652af73685e774f25845a476f"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-mecanum.mjs",
+      "sha256": "34b5ff11377882c4a6689b80e74380285dbebf14ccc97e38aac537a67c54d4d0"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-mission-live.mjs",
+      "sha256": "acd5d9dc80fea9be4a84ccab2323b37fc426e122b35d74ae9a4d2bad562854d2"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-pallet-perception-live.mjs",
+      "sha256": "01fe7535433cb24406b4dee14fa2c20aaf81c4da653f8d6b9b7e2144bc7e3af9"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-proximity-sensors-live.mjs",
+      "sha256": "5c1e9d61f9e5b11b6e0c0463a2dac01f3cdf8aaef41f5808d597f7912c78be6d"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-sensor-drive-live.mjs",
+      "sha256": "665816cd5d7336c60e8c923c71267f966203513cbfaa1fbd032e68f834b53ac1"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-sensor-lift-live.mjs",
+      "sha256": "925031adb2764aa09d8bf8d45943f71049726a2ea3a837d782b596971fc607c4"
+    },
+    {
+      "path": "Web/PhysicsLab/verify-unreal.mjs",
+      "sha256": "57641d306cec67958288f06a376647dfd1b297ea188a3f35ec8bbd77a6dbfddb"
+    },
+    {
+      "path": "Website.bat",
+      "sha256": "8c5924868c3138e1e8776dfbb8664cd1b7a09e01ef4a87430a553c822605d35c"
+    }
+  ],
+  "launcher_actual_startup": {
+    "dashboard": {
+      "service": "forkliftsim-live-bridge",
+      "schema": 1,
+      "bridge_version": 2,
+      "capabilities": [
+        "campus_fleet_v1"
+      ],
+      "project_root": "C:\\Users\\user\\Desktop\\공부\\ForkliftSim",
+      "pid": 2216,
+      "status": "waiting",
+      "age_ms": null,
+      "world_id": null,
+      "last_sequence": null
+    },
+    "responding": true,
+    "startup_generic_automation_condition_messages": 3,
+    "editor_startup_finished": true,
+    "map_loaded": true,
+    "launcher": "Start.bat",
+    "editor_pid": 21688,
+    "command_line": "\"C:\\Program Files\\Epic Games\\UE_5.6\\Engine\\Binaries\\Win64\\UnrealEditor.exe\" \"C:\\Users\\user\\Desktop\\공부\\ForkliftSim\\ForkliftSim.uproject\" /Game/Maps/WarehouseCampus -WarehouseLab -ReducedMecanum -ReducedPhysicsHz=480 -CameraViews -MecanumPositionIterations=16 -MecanumVelocityIterations=16 -dx11 -ExecCmds=\"r.AntiAliasingMethod 1,r.ScreenPercentage 75,r.Editor.Viewport.ScreenPercentageMode.RealTime 0,r.Editor.Viewport.ScreenPercentage 75,sg.PostProcessQuality 1,sg.ShadowQuality 1,r.Shadow.MaxResolution 1024\" -WebTelemetry=http://127.0.0.1:4174/api/telemetry -StabilityLab -Mecanum -ini:Engine:[/Script/Engine.PhysicsSettings]:MaxSubstepDeltaTime=0.0020833333333333333 -ini:Engine:[/Script/Engine.PhysicsSettings]:MaxSubsteps=128 -HydraulicLab -PayloadLab ",
+    "play_started_by_agent": false
+  },
+  "startup_note": "Interactive editor map load and responsiveness confirmed without starting Play. Three generic AutomationTest Condition failed messages occurred before engine initialization; project unit report is separately 98/98 and no clean-engine-log claim is made."
+}

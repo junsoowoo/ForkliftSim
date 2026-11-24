@@ -1,0 +1,154 @@
+{
+  "date_local": "2026-11-16",
+  "timezone": "Asia/Seoul",
+  "scope": "Requested 1x/2x/4x playback and complete mode-specific key documentation. Shared bounded world/physics/control/sensor clock; hardware-limited actual speed shown separately.",
+  "build_log": "Saved/Validation/Performance/Playback-Build5.txt",
+  "dll_sha256": "69876B7A5DD0044ADCC14741022306159EFB9E0A59B6DF7A9CE92A7859696E94",
+  "unit": {
+    "passed": 110,
+    "failed": 0,
+    "report": "Saved/Validation/Playback/Unit5/index.json",
+    "resource_lifecycle_test": "Actual isolated UWorld: finite 60 ->120 ->60, unlimited preservation, and cleanup restoration."
+  },
+  "native": [
+    {
+      "case": "one",
+      "rate": 1,
+      "benchmark": true,
+      "pass_result": true,
+      "report": "Saved/Validation/Playback/Run-20261116-194542-b73a8fe0/one.json",
+      "sha256": "3ffec7dde6d3964200312dbffc3cba8c6be14f4cc43b04d1478af265979fda2e",
+      "max_world_step_s": 0.008333333767950535,
+      "max_clock_gap_s": 0.008333333767950535,
+      "actual_ratio_session": 0.489042514995815,
+      "frame_limit_fps": 0,
+      "rate_mask": 1
+    },
+    {
+      "case": "two",
+      "rate": 2,
+      "benchmark": true,
+      "pass_result": true,
+      "report": "Saved/Validation/Playback/Run-20261116-194542-b73a8fe0/two.json",
+      "sha256": "0126db6791c3ace1244952bb40899d9da14b24e27dd8c7b3713305af3aad99f5",
+      "max_world_step_s": 0.01666666753590107,
+      "max_clock_gap_s": 0.01666666753590107,
+      "actual_ratio_session": 0.4219744421674216,
+      "frame_limit_fps": 0,
+      "rate_mask": 2
+    },
+    {
+      "case": "four",
+      "rate": 4,
+      "benchmark": true,
+      "pass_result": true,
+      "report": "Saved/Validation/Playback/Run-20261116-194542-b73a8fe0/four.json",
+      "sha256": "c965fa25c0f05f7a3cbb4b57aad2d644d50d9fe5e10a45ed58ed5f7954d1fc84",
+      "max_world_step_s": 0.03333333507180214,
+      "max_clock_gap_s": 0.03333333507180214,
+      "actual_ratio_session": 0.4855553366801822,
+      "frame_limit_fps": 0,
+      "rate_mask": 4
+    },
+    {
+      "case": "keys",
+      "rate": 1,
+      "benchmark": true,
+      "pass_result": true,
+      "report": "Saved/Validation/Playback/Run-20261116-194542-b73a8fe0/keys.json",
+      "sha256": "aa15772695b4d7cdeee9e8080d97d85dce73d4c859f021c0d8ce6598aafa8b80",
+      "max_world_step_s": 0.03333333507180214,
+      "max_clock_gap_s": 0.03333333507180214,
+      "actual_ratio_session": 0.43829307405521806,
+      "frame_limit_fps": 0,
+      "rate_mask": 7
+    },
+    {
+      "case": "natural4",
+      "rate": 4,
+      "benchmark": false,
+      "pass_result": true,
+      "report": "Saved/Validation/Playback/Run-20261116-194542-b73a8fe0/natural4.json",
+      "sha256": "82c756786037e1a97d2b5792b44faca63e067d983bff5d8ba815a5ae9cf3ebf6",
+      "max_world_step_s": 0.03333333507180214,
+      "max_clock_gap_s": 0.03333333507180214,
+      "actual_ratio_session": 0.41263965675259734,
+      "frame_limit_fps": 0,
+      "rate_mask": 4
+    }
+  ],
+  "web": {
+    "actual": {
+      "pass": true,
+      "minimum_source_started_at_ms": 1794825878758,
+      "source": "Actual Unreal HTTP history and live playback frames",
+      "rates": [
+        1,
+        2,
+        4
+      ],
+      "samples": 61,
+      "frame_limit_at_4x": [
+        0
+      ],
+      "observed_performance_limit": true
+    },
+    "samples_file": "Saved/Validation/Playback/WebPlaybackSamples.json",
+    "samples_sha256": "d215ea1f7ffd53073c653a6a02dab9c16542783d814b06b1f1182fb35ac42dca",
+    "synthetic_protocol_display_checks": 80,
+    "log": "Saved/Validation/Performance/Playback-WebTests.txt"
+  },
+  "clock_policy": {
+    "max_control_step_s": 0.03333333333333333,
+    "undilated_cap": "max_control_step / max(1, requested_rate)",
+    "physical_inner_resolution": "Existing adaptive 480Hz or finer, unchanged by playback",
+    "frame_pacing": "Raise finite FPS cap as needed for rate/control step; preserve unlimited; restore previous cap at 1x and world cleanup, without overwriting a later user change.",
+    "physics_sensor_lease_settings_changed": false
+  },
+  "native_key_binding_test": "Invoked the actual F6/F7/F5 input delegates while the physical sensed job remained active. This is not an OS-keypress/visual UI test.",
+  "rejected_test": {
+    "folder": "Saved/Validation/Playback/Run-20261116-194127-4615c44a",
+    "case": "keys",
+    "reason": "Test assumed original cap was 60; benchmark actually set unlimited (0), which production correctly restored. Test now captures and compares its original limit."
+  },
+  "controls": {
+    "current": "WarehouseCampus controller plus engine default spectator camera keys",
+    "single_vehicle": "StabilityController and SimulationPlayback bindings",
+    "legacy": "WheelLabController / ForkliftLabController",
+    "file": "Docs/Controls.md"
+  },
+  "limits": [
+    "Requested 4x is not guaranteed actual 4x. Current natural-time short test is processing-limited; see actual ratio.",
+    "Benchmark cases use a 1/120s undilated input and qualify clock scaling/bounds, not desktop real-time performance.",
+    "Physics fidelity, camera/scan rates per simulation second and command expiry limits retained.",
+    "Browser visual layout and OS keyboard/mouse UI exercise were not verified; native input delegates and actual HTTP frames were verified."
+  ],
+  "source_sha256": {
+    "Source/ForkliftSim/SimulationPlayback.h": "346ae0b3220e736c72c59a5ae7db1b5ed85ed34b27a761f97e3918130f22232c",
+    "Source/ForkliftSim/SimulationPlayback.cpp": "57313f2b3588c8a4a040eb9e3159eac34b7e14db5679d3141e98c366e6fe652d",
+    "Source/ForkliftSim/PlaybackTests.cpp": "ad99c87fc588a43934798250e46283ca82d85d1b1a1a8b685c5101877cdc7a04",
+    "Source/ForkliftSim/PlaybackValidation.h": "0e4b3a0ada1cc9849ea5896d03f4c065459ee612caf46f625a29acdfe091de4c",
+    "Source/ForkliftSim/PlaybackValidation.cpp": "bb970896523f7fc0c421849ca881888ffa6b71f2c99abaa009d699381971c38f",
+    "Source/ForkliftSim/StabilityLab.cpp": "9e2d76a3ea7dba633274583ac1cd200a2c04d5b7665eefd7d86f3c2e4b13a961",
+    "Source/ForkliftSim/WarehouseCampus.cpp": "41ecb4d615c2f3ed5b6269dfb7d80d7bfb87415f014cd1e1dadb40a938bea036",
+    "Source/ForkliftSim/WebTelemetry.cpp": "c473111c334e637dc963b592ca999923adbc9a5a07a486240af486d4b5d9cd8c",
+    "Source/ForkliftSim/CampusFleetValidation.cpp": "c45ea03cf3623de6bcb484a0025a18ce6107bb824e30cc6dda556904414ff939",
+    "Scripts/Start.ps1": "6f93f95d0d6fe26300ab6e09b75be952e729e9874932bcf43b5976ee7beb1b67",
+    "Scripts/Run.ps1": "a09421e6f1091f8a678c0bc98af6f5d1a361239f4d0b63ddab5a6e4f5b6babf7",
+    "Scripts/Test-Playback.ps1": "239ccd45639859ff0a99d4a1c7ad4184369e75b83db031d70d220f2331c0a298",
+    "Web/PhysicsLab/dist/live.mjs": "9db3f06e71c6c51e2b2ad1bfafea37b4647aaae618ce37b360704bdc374bf9b5",
+    "Web/PhysicsLab/verify-playback-live.mjs": "8e7eb2e3364c16ad31f7237d6f24acbfabedcd99afd15df1c2b25780de385e27",
+    "Docs/Controls.md": "d5db6599dbb519a0c663070abeca4bccc3449c8477d5d91777e12aa9dafa89b0"
+  },
+  "previous_native_dll_sha256": "F19D577BE715A4D6CD2F884B1F2A52F3E9CDA7B55C1EE42E8935749DF277AB4E",
+  "staged_note": "Final build adds only the isolated FPS-resource lifecycle unit test; production playback/controller/validation source hashes are identical to the five native-case build. Final natural-time case repeated separately.",
+  "final_natural": {
+    "report": "Saved/Validation/Playback/Run-20261116-195214-9695a9f3/natural4.json",
+    "sha256": "f9cce650aee77b83fb7c0bd88f9d40415ed67417d001f58644f10e5a2949f723",
+    "requested": 4,
+    "actual_ratio_session": 0.6522774036281443,
+    "max_world_step_s": 0.03333333507180214,
+    "max_clock_gap_s": 0.03333333507180214,
+    "frame_limit_fps": 0
+  }
+}

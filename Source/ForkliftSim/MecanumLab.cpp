@@ -1,4 +1,5 @@
 #include "StabilityLab.h"
+#include "CampusOperations.h"
 #include "ChassisActor.h"
 #include "WheelActor.h"
 #include "ForkActor.h"
@@ -18,6 +19,7 @@ void AStabilityLab::SelectMecanumStep()
     double Omega=0;
     auto Sample=[&](AWheelActor* W) {if(W) for(UStaticMeshComponent* B:W->PhysicalBodies()) Omega=FMath::Max(Omega,B->GetPhysicsAngularVelocityInRadians().Size());};
     for(AWheelActor* W:Wheels) Sample(W);Sample(ReactionWheel);
+    if(bCampusVehicle&&Campus)for(AStabilityLab* V:Campus->Vehicles)if(V)for(AWheelActor* W:V->Wheels)Sample(W);
     const int Hz=FMath::Max(Settings.Mecanum.MinimumPhysicsHz,Settings.Mecanum.bAdaptiveStep?(Omega>35?1920:Omega>15?960:480):0);
     SelectedPhysicsStepS=FMath::Min(BasePhysicsStepS,1./Hz);
     SmallestPhysicsStepS=FMath::Min(SmallestPhysicsStepS,SelectedPhysicsStepS);

@@ -65,12 +65,8 @@ void FContactLoadSampler::ApplyReducedContact()
     const double Remaining=FMath::Max(0.,GetDeltaTime_Internal()-GetProducerOutputData_Internal().CompletedInnerS);
     const double Dt=FMath::Min(Remaining,RigidSolver->GetMaxDeltaTime_External());if(Dt<=0)return;
     Chaos::FPBDRigidParticleHandle* Hubs[4]={};Chaos::FPBDRigidParticleHandle* Stator=nullptr;
-    for(auto& P:RigidSolver->GetParticles().GetNonDisabledDynamicView())
-    {
-        const int Id=P.UniqueIdx().Idx;
-        if(Id==In->ChassisId)Stator=P.Handle()->CastToRigidParticle();
-        for(int I=0;I<4;++I)if(Id==In->WheelIds[I])Hubs[I]=P.Handle()->CastToRigidParticle();
-    }
+    Stator=StepBody(In->ChassisId);
+    for(int I=0;I<4;++I)Hubs[I]=StepBody(In->WheelIds[I]);
     if(!Stator)return;
     constexpr double ShearK=200000,ShearC=2000; // assumed aggregate contact compliance (N/m, Ns/m)
     auto& Output=GetProducerOutputData_Internal();

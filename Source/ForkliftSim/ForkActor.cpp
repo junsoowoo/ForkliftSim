@@ -17,7 +17,7 @@ AForkTineActor::AForkTineActor()
 void AForkTineActor::Configure(UStaticMeshComponent* Carriage,double MassKg,double Mu,const FForkStructureSettings& Spec)
 {
     Structure=Spec; Carrier=Carriage;
-    const FVector Center=Body->GetComponentLocation(), Start=Center-FVector(Structure.LengthM*50,0,0);
+    const FVector Center=Body->GetComponentLocation(), Start=Center-Carriage->GetComponentQuat().RotateVector(FVector(Structure.LengthM*50,0,0));
     HeelLocal=Carriage->GetComponentQuat().UnrotateVector(Start-Carriage->GetComponentLocation());
     const int Count=Structure.bEnabled?Structure.Segments:1;
     const double D=Structure.LengthM/Count;
@@ -26,13 +26,13 @@ void AForkTineActor::Configure(UStaticMeshComponent* Carriage,double MassKg,doub
     {
         auto* B=I==0?Body.Get():NewObject<UStaticMeshComponent>(this);
         if(I>0) { B->SetStaticMesh(Body->GetStaticMesh()); B->RegisterComponent(); }
-        B->SetWorldLocation(Start+FVector((I+.5)*D*100,0,0));
+        B->SetWorldLocationAndRotation(Start+Carriage->GetComponentQuat().RotateVector(FVector((I+.5)*D*100,0,0)),Carriage->GetComponentQuat());
         B->SetWorldScale3D(FVector(D,Structure.WidthM,Structure.ThicknessM)); Vehicle3D::Dynamic(B,MassKg/Count);
         B->SetLinearDamping(0); B->SetAngularDamping(0); B->SetPhysMaterialOverride(M);
         Vehicle3D::Color(B,FLinearColor(.12f,.18f,.24f)); Sections.Add(B);
         auto* J=I==0?Mount.Get():NewObject<UPhysicsConstraintComponent>(this);
         if(I>0) J->RegisterComponent();
-        J->SetWorldLocation(Structure.bEnabled?Start+FVector(I*D*100,0,0):Carriage->GetComponentLocation()); Vehicle3D::Lock(J);
+        J->SetWorldLocationAndRotation(Structure.bEnabled?Start+Carriage->GetComponentQuat().RotateVector(FVector(I*D*100,0,0)):Carriage->GetComponentLocation(),Carriage->GetComponentQuat()); Vehicle3D::Lock(J);
         J->SetConstrainedComponents(I==0?Carriage:Sections[I-1].Get(),NAME_None,B,NAME_None);
         if(Structure.bEnabled)
         {
@@ -105,7 +105,8 @@ AForkActor::AForkActor()
 }
 void AForkActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSettings& S,const FPayloadSettings* Payload)
 {
-    TravelM=S.ForkTravelM; const FVector P=GetActorLocation();
+    TravelM=S.ForkTravelM; const FVector P=GetActorLocation();const FQuat Q=GetActorQuat();
+    auto Box=[&](AActor* O,USceneComponent* Parent,FVector Point,FVector Size,double Mass,FLinearColor Color){return Vehicle3D::Box(O,Parent,P+Q.RotateVector(Point-P),Size,Mass,Color,Q);};
     // Lower blades must enter a ground pallet without dragging the carriage
     // through the floor. Its lowest face retains 3 cm clearance at lift zero.
     const bool Chained=S.Hydraulics.bEnabled && S.bSwerve && S.Hydraulics.bChainMast;
@@ -115,22 +116,22 @@ void AForkActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSetting
     Carriage->SetWorldScale3D(FVector(S.bReferenceGeometry?.06:.12,S.bReferenceGeometry?S.CarriageWidthM:.9,(Payload || S.bReferenceGeometry)?.35:.45)); Vehicle3D::Dynamic(Carriage,S.bReferenceGeometry?CarriageMass*.5:CarriageMass);
     if(S.bReferenceGeometry)
     {
-        for(double Y:{-.4,.4}) Vehicle3D::Box(this,Carriage,P+FVector(-1,Y*100,45),FVector(.05,.04,.65),CarriageMass*.2,FLinearColor(.12,.16,.19));
-        Vehicle3D::Box(this,Carriage,P+FVector(-1,0,76),FVector(.05,.84,.04),CarriageMass*.1,FLinearColor(.12,.16,.19));
+        for(double Y:{-.4,.4}) Box(this,Carriage,P+FVector(-1,Y*100,45),FVector(.05,.04,.65),CarriageMass*.2,FLinearColor(.12,.16,.19));
+        Box(this,Carriage,P+FVector(-1,0,76),FVector(.05,.84,.04),CarriageMass*.1,FLinearColor(.12,.16,.19));
     }
     Vehicle3D::Color(Carriage,FLinearColor(.95f,.45f,.035f));
     Carriage->SetPhysMaterialOverride(Vehicle3D::Material(this,.4));
     if(Payload || S.bReferenceGeometry) for(int I=0;I<2;++I)
     {
         const double Y=((Payload?Payload->ForkShiftYM:0)+(I==0?-1:1)*(Payload?Payload->ForkSpacingM:.6)*.5)*100;
-        auto* T=GetWorld()->SpawnActor<AForkTineActor>(P+FVector(S.Structure.LengthM*50+(S.bReferenceGeometry?3:-5),Y,-15),FRotator::ZeroRotator);
+        auto* T=GetWorld()->SpawnActor<AForkTineActor>(P+Q.RotateVector(FVector(S.Structure.LengthM*50+(S.bReferenceGeometry?3:-5),Y,-15)),Q.Rotator());
         const double Mu=Payload && Payload->bWarehouseAssets?FMath::Min(Payload->ForkMu,I==0?Payload->LeftHoleMu:Payload->RightHoleMu):Payload?Payload->ForkMu:.45;
         T->Configure(Carriage,TineMass,Mu,S.Structure); Tines.Add(T);
     }
     else for (double Y : { -30.,30. })
-        Vehicle3D::Box(this,Carriage,P+FVector(65,Y,-15),FVector(1.4,.12,.07),S.ForkMassKg*.2,FLinearColor(.12f,.18f,.24f));
+        Box(this,Carriage,P+FVector(65,Y,-15),FVector(1.4,.12,.07),S.ForkMassKg*.2,FLinearColor(.12f,.18f,.24f));
     Carriage->BodyInstance.UpdateMassProperties();
-    Guide->SetWorldLocation(P+FVector(0,0,TravelM*50));
+    Guide->SetWorldLocationAndRotation(P+FVector(0,0,TravelM*50),Q);
     Guide->AttachToComponent(Chassis,FAttachmentTransformRules::KeepWorldTransform);
     Vehicle3D::Lock(Guide); Guide->SetLinearZLimit(LCM_Limited,TravelM*50);
     Guide->SetConstrainedComponents(Chassis,NAME_None,Carriage,NAME_None);
@@ -139,17 +140,17 @@ void AForkActor::Configure(UStaticMeshComponent* Chassis,const FVehicle3DSetting
     if(Chained)
     {
         MovingMast=NewObject<UStaticMeshComponent>(this); MovingMast->SetStaticMesh(Carriage->GetStaticMesh());
-        MovingMast->RegisterComponent(); MovingMast->SetWorldLocation(P+FVector(-12,0,50)); MovingMast->SetWorldScale3D(S.bReferenceGeometry?FVector(.08,.62,.08):FVector(.1,.6,1.2));
+        MovingMast->RegisterComponent(); MovingMast->SetWorldLocationAndRotation(P+Q.RotateVector(FVector(-12,0,50)),Q); MovingMast->SetWorldScale3D(S.bReferenceGeometry?FVector(.08,.62,.08):FVector(.1,.6,1.2));
         Vehicle3D::Dynamic(MovingMast,S.bReferenceGeometry?StageMass*.2:StageMass); MovingMast->SetLinearDamping(0); MovingMast->SetAngularDamping(0);
         if(!S.bReferenceGeometry) MovingMast->SetCollisionResponseToAllChannels(ECR_Ignore);
         if(S.bReferenceGeometry)
         {
-            for(double Y:{-.27,.27}) Vehicle3D::Box(this,MovingMast,P+FVector(-12,Y*100,110),FVector(.08,.05,1.82),StageMass*.4,FLinearColor(.18,.23,.27));
+            for(double Y:{-.27,.27}) Box(this,MovingMast,P+FVector(-12,Y*100,110),FVector(.08,.05,1.82),StageMass*.4,FLinearColor(.18,.23,.27));
             MovingMast->BodyInstance.UpdateMassProperties();
         }
         Vehicle3D::Color(MovingMast,FLinearColor(.18,.23,.27));
         MastGuide=NewObject<UPhysicsConstraintComponent>(this); MastGuide->RegisterComponent();
-        MastGuide->SetWorldLocation(MovingMast->GetComponentLocation()+FVector(0,0,TravelM/ S.Hydraulics.ChainRatio*50));
+        MastGuide->SetWorldLocationAndRotation(MovingMast->GetComponentLocation()+FVector(0,0,TravelM/ S.Hydraulics.ChainRatio*50),Q);
         Vehicle3D::Lock(MastGuide); MastGuide->SetLinearZLimit(LCM_Limited,TravelM/S.Hydraulics.ChainRatio*50);
         MastGuide->SetConstrainedComponents(Chassis,NAME_None,MovingMast,NAME_None);
         MastGuide->SetConstraintReferencePosition(EConstraintFrame::Frame2,FVector::ZeroVector);

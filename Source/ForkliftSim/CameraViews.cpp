@@ -3,6 +3,8 @@
 #include "PalletPerception.h"
 #include "Components/SceneCaptureComponent2D.h"
 #include "Engine/World.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 
 void AStabilityLab::ConfigureCameraViews()
 {
@@ -17,7 +19,7 @@ void AStabilityLab::ConfigureCameraViews()
     FString CameraError;CameraSensors=FCameraSensorRig::Create(*this,CameraError);
     if(!CameraSensors){bCameraViews=false;UE_LOG(LogTemp,Error,TEXT("CAMERA_CONFIG %s"),*CameraError);}
 }
-void AStabilityLab::UpdateCameraViews(){if(CameraSensors && bCameraViews)CameraSensors->Update(*this);if(PalletRecognition)PalletRecognition->Update(*this);}
+void AStabilityLab::UpdateCameraViews(){if(bCampusVehicle&&TimeS<.05&&FParse::Param(FCommandLine::Get(),TEXT("CampusFoundationTest")))UE_LOG(LogTemp,Display,TEXT("CAMPUS_CAMERA_UPDATE %s sim=%.6f enabled=%d rig=%d"),*VehicleId,TimeS,bCameraViews,CameraSensors.IsValid());if(CameraSensors && bCameraViews)CameraSensors->Update(*this);if(PalletRecognition)PalletRecognition->Update(*this);}
 void AStabilityLab::ToggleCameraViews()
 {
     bCameraViews=!bCameraViews;

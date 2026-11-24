@@ -1,4 +1,5 @@
 #include "PalletLoadActor.h"
+#include "StabilityLab.h"
 #include "Vehicle3DHelpers.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
@@ -98,6 +99,7 @@ APalletLoadActor::APalletLoadActor()
 }
 void APalletLoadActor::Configure(const FPayloadSettings& S)
 {
+    LastRackSupportS=LastVehicleSupportS=-1;LastRackImpulseNs=0;
     auto Mat=[&](double Mu) { auto* M=Vehicle3D::Material(this,Mu); M->SleepLinearVelocityThreshold=0; M->SleepAngularVelocityThreshold=0; M->SleepCounterThreshold=MAX_int32; return M; };
     auto ContactMat=[&](double StaticMu,double DynamicMu) { auto* M=Mat(DynamicMu); M->StaticFriction=StaticMu; return M; };
     const FVector P=GetActorLocation();const FQuat Orientation=GetActorQuat();
@@ -113,7 +115,7 @@ void APalletLoadActor::Configure(const FPayloadSettings& S)
             const FVector D=S.BoardSizesM[I];
             auto* B=Vehicle3D::Box(this,Deck,P+Orientation.RotateVector((S.BoardCentersM[I]-S.PalletDatumM)*100),D,S.PalletMassKg*D.X*D.Y*D.Z/Volume,FLinearColor(.4,.2,.06),Orientation);
             const double Z=S.BoardCentersM[I].Z;
-            B->SetPhysMaterialOverride(Z>.118?ContactMat(S.PalletTopStaticMu,S.PalletTopDynamicMu):Mat(S.CargoMu));
+            B->SetPhysMaterialOverride((S.bFourWay?Z>.09:Z>.118)?ContactMat(S.PalletTopStaticMu,S.PalletTopDynamicMu):Mat(S.CargoMu));
         }
         Deck->BodyInstance.UpdateMassProperties();
     }
@@ -139,10 +141,11 @@ void APalletLoadActor::Configure(const FPayloadSettings& S)
     Deck->BodyInstance.UpdateMassProperties();
     }
     const double CargoBottom=S.bWarehouseAssets?S.PalletTopM-S.PalletDatumM.Z+.002:.022;
-    Cargo=GetWorld()->SpawnActor<AStaticMeshActor>(P+Orientation.RotateVector(FVector(S.CargoXM*100,S.CargoYM*100,(CargoBottom+S.CargoHeightM*.5)*100)),GetActorRotation());
+    Cargo=GetWorld()->SpawnActor<AStaticMeshActor>(P+Orientation.RotateVector(FVector((S.CargoXM-(S.bFourWay?S.PalletDatumM.X:0))*100,(S.CargoYM-(S.bFourWay?S.PalletDatumM.Y:0))*100,(CargoBottom+S.CargoHeightM*.5)*100)),GetActorRotation());
     auto* Body=Cargo->GetStaticMeshComponent(); Body->SetMobility(EComponentMobility::Movable); Body->SetStaticMesh(Deck->GetStaticMesh());
     Body->SetWorldScale3D(FVector(S.CargoLengthM,S.CargoWidthM,S.CargoHeightM)); Vehicle3D::Dynamic(Body,S.CargoMassKg);
     Body->SetLinearDamping(0); Body->SetAngularDamping(0); Body->SetPhysMaterialOverride(ContactMat(S.CargoStaticMu,S.CargoDynamicMu)); Vehicle3D::Color(Body,FLinearColor(.15f,.65f,.7f));
+    Cargo->SetOwner(this);
     if(S.bCargoSecured) { Strap->SetWorldLocation(P); Vehicle3D::Lock(Strap); Strap->SetConstrainedComponents(Deck,NAME_None,Body,NAME_None); }
     if(S.bWarehouseAssets)
     {
@@ -153,13 +156,35 @@ void APalletLoadActor::Configure(const FPayloadSettings& S)
             auto* Frame=NewObject<USceneComponent>(VisualOwner);VisualOwner->AddInstanceComponent(Frame);
             Frame->SetupAttachment(Parent);Frame->SetAbsolute(false,false,true);Frame->RegisterComponent();Frame->SetWorldScale3D(FVector::OneVector);
             auto* Visual=NewObject<UStaticMeshComponent>(VisualOwner);VisualOwner->AddInstanceComponent(Visual);Visual->SetupAttachment(Frame);
-            Visual->SetMobility(EComponentMobility::Movable);Visual->SetStaticMesh(Mesh);Visual->SetRelativeLocation(Offset*100);Visual->BodyInstance.bAutoWeld=false;Visual->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+            Visual->SetMobility(EComponentMobility::Movable);Visual->SetStaticMesh(Mesh);Visual->SetRelativeLocation(Offset*100);
+            if(S.bFourWay&&VisualOwner==Cargo){const FBox B=Mesh->GetBoundingBox();const FVector D=B.GetSize()/100.;const FVector Scale=FVector(S.CargoLengthM,S.CargoWidthM,S.CargoHeightM)/D;Visual->SetRelativeScale3D(Scale);Visual->SetRelativeLocation(-B.GetCenter()*Scale);}Visual->BodyInstance.bAutoWeld=false;Visual->SetCollisionEnabled(ECollisionEnabled::NoCollision);
             Visual->SetGenerateOverlapEvents(false);Visual->RegisterComponent();
         };
         Present(this,Deck,S.PalletMeshPath,-S.PalletDatumM);
         Present(Cargo,Body,S.CargoMeshPath,-S.CargoBoundsMinM-FVector(S.CargoLengthM,S.CargoWidthM,S.CargoHeightM)*.5);
         UE_LOG(LogTemp,Display,TEXT("WAREHOUSE_PAYLOAD boards=%d pallet_kg=%.3f cargo_kg=%.3f secured=0"),S.BoardSizesM.Num(),Deck->GetMass(),Body->GetMass());
     }
+    if(S.bFourWay)
+    {
+        TInlineComponentArray<UStaticMeshComponent*> Parts(this);
+        for(auto* B:Parts)if(B->GetCollisionEnabled()!=ECollisionEnabled::NoCollision)
+        {B->SetNotifyRigidBodyCollision(true);B->OnComponentHit.AddDynamic(this,&APalletLoadActor::OnStaticSupport);}
+    }
+}
+void APalletLoadActor::OnStaticSupport(UPrimitiveComponent*,AActor* OtherActor,UPrimitiveComponent* OtherPart,FVector Impulse,const FHitResult&)
+{
+    if(OtherActor&&OtherActor->GetOwner()&&OtherActor->GetOwner()->IsA<AStabilityLab>()&&Impulse.Z>.01)
+    {LastVehicleSupportS=GetWorld()->GetTimeSeconds();LastVehicleSupportPoint=Deck->GetComponentLocation();}
+    if(OtherPart&&OtherPart->Mobility==EComponentMobility::Static&&OtherActor&&!OtherActor->ActorHasTag(TEXT("CampusRoad"))&&Impulse.Z>.01)
+    {LastRackSupportS=GetWorld()->GetTimeSeconds();LastRackSupportPoint=Deck->GetComponentLocation();LastRackImpulseNs=Impulse.Z/100.;}
+}
+bool APalletLoadActor::HasRecentRackSupport() const
+{
+    return LastRackSupportS>=0&&GetWorld()->GetTimeSeconds()-LastRackSupportS<.3&&FVector::Dist(Deck->GetComponentLocation(),LastRackSupportPoint)<5;
+}
+bool APalletLoadActor::HasRecentVehicleSupport() const
+{
+    return LastVehicleSupportS>=0&&GetWorld()->GetTimeSeconds()-LastVehicleSupportS<.3&&FVector::Dist(Deck->GetComponentLocation(),LastVehicleSupportPoint)<5;
 }
 double APalletLoadActor::LoadMass() const { return Deck->GetMass()+(Cargo?Cargo->GetStaticMeshComponent()->GetMass():0); }
 FVector APalletLoadActor::LoadCOM() const

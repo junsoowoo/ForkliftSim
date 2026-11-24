@@ -9,9 +9,12 @@ class FWebTelemetryPublisher : public TSharedFromThis<FWebTelemetryPublisher,ESP
 {
 public:
     static TSharedPtr<FWebTelemetryPublisher,ESPMode::ThreadSafe> Create();
+    FString GetWorldId() const{return WorldId;}
+    FString GetBaseUrl() const{return Url.LeftChop(14);}
     void NewRun();
     bool IsDue() const;
     void Send(TSharedRef<FJsonObject> Frame);
+    void PrepareStopFrame(TSharedRef<FJsonObject> Frame){LastFrame=Frame;}
     void Stop();
 private:
     FString Url, WorldId, RunId;

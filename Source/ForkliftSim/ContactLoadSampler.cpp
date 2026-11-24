@@ -11,6 +11,24 @@
 #include "Misc/Parse.h"
 #include "Misc/ScopeExit.h"
 #include "ReducedMecanum.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
+
+void FContactLoadSampler::RefreshStepParticles()
+{
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_PhysicsParticleIndex);
+    StepParticles.Reset();StepBodies.Reset();
+    const auto* In=GetConsumerInput_Internal();if(!In)return;
+    auto* RigSolver=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
+    for(auto& P:RigSolver->GetParticles().GetNonDisabledDynamicView())
+    {
+        const int32 Id=P.UniqueIdx().Idx;
+        bool Wanted=AuditTracks(Id)||Id==In->CalibrationBodyId||Id==In->BenchHubId;
+        for(int I=0;!Wanted&&I<In->BenchCount;++I)Wanted=Id==In->BenchIds[I];
+        for(int I=0;!Wanted&&I<In->BenchRollerCount;++I)Wanted=Id==In->BenchRollerIds[I];
+        if(Wanted)if(auto* B=P.Handle()->CastToRigidParticle())
+        {StepParticles.Add({Id,B});StepBodies.Add(Id,B);}
+    }
+}
 
 FVector FContactLoadSampler::MeasureBenchMomentum(bool Predicted)
 {
@@ -18,11 +36,11 @@ FVector FContactLoadSampler::MeasureBenchMomentum(bool Predicted)
     if(!In) return FVector::ZeroVector;
     auto* RigidSolver=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
     FVector L=FVector::ZeroVector;
-    for(auto& P:RigidSolver->GetParticles().GetNonDisabledDynamicView())
+    for(const auto& P:StepParticles)
     {
-        bool Wanted=false;for(int I=0;I<In->BenchCount;++I) Wanted |= P.UniqueIdx().Idx==In->BenchIds[I];
+        bool Wanted=false;for(int I=0;I<In->BenchCount;++I) Wanted |= P.Id==In->BenchIds[I];
         if(!Wanted) continue;
-        const auto* B=P.Handle()->CastToRigidParticle();if(!B) continue;
+        const auto* B=P.Body;if(!B) continue;
         const FQuat R=Predicted?B->GetQ():B->GetR();
         const FQuat Q=R*FQuat(B->RotationOfMass());
         const FVector Com=((Predicted?B->GetP():B->GetX())+R.RotateVector(B->CenterOfMass()))/100.;
@@ -36,9 +54,9 @@ void FContactLoadSampler::ApplyBearingKick(bool Predicted,double HalfDt)
     const auto* In=GetConsumerInput_Internal();if(!In || HalfDt<=0) return;
     auto* RigidSolver=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
     Chaos::FPBDRigidParticleHandle* Hubs[5]={};Chaos::FPBDRigidParticleHandle* Rollers[5][16]={};
-    for(auto& P:RigidSolver->GetParticles().GetNonDisabledDynamicView())
+    for(const auto& P:StepParticles)
     {
-        const int Id=P.UniqueIdx().Idx;auto* B=P.Handle()->CastToRigidParticle();if(!B) continue;
+        const int Id=P.Id;auto* B=P.Body;if(!B) continue;
         for(int I=0;I<4;++I)
         {
             if(Id==In->WheelIds[I]) Hubs[I]=B;
@@ -89,13 +107,13 @@ void FContactLoadSampler::IntegrateRollerSpin(bool Before)
     auto* RigidSolver=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
     const double Remaining=FMath::Max(0.,GetDeltaTime_Internal()-GetProducerOutputData_Internal().CompletedInnerS);
     const double MaxDt=RigidSolver->GetMaxDeltaTime_External();const double Dt=MaxDt>0?FMath::Min(Remaining,MaxDt):Remaining;
-    for(auto& P:RigidSolver->GetParticles().GetNonDisabledDynamicView())
+    for(const auto& P:StepParticles)
     {
-        const int Id=P.UniqueIdx().Idx;bool Roller=false;
+        const int Id=P.Id;bool Roller=false;
         for(int I=0;I<4;++I) for(int J=0;J<In->TreadCounts[I];++J) Roller |= Id==In->TreadIds[I][J];
         for(int J=0;J<In->BenchRollerCount;++J) Roller |= Id==In->BenchRollerIds[J];
         if(!Roller) continue;
-        auto* B=P.Handle()->CastToRigidParticle();if(!B) continue;
+        auto* B=P.Body;if(!B) continue;
         if(Before) B->SetGyroscopicTorqueEnabled(false);
         else
         {
@@ -108,6 +126,8 @@ void FContactLoadSampler::IntegrateRollerSpin(bool Before)
 
 void FContactLoadSampler::OnPreIntegrate_Internal()
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_PhysicsPreIntegrate);
+    RefreshStepParticles();
     for(auto& B:ReducedBodies)B=nullptr;
     PredictorCount=0;MotorBodyCount=0;
     CalibrationBody=nullptr; const auto* In=GetConsumerInput_Internal();
@@ -121,11 +141,8 @@ void FContactLoadSampler::OnPreIntegrate_Internal()
         const double MaxDt=DriveSolver->GetMaxDeltaTime_External();
         const double Dt=MaxDt>0?FMath::Min(Remaining,MaxDt):Remaining;
         Chaos::FPBDRigidParticleHandle* Hubs[4]={};Chaos::FPBDRigidParticleHandle* Stator=nullptr;
-        for(auto& P:DriveSolver->GetParticles().GetNonDisabledDynamicView())
-        {
-            if(P.UniqueIdx().Idx==In->ChassisId) Stator=P.Handle()->CastToRigidParticle();
-            for(int I=0;I<4;++I) if(P.UniqueIdx().Idx==In->WheelIds[I]) Hubs[I]=P.Handle()->CastToRigidParticle();
-        }
+        Stator=StepBody(In->ChassisId);
+        for(int I=0;I<4;++I)Hubs[I]=StepBody(In->WheelIds[I]);
         auto Torque=[&](Chaos::FPBDRigidParticleHandle* B,FVector T)
         {
             int K=0;while(K<MotorBodyCount && MotorBodies[K]!=B) ++K;
@@ -153,7 +170,7 @@ void FContactLoadSampler::OnPreIntegrate_Internal()
             const double Rolling=WheelResistance::PassiveStepTorque(Loss.Rolling,Omega,InvAxis,Dt);
             AppliedMotorNm[I]=Axis*Result.OutputNm;AppliedRollingNm[I]=Axis*Rolling;
             Torque(Hubs[I],AppliedMotorNm[I]+AppliedRollingNm[I]);Torque(Stator,-AppliedMotorNm[I]);
-            Out.MecanumMotor[I]=Result;Out.MecanumRequestNm[I]=Request;Out.MecanumRollingNm[I]=Rolling;Out.bMecanumMotorValid=true;
+            Out.MotorPositiveDcJ[I]+=FMath::Max(0.,Result.DcW)*Dt;Out.MecanumMotor[I]=Result;Out.MecanumRequestNm[I]=Request;Out.MecanumRollingNm[I]=Rolling;Out.bMecanumMotorValid=true;
         }
     }
     if(In && In->bReducedMecanum)ApplyReducedContact();
@@ -169,9 +186,9 @@ void FContactLoadSampler::OnPreIntegrate_Internal()
     if(In && In->bMecanum && In->bExactRollerSpin) IntegrateRollerSpin(true);
     if(!In || In->CalibrationBodyId==INDEX_NONE) return;
     auto* RigidSolver=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
-    for(auto& P:RigidSolver->GetParticles().GetNonDisabledDynamicView()) if(P.UniqueIdx().Idx==In->CalibrationBodyId)
+    for(const auto& P:StepParticles) if(P.Id==In->CalibrationBodyId)
     {
-        CalibrationBody=P.Handle()->CastToRigidParticle(); if(!CalibrationBody) return;
+        CalibrationBody=P.Body; if(!CalibrationBody) return;
         const auto A=CalibrationBody->Acceleration(),W=CalibrationBody->AngularAcceleration();
         const FVector F=In->CalibrationForceN*100;
         const FVector Arm=-CalibrationBody->GetR().RotateVector(FVector(CalibrationBody->CenterOfMass()));
@@ -197,6 +214,7 @@ void FContactLoadSampler::OnPostIntegrate_Internal()
 
 void FContactLoadSampler::OnContactModification_Internal(Chaos::FCollisionContactModifier& Modifier)
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_PhysicsContactModification);
     const auto* In=GetConsumerInput_Internal();
     if(!In) return;
     auto IsRoad=[&](int32 Id) { if(Id==In->RoadId) return true; for(int32 S:In->SurfaceIds) if(S!=INDEX_NONE && Id==S) return true; return false; };
@@ -210,6 +228,7 @@ void FContactLoadSampler::OnContactModification_Internal(Chaos::FCollisionContac
         const auto Bodies=Pair.GetParticlePair();
         if(!Bodies[0] || !Bodies[1]) continue;
         const int Slot0=In->WheelSlot(Bodies[0]->UniqueIdx().Idx), Slot1=In->WheelSlot(Bodies[1]->UniqueIdx().Idx);
+        if(Slot0==INDEX_NONE&&Slot1==INDEX_NONE)continue;
         // Bonded pads share one wheel: exclude only its own pad/pad and pad/rim
         // pairs. Other wheels, chassis, pallets and obstacles still collide.
         if(Slot0!=INDEX_NONE && Slot0==Slot1) { Pair.Disable(); continue; }
@@ -308,6 +327,7 @@ void FContactLoadSampler::OnContactModification_Internal(Chaos::FCollisionContac
 
 void FContactLoadSampler::OnPostSolve_Internal()
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_PhysicsPostSolve);
     const auto* Input=GetConsumerInput_Internal();
     if(!Input || Input->RoadId==INDEX_NONE) return;
     auto IsRoad=[&](int32 Id) { if(Id==Input->RoadId) return true; for(int32 Surface:Input->SurfaceIds) if(Surface!=INDEX_NONE && Id==Surface) return true; return false; };
@@ -346,9 +366,9 @@ void FContactLoadSampler::OnPostSolve_Internal()
     {
         FVector StatorTorque=FVector::ZeroVector;
         for(int I=0;I<4;++I) StatorTorque-=Input->bMecanumControl?AppliedMotorNm[I]:Input->DriveTorqueNm[I];
-        for(auto& Particle:RigidSolver->GetParticles().GetNonDisabledDynamicView())
+        for(const auto& Particle:StepParticles)
         {
-            const auto* B=Particle.Handle()->CastToRigidParticle(); if(!B) continue;
+            const auto* B=Particle.Body; if(!B) continue;
             const int Id=B->UniqueIdx().Idx; const FVector Angle=RotationStep(B);
             if(Id==Input->ChassisId) Output.DriveWorkJ+=FVector::DotProduct(StatorTorque,Angle);
             for(int I=0;I<4;++I) if(Id==Input->WheelIds[I])
@@ -370,6 +390,7 @@ void FContactLoadSampler::OnPostSolve_Internal()
         const auto Particles=Joint->GetConstrainedParticles();
         if(!Particles[0] || !Particles[1]) continue;
         const int32 A=Particles[0]->UniqueIdx().Idx, B=Particles[1]->UniqueIdx().Idx;
+        if(!StepBodies.Contains(A)&&!StepBodies.Contains(B))continue;
         if(Input->bAuditWork && InnerDt>0)
         {
             const auto& S=Joint->GetSettings();
@@ -477,11 +498,11 @@ void FContactLoadSampler::OnPostSolve_Internal()
     if(Input->BenchCount>0)
     {
         Output.BenchL=FVector::ZeroVector;Output.BenchEnergyJ=0;Output.bBenchValid=false;
-        for(auto& P:RigidSolver->GetParticles().GetNonDisabledDynamicView())
+        for(const auto& P:StepParticles)
         {
-            bool Wanted=false;for(int I=0;I<Input->BenchCount;++I) Wanted |= P.UniqueIdx().Idx==Input->BenchIds[I];
+            bool Wanted=false;for(int I=0;I<Input->BenchCount;++I) Wanted |= P.Id==Input->BenchIds[I];
             if(!Wanted) continue;
-            const auto* B=P.Handle()->CastToRigidParticle();if(!B) continue;
+            const auto* B=P.Body;if(!B) continue;
             const FQuat Q=FQuat(B->GetQ())*FQuat(B->RotationOfMass());
             const FVector W=Q.UnrotateVector(FVector(B->GetW())),I=FVector(B->I())/10000.;
             const FVector Com=(B->GetP()+B->GetQ().RotateVector(B->CenterOfMass()))/100.;
@@ -502,6 +523,7 @@ void FContactLoadSampler::OnPostSolve_Internal()
         const auto& C=Handle->GetContact();
         if(!C.IsEnabled() || !C.IsCurrent() || C.GetIsProbe()) continue;
         const int32 Id0=C.GetParticle0()->UniqueIdx().Idx, Id1=C.GetParticle1()->UniqueIdx().Idx;
+        if(!StepBodies.Contains(Id0)&&!StepBodies.Contains(Id1))continue;
         const int32 WheelId=IsRoad(Id0)?Id1:IsRoad(Id1)?Id0:INDEX_NONE;
         const double J=FMath::Abs(Chaos::FVec3::DotProduct(Chaos::FVec3(C.AccumulatedImpulse),C.CalculateWorldContactNormal()))/100.;
         for(int32 I=0;I<4;++I) if(WheelId!=INDEX_NONE && Input->WheelSlot(WheelId)==I)
@@ -566,6 +588,12 @@ void FContactLoadSampler::OnPostSolve_Internal()
                 }
             }
         }
+        if(Input->bAllForkContacts)for(int I=0;I<2;++I)for(int Q=0;Q<8;++Q)
+        {
+            const int32 T=Input->TineIds[I*8+Q];if(T==INDEX_NONE||(Id0!=T&&Id1!=T))continue;
+            for(int K=0;K<C.NumManifoldPoints();++K)
+            {const auto& R=C.GetManifoldPointResult(K);if(C.IsManifoldPointActive(K)&&R.bIsValid&&InnerDt>1e-8)SensorForkImpulseNs[I]+=(Id0==T?-1.:1.)*(FVector(R.NetImpulse)+FVector(R.NetPushOut)/InnerDt)/100.;}
+        }
         if(Input->PalletId==INDEX_NONE) continue;
         const int32 Other=Id0==Input->PalletId?Id1:Id1==Input->PalletId?Id0:INDEX_NONE;
         if(Other!=INDEX_NONE && IsRoad(Other)) Output.PalletGroundNs+=J;
@@ -614,7 +642,7 @@ void FContactLoadSampler::OnPostSolve_Internal()
                 const double NormalJ=FMath::Abs(FVector::DotProduct(Impulse,Normal));
                 const FVector Position=C.GetShapeWorldTransform0().TransformPosition(Chaos::FVec3(Point.ShapeContactPoints[0]));
                 Output.ForkVerticalNs[I]+=(Id0==Input->PalletId?1:-1)*Impulse.Z;
-                SensorForkImpulseNs[I]+=(Id0==Input->PalletId?1:-1)*Impulse;
+                if(!Input->bAllForkContacts)SensorForkImpulseNs[I]+=(Id0==Input->PalletId?1:-1)*Impulse;
                 Output.ForkNormalNs[I]+=NormalJ;
                 Output.ForkFrictionNs[I]+=(Impulse-Normal*FVector::DotProduct(Impulse,Normal)).Size();
                 Output.ForkPointWeighted[I]+=Position/100.*NormalJ;

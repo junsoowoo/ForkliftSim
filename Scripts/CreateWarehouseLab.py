@@ -127,6 +127,12 @@ for i,(x,y) in enumerate([(46.9,-35),(46.9,35),(-46.9,-35),(-46.9,35)]):
         roller=put('/Engine/BasicShapes/Sphere','Preview roller '+str((i,j)),(x+13*math.cos(angle),y,15+13*math.sin(angle)),rot,(.15,.04,.04),False,True)
         roller.static_mesh_component.set_material(0,unreal.load_asset('/Game/ForkliftModel/Materials/M_Rubber'))
 
+profile=json.loads((root/'Config/Modeling.json').read_text(encoding='utf-8'))
+if profile.get('source_folder')=='AllturnForkman' and unreal.EditorAssetLibrary.does_asset_exist('/Game/AllturnForkman/SM_ForkmanAssembly'):
+    for old in actors.get_all_level_actors():
+        if old.get_actor_label().startswith('Preview '):actors.destroy_actor(old)
+    put('/Game/AllturnForkman/SM_ForkmanAssembly','Preview FORKMAN virtual AGV',(0,0,0),collide=False,preview=True)
+
 # StaticMeshActor reloads its named collision profile. Verify saved previews
 # through an explicit NoCollision profile, not only a transient enabled flag.
 for owned in actors.get_all_level_actors():

@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "scenario_id": "baseline-400kg-dry",
+  "cargo_mass_kg": 400,
+  "tyre_mu": 0.9,
+  "road_mu": 0.8,
+  "auto_dispatch": true
+}

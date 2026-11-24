@@ -1,0 +1,191 @@
+{
+  "date": "2026-11-16",
+  "scope": "Central task queue, automatic assignment, operational KPI and repeatable scenario records. Existing whole-job conservative traffic reservations retained.",
+  "build": {
+    "result": "Succeeded",
+    "log": "Saved/Validation/Performance/TaskBoard-Build5.txt",
+    "dll_sha256": "d32faa255460b9cc561e8050d1b9bec24c1372e861f329fcf6d18ec4bbb07ab1"
+  },
+  "unit": {
+    "passed": 102,
+    "failed": 0,
+    "report": "Saved/Validation/Tasks/Unit5/index.json",
+    "sha256": "863f0bf3adf3b3712489e4b313644f720f9689f010d27a4624272c8f3dbb82b9"
+  },
+  "native": [
+    {
+      "case": "board_cycle",
+      "pass_result": true,
+      "report": "Saved/Validation/Tasks/Run-20261115-235822-5d558850/board_cycle.json",
+      "report_sha256": "4d0384e48aad948cb0b097957c556f6cdf335330d4f5b1c343207c855fe35105",
+      "log": "Saved/Validation/Tasks/Run-20261115-235822-5d558850/board_cycle.log",
+      "wall_s": 603.8452015,
+      "reason": "same physical vehicle automatically completes two distinct sensed pickup/unload/return jobs; receipts, inventory and measured KPI retained"
+    },
+    {
+      "case": "board_fault",
+      "pass_result": true,
+      "report": "Saved/Validation/Tasks/Run-20261115-235822-5d558850/board_fault.json",
+      "report_sha256": "fa2e64d6f90d76ede1cbd3b03d3cb8473e4fa958a545856d2882a5e0cb812c62",
+      "log": "Saved/Validation/Tasks/Run-20261115-235822-5d558850/board_fault.log",
+      "wall_s": 31.5761852,
+      "reason": "actual sensor outage holds failed task/vehicle/corridor and prevents automatic reuse"
+    },
+    {
+      "case": "board_web",
+      "pass_result": true,
+      "report": "Saved/Validation/Tasks/Run-20261116-000928-896f2c0a/board_web.json",
+      "report_sha256": "be932ef8b601670bface4a51c3f3852d545685f05d511cb3d6bbdf5bd2f59dd4",
+      "log": "Saved/Validation/Tasks/Run-20261116-000928-896f2c0a/board_web.log",
+      "wall_s": 44.8367658,
+      "reason": "browser-shaped HTTP request acknowledged by Unreal and assigned to physical vehicle with measured motion"
+    },
+    {
+      "case": "board_batch",
+      "pass_result": true,
+      "report": "Saved/Validation/Tasks/Run-20261116-001013-2d6f2fce/board_batch.json",
+      "report_sha256": "e17f2a5eec7ca75b6811ddf1dc2cf062ca8e99a957ff07b1750e1d5ee032f60f",
+      "log": "Saved/Validation/Tasks/Run-20261116-001013-2d6f2fce/board_batch.log",
+      "wall_s": 31.8981181,
+      "reason": "ten actual queue entries, priority dispatch, three unique vehicles/slots and seven pending requests"
+    },
+    {
+      "case": "board_scenario",
+      "pass_result": true,
+      "report": "Saved/Validation/Tasks/Run-20261116-001013-2d6f2fce/board_scenario.json",
+      "report_sha256": "dab0ddddcb0a49c462ceb3e5291118b3f00184b9e35674a1edc47e6e9e453c76",
+      "log": "Saved/Validation/Tasks/Run-20261116-001013-2d6f2fce/board_scenario.log",
+      "wall_s": 24.1273917,
+      "reason": "actual cargo rigid-body mass and physical road/tyre materials match selected experiment"
+    }
+  ],
+  "legacy_fleet": {
+    "passed": 2,
+    "report": "Saved/Validation/Campus/Fleet-20261116-001109-bf6eb094/results.json",
+    "sha256": "b68286fe701d5cf0a91545cd7ddf95990ec129001dee2c7fc2098e10a2589831",
+    "cases": [
+      "dispatch",
+      "obstacle"
+    ]
+  },
+  "web_protocol": {
+    "synthetic": true,
+    "task_assertions": 22,
+    "fleet_assertions": 14,
+    "bridge_checks": 32
+  },
+  "actual_http": {
+    "pass": true,
+    "source": "Actual Unreal HTTP frames, not synthetic telemetry",
+    "world_id": "00CF119F42959CD4C47AF287A953BF98",
+    "run_id": "D75B933745EAC50E09EE68AB63F0CAA8",
+    "frames": 20,
+    "task_count": 10,
+    "duplicate_request_created_no_extra_tasks": true,
+    "pending_cancel_confirmed": true,
+    "measured_motion": true,
+    "csv_columns": 29,
+    "request_id": "live_186b0ef1-0d6c-422e-82a7-61649bafee83",
+    "cancel_request_id": "cancel_47fbdee3-cc0a-476e-831b-18ebf6c11ecd",
+    "frames_path": "Saved/Validation/Tasks/WebLiveFrames.json",
+    "frames_sha256": "ae790727a84ce1923c326f0ecf885f48fce4224e91e8066594a3774f38336087",
+    "stopped_path": "Saved/Validation/Tasks/WebStoppedSnapshot.json",
+    "stopped_sha256": "d6ba627dbe10e7cee56f0662d45834d588e7904a7d5bdd3b14476594dbfc8c0d",
+    "stopped_interrupted": 9,
+    "stopped_cancelled": 1
+  },
+  "continuous_cycle": {
+    "initialization_only_fixture": true,
+    "vehicle": "AGV-01",
+    "completed": 2,
+    "sim_s": 384.6333533935249,
+    "mean_cycle_s": 190.45000993274152,
+    "distance_est_m": 37.36524565368807,
+    "tasks": [
+      {
+        "id": "TASK-0001",
+        "job_id": "JOB-0001",
+        "state": "completed",
+        "elapsed_s": 180.8000094294548,
+        "distance_est_m": 16.330712393302825,
+        "peak_fork_load_n": 4502,
+        "pickup_receipt": true,
+        "dropoff_receipt": true
+      },
+      {
+        "id": "TASK-0002",
+        "job_id": "JOB-0002",
+        "state": "completed",
+        "elapsed_s": 200.10001043602824,
+        "distance_est_m": 21.034533260385246,
+        "peak_fork_load_n": 4498,
+        "pickup_receipt": true,
+        "dropoff_receipt": true
+      }
+    ],
+    "saved_session": "Saved/Operations/4F9109774F47A2AC03A8F9A23C2A671E/session.json"
+  },
+  "scenario": {
+    "baseline": {
+      "schema": 1,
+      "scenario_id": "baseline-400kg-dry",
+      "cargo_mass_kg": 400,
+      "tyre_mu": 0.9,
+      "road_mu": 0.8,
+      "auto_dispatch": true
+    },
+    "qualified_mass_kg": 600,
+    "qualified_road_mu": 0.3,
+    "qualified_scope": "Actual rigid body mass and physical material propagation; not full transfer qualification under this alternate condition."
+  },
+  "corrections": [
+    "Fixed stale idle pallet reservation check that blocked switching to centrally assigned pallets.",
+    "Second cycle fixture moved from y=3.8 to y=4.8 m after valid protective stop near a surveyed physical bollard; protective logic was not weakened.",
+    "Velocity residual is a sensor velocity-vector difference, not direct tyre contact slip; failed cause retained at session close."
+  ],
+  "static_checks": {
+    "launcher_parsers": true,
+    "root_batch_dry_run": true,
+    "layout_invariants": 10,
+    "live_assets": true,
+    "diff_whitespace": true
+  },
+  "limits": [
+    "Browser tool unavailable; visual layout and mouse interaction were not verified.",
+    "Ten task registration and three-vehicle assignment tested; not ten completed transfers.",
+    "Two continuous transfers completed in initialization-only fixture; no claim of six-vehicle throughput or optimum scheduling.",
+    "Time metrics use simulation time; current laptop still runs slower than real time.",
+    "Distance and fork peak are sensor-derived measurements; no real-machine calibration or safety certification.",
+    "No battery/charging, segment reservation optimization or 3D SLAM added."
+  ],
+  "source_sha256": {
+    "Config/CampusOperations.json": "2291a8807cfc989601d4a1ea0b7d99e9c3162e46c8aff8461fddcd46f0755bfe",
+    "Config/Experiments/Campus600kgRoad03.json": "82cbc5281aa8f40761fedd295cdb30c6ce3474ccf3bbafb65ba0c15ca967c303",
+    "Source/ForkliftSim/TaskBoard.h": "348c0e7fe50664d5b78dce4ae609ad27594255babd3c458f6fc9a54159697035",
+    "Source/ForkliftSim/TaskBoard.cpp": "c0e5c77e57be3d2b0474c916c8d46c5e594ca98d5b83752e90162d221190695a",
+    "Source/ForkliftSim/TaskBoardTests.cpp": "061c98966e7094e48fe017a8110c3604f38b42aca780b2e2cfbae7ef4b69f1be",
+    "Source/ForkliftSim/CampusTasks.cpp": "9a62d62ebbb3dfa8a95b7671a94aecedce51d3a3d191562468a9efeec2a349b5",
+    "Source/ForkliftSim/CampusDispatch.cpp": "3a15dc3dfadb63b93c9c2f030b5c79da2bc80ce1651a0eaf148c53426dee9569",
+    "Source/ForkliftSim/CampusOperations.cpp": "36b12ca761b5b6266bf76eaa9efd040ea182ac1d742cb00c32ef18ab7751541a",
+    "Source/ForkliftSim/CampusOperations.h": "8c921734a461eab5654418533851e6638132574de5c38af73e884ceef50c8b69",
+    "Source/ForkliftSim/TaskValidation.cpp": "d96dfa7bf54bf2bda10f7847240b420ce7b36e65a08c09653bbe138db12730c3",
+    "Source/ForkliftSim/WebTaskInbox.cpp": "130b347ed0963626db150e4967ecc94bda1f49039b039217571eafe6bbe6f094",
+    "Source/ForkliftSim/WebTaskInbox.h": "23a1cf93a1c93d1a5495ce6cf5c1264dacb98fffa778a71f68e18d6b4349420b",
+    "Source/ForkliftSim/CampusWeb.cpp": "6a85dc13598e2b6c5f7db5ee070eb5336ecf1eff145edfafbab225f5cebf2f94",
+    "Source/ForkliftSim/CampusVehicle.cpp": "3198b30e9554ccb1b73a95d9043c8d9609c7f40c1abba6b3cae8818a77ed7a08",
+    "Source/ForkliftSim/PayloadLab.cpp": "a5e7e268552c656019d0d867ee56039014cba16edb1e249f9c968ba15fda45ea",
+    "Source/ForkliftSim/WebTelemetry.h": "82b3a7ca4a84c473cf20b3d636e6eeb9b21da4f85d88d40c8dac55867b363b67",
+    "Scripts/Start.ps1": "3894a284e05a0056b06c004cfa7234816d3e3325e1d6054072927a811313a9f2",
+    "Scripts/Run.ps1": "ccc5d785f40474342ec6ba09bb2599b147ed04b82835299e8d84ce6a18cdfaac",
+    "Scripts/WebDashboard.ps1": "dcc2c28cd5cb1b50889aee853fd1ccc1ccbb2401693213a59992a7b383455013",
+    "Scripts/Test-TaskBoard.ps1": "1fad5463c2585e50161c8d8aac2eede45cb4213ceb081d0b11a937bbc5d87829",
+    "Web/PhysicsLab/bridge.mjs": "3d6099d7074d8298c3a18a19f06efe82b2f723c7fdcd1c574d34d65be0dcf436",
+    "Web/PhysicsLab/task-broker.mjs": "714767a50c0316969d4228184111387b3d10485677cd4d595b126f0d66b1baf2",
+    "Web/PhysicsLab/dist/tasks.mjs": "ec05d5b7836c49b5907fb0f4df7f4b330d80f4c97e82073f6faeb80425df8df4",
+    "Web/PhysicsLab/dist/live.mjs": "3cef03fe7c16f831efbe7ec8a567c472041b1bc3848abc2d497b163bb0444ffe",
+    "Web/PhysicsLab/dist/live.html": "3f3c302c843231d7d5a835fda0be5b66b5e5665792a110a236cfc1aee2b0c1d2",
+    "Web/PhysicsLab/dist/styles.css": "ee7bb9b8fedf795ca402ad87f5bb5b6cb83858a384e1a837c00dce3a5cecdf8f",
+    "Web/PhysicsLab/task-test.mjs": "aa0589d6133205e1e3e6c91b92b1406e3bd966e3d78f5cc00a07729dabeb920a",
+    "Web/PhysicsLab/verify-task-live.mjs": "7daf69e540074a989ccd61eb4923acc404ac840327e54876a046f03ab96b2da9"
+  }
+}

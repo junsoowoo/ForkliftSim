@@ -44,6 +44,10 @@ struct FSensorDriveRig
 {
     SensorDrive::FModel Model;bool AckRequested=false,ActuatorExpired=false;
     TUniquePtr<FArchive> Csv;FString CsvPath;double NextCsv=0,NextFlush=0;
+    SensorDrive::FPose GroundPose;double GroundStamp=-1;bool GroundValid=false;FVector2D GroundVelocityWorld=FVector2D::ZeroVector;
+    bool GroundFresh(double Now) const{return GroundValid&&Now-GroundStamp<.35;}
+    FVector MeasuredVelocity(double Now) const;
+    bool Stationary(double Now,double Limit=.025) const{return GroundFresh(Now)&&MeasuredVelocity(Now).Size()<Limit&&Model.Velocity.Size()<Limit;}
     bool SawFault=false,SawRecovery=false;double PeakErrorM=0,FinalErrorM=0;
     double CommandUntilS=0,CommandTorque[4]={};bool CommandPowered=false;
     ~FSensorDriveRig();static TSharedPtr<FSensorDriveRig> Create(FString& Error);

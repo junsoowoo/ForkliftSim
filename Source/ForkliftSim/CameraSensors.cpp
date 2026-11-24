@@ -1,5 +1,7 @@
 #include "CameraSensors.h"
+#include "ProfilingDebugging/CpuProfilerTrace.h"
 #include "StabilityLab.h"
+#include "CampusOperations.h"
 #include "CameraMounts.h"
 #include "PalletPerception.h"
 #include "ChassisActor.h"
@@ -229,7 +231,7 @@ namespace
     {
         const auto& S=C.Spec;auto J=MakeShared<FJsonObject>();
         J->SetStringField(TEXT("type"),C.bRGBD?TEXT("rgbd"):TEXT("tof_depth"));J->SetStringField(TEXT("model"),TEXT("generic-tof-range-noise-v1"));
-        J->SetStringField(TEXT("depth_definition"),TEXT("optical_z_m"));J->SetStringField(TEXT("status"),!Enabled?TEXT("disabled"):!C.Latest?TEXT("waiting"):Now-C.Latest->CaptureS>.5?TEXT("stale"):TEXT("running"));
+        J->SetStringField(TEXT("depth_definition"),TEXT("optical_z_m"));J->SetStringField(TEXT("status"),!Enabled?TEXT("disabled"):!C.Latest?TEXT("waiting"):Now-C.Latest->CaptureS>FMath::Max(.5,1/C.Spec.Hz+C.Spec.LatencyS+.1)?TEXT("stale"):TEXT("running"));
         J->SetBoolField(TEXT("safety_rated"),false);J->SetNumberField(TEXT("width"),S.Width);J->SetNumberField(TEXT("height"),S.Height);J->SetNumberField(TEXT("target_hz"),S.Hz);
         const double Focal=S.Width/(2*FMath::Tan(FMath::DegreesToRadians(S.FovDeg)*.5));
         J->SetNumberField(TEXT("fx"),Focal);J->SetNumberField(TEXT("fy"),Focal);J->SetNumberField(TEXT("cx"),(S.Width-1)*.5);J->SetNumberField(TEXT("cy"),(S.Height-1)*.5);
@@ -263,9 +265,16 @@ TSharedPtr<FCameraSensorRig> FCameraSensorRig::Create(AStabilityLab& Lab,FString
 }
 void FCameraSensorRig::Update(AStabilityLab& Lab)
 {
+    TRACE_CPUPROFILER_EVENT_SCOPE(Forklift_CameraUpdate);
     if(!State)return;
     for(auto C:{State->Front,State->Rear})Poll(C,Lab);
     auto F=State->Front,R=State->Rear;
+    if(Lab.bCampusVehicle&&Lab.Campus&&!Lab.Campus->Validation&&!FParse::Param(FCommandLine::Get(),TEXT("CampusFullRateCameras")))
+    {
+        const auto* J=Lab.Campus->Job(Lab.VehicleId);const bool Dock=J&&J->Engaged&&(J->State==TEXT("align_pickup")||J->State==TEXT("pickup")||J->State==TEXT("dropoff"));
+        const double FrontHz=Dock||Lab.bCampusSelected?8:2,RearHz=Lab.bCampusSelected?4:J&&J->Engaged?2:1;
+        if(FrontHz>F->Spec.Hz)F->NextS=Lab.TimeS;if(RearHz>R->Spec.Hz)R->NextS=Lab.TimeS;F->Spec.Hz=FrontHz;R->Spec.Hz=RearHz;
+    }
     const bool FD=!F->Pending && Lab.TimeS>=F->NextS,RD=!R->Pending && Lab.TimeS>=R->NextS;
     if(FD && (!RD || F->NextS<=R->NextS))Capture(F,Lab);else if(RD)Capture(R,Lab);
 }
@@ -292,7 +301,7 @@ void FCameraSensorRig::Draw(AStabilityLab& Lab,AHUD* HUD,UCanvas* Canvas)
             const int Mid=S.Width/2+S.Width*(S.Height/2);
             const FString Center=P->Validity[Mid]==0?FString::Printf(TEXT("%.2f m"),P->RangeM[Mid]):FString(DepthCamera::Name(static_cast<DepthCamera::EValidity>(P->Validity[Mid])));
             Status=FString::Printf(TEXT("center %s | valid %.0f%% | age %.0fms"),*Center,100.*P->Counts[0]/(S.Width*S.Height),1000*(Lab.TimeS-P->CaptureS));
-            if(Lab.TimeS-P->CaptureS>.5)Status=TEXT("STALE | ")+Status;
+            if(Lab.TimeS-P->CaptureS>FMath::Max(.5,1/S.Hz+S.LatencyS+.1))Status=TEXT("STALE | ")+Status;
         }
         HUD->DrawText(Status,FLinearColor(.9,.9,.9),X+3,Y+H+23,GEngine->GetSmallFont(),.72f);
         if(I==0&&Lab.PalletRecognition)

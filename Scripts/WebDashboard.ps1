@@ -1,4 +1,4 @@
-﻿param([ValidateRange(1024,65535)][int]$Port=4174,[switch]$OpenBrowser,[switch]$DryRun,[switch]$AutoPort,[switch]$PassThru)
+param([ValidateRange(1024,65535)][int]$Port=4174,[switch]$OpenBrowser,[switch]$DryRun,[switch]$AutoPort,[switch]$PassThru)
 $ErrorActionPreference='Stop'
 $projectRoot=Split-Path -Parent $PSScriptRoot
 $webRoot=Join-Path $projectRoot 'Web\PhysicsLab'
@@ -22,6 +22,15 @@ function Get-BridgeHealth {
 }
 $health=Get-BridgeHealth
 if($health -and ($health.service -ne 'forkliftsim-live-bridge' -or $health.project_root -ne $projectRoot)) { throw "Port $Port belongs to another server/project. Use -WebPort with a free port." }
+if($health -and @($health.capabilities) -notcontains 'campus_energy_v1') {
+    # Upgrade only our exact existing project bridge, never a PortSim/other listener.
+    $owned=Get-CimInstance Win32_Process -Filter "ProcessId=$($health.pid)" -ErrorAction Stop
+    $expected=Join-Path $webRoot 'server.mjs'
+    if($owned.Name -notmatch '^node(?:\.exe)?$' -or -not $owned.CommandLine.Contains($expected)) {throw "Existing dashboard is an old version but its process identity could not be verified; use a free -WebPort."}
+    Stop-Process -Id $owned.ProcessId -ErrorAction Stop
+    $health=$null
+    for($attempt=0;$attempt -lt 20;++$attempt){if(-not(Get-BridgeHealth)){break};Start-Sleep -Milliseconds 100}
+}
 if(-not $health) {
     $nodeCommand=Get-Command node.exe -ErrorAction SilentlyContinue
     $nodePath=if($nodeCommand) {$nodeCommand.Source} else {''}

@@ -33,6 +33,13 @@ bool Mission::FPlanner::Free(FVector2D P) const
 }
 bool Mission::FPlanner::Clear(FVector2D A,FVector2D B) const
 {
+    if(FMath::Abs(B.X-A.X)<1e-9||FMath::Abs(B.Y-A.Y)<1e-9)
+    {
+        if(!Spec.Bounds.IsInside(A)||!Spec.Bounds.IsInside(B))return false;
+        const FVector2D Min(FMath::Min(A.X,B.X)-Spec.Rear-Spec.Margin,FMath::Min(A.Y,B.Y)-Spec.HalfWidth-Spec.Margin),Max(FMath::Max(A.X,B.X)+Spec.Front+Spec.Margin,FMath::Max(A.Y,B.Y)+Spec.HalfWidth+Spec.Margin);
+        for(const auto& L:Map)if(SegmentBox(L.A,L.B,Min,Max))return false;
+        for(const auto& P:Obstacles)if(P.X>=Min.X-.1&&P.X<=Max.X+.1&&P.Y>=Min.Y-.1&&P.Y<=Max.Y+.1)return false;return true;
+    }
     const int Steps=FMath::Max(1,FMath::CeilToInt((B-A).Size()/(Spec.Cell*.4)));
     for(int I=0;I<=Steps;++I)if(!Free(FMath::Lerp(A,B,double(I)/Steps)))return false;return true;
 }

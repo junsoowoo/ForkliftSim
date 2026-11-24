@@ -44,7 +44,7 @@ void FPalletPerceptionRig::Update(AStabilityLab& Lab)
     const bool Enabled=Lab.bCameraViews&&Lab.CameraSensors;CameraEnabled=Enabled;
     if(Enabled&&Lab.CameraSensors->ReadFront(LastFrame,LastSequence))
     {
-        LastSequence=LastFrame.Sequence;PalletPerception::FDetection Attempt;Attempt.Sequence=LastFrame.Sequence;Attempt.CaptureS=LastFrame.CaptureS;Attempt.DeliveryS=LastFrame.DeliveryS;const bool Navigating=Lab.MissionControl&&Lab.MissionControl->Model.Navigating();if(!Loaded&&!Unilateral&&LocalVision&&(!Navigating||Now>=NextDetectionS)){const double Begin=FPlatformTime::Seconds();Attempt=PalletPerception::Detect(LastFrame,Spec);if(FParse::Param(FCommandLine::Get(),TEXT("MissionProfile")))UE_LOG(LogTemp,Display,TEXT("PALLET_DETECTION_TIME sim=%.6f ms=%.3f"),Now,(FPlatformTime::Seconds()-Begin)*1000);NextDetectionS=Now+1.;}
+        LastSequence=LastFrame.Sequence;PalletPerception::FDetection Attempt;Attempt.Sequence=LastFrame.Sequence;Attempt.CaptureS=LastFrame.CaptureS;Attempt.DeliveryS=LastFrame.DeliveryS;const bool Navigating=Lab.MissionControl&&Lab.MissionControl->Model.Navigating();if(!Loaded&&!Unilateral&&LocalVision&&((!Lab.bCampusVehicle&&!Navigating)||Now>=NextDetectionS)){const double Begin=FPlatformTime::Seconds();Attempt=PalletPerception::Detect(LastFrame,Spec);if(FParse::Param(FCommandLine::Get(),TEXT("MissionProfile")))UE_LOG(LogTemp,Display,TEXT("PALLET_DETECTION_TIME sim=%.6f ms=%.3f"),Now,(FPlatformTime::Seconds()-Begin)*1000);NextDetectionS=Now+(Lab.bCampusVehicle?(Handling&&Handling->Model.Active?.10:.5):1.);}
         if(Locked&&HaveAnchor&&Attempt.Valid&&Lab.DriveSensors)
         {
             SensorDrive::FPose Capture;double H=Height;
@@ -91,7 +91,20 @@ void FPalletPerceptionRig::Update(AStabilityLab& Lab)
     PalletPerception::FSignals In;In.Now=Now;In.Loaded=Loaded;In.UnilateralLoad=Unilateral;
     In.VisionFresh=Enabled&&Detection.Valid&&Detection.Sequence==LastSequence&&Now-Detection.CaptureS<=Spec.FrameStaleS;
     FVector P=FVector::ZeroVector;double Yaw=Detection.Yaw;Tracked=false;UncertaintyM=.025;
-    if(HaveAnchor&&Enabled&&HeightValid&&Lab.DriveSensors&&Lab.DriveSensors->Model.Ready&&Now-Detection.CaptureS<=Spec.TrackMaxS)
+    if(!Handling||!Handling->Model.Active||Handling->Model.State!=TEXT("insert")||Loaded||Unilateral){TerminalLocked=false;TerminalUntil=-1;}
+    bool CurrentTerminalSamples=false;TerminalRanges=false;
+    if(Lab.bCampusVehicle&&Locked&&(HaveAnchor||TerminalLocked)&&Enabled&&HeightValid&&Lab.ProximitySensors&&Now-LastFrame.CaptureS<=Spec.FrameStaleS&&Now-Detection.CaptureS<60)
+    {
+        const auto& R=Lab.ProximitySensors->Model;CurrentTerminalSamples=true;double TerminalDepth[2]={},Stamp=Now;
+        for(int I=0;I<8;++I)CurrentTerminalSamples&=R.TransportValid(I,Now);
+        for(int I=4;I<8;++I)CurrentTerminalSamples&=R.MeasurementValid(I,Now)&&R.Channels[I].Last.Detected;
+        for(int I=0;I<2;++I){CurrentTerminalSamples&=R.MeasurementValid(I,Now);Stamp=FMath::Min(Stamp,R.Channels[I].Last.Truth.TimeS);TerminalDepth[I]=Spec.ForkLength-R.Spec.ForwardOffsetM-R.Channels[I].Last.RangeM;CurrentTerminalSamples&=TerminalDepth[I]>.9&&TerminalDepth[I]<1.14;}
+        CurrentTerminalSamples&=FMath::Abs(TerminalDepth[0]-TerminalDepth[1])<.04&&Now-Stamp<.15;
+        const bool Associated=RangeFused&&FMath::Abs(TerminalDepth[0]-Depth[0])<.08&&FMath::Abs(TerminalDepth[1]-Depth[1])<.08;
+        if(CurrentTerminalSamples&&(TerminalLocked||(HaveAnchor&&Associated&&Now-Detection.CaptureS<=Spec.TrackMaxS))){TerminalLocked=true;TerminalUntil=Stamp+.15;}
+        TerminalRanges=TerminalLocked&&Now<=TerminalUntil;
+    }
+    if((HaveAnchor||TerminalRanges)&&Enabled&&HeightValid&&Lab.DriveSensors&&Lab.DriveSensors->Model.Ready&&(Now-Detection.CaptureS<=Spec.TrackMaxS||TerminalRanges))
     {
         const auto Current=Lab.DriveSensors->Model.Predicted(Now);const double Distance=FVector2D(Current.X-AnchorBody.X,Current.Y-AnchorBody.Y).Size();
         if(Distance<=Spec.TrackMaxDistanceM)
@@ -118,7 +131,7 @@ void FPalletPerceptionRig::Update(AStabilityLab& Lab)
     {
         const auto& M=Lab.ProximitySensors->Model;bool Associated=true;double Measured[2]={};
         for(int I=0;I<2;++I){Associated&=M.MeasurementValid(I,Now);Measured[I]=Spec.ForkLength-M.Spec.ForwardOffsetM-M.Channels[I].Last.RangeM;Associated&=FMath::Abs(Measured[I]-Depth[I])<.08;}
-        if(Associated){RangeFused=true;for(int I=0;I<2;++I)In.Depth[I]=Depth[I]=.8*Measured[I]+.2*Depth[I];UncertaintyM=FMath::Min(UncertaintyM,.03+.01*FMath::Abs(Yaw));In.UncertaintyM=UncertaintyM;}
+        if(Associated||(TerminalRanges&&CurrentTerminalSamples)){RangeFused=true;for(int I=0;I<2;++I)In.Depth[I]=Depth[I]=TerminalRanges&&CurrentTerminalSamples?Measured[I]:.8*Measured[I]+.2*Depth[I];UncertaintyM=FMath::Min(UncertaintyM,.03+.01*FMath::Abs(Yaw));In.UncertaintyM=UncertaintyM;}
     }
     In.Alignment=Aligned;In.Fresh=SignalsFresh;Decision.Step(In,Spec);
     if(!Csv||Now<NextCsvS)return;NextCsvS=Now+.05;
@@ -129,7 +142,7 @@ TSharedRef<FJsonObject> FPalletPerceptionRig::Telemetry(double Now) const
 {
     auto J=MakeShared<FJsonObject>();const bool Fresh=CameraEnabled&&Detection.Valid&&Detection.Sequence==LastSequence&&Now-Detection.CaptureS<=Spec.FrameStaleS,Geometry=SignalsFresh&&(Fresh||Tracked)&&Decision.State!=TEXT("supported")&&Decision.State!=TEXT("uneven_support");
     J->SetStringField(TEXT("source"),TEXT("depth_template_fork_sensor_fusion_v1"));J->SetStringField(TEXT("state"),Decision.State);J->SetStringField(TEXT("reason"),Decision.Reason);J->SetBoolField(TEXT("ground_truth_input"),false);J->SetBoolField(TEXT("vision_fresh"),Fresh);J->SetBoolField(TEXT("tracked"),Tracked);J->SetBoolField(TEXT("signals_fresh"),SignalsFresh);J->SetBoolField(TEXT("aligned"),Aligned&&Geometry);J->SetBoolField(TEXT("fully_inserted"),Decision.ConfirmedFull);J->SetBoolField(TEXT("last_full_before_support"),Decision.LastFullBeforeSupport);
-    J->SetBoolField(TEXT("heel_range_fused"),RangeFused&&Geometry);
+    J->SetBoolField(TEXT("heel_range_fused"),RangeFused&&Geometry);J->SetBoolField(TEXT("terminal_range_tracking"),TerminalRanges&&RangeFused&&Geometry);
     Number(J,TEXT("sequence"),Detection.Sequence);Number(J,TEXT("capture_sim_s"),Detection.CaptureS,Detection.Sequence>0);Number(J,TEXT("age_s"),Now-Detection.CaptureS,Detection.Sequence>0);Number(J,TEXT("confidence"),Detection.Confidence,Fresh);Number(J,TEXT("plane_distance_m"),Detection.DistanceM,Fresh);Number(J,TEXT("hole_center_y_m"),Detection.CenterY,Fresh);Number(J,TEXT("hole_center_z_m"),Detection.CenterZ,Fresh);Number(J,TEXT("yaw_rad"),Detection.Yaw,Fresh);Number(J,TEXT("left_opening_width_m"),Detection.HoleWidth[0],Fresh);Number(J,TEXT("right_opening_width_m"),Detection.HoleWidth[1],Fresh);Number(J,TEXT("nominal_opening_height_m"),Spec.OpeningHeight);
     Number(J,TEXT("depth_left_m"),Depth[0],Geometry);Number(J,TEXT("depth_right_m"),Depth[1],Geometry);Number(J,TEXT("depth_uncertainty_m"),UncertaintyM,Geometry);Number(J,TEXT("lateral_error_m"),OffsetY,Geometry);Number(J,TEXT("height_error_m"),OffsetZ,Geometry);Number(J,TEXT("valid_gap_samples"),Detection.GapEvidence,Fresh);Number(J,TEXT("censored_gap_samples"),Detection.CensoredEvidence,Fresh);return J;
 }

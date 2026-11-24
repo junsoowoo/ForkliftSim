@@ -1,0 +1,34 @@
+{
+  "model": "JXAGV JX-2000A",
+  "selected_variant": "official-cn-95",
+  "source_url": "https://www.jxagv.com/products/detail/95.html",
+  "source_image_url": "https://www.jxagv.com/storage/webpics/product/202510/1761881866ddb0c9c6f671fdc7.png",
+  "retrieved_date": "2026-11-17",
+  "published": {
+    "length_m": 1.613,
+    "width_m": 0.735,
+    "height_options_m": [1.94, 2.14, 2.34],
+    "mass_kg": 460,
+    "payload_kg": 2000,
+    "turning_radius_m": 1.36,
+    "right_angle_stacking_space_m": 2.35,
+    "drive": "steered_drive_wheel",
+    "max_navigation_speed_mps": 1.5,
+    "battery_voltage_v": 48,
+    "battery_capacity_ah": 24,
+    "laser_scanners": 2
+  },
+  "selected_height_m": 1.94,
+  "visual_estimates_not_manufacturer_dimensions": {
+    "body_length_m": 0.66,
+    "body_height_m": 0.64,
+    "fork_length_m": 1.023,
+    "fork_width_m": 0.13,
+    "fork_spacing_m": 0.46,
+    "fork_rest_top_m": 0.085,
+    "drive_wheel_radius_m": 0.10,
+    "load_roller_radius_m": 0.035
+  },
+  "unknown": ["lifting stroke", "fork engineering drawing", "wheel and axle dimensions", "steered drive unit count and underside layout", "component mass/inertia", "hydraulic actuator details", "OEM CAD"],
+  "scope": "Authoring reference and dimensioned exterior model. Published claims are not calibration data. Sensor tower is not a high-lift mast. Not a validated replacement for the current four-mecanum/high-lift physics plant."
+}

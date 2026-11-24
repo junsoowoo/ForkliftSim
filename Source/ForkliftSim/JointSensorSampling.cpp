@@ -5,15 +5,9 @@ void FContactLoadSampler::CaptureJointSensors(double Dt)
 {
     const auto* In=GetConsumerInput_Internal();if(!In||!In->bJointSensors||Dt<=0)return;
     JointClockS+=Dt;
-    auto* S=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
     const Chaos::FPBDRigidParticleHandle* Hubs[4]={};const Chaos::FPBDRigidParticleHandle* Mounts[4]={};
-    const Chaos::FPBDRigidParticleHandle* Body=nullptr;const Chaos::FPBDRigidParticleHandle* Carriage=nullptr;
-    for(auto& P:S->GetParticles().GetNonDisabledDynamicView())
-    {
-        const int Id=P.UniqueIdx().Idx;const auto* R=P.Handle()->CastToRigidParticle();
-        if(Id==In->ChassisId)Body=R;if(Id==In->ForkCarriageId)Carriage=R;
-        for(int I=0;I<4;++I){if(Id==In->WheelIds[I])Hubs[I]=R;if(Id==In->KnuckleIds[I])Mounts[I]=R;}
-    }
+    const auto* Body=StepBody(In->ChassisId);const auto* Carriage=StepBody(In->ForkCarriageId);
+    for(int I=0;I<4;++I){Hubs[I]=StepBody(In->WheelIds[I]);Mounts[I]=StepBody(In->KnuckleIds[I]);}
     if(!Body||!Carriage)return;
     for(int I=0;I<4;++I)if(!Hubs[I]||!Mounts[I])return;
     for(int I=0;I<4;++I)JointShaftRad[I]+=JointSensor::ShaftStep(FQuat(Hubs[I]->GetR()),FQuat(Hubs[I]->GetQ()),FQuat(Mounts[I]->GetR()),FQuat(Mounts[I]->GetQ()));
@@ -31,9 +25,7 @@ void FContactLoadSampler::CaptureDynamicsSensors(double Dt,const FVector* ForkIm
 {
     const auto* In=GetConsumerInput_Internal();if(!In||!In->bDynamicsSensors||Dt<=0||In->DynamicsPeriodS<=0)return;
     DynamicsClockS+=Dt;
-    auto* RigidSolver=static_cast<Chaos::FPBDRigidsSolver*>(GetSolver());
-    const Chaos::FPBDRigidParticleHandle* Body=nullptr;
-    for(auto& P:RigidSolver->GetParticles().GetNonDisabledDynamicView())if(P.UniqueIdx().Idx==In->ChassisId){Body=P.Handle()->CastToRigidParticle();break;}
+    const auto* Body=StepBody(In->ChassisId);
     if(!Body)return;
     const FQuat Rotation(Body->GetQ());const FVector Omega(Body->GetW());
     for(int I=0;I<2;++I)LoadImpulseNs[I]+=FVector::DotProduct(ForkImpulseNs[I],Rotation.GetAxisZ());

@@ -81,7 +81,7 @@ TSharedPtr<FProximitySensorRig> FProximitySensorRig::Create(FString& Error)
 }
 TSharedRef<FJsonObject> FProximitySensorRig::Telemetry(double NowS) const
 {
-    auto Root=MakeShared<FJsonObject>();Root->SetStringField(TEXT("source"),TEXT("simulated_fork_proximity_sensors_v1"));Root->SetStringField(TEXT("geometry"),TEXT("simple_physics_bodies_nearest_return_no_actor_semantics"));Root->SetBoolField(TEXT("controller_connected"),false);Root->SetBoolField(TEXT("safety_rated"),false);Number(Root,TEXT("queue_overflows"),Model.QueueOverflows);
+    auto Root=MakeShared<FJsonObject>();Root->SetStringField(TEXT("source"),TEXT("simulated_fork_proximity_sensors_v1"));Root->SetStringField(TEXT("geometry"),TEXT("simple_physics_bodies_nearest_return_no_actor_semantics"));Root->SetBoolField(TEXT("controller_connected"),false);Root->SetBoolField(TEXT("safety_rated"),false);Number(Root,TEXT("queue_overflows"),Model.QueueOverflows);Number(Root,TEXT("presence_aperture_half_width_m"),Model.Spec.PresenceApertureM);Root->SetStringField(TEXT("presence_sampling"),Model.Spec.PresenceApertureM>0?TEXT("up to 17 actual physics rays, any return in 80mm cross aperture; design assumption"):TEXT("single actual physics ray"));
     TArray<TSharedPtr<FJsonValue>> Sensors;
     for(int I=0;I<ProximitySensor::Count;++I)
     {

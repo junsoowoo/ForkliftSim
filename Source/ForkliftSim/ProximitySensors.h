@@ -7,6 +7,7 @@ class AStabilityLab;
 class AForkTineActor;
 class UPrimitiveComponent;
 class FArchive;
+struct FInstancePhysicsRays;
 namespace ProximitySensor
 {
     constexpr int Count=8;
@@ -17,7 +18,7 @@ namespace ProximitySensor
         double SigmaM=.001,BiasM=.001,QuantumM=.001,OpticalDropout=.001;
         double LatencyS=.03,StaleS=.3,PacketDropout=.001,DebounceS=.05;
         double ForwardOffsetM=.01,RangeAboveTopM=.03,PresenceAboveTopM=.001,NearFraction=.2,FarFraction=.8;
-        int Seed=7251;
+        double PresenceApertureM=0;int Seed=7251;
         bool Valid() const;bool Load(FString& Error);
     };
     struct FRay {FVector OriginM=FVector::ZeroVector,Direction=FVector::ForwardVector;};
@@ -43,7 +44,7 @@ namespace ProximitySensor
     // Read-locked Chaos simulation shapes include welded children and PhysicsOnly
     // solids without enabling any collision/query profile. Query-only copies excluded.
     TArray<TWeakObjectPtr<UPrimitiveComponent>> Targets(AStabilityLab& Lab);
-    FTruth Trace(const TArray<TWeakObjectPtr<UPrimitiveComponent>>& Bodies,FRay Ray,double MaxM);
+    FTruth Trace(const TArray<TWeakObjectPtr<UPrimitiveComponent>>& Bodies,FRay Ray,double MaxM,const FInstancePhysicsRays* Instances=nullptr);
     FRay Mount(const AForkTineActor& Tine,int Kind,const FSpec& Spec);
 }
 struct FProximitySensorRig

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "vehicle_count": 3,
+  "traffic_policy": "section_windows",
+  "battery": {
+    "enabled": true,
+    "nominal_voltage_v": 48,
+    "capacity_ah": 465,
+    "initial_soc": 0.8,
+    "charge_below_soc": 0.25,
+    "resume_soc": 0.8,
+    "critical_soc": 0.05,
+    "auxiliary_w": 180,
+    "charger_ac_w": 4000,
+    "charger_efficiency": 0.9
+  }
+}

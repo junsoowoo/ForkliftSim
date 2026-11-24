@@ -1,0 +1,168 @@
+{
+  "date": "2026-11-17",
+  "source_url": "https://www.jxagv.com/products/detail/95.html",
+  "scope": "Chinese product exterior and Unreal model review, not an active fleet physics conversion",
+  "build": {
+    "result": "Succeeded",
+    "dll_sha256": "F4E7456D95BBD24C051693A47767C72F0CBE73458040CC75A519ADB4BAAA5CF8",
+    "target": "ForkliftSimEditor Win64 Development"
+  },
+  "authoring": {
+    "bounds": {
+      "min": [
+        -0.33000001311302185,
+        -0.3675000071525574,
+        -2.5865833919169745E-09
+      ],
+      "max": [
+        1.2829999923706055,
+        0.3675000071525574,
+        1.9399999380111694
+      ],
+      "size": [
+        1.6130000054836273,
+        0.7350000143051147,
+        1.9399999405977528
+      ]
+    },
+    "parts": 10,
+    "manifest_sha256": "D4C3E3A1C85D92AC22A33CC387A1EB747AD3DC0A83CF4FD27DD1EDDC7E8F1F2F",
+    "triangles": 48856,
+    "blender_version": "5.2.1 LTS"
+  },
+  "native": {
+    "source_url": "https://www.jxagv.com/products/detail/95.html",
+    "parts": [
+      {
+        "name": "SM_JX_Body",
+        "dimensions_m": [
+          0.6560001373291016,
+          0.7350000762939453,
+          0.6069999957084655
+        ],
+        "materials": 10
+      },
+      {
+        "name": "SM_JX_ForkFrame",
+        "dimensions_m": [
+          1.0230000877380372,
+          0.5900001525878906,
+          0.06100000619888306
+        ],
+        "materials": 4
+      },
+      {
+        "name": "SM_JX_Tower",
+        "dimensions_m": [
+          0.19865001678466798,
+          0.3260000228881836,
+          1.309000015258789
+        ],
+        "materials": 9
+      },
+      {
+        "name": "SM_JX_DriveWheel",
+        "dimensions_m": [
+          0.20000002384185792,
+          0.11500001907348632,
+          0.2364999975184999
+        ],
+        "materials": 4
+      },
+      {
+        "name": "SM_JX_CasterL",
+        "dimensions_m": [
+          0.07200000762939453,
+          0.05100000381469726,
+          0.08349999593137454
+        ],
+        "materials": 3
+      },
+      {
+        "name": "SM_JX_LoadRollerL1",
+        "dimensions_m": [
+          0.07,
+          0.0769999885559082,
+          0.07000000034208015
+        ],
+        "materials": 2
+      },
+      {
+        "name": "SM_JX_LoadRollerL2",
+        "dimensions_m": [
+          0.07,
+          0.07700000762939453,
+          0.07000000034208015
+        ],
+        "materials": 2
+      },
+      {
+        "name": "SM_JX_CasterR",
+        "dimensions_m": [
+          0.07199999809265137,
+          0.05100000381469726,
+          0.08350001279080356
+        ],
+        "materials": 3
+      },
+      {
+        "name": "SM_JX_LoadRollerR1",
+        "dimensions_m": [
+          0.07,
+          0.07700000762939453,
+          0.07000001212332649
+        ],
+        "materials": 2
+      },
+      {
+        "name": "SM_JX_LoadRollerR2",
+        "dimensions_m": [
+          0.07,
+          0.0769999885559082,
+          0.07000001212332649
+        ],
+        "materials": 2
+      }
+    ],
+    "assembled_dimensions_m": [
+      1.6130001068115234,
+      0.7350000762939454,
+      1.9400000025865833
+    ],
+    "no_collision_exterior_components": 10,
+    "review_map": "/Game/Maps/JX2000AReview",
+    "integrated_campus_exhibit": true,
+    "active_fleet_changed": false,
+    "unknown_lift_stroke_m": null,
+    "oem_cad": false,
+    "review_camera": {
+      "location_cm": [
+        -240.0,
+        -320.0,
+        200.0
+      ],
+      "pitch_deg": -14.0,
+      "yaw_deg": 48.0,
+      "roll_deg": 0.0
+    },
+    "scene_rotation_verified": true
+  },
+  "observed_checks": [
+    "Native FBX per-part dimensions within 1mm",
+    "Assembled native actor dimensions within 1mm",
+    "10 mesh components, all NoCollision",
+    "Saved review camera pitch=-14 yaw=48 roll=0",
+    "Actual visible Unreal Editor lit viewport inspected with computer-use",
+    "Play and Stop in review map observed with GameModeBase viewer",
+    "Fresh DX11 SceneCapture image visually inspected; exit code 0",
+    "Default campus launcher and explicit review launcher dry-runs"
+  ],
+  "capture_sha256": "E02A5B0AD1AE3FE9680BA6E72DAB2B3E6DF70EA9E96FBF54997D33747F35EF33",
+  "not_validated": [
+    "OEM CAD surface fidelity or undocumented dimensions",
+    "Chinese product drive unit count / underside layout",
+    "Lift stroke and two-tier stacking ability",
+    "JX drivetrain, mass distribution or autonomous fleet operation",
+    "Six-vehicle performance with the new model"
+  ]
+}

@@ -15,6 +15,14 @@ class FORKLIFTSIM_API AStabilityLab : public AActor
     GENERATED_BODY()
 public:
     AStabilityLab();
+    TSharedRef<class FJsonObject> BuildWebFrame();
+    // Campus owns the world and shared loads; this actor owns only one vehicle rig.
+    bool bCampusVehicle=false,bCampusSelected=false,bCampusTestCreep=false,bCampusManualInput=false;
+    FString VehicleId,CampusLoadId;
+    FTransform CampusSpawn;
+    UPROPERTY() TObjectPtr<class ACampusOperations> Campus;
+    UPROPERTY() TArray<TObjectPtr<class UStaticMeshComponent>> CampusSurfaces;
+    void InitializeCampusRig();
     virtual void BeginPlay() override;
     virtual void Tick(float Dt) override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;

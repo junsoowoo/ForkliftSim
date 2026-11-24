@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "scenario_id": "600kg-road03",
+  "cargo_mass_kg": 600,
+  "tyre_mu": 0.9,
+  "road_mu": 0.3,
+  "auto_dispatch": true
+}

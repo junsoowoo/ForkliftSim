@@ -1,6 +1,8 @@
 # Warehouse와 무인 지게차 모델링
 
-실행은 루트 `Start.bat` 하나를 사용합니다. 기본 integrated가 Unreal Editor의 `/Game/Maps/WarehouseLab`과 실제 텔레메트리 웹을 엽니다. 에디터에서 Play를 누르세요. 센서와 자동 인식은 이번 작업에 포함하지 않습니다.
+2026-11-18: 현재 운용 외형은 [포크맨 참고 가상 AGV](AllturnForkman.md)입니다. 기본 `Start.bat`와 `Start.bat -Map lab`에 적용하며, 아래 EKS 기반 가상 물리 치수·물성은 유지합니다. [JX-2000A](JX2000AModel.md)는 보존한 이전 외형 검토 자산입니다.
+
+현재 기본 `Start.bat`는 [5,000㎡ 창고 차량·센서 기반](WarehouseCampus.md)입니다. 이 문서의 기존 단일 장비 모델링 장면은 같은 실행 파일의 `Start.bat -Map lab`로 엽니다. 해당 옵션이 Unreal Editor의 `/Game/Maps/WarehouseLab`과 실제 텔레메트리 웹을 엽니다. 에디터에서 Play를 누르세요. 센서와 자동 인식은 이번 작업에 포함하지 않습니다.
 
 ## 채택한 실제 규격과 가상 설계
 
